@@ -14,6 +14,7 @@ and seeks to convert the game all from baremetal 'C' to hosted framework.
 3) [GowinEDA](https://www.gowinsemi.com/en/support/download_eda)
 4) [PicoRV32](https://github.com/YosysHQ/picorv32) RISC-V micro-controller
 5) [FreeRTOS](https://www.freertos.org/Using-FreeRTOS-on-RISC-V)
+6) [eduBOS5](https://fpga-ignite.github.io/presentations-pdf/presentation16.pdf)
 
 ** Delaida, ovo je samo pocetno sjeme. Slobodno dodaji, brisi, i dalje gradi.
 
