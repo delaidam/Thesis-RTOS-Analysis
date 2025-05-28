@@ -1,0 +1,216 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 build/firmware.o
+ .data          0x00000000        0x0 build/firmware.o
+ .bss           0x00000000        0x0 build/firmware.o
+ .text.putchar  0x00000000       0x20 build/firmware.o
+ .text.print    0x00000000       0x40 build/firmware.o
+ .text.print_hex
+                0x00000000      0x2a4 build/firmware.o
+ .rodata.print_dec.str1.4
+                0x00000000        0x6 build/firmware.o
+ .text.print_dec
+                0x00000000      0x204 build/firmware.o
+ .rodata.print_dec
+                0x00000000       0x28 build/firmware.o
+ .text.getchar_prompt
+                0x00000000       0xc4 build/firmware.o
+ .text.getchar  0x00000000       0x20 build/firmware.o
+ .text.cmd_set_crm
+                0x00000000       0x38 build/firmware.o
+ .text.cmd_get_crm
+                0x00000000       0x14 build/firmware.o
+ .text.cmd_set_dspi
+                0x00000000       0x38 build/firmware.o
+ .text.cmd_get_dspi
+                0x00000000       0x14 build/firmware.o
+ .data          0x00000000        0x0 build/crt_flash.o
+ .bss           0x00000000        0x0 build/crt_flash.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00000000         0x00800000         xr
+RAM              0x40000000         0x00002000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/firmware.o
+LOAD build/crt_flash.o
+LOAD /usr/lib/gcc/riscv64-unknown-elf/13.2.0/rv32i/ilp32/libgcc.a
+                0x00000400                        _stack_size = DEFINED (_stack_size)?_stack_size:0x400
+                0x00000000                        _heap_size = DEFINED (_heap_size)?_heap_size:0x0
+
+.vector         0x00000000        0x0
+                0x00000000                        . = ALIGN (0x4)
+ *crt.o(.text)
+
+.text           0x00000000     0x28cc
+                0x00000000                        . = ALIGN (0x4)
+ *(.text)
+ .text          0x00000000      0x12c build/crt_flash.o
+                0x00000000                crtStart
+                0x00000010                trap_entry
+ *(.text*)
+ .text.cmd_read_flash_id
+                0x0000012c      0x1e8 build/firmware.o
+                0x0000012c                cmd_read_flash_id
+ .text.cmd_benchmark
+                0x00000314      0x5b0 build/firmware.o
+                0x00000314                cmd_benchmark
+ .text.cmd_benchmark_all
+                0x000008c4      0x830 build/firmware.o
+                0x000008c4                cmd_benchmark_all
+ .text.startup.main
+                0x000010f4     0x13b8 build/firmware.o
+                0x000010f4                main
+ .text.irqCallback
+                0x000024ac        0x4 build/firmware.o
+                0x000024ac                irqCallback
+ *(.rodata)
+ *(.rodata*)
+ .rodata.print_hex.str1.4
+                0x000024b0      0x310 build/firmware.o
+                                 0x11 (size before relaxing)
+ .rodata.cmd_benchmark.str1.4
+                0x000027c0       0x23 build/firmware.o
+ .rodata.cmd_benchmark_all.str1.4
+                0x000027c0       0x4e build/firmware.o
+ .rodata.main.str1.4
+                0x000027c0      0x290 build/firmware.o
+ .rodata.main   0x000027c0      0x10c build/firmware.o
+ *(.srodata)
+ *(.srodata*)
+ *(.eh_frame_hdr)
+ *(.eh_frame)
+                0x00002a50                        . = ALIGN (0x4)
+                0x000028cc                        _etext = .
+                0x000028cc                        _sidata = _etext
+
+.rela.dyn       0x000028cc        0x0
+ .rela.text     0x000028cc        0x0 build/firmware.o
+
+.rodata
+ *(.rdata)
+ *(.rodata .rodata.*)
+ *(.gnu.linkonce.r.*)
+
+.ctors          0x000028cc        0x0
+                0x000028cc                        . = ALIGN (0x4)
+                0x000028cc                        _ctors_start = .
+ *(.init_array*)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+                0x000028cc                        . = ALIGN (0x4)
+                0x000028cc                        _ctors_end = .
+
+.data           0x40000000        0x4 load address 0x000028cc
+                0x40000000                        . = ALIGN (0x4)
+                0x40000000                        _sdata = .
+                0x40000000                        _ram_start = .
+                0x40000000                        . = ALIGN (0x4)
+ *(.data)
+ *(.data*)
+ *(.gnu.linkonce.d.*)
+                0x40000000                        . = ALIGN (0x8)
+                0x40000800                        PROVIDE (__global_pointer$ = (. + 0x800))
+ *(.sdata)
+ *(.sdata*)
+ .sdata.spi_flashio
+                0x40000000        0x4 build/firmware.o
+                0x40000000                spi_flashio
+ *(.gnu.linkonce.s.*)
+                0x40000004                        . = ALIGN (0x4)
+                0x40000004                        _edata = .
+
+.bss            0x40000004        0x4 load address 0x000028d0
+                0x40000004                        . = ALIGN (0x4)
+                0x40000004                        _bss_start = .
+ *(.bss)
+ *(.bss*)
+ *(.sbss)
+ *(.sbss*)
+ .sbss.i        0x40000004        0x4 build/firmware.o
+                0x40000004                i
+ *(.gnu.linkonce.sb.*)
+ *(.gnu.linkonce.b.*)
+ *(COMMON)
+                0x40000008                        . = ALIGN (0x4)
+                0x40000008                        _bss_end = .
+                0x40000008                        _end = .
+                [!provide]                        PROVIDE (end = .)
+
+.heap           0x40000008        0x0
+                0x40000008                        . = ALIGN (0x8)
+                [!provide]                        PROVIDE (_heap_start = .)
+                0x40000008                        . = (. + _heap_size)
+                0x40000008                        . = ALIGN (0x8)
+                [!provide]                        PROVIDE (_heap_end = .)
+
+.stack          0x40000008      0x408 load address 0x000028d4
+                0x40000010                        . = ALIGN (0x10)
+ *fill*         0x40000008        0x8 
+                [!provide]                        PROVIDE (_stack_end = .)
+                0x00000400                        . = _stack_size
+ *fill*         0x40000010      0x3f8 
+                0x40000410                        . = ALIGN (0x10)
+ *fill*         0x40000408        0x8 
+                0x40000410                        PROVIDE (_stack_start = .)
+OUTPUT(build/fw-flash.elf elf32-littleriscv)
+
+.debug_info     0x00000000     0x20a7
+ .debug_info    0x00000000     0x2082 build/firmware.o
+ .debug_info    0x00002082       0x25 build/crt_flash.o
+
+.debug_abbrev   0x00000000      0x389
+ .debug_abbrev  0x00000000      0x375 build/firmware.o
+ .debug_abbrev  0x00000375       0x14 build/crt_flash.o
+
+.debug_loclists
+                0x00000000     0x241b
+ .debug_loclists
+                0x00000000     0x241b build/firmware.o
+
+.debug_aranges  0x00000000       0xb0
+ .debug_aranges
+                0x00000000       0x90 build/firmware.o
+ .debug_aranges
+                0x00000090       0x20 build/crt_flash.o
+
+.debug_rnglists
+                0x00000000     0x113c
+ .debug_rnglists
+                0x00000000     0x113c build/firmware.o
+
+.debug_line     0x00000000     0x8c4a
+ .debug_line    0x00000000     0x8a68 build/firmware.o
+ .debug_line    0x00008a68      0x1e2 build/crt_flash.o
+
+.debug_str      0x00000000      0x29d
+ .debug_str     0x00000000      0x29d build/firmware.o
+                                0x298 (size before relaxing)
+ .debug_str     0x0000029d       0x4d build/crt_flash.o
+
+.debug_line_str
+                0x00000000       0x85
+ .debug_line_str
+                0x00000000       0x85 build/firmware.o
+                                 0xc4 (size before relaxing)
+ .debug_line_str
+                0x00000085       0x41 build/crt_flash.o
+
+.comment        0x00000000       0x22
+ .comment       0x00000000       0x22 build/firmware.o
+                                 0x23 (size before relaxing)
+
+.riscv.attributes
+                0x00000000       0x20
+ .riscv.attributes
+                0x00000000       0x1c build/firmware.o
+ .riscv.attributes
+                0x0000001c       0x1e build/crt_flash.o
+
+.debug_frame    0x00000000      0x164
+ .debug_frame   0x00000000      0x164 build/firmware.o
