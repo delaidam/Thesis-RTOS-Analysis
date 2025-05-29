@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stdbool.h>
-
+#include "rt_kernel.h"
 // a pointer to this is a null pointer, but the compiler does not
 // know that because "sram" is a linker symbol from sections.lds.
 extern uint32_t sram;
@@ -320,121 +320,8 @@ void main()
     GPIO0->OUT = 0x3F;
     for ( i = 0 ; i < 10000; i++);
 
-    while (1)
-    {
-        print("\n");
-        print("Select an action:\n");
-        print("\n");
-        print("   [1] Toggle led 1\n");
-        print("   [2] Toggle led 2\n");
-        print("   [3] Toggle led 3\n");
-        print("   [4] Toggle led 4\n");
-        print("   [5] Toggle led 5\n");
-        print("   [6] Toggle led 6\n");
-        print("   [F] Get flash mode\n");
-        print("   [I] Read SPI flash ID\n");
-        print("   [S] Set Single SPI mode\n");
-        print("   [D] Set DSPI mode\n");
-        print("   [C] Set DSPI+CRM mode\n");
-        print("   [B] Run simplistic benchmark\n");
-        print("   [A] Benchmark all configs\n");
-        
-        for (int rep = 10; rep > 0; rep--)
-        {
-            print("\n");
-            print("IO State: ");
-            print_hex(GPIO0->IN, 8);
-            print("\n");
-
-            print("\n");
-
-            print("Command> ");
-            char cmd = getchar();
-            if (cmd > 32 && cmd < 127)
-                putchar(cmd);
-            print("\n");
-
-            switch (cmd)
-            {
-            case 'F':
-            case 'f':
-                print("\n");
-                print("SPI State:\n");
-                print("  DSPI ");
-                if ( cmd_get_dspi() )
-                    print("ON\n");
-                else
-                    print("OFF\n");
-                print("  CRM  ");
-                if ( cmd_get_crm() )
-                    print("ON\n");
-                else
-                    print("OFF\n");
-
-                break;
-
-            case 'I':
-            case 'i':
-                cmd_read_flash_id();
-                break;
-
-            case 'S':
-            case 's':
-                cmd_set_dspi(0);
-                cmd_set_crm(0);
-                break;
-
-            case 'D':
-            case 'd':
-                cmd_set_crm(0);
-                cmd_set_dspi(1);
-                break;
-
-            case 'C':
-            case 'c':
-                cmd_set_crm(1);
-                cmd_set_dspi(1);
-                break;
-
-            case 'B':
-            case 'b':
-                cmd_benchmark(1, 0);
-                break;
-
-            case 'A':
-            case 'a':
-                cmd_benchmark_all();
-                break;
-
-            case '1':
-                GPIO0->OUT ^= 0x00000001;
-                break;
-
-            case '2':
-                GPIO0->OUT ^= 0x00000002;
-                break;
-
-            case '3':
-                GPIO0->OUT ^= 0x00000004;
-                break;
-
-            case '4':
-                GPIO0->OUT ^= 0x00000008;
-                break;
-
-            case '5':
-                GPIO0->OUT ^= 0x00000010;
-                break;
-
-            case '6':
-                GPIO0->OUT ^= 0x00000020;
-                break;
-
-            default:
-                continue;
-            }
-        }
-    }
+    // Zameni while(1) sa rt_main_loop()
+    rt_main_loop();
 }
 
 void irqCallback() {

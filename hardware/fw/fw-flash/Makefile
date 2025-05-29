@@ -4,14 +4,12 @@ BENCH=no
 MULDIV=no
 COMPRESSED=no
 
-SRCS = 	$(wildcard *.c)       		\
-		$(wildcard *.S)
+SRCS = firmware.c rt_kernel.c rt_demo.c crt_flash.S
 
 LDSCRIPT = ./linker_flash.ld
 
 RISCV_NAME ?= riscv64-unknown-elf
-RISCV_PATH ?= /usr
-RISCV_CC := $(RISCV_PATH)/bin/$(RISCV_NAME)-gcc
+RISCV_PATH ?= C:/SysGCC/risc-v
 
 MABI=ilp32
 MARCH := rv32i
@@ -26,29 +24,24 @@ CFLAGS += -march=$(MARCH)  -mabi=$(MABI)  -ffunction-sections -fdata-sections
 LDFLAGS += -march=$(MARCH)  -mabi=$(MABI)  -Wl,--gc-sections
 
 ifeq ($(DEBUG),yes)
-	CFLAGS += -g3 -O0 
+	CFLAGS += -g3 -O0
 endif
 
 ifeq ($(DEBUG),no)
-	CFLAGS += -g -O3 
+	CFLAGS += -g -O3
 endif
 
 ifeq ($(BENCH),yes)
-	CFLAGS += -fno-inline  
+	CFLAGS += -fno-inline
 endif
 
 RISCV_CLIB=$(RISCV_PATH)/$(RISCV_NAME)/lib/$(MARCH)/$(MABI)/
 
-# RISCV_OBJCOPY = $(RISCV_PATH)/bin/$(RISCV_NAME)-objcopy
-RISCV_OBJCOPY = /usr/bin/riscv64-unknown-elf-objcopy
+RISCV_OBJCOPY = $(RISCV_PATH)/bin/$(RISCV_NAME)-objcopy.exe
+RISCV_OBJDUMP = $(RISCV_PATH)/bin/$(RISCV_NAME)-objdump.exe
+RISCV_CC = $(RISCV_PATH)/bin/$(RISCV_NAME)-gcc.exe
 
-# RISCV_OBJDUMP = $(RISCV_PATH)/bin/$(RISCV_NAME)-objdump
-RISCV_OBJDUMP = /usr/bin/riscv64-unknown-elf-objdump
-
-# RISCV_CC = $(RISCV_PATH)/bin/$(RISCV_NAME)-gcc
-RISCV_CC = /usr/bin/riscv64-unknown-elf-gcc
-
-CFLAGS +=  -MD -fstrict-volatile-bitfields 
+CFLAGS +=  -MD -fstrict-volatile-bitfields
 LDFLAGS +=  -nostdlib -lgcc -mcmodel=medany -nostartfiles -ffreestanding -Wl,-Bstatic,-T,$(LDSCRIPT),-Map,$(OBJDIR)/$(PROJ_NAME).map,--print-memory-usage
 
 OBJDIR = build
@@ -79,7 +72,7 @@ $(OBJDIR)/%.elf: $(OBJS) | $(OBJDIR)
 
 %.bin: %.elf
 	$(RISCV_OBJCOPY) -O binary $^ $@
-	
+
 %.v: %.elf
 	$(RISCV_OBJCOPY) -O verilog $^ $@
 
@@ -87,30 +80,21 @@ $(OBJDIR)/%.elf: $(OBJS) | $(OBJDIR)
 	$(RISCV_OBJDUMP) -S -d $^ > $@
 
 $(OBJDIR)/%.o: %.c
-	mkdir -p $(dir $@)
+	@if not exist build md build
 	$(RISCV_CC) -c $(CFLAGS)  $(INC) -o $@ $^
-	
+
 $(OBJDIR)/%.o: %.cpp
-	mkdir -p $(dir $@)
-	$(RISCV_CC) -c $(CFLAGS)  $(INC) -o $@ $^	
+	@if not exist build md build
+	$(RISCV_CC) -c $(CFLAGS)  $(INC) -o $@ $^
 
 $(OBJDIR)/%.o: %.S
-	mkdir -p $(dir $@)
+	@if not exist build md build
 	$(RISCV_CC) -c $(CFLAGS) -o $@ $^ -D__ASSEMBLY__=1
 
 $(OBJDIR):
-	mkdir -p $@
+	@if not exist build md build
 
 clean:
-	rm -f $(OBJDIR)/$(PROJ_NAME).elf
-	rm -f $(OBJDIR)/$(PROJ_NAME).hex
-	rm -f $(OBJDIR)/$(PROJ_NAME).map
-	rm -f $(OBJDIR)/$(PROJ_NAME).v
-	rm -f $(OBJDIR)/$(PROJ_NAME).asm
-	find $(OBJDIR) -type f -name '*.d' -print0 | xargs -0 -r rm
-	find $(OBJDIR) -type f -name '*.o' -print0 | xargs -0 -r rm
+	@if exist $(OBJDIR) rmdir /s /q $(OBJDIR)
 
 .SECONDARY: $(OBJS)
-
-
-			
