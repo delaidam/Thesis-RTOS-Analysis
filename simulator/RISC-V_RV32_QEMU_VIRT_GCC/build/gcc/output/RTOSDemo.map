@@ -1,0 +1,2436 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcmp.o)
+                              output/MessageBufferDemo.o (memcmp)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+                              output/queue.o (memcpy)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+                              output/MessageBufferAMP.o (memset)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+                              output/main.o (puts)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcmp.o)
+                              output/MessageBufferAMP.o (strcmp)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
+                              output/MessageBufferAMP.o (strlen)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o) (__sinit)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o) (__sfvwrite_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o) (_fwalk)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o) (_global_impure_ptr)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o) (_malloc_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memchr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o) (memchr)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memmove-stub.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o) (memmove)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o) (__malloc_lock)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o) (_realloc_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o) (_sbrk_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o) (__sread)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o) (_write_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o) (__swsetup_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o) (_close_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o) (_fclose_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o) (__sflush_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o) (_free_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o) (_lseek_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o) (__smakebuf_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o) (_read_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o) (errno)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o) (_fstat_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o) (_isatty_r)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                              output/tasks.o (__clzsi2)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o) (__clz_tab)
+
+Discarded input sections
+
+ .text          0x0000000000000000      0xbae output/AbortDelay.o
+ .data          0x0000000000000000        0x0 output/AbortDelay.o
+ .bss           0x0000000000000000       0xe8 output/AbortDelay.o
+ .rodata        0x0000000000000000       0x6c output/AbortDelay.o
+ .sdata         0x0000000000000000        0x8 output/AbortDelay.o
+ .srodata       0x0000000000000000        0xc output/AbortDelay.o
+ .debug_info    0x0000000000000000      0x970 output/AbortDelay.o
+ .debug_abbrev  0x0000000000000000      0x1ba output/AbortDelay.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/AbortDelay.o
+ .debug_line    0x0000000000000000      0x8dc output/AbortDelay.o
+ .debug_str     0x0000000000000000      0x83c output/AbortDelay.o
+ .comment       0x0000000000000000       0x13 output/AbortDelay.o
+ .debug_frame   0x0000000000000000      0x224 output/AbortDelay.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/AbortDelay.o
+ .text          0x0000000000000000      0xfc0 output/EventGroupsDemo.o
+ .data          0x0000000000000000        0x0 output/EventGroupsDemo.o
+ .bss           0x0000000000000000       0x30 output/EventGroupsDemo.o
+ .rodata        0x0000000000000000       0x58 output/EventGroupsDemo.o
+ .debug_info    0x0000000000000000      0x4cf output/EventGroupsDemo.o
+ .debug_abbrev  0x0000000000000000      0x164 output/EventGroupsDemo.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/EventGroupsDemo.o
+ .debug_line    0x0000000000000000      0xc53 output/EventGroupsDemo.o
+ .debug_str     0x0000000000000000      0x4a8 output/EventGroupsDemo.o
+ .comment       0x0000000000000000       0x13 output/EventGroupsDemo.o
+ .debug_frame   0x0000000000000000      0x178 output/EventGroupsDemo.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/EventGroupsDemo.o
+ .text          0x0000000000000000      0xe6c output/GenQTest.o
+ .data          0x0000000000000000        0x0 output/GenQTest.o
+ .bss           0x0000000000000000       0x2c output/GenQTest.o
+ .rodata        0x0000000000000000       0x81 output/GenQTest.o
+ .debug_info    0x0000000000000000      0x43e output/GenQTest.o
+ .debug_abbrev  0x0000000000000000      0x125 output/GenQTest.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/GenQTest.o
+ .debug_line    0x0000000000000000      0xc6b output/GenQTest.o
+ .debug_str     0x0000000000000000      0x47c output/GenQTest.o
+ .comment       0x0000000000000000       0x13 output/GenQTest.o
+ .debug_frame   0x0000000000000000      0x148 output/GenQTest.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/GenQTest.o
+ .text          0x0000000000000000      0x8da output/IntSemTest.o
+ .data          0x0000000000000000        0x0 output/IntSemTest.o
+ .bss           0x0000000000000000       0x30 output/IntSemTest.o
+ .srodata       0x0000000000000000        0x4 output/IntSemTest.o
+ .rodata        0x0000000000000000       0x53 output/IntSemTest.o
+ .debug_info    0x0000000000000000      0x39a output/IntSemTest.o
+ .debug_abbrev  0x0000000000000000      0x18b output/IntSemTest.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/IntSemTest.o
+ .debug_line    0x0000000000000000      0x735 output/IntSemTest.o
+ .debug_str     0x0000000000000000      0x48b output/IntSemTest.o
+ .comment       0x0000000000000000       0x13 output/IntSemTest.o
+ .debug_frame   0x0000000000000000      0x128 output/IntSemTest.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/IntSemTest.o
+ .text          0x0000000000000000      0x3c2 output/MessageBufferAMP.o
+ .data          0x0000000000000000        0x0 output/MessageBufferAMP.o
+ .bss           0x0000000000000000       0x1c output/MessageBufferAMP.o
+ .sdata         0x0000000000000000        0x4 output/MessageBufferAMP.o
+ .rodata        0x0000000000000000       0x60 output/MessageBufferAMP.o
+ .debug_info    0x0000000000000000      0x34a output/MessageBufferAMP.o
+ .debug_abbrev  0x0000000000000000      0x15b output/MessageBufferAMP.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/MessageBufferAMP.o
+ .debug_line    0x0000000000000000      0x429 output/MessageBufferAMP.o
+ .debug_str     0x0000000000000000      0x39e output/MessageBufferAMP.o
+ .comment       0x0000000000000000       0x13 output/MessageBufferAMP.o
+ .debug_frame   0x0000000000000000       0xe8 output/MessageBufferAMP.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/MessageBufferAMP.o
+ .text          0x0000000000000000     0x1660 output/MessageBufferDemo.o
+ .data          0x0000000000000000        0x0 output/MessageBufferDemo.o
+ .bss           0x0000000000000000       0xf0 output/MessageBufferDemo.o
+ .rodata        0x0000000000000000       0xf6 output/MessageBufferDemo.o
+ .sdata         0x0000000000000000        0x8 output/MessageBufferDemo.o
+ .debug_info    0x0000000000000000      0x943 output/MessageBufferDemo.o
+ .debug_abbrev  0x0000000000000000      0x1a6 output/MessageBufferDemo.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/MessageBufferDemo.o
+ .debug_line    0x0000000000000000      0xe6a output/MessageBufferDemo.o
+ .debug_str     0x0000000000000000      0x7db output/MessageBufferDemo.o
+ .comment       0x0000000000000000       0x13 output/MessageBufferDemo.o
+ .debug_frame   0x0000000000000000      0x16c output/MessageBufferDemo.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/MessageBufferDemo.o
+ .text          0x0000000000000000      0x282 output/PollQ.o
+ .data          0x0000000000000000        0x0 output/PollQ.o
+ .bss           0x0000000000000000        0xc output/PollQ.o
+ .rodata        0x0000000000000000       0x20 output/PollQ.o
+ .debug_info    0x0000000000000000      0x28b output/PollQ.o
+ .debug_abbrev  0x0000000000000000       0xe0 output/PollQ.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/PollQ.o
+ .debug_line    0x0000000000000000      0x38e output/PollQ.o
+ .debug_str     0x0000000000000000      0x31b output/PollQ.o
+ .comment       0x0000000000000000       0x13 output/PollQ.o
+ .debug_frame   0x0000000000000000       0x94 output/PollQ.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/PollQ.o
+ .text          0x0000000000000000      0x590 output/QPeek.o
+ .data          0x0000000000000000        0x0 output/QPeek.o
+ .bss           0x0000000000000000        0xc output/QPeek.o
+ .sbss          0x0000000000000000        0xc output/QPeek.o
+ .rodata        0x0000000000000000       0x33 output/QPeek.o
+ .debug_info    0x0000000000000000      0x2e3 output/QPeek.o
+ .debug_abbrev  0x0000000000000000      0x11c output/QPeek.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/QPeek.o
+ .debug_line    0x0000000000000000      0x522 output/QPeek.o
+ .debug_str     0x0000000000000000      0x315 output/QPeek.o
+ .comment       0x0000000000000000       0x13 output/QPeek.o
+ .debug_frame   0x0000000000000000       0xcc output/QPeek.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/QPeek.o
+ .text          0x0000000000000000      0x302 output/QueueOverwrite.o
+ .data          0x0000000000000000        0x0 output/QueueOverwrite.o
+ .bss           0x0000000000000000        0xc output/QueueOverwrite.o
+ .sdata         0x0000000000000000        0x4 output/QueueOverwrite.o
+ .rodata        0x0000000000000000       0x47 output/QueueOverwrite.o
+ .debug_info    0x0000000000000000      0x279 output/QueueOverwrite.o
+ .debug_abbrev  0x0000000000000000       0xfa output/QueueOverwrite.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/QueueOverwrite.o
+ .debug_line    0x0000000000000000      0x3d4 output/QueueOverwrite.o
+ .debug_str     0x0000000000000000      0x309 output/QueueOverwrite.o
+ .comment       0x0000000000000000       0x13 output/QueueOverwrite.o
+ .debug_frame   0x0000000000000000       0xa0 output/QueueOverwrite.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/QueueOverwrite.o
+ .text          0x0000000000000000     0x1356 output/QueueSet.o
+ .data          0x0000000000000000        0x0 output/QueueSet.o
+ .bss           0x0000000000000000       0x50 output/QueueSet.o
+ .sdata         0x0000000000000000        0xc output/QueueSet.o
+ .sbss          0x0000000000000000        0x8 output/QueueSet.o
+ .rodata        0x0000000000000000       0x49 output/QueueSet.o
+ .debug_info    0x0000000000000000      0x700 output/QueueSet.o
+ .debug_abbrev  0x0000000000000000      0x1c7 output/QueueSet.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/QueueSet.o
+ .debug_line    0x0000000000000000      0xf25 output/QueueSet.o
+ .debug_str     0x0000000000000000      0x68b output/QueueSet.o
+ .comment       0x0000000000000000       0x13 output/QueueSet.o
+ .debug_frame   0x0000000000000000      0x26c output/QueueSet.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/QueueSet.o
+ .text          0x0000000000000000      0x1e0 output/QueueSetPolling.o
+ .data          0x0000000000000000        0x0 output/QueueSetPolling.o
+ .bss           0x0000000000000000       0x18 output/QueueSetPolling.o
+ .sdata         0x0000000000000000        0x4 output/QueueSetPolling.o
+ .rodata        0x0000000000000000        0x8 output/QueueSetPolling.o
+ .debug_info    0x0000000000000000      0x219 output/QueueSetPolling.o
+ .debug_abbrev  0x0000000000000000       0xe9 output/QueueSetPolling.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/QueueSetPolling.o
+ .debug_line    0x0000000000000000      0x2c2 output/QueueSetPolling.o
+ .debug_str     0x0000000000000000      0x2ef output/QueueSetPolling.o
+ .comment       0x0000000000000000       0x13 output/QueueSetPolling.o
+ .debug_frame   0x0000000000000000       0xa0 output/QueueSetPolling.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/QueueSetPolling.o
+ .text          0x0000000000000000      0x700 output/RegTest.o
+ .data          0x0000000000000000        0x0 output/RegTest.o
+ .bss           0x0000000000000000        0x0 output/RegTest.o
+ .debug_line    0x0000000000000000      0x47d output/RegTest.o
+ .debug_info    0x0000000000000000       0x26 output/RegTest.o
+ .debug_abbrev  0x0000000000000000       0x14 output/RegTest.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/RegTest.o
+ .debug_str     0x0000000000000000       0x9c output/RegTest.o
+ .riscv.attributes
+                0x0000000000000000       0x29 output/RegTest.o
+ .text          0x0000000000000000      0xfd4 output/StaticAllocation.o
+ .data          0x0000000000000000        0x0 output/StaticAllocation.o
+ .bss           0x0000000000000000      0x690 output/StaticAllocation.o
+ .rodata        0x0000000000000000       0x5b output/StaticAllocation.o
+ .debug_info    0x0000000000000000      0xb9e output/StaticAllocation.o
+ .debug_abbrev  0x0000000000000000      0x200 output/StaticAllocation.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/StaticAllocation.o
+ .debug_line    0x0000000000000000      0xc25 output/StaticAllocation.o
+ .debug_str     0x0000000000000000      0x98c output/StaticAllocation.o
+ .comment       0x0000000000000000       0x13 output/StaticAllocation.o
+ .debug_frame   0x0000000000000000      0x2f8 output/StaticAllocation.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/StaticAllocation.o
+ .text          0x0000000000000000     0x22b0 output/StreamBufferDemo.o
+ .data          0x0000000000000000        0x0 output/StreamBufferDemo.o
+ .bss           0x0000000000000000       0xd4 output/StreamBufferDemo.o
+ .rodata        0x0000000000000000      0x12f output/StreamBufferDemo.o
+ .sdata         0x0000000000000000       0x10 output/StreamBufferDemo.o
+ .debug_info    0x0000000000000000      0xa4b output/StreamBufferDemo.o
+ .debug_abbrev  0x0000000000000000      0x1be output/StreamBufferDemo.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/StreamBufferDemo.o
+ .debug_line    0x0000000000000000     0x1539 output/StreamBufferDemo.o
+ .debug_str     0x0000000000000000      0x85d output/StreamBufferDemo.o
+ .comment       0x0000000000000000       0x13 output/StreamBufferDemo.o
+ .debug_frame   0x0000000000000000      0x198 output/StreamBufferDemo.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/StreamBufferDemo.o
+ .text          0x0000000000000000      0x29a output/StreamBufferInterrupt.o
+ .data          0x0000000000000000        0x0 output/StreamBufferInterrupt.o
+ .bss           0x0000000000000000       0x10 output/StreamBufferInterrupt.o
+ .rodata        0x0000000000000000       0x7e output/StreamBufferInterrupt.o
+ .sdata         0x0000000000000000        0xc output/StreamBufferInterrupt.o
+ .debug_info    0x0000000000000000      0x24b output/StreamBufferInterrupt.o
+ .debug_abbrev  0x0000000000000000       0xfb output/StreamBufferInterrupt.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/StreamBufferInterrupt.o
+ .debug_line    0x0000000000000000      0x38e output/StreamBufferInterrupt.o
+ .debug_str     0x0000000000000000      0x311 output/StreamBufferInterrupt.o
+ .comment       0x0000000000000000       0x13 output/StreamBufferInterrupt.o
+ .debug_frame   0x0000000000000000       0xa0 output/StreamBufferInterrupt.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/StreamBufferInterrupt.o
+ .text          0x0000000000000000     0x116e output/TaskNotify.o
+ .data          0x0000000000000000        0x0 output/TaskNotify.o
+ .bss           0x0000000000000000       0x28 output/TaskNotify.o
+ .sdata         0x0000000000000000        0x4 output/TaskNotify.o
+ .rodata        0x0000000000000000       0x61 output/TaskNotify.o
+ .debug_info    0x0000000000000000      0x4e6 output/TaskNotify.o
+ .debug_abbrev  0x0000000000000000      0x166 output/TaskNotify.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/TaskNotify.o
+ .debug_line    0x0000000000000000      0xb16 output/TaskNotify.o
+ .debug_str     0x0000000000000000      0x577 output/TaskNotify.o
+ .comment       0x0000000000000000       0x13 output/TaskNotify.o
+ .debug_frame   0x0000000000000000      0x13c output/TaskNotify.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/TaskNotify.o
+ .text          0x0000000000000000     0x1ef6 output/TaskNotifyArray.o
+ .data          0x0000000000000000        0x0 output/TaskNotifyArray.o
+ .bss           0x0000000000000000       0x3c output/TaskNotifyArray.o
+ .rodata        0x0000000000000000       0x6a output/TaskNotifyArray.o
+ .sdata         0x0000000000000000        0x4 output/TaskNotifyArray.o
+ .debug_info    0x0000000000000000      0x732 output/TaskNotifyArray.o
+ .debug_abbrev  0x0000000000000000      0x177 output/TaskNotifyArray.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/TaskNotifyArray.o
+ .debug_line    0x0000000000000000     0x1720 output/TaskNotifyArray.o
+ .debug_str     0x0000000000000000      0x6b5 output/TaskNotifyArray.o
+ .comment       0x0000000000000000       0x13 output/TaskNotifyArray.o
+ .debug_frame   0x0000000000000000      0x1e8 output/TaskNotifyArray.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/TaskNotifyArray.o
+ .text          0x0000000000000000     0x1cbc output/TimerDemo.o
+ .data          0x0000000000000000        0x0 output/TimerDemo.o
+ .bss           0x0000000000000000       0xa0 output/TimerDemo.o
+ .sdata         0x0000000000000000        0x8 output/TimerDemo.o
+ .rodata        0x0000000000000000       0x6f output/TimerDemo.o
+ .debug_info    0x0000000000000000      0x5b5 output/TimerDemo.o
+ .debug_abbrev  0x0000000000000000      0x19f output/TimerDemo.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/TimerDemo.o
+ .debug_line    0x0000000000000000     0x164f output/TimerDemo.o
+ .debug_str     0x0000000000000000      0x696 output/TimerDemo.o
+ .comment       0x0000000000000000       0x13 output/TimerDemo.o
+ .debug_frame   0x0000000000000000      0x2b4 output/TimerDemo.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/TimerDemo.o
+ .text          0x0000000000000000      0x932 output/blocktim.o
+ .data          0x0000000000000000        0x0 output/blocktim.o
+ .bss           0x0000000000000000       0x20 output/blocktim.o
+ .rodata        0x0000000000000000       0x23 output/blocktim.o
+ .debug_info    0x0000000000000000      0x38c output/blocktim.o
+ .debug_abbrev  0x0000000000000000      0x121 output/blocktim.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/blocktim.o
+ .debug_line    0x0000000000000000      0x8b3 output/blocktim.o
+ .debug_str     0x0000000000000000      0x3d0 output/blocktim.o
+ .comment       0x0000000000000000       0x13 output/blocktim.o
+ .debug_frame   0x0000000000000000       0xbc output/blocktim.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/blocktim.o
+ .text          0x0000000000000000      0x404 output/countsem.o
+ .data          0x0000000000000000        0x0 output/countsem.o
+ .bss           0x0000000000000000       0x24 output/countsem.o
+ .rodata        0x0000000000000000       0x69 output/countsem.o
+ .debug_info    0x0000000000000000      0x29d output/countsem.o
+ .debug_abbrev  0x0000000000000000      0x123 output/countsem.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/countsem.o
+ .debug_line    0x0000000000000000      0x46d output/countsem.o
+ .debug_str     0x0000000000000000      0x320 output/countsem.o
+ .comment       0x0000000000000000       0x13 output/countsem.o
+ .debug_frame   0x0000000000000000       0xc8 output/countsem.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/countsem.o
+ .text          0x0000000000000000      0x214 output/death.o
+ .data          0x0000000000000000        0x0 output/death.o
+ .bss           0x0000000000000000        0xc output/death.o
+ .srodata       0x0000000000000000        0x4 output/death.o
+ .sbss          0x0000000000000000        0x4 output/death.o
+ .rodata        0x0000000000000000       0x18 output/death.o
+ .sdata         0x0000000000000000        0x2 output/death.o
+ .debug_info    0x0000000000000000      0x28c output/death.o
+ .debug_abbrev  0x0000000000000000       0xf8 output/death.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/death.o
+ .debug_line    0x0000000000000000      0x2df output/death.o
+ .debug_str     0x0000000000000000      0x2e4 output/death.o
+ .comment       0x0000000000000000       0x13 output/death.o
+ .debug_frame   0x0000000000000000       0x98 output/death.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/death.o
+ .text          0x0000000000000000      0x5a6 output/dynamic.o
+ .data          0x0000000000000000        0x0 output/dynamic.o
+ .bss           0x0000000000000000       0x28 output/dynamic.o
+ .sbss          0x0000000000000000        0x4 output/dynamic.o
+ .rodata        0x0000000000000000       0x78 output/dynamic.o
+ .debug_info    0x0000000000000000      0x3e9 output/dynamic.o
+ .debug_abbrev  0x0000000000000000      0x14b output/dynamic.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/dynamic.o
+ .debug_line    0x0000000000000000      0x54e output/dynamic.o
+ .debug_str     0x0000000000000000      0x469 output/dynamic.o
+ .comment       0x0000000000000000       0x13 output/dynamic.o
+ .debug_frame   0x0000000000000000       0xe8 output/dynamic.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/dynamic.o
+ .text          0x0000000000000000      0xa18 output/event_groups.o
+ .data          0x0000000000000000        0x0 output/event_groups.o
+ .bss           0x0000000000000000        0x0 output/event_groups.o
+ .rodata        0x0000000000000000       0x30 output/event_groups.o
+ .debug_info    0x0000000000000000      0x9bd output/event_groups.o
+ .debug_abbrev  0x0000000000000000      0x1e6 output/event_groups.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/event_groups.o
+ .debug_line    0x0000000000000000      0xa01 output/event_groups.o
+ .debug_str     0x0000000000000000      0x6bc output/event_groups.o
+ .comment       0x0000000000000000       0x13 output/event_groups.o
+ .debug_frame   0x0000000000000000      0x280 output/event_groups.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/event_groups.o
+ .data          0x0000000000000000        0x0 output/heap_4.o
+ .srodata       0x0000000000000000        0x4 output/heap_4.o
+ .data          0x0000000000000000        0x0 output/list.o
+ .bss           0x0000000000000000        0x0 output/list.o
+ .data          0x0000000000000000        0x0 output/main.o
+ .text          0x0000000000000000      0x1d8 output/main_blinky.o
+ .data          0x0000000000000000        0x0 output/main_blinky.o
+ .bss           0x0000000000000000        0x8 output/main_blinky.o
+ .rodata        0x0000000000000000       0x68 output/main_blinky.o
+ .debug_info    0x0000000000000000      0x23b output/main_blinky.o
+ .debug_abbrev  0x0000000000000000       0xaf output/main_blinky.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/main_blinky.o
+ .debug_line    0x0000000000000000      0x266 output/main_blinky.o
+ .debug_str     0x0000000000000000      0x290 output/main_blinky.o
+ .comment       0x0000000000000000       0x13 output/main_blinky.o
+ .debug_frame   0x0000000000000000       0x90 output/main_blinky.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/main_blinky.o
+ .text          0x0000000000000000      0x606 output/main_full.o
+ .data          0x0000000000000000        0x0 output/main_full.o
+ .bss           0x0000000000000000        0x0 output/main_full.o
+ .sbss          0x0000000000000000        0x8 output/main_full.o
+ .sdata         0x0000000000000000        0xc output/main_full.o
+ .rodata        0x0000000000000000      0x74f output/main_full.o
+ .debug_info    0x0000000000000000      0x230 output/main_full.o
+ .debug_abbrev  0x0000000000000000       0xda output/main_full.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/main_full.o
+ .debug_line    0x0000000000000000      0x51e output/main_full.o
+ .debug_str     0x0000000000000000      0x2a8 output/main_full.o
+ .comment       0x0000000000000000       0x13 output/main_full.o
+ .debug_frame   0x0000000000000000       0xc4 output/main_full.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/main_full.o
+ .data          0x0000000000000000        0x0 output/ns16550.o
+ .bss           0x0000000000000000        0x0 output/ns16550.o
+ .data          0x0000000000000000        0x0 output/port.o
+ .data          0x0000000000000000        0x0 output/portASM.o
+ .bss           0x0000000000000000        0x0 output/portASM.o
+ .text.freertos_risc_v_trap_handler
+                0x0000000000000000      0x300 output/portASM.o
+ .data          0x0000000000000000        0x0 output/printf-stdarg.o
+ .bss           0x0000000000000000        0x0 output/printf-stdarg.o
+ .data          0x0000000000000000        0x0 output/queue.o
+ .data          0x0000000000000000        0x0 output/queue_test.o
+ .text          0x0000000000000000      0x544 output/recmutex.o
+ .data          0x0000000000000000        0x0 output/recmutex.o
+ .bss           0x0000000000000000       0x30 output/recmutex.o
+ .rodata        0x0000000000000000       0x61 output/recmutex.o
+ .debug_info    0x0000000000000000      0x312 output/recmutex.o
+ .debug_abbrev  0x0000000000000000      0x136 output/recmutex.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/recmutex.o
+ .debug_line    0x0000000000000000      0x501 output/recmutex.o
+ .debug_str     0x0000000000000000      0x3e9 output/recmutex.o
+ .comment       0x0000000000000000       0x13 output/recmutex.o
+ .debug_frame   0x0000000000000000       0xb0 output/recmutex.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/recmutex.o
+ .text          0x0000000000000000       0xc6 output/riscv-virt.o
+ .data          0x0000000000000000        0x0 output/riscv-virt.o
+ .bss           0x0000000000000000        0x0 output/riscv-virt.o
+ .debug_info    0x0000000000000000      0x135 output/riscv-virt.o
+ .debug_abbrev  0x0000000000000000       0xd8 output/riscv-virt.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/riscv-virt.o
+ .debug_line    0x0000000000000000      0x1ff output/riscv-virt.o
+ .debug_str     0x0000000000000000      0x18c output/riscv-virt.o
+ .comment       0x0000000000000000       0x13 output/riscv-virt.o
+ .debug_frame   0x0000000000000000       0x5c output/riscv-virt.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/riscv-virt.o
+ .text          0x0000000000000000      0x866 output/semaphore_mutex_test.o
+ .data          0x0000000000000000        0x0 output/semaphore_mutex_test.o
+ .bss           0x0000000000000000     0x12d0 output/semaphore_mutex_test.o
+ .rodata        0x0000000000000000      0x3bd output/semaphore_mutex_test.o
+ .debug_info    0x0000000000000000      0x43c output/semaphore_mutex_test.o
+ .debug_abbrev  0x0000000000000000       0xf5 output/semaphore_mutex_test.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/semaphore_mutex_test.o
+ .debug_line    0x0000000000000000      0x6f6 output/semaphore_mutex_test.o
+ .debug_str     0x0000000000000000      0x45b output/semaphore_mutex_test.o
+ .comment       0x0000000000000000       0x13 output/semaphore_mutex_test.o
+ .debug_frame   0x0000000000000000       0xfc output/semaphore_mutex_test.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/semaphore_mutex_test.o
+ .text          0x0000000000000000      0x400 output/semtest.o
+ .data          0x0000000000000000        0x0 output/semtest.o
+ .bss           0x0000000000000000       0x14 output/semtest.o
+ .rodata        0x0000000000000000       0x3f output/semtest.o
+ .debug_info    0x0000000000000000      0x2fc output/semtest.o
+ .debug_abbrev  0x0000000000000000      0x12c output/semtest.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/semtest.o
+ .debug_line    0x0000000000000000      0x4b9 output/semtest.o
+ .debug_str     0x0000000000000000      0x390 output/semtest.o
+ .comment       0x0000000000000000       0x13 output/semtest.o
+ .debug_frame   0x0000000000000000       0x78 output/semtest.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/semtest.o
+ .text          0x0000000000000000        0x0 output/start.o
+ .data          0x0000000000000000        0x0 output/start.o
+ .bss           0x0000000000000000        0x0 output/start.o
+ .eh_frame      0x0000000000000000       0x2c output/start.o
+ .text          0x0000000000000000     0x156c output/stream_buffer.o
+ .data          0x0000000000000000        0x0 output/stream_buffer.o
+ .bss           0x0000000000000000        0x0 output/stream_buffer.o
+ .rodata        0x0000000000000000       0x31 output/stream_buffer.o
+ .debug_info    0x0000000000000000      0xfd9 output/stream_buffer.o
+ .debug_abbrev  0x0000000000000000      0x216 output/stream_buffer.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/stream_buffer.o
+ .debug_line    0x0000000000000000     0x11ff output/stream_buffer.o
+ .debug_str     0x0000000000000000      0x960 output/stream_buffer.o
+ .comment       0x0000000000000000       0x13 output/stream_buffer.o
+ .debug_frame   0x0000000000000000      0x488 output/stream_buffer.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/stream_buffer.o
+ .data          0x0000000000000000        0x0 output/syscalls.o
+ .bss           0x0000000000000000        0x0 output/syscalls.o
+ .data          0x0000000000000000        0x0 output/tasks.o
+ .text          0x0000000000000000      0x4c6 output/test_ipc_performance.o
+ .data          0x0000000000000000        0x0 output/test_ipc_performance.o
+ .bss           0x0000000000000000      0x324 output/test_ipc_performance.o
+ .rodata        0x0000000000000000      0x235 output/test_ipc_performance.o
+ .debug_info    0x0000000000000000      0x2e7 output/test_ipc_performance.o
+ .debug_abbrev  0x0000000000000000       0xf5 output/test_ipc_performance.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/test_ipc_performance.o
+ .debug_line    0x0000000000000000      0x475 output/test_ipc_performance.o
+ .debug_str     0x0000000000000000      0x33d output/test_ipc_performance.o
+ .comment       0x0000000000000000       0x13 output/test_ipc_performance.o
+ .debug_frame   0x0000000000000000       0xc8 output/test_ipc_performance.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/test_ipc_performance.o
+ .text          0x0000000000000000      0x6aa output/test_memory_allocation.o
+ .data          0x0000000000000000        0x0 output/test_memory_allocation.o
+ .bss           0x0000000000000000      0x964 output/test_memory_allocation.o
+ .rodata        0x0000000000000000      0x307 output/test_memory_allocation.o
+ .debug_info    0x0000000000000000      0x355 output/test_memory_allocation.o
+ .debug_abbrev  0x0000000000000000       0xf3 output/test_memory_allocation.o
+ .debug_aranges
+                0x0000000000000000       0x20 output/test_memory_allocation.o
+ .debug_line    0x0000000000000000      0x5ba output/test_memory_allocation.o
+ .debug_str     0x0000000000000000      0x34a output/test_memory_allocation.o
+ .comment       0x0000000000000000       0x13 output/test_memory_allocation.o
+ .debug_frame   0x0000000000000000       0xcc output/test_memory_allocation.o
+ .riscv.attributes
+                0x0000000000000000       0x2b output/test_memory_allocation.o
+ .data          0x0000000000000000        0x0 output/timers.o
+ .data          0x0000000000000000        0x0 output/vector.o
+ .bss           0x0000000000000000        0x0 output/vector.o
+ .text          0x0000000000000000       0x52 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcmp.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcmp.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcmp.o)
+ .comment       0x0000000000000000       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcmp.o)
+ .riscv.attributes
+                0x0000000000000000       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcmp.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+ .text          0x0000000000000000      0x11e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcmp.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcmp.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcmp.o)
+ .riscv.attributes
+                0x0000000000000000       0x29 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcmp.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+ .text          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memchr.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memchr.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memmove-stub.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memmove-stub.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+ .text          0x0000000000000000      0x146 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .text          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x0000000080000000 0x0000000000080000 axr
+ram              0x0000000080080000 0x0000000000100000 axw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000002000                __stack_size = 0x2000
+LOAD output/AbortDelay.o
+LOAD output/EventGroupsDemo.o
+LOAD output/GenQTest.o
+LOAD output/IntSemTest.o
+LOAD output/MessageBufferAMP.o
+LOAD output/MessageBufferDemo.o
+LOAD output/PollQ.o
+LOAD output/QPeek.o
+LOAD output/QueueOverwrite.o
+LOAD output/QueueSet.o
+LOAD output/QueueSetPolling.o
+LOAD output/RegTest.o
+LOAD output/StaticAllocation.o
+LOAD output/StreamBufferDemo.o
+LOAD output/StreamBufferInterrupt.o
+LOAD output/TaskNotify.o
+LOAD output/TaskNotifyArray.o
+LOAD output/TimerDemo.o
+LOAD output/blocktim.o
+LOAD output/countsem.o
+LOAD output/death.o
+LOAD output/dynamic.o
+LOAD output/event_groups.o
+LOAD output/heap_4.o
+LOAD output/list.o
+LOAD output/main.o
+LOAD output/main_blinky.o
+LOAD output/main_full.o
+LOAD output/ns16550.o
+LOAD output/port.o
+LOAD output/portASM.o
+LOAD output/printf-stdarg.o
+LOAD output/queue.o
+LOAD output/queue_test.o
+LOAD output/recmutex.o
+LOAD output/riscv-virt.o
+LOAD output/semaphore_mutex_test.o
+LOAD output/semtest.o
+LOAD output/start.o
+LOAD output/stream_buffer.o
+LOAD output/syscalls.o
+LOAD output/tasks.o
+LOAD output/test_ipc_performance.o
+LOAD output/test_memory_allocation.o
+LOAD output/timers.o
+LOAD output/vector.o
+LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a
+LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a
+                0x0000000000002000                __stack_size = DEFINED (__stack_size)?__stack_size:0x2000
+
+.init           0x0000000080000000       0x76
+                0x0000000080000000                _text = .
+ *(SORT_NONE(.init))
+ .init          0x0000000080000000       0x76 output/start.o
+                0x0000000080000000                _start
+
+.text           0x0000000080000080     0xbb06
+ *(.text.unlikely .text.unlikely.*)
+ *(.text.startup .text.startup.*)
+ *(.text .text.*)
+ .text          0x0000000080000080      0x862 output/heap_4.o
+                0x0000000080000080                pvPortMalloc
+                0x000000008000036e                vPortFree
+                0x000000008000047e                xPortGetFreeHeapSize
+                0x0000000080000494                xPortGetMinimumEverFreeHeapSize
+                0x00000000800004aa                xPortResetHeapMinimumEverFreeHeapSize
+                0x00000000800004c8                vPortInitialiseBlocks
+                0x00000000800004d6                pvPortCalloc
+                0x0000000080000786                vPortGetHeapStats
+                0x00000000800008ac                vPortHeapResetState
+ .text          0x00000000800008e2      0x1de output/list.o
+                0x00000000800008e2                vListInitialise
+                0x000000008000092e                vListInitialiseItem
+                0x0000000080000948                vListInsertEnd
+                0x00000000800009ae                vListInsert
+                0x0000000080000a50                uxListRemove
+ .text          0x0000000080000ac0      0x208 output/main.o
+                0x0000000080000ac0                main
+                0x0000000080000ae6                vApplicationMallocFailedHook
+                0x0000000080000b00                vApplicationIdleHook
+                0x0000000080000b0e                vApplicationStackOverflowHook
+                0x0000000080000b34                vApplicationTickHook
+                0x0000000080000b42                vApplicationDaemonTaskStartupHook
+                0x0000000080000b50                vAssertCalled
+                0x0000000080000bca                vApplicationGetIdleTaskMemory
+                0x0000000080000c0a                vApplicationGetTimerTaskMemory
+                0x0000000080000c4a                __write
+                0x0000000080000caa                malloc
+ .text          0x0000000080000cc8       0x84 output/ns16550.o
+                0x0000000080000d06                vOutNS16550
+ .text          0x0000000080000d4c      0x19c output/port.o
+                0x0000000080000d4c                vPortSetupTimerInterrupt
+                0x0000000080000e94                xPortStartScheduler
+                0x0000000080000ee0                vPortEndScheduler
+ .text          0x0000000080000ee8       0xc4 output/portASM.o
+                0x0000000080000ee8                pxPortInitialiseStack
+                0x0000000080000f32                xPortStartFirstTask
+                0x0000000080000f90                freertos_risc_v_application_exception_handler
+                0x0000000080000f9e                freertos_risc_v_application_interrupt_handler
+ .text.freertos_risc_v_exception_handler
+                0x0000000080000fac      0x140 output/portASM.o
+                0x0000000080000fac                freertos_risc_v_exception_handler
+ .text.freertos_risc_v_interrupt_handler
+                0x00000000800010ec       0xce output/portASM.o
+                0x00000000800010ec                freertos_risc_v_interrupt_handler
+ .text.freertos_risc_v_mtimer_interrupt_handler
+                0x00000000800011ba      0x108 output/portASM.o
+                0x00000000800011ba                freertos_risc_v_mtimer_interrupt_handler
+ .text          0x00000000800012c2      0x68c output/printf-stdarg.o
+                0x000000008000183e                printf
+                0x000000008000188a                sprintf
+                0x00000000800018dc                snprintf
+                0x0000000080001932                write
+ .text          0x000000008000194e     0x232c output/queue.o
+                0x000000008000194e                xQueueGenericReset
+                0x0000000080001ab8                xQueueGenericCreateStatic
+                0x0000000080001b8c                xQueueGenericGetStaticBuffers
+                0x0000000080001c18                xQueueGenericCreate
+                0x0000000080001d98                xQueueCreateMutex
+                0x0000000080001dd8                xQueueCreateMutexStatic
+                0x0000000080001e22                xQueueGetMutexHolder
+                0x0000000080001eac                xQueueGetMutexHolderFromISR
+                0x0000000080001ef4                xQueueGiveMutexRecursive
+                0x0000000080001f70                xQueueTakeMutexRecursive
+                0x000000008000202e                xQueueCreateCountingSemaphoreStatic
+                0x00000000800020a2                xQueueCreateCountingSemaphore
+                0x000000008000210c                xQueueGenericSend
+                0x00000000800023d4                xQueueGenericSendFromISR
+                0x000000008000256c                xQueueGiveFromISR
+                0x00000000800026ca                xQueueReceive
+                0x000000008000292a                xQueueSemaphoreTake
+                0x0000000080002c30                xQueuePeek
+                0x0000000080002e92                xQueueReceiveFromISR
+                0x0000000080002fbc                xQueuePeekFromISR
+                0x0000000080003072                uxQueueMessagesWaiting
+                0x00000000800030e8                uxQueueSpacesAvailable
+                0x0000000080003170                uxQueueMessagesWaitingFromISR
+                0x00000000800031b4                vQueueDelete
+                0x0000000080003202                uxQueueGetQueueNumber
+                0x000000008000321a                vQueueSetQueueNumber
+                0x000000008000323a                ucQueueGetQueueType
+                0x0000000080003254                uxQueueGetQueueItemSize
+                0x000000008000326c                uxQueueGetQueueLength
+                0x00000000800035f2                xQueueIsQueueEmptyFromISR
+                0x00000000800036ac                xQueueIsQueueFullFromISR
+                0x0000000080003702                vQueueAddToRegistry
+                0x00000000800037d4                pcQueueGetName
+                0x0000000080003856                vQueueUnregisterQueue
+                0x00000000800038e4                vQueueWaitForMessageRestricted
+                0x00000000800039a0                xQueueCreateSet
+                0x00000000800039ca                xQueueCreateSetStatic
+                0x0000000080003a04                xQueueAddToSet
+                0x0000000080003a84                xQueueRemoveFromSet
+                0x0000000080003b10                xQueueSelectFromSet
+                0x0000000080003b44                xQueueSelectFromSetFromISR
+ .text          0x0000000080003c7a      0x61c output/queue_test.o
+                0x0000000080004210                start_ipc_test
+ .text          0x0000000080004296       0xca output/syscalls.o
+                0x0000000080004296                _sbrk
+                0x00000000800042c2                _write
+                0x00000000800042e0                _close
+                0x00000000800042f4                _lseek
+                0x0000000080004310                _read
+                0x000000008000432c                _fstat
+                0x000000008000434c                _isatty
+ .text          0x0000000080004360     0x4918 output/tasks.o
+                0x0000000080004446                xTaskCreateStatic
+                0x000000008000455c                xTaskCreate
+                0x0000000080004900                vTaskDelete
+                0x0000000080004ab8                xTaskDelayUntil
+                0x0000000080004bd0                vTaskDelay
+                0x0000000080004c30                eTaskGetState
+                0x0000000080004da4                uxTaskPriorityGet
+                0x0000000080004e32                uxTaskPriorityGetFromISR
+                0x0000000080004e8a                uxTaskBasePriorityGet
+                0x0000000080004f18                uxTaskBasePriorityGetFromISR
+                0x0000000080004f70                vTaskPrioritySet
+                0x00000000800051f8                vTaskSuspend
+                0x0000000080005486                vTaskResume
+                0x0000000080005600                xTaskResumeFromISR
+                0x000000008000588c                vTaskStartScheduler
+                0x0000000080005906                vTaskEndScheduler
+                0x0000000080005968                vTaskSuspendAll
+                0x000000008000598a                xTaskResumeAll
+                0x0000000080005c64                xTaskGetTickCount
+                0x0000000080005c82                xTaskGetTickCountFromISR
+                0x0000000080005ca4                uxTaskGetNumberOfTasks
+                0x0000000080005cba                pcTaskGetName
+                0x0000000080005dde                xTaskGetHandle
+                0x0000000080005ec4                xTaskGetStaticBuffers
+                0x0000000080005fa0                uxTaskGetSystemState
+                0x0000000080006104                xTaskGetIdleTaskHandle
+                0x000000008000613a                xTaskGetIdleTaskHandleForCore
+                0x00000000800061a0                xTaskCatchUpTicks
+                0x0000000080006232                xTaskAbortDelay
+                0x00000000800063d6                xTaskIncrementTick
+                0x00000000800066d4                vTaskSwitchContext
+                0x0000000080006838                vTaskPlaceOnEventList
+                0x0000000080006888                vTaskPlaceOnUnorderedEventList
+                0x0000000080006962                vTaskPlaceOnEventListRestricted
+                0x0000000080006a1a                xTaskRemoveFromEventList
+                0x0000000080006c6e                vTaskRemoveFromUnorderedEventList
+                0x0000000080006e6a                vTaskSetTimeOutState
+                0x0000000080006eee                vTaskInternalSetTimeOutState
+                0x0000000080006f1c                xTaskCheckForTimeOut
+                0x0000000080007060                vTaskMissedYield
+                0x0000000080007078                uxTaskGetTaskNumber
+                0x00000000800070ac                vTaskSetTaskNumber
+                0x0000000080007232                vTaskGetInfo
+                0x00000000800074c8                uxTaskGetStackHighWaterMark
+                0x00000000800075ce                xTaskGetCurrentTaskHandle
+                0x00000000800075ec                xTaskGetCurrentTaskHandleForCore
+                0x0000000080007622                xTaskGetSchedulerState
+                0x000000008000765c                xTaskPriorityInherit
+                0x0000000080007818                xTaskPriorityDisinherit
+                0x00000000800079c4                vTaskPriorityDisinheritAfterTimeout
+                0x0000000080007bb0                uxTaskResetEventItemValue
+                0x0000000080007bea                pvTaskIncrementMutexHeldCount
+                0x0000000080007c1e                ulTaskGenericNotifyTake
+                0x0000000080007dbe                xTaskGenericNotifyWait
+                0x0000000080007fb6                xTaskGenericNotify
+                0x00000000800082c2                xTaskGenericNotifyFromISR
+                0x0000000080008624                vTaskGenericNotifyGiveFromISR
+                0x00000000800088aa                xTaskGenericNotifyStateClear
+                0x0000000080008980                ulTaskGenericNotifyValueClear
+                0x0000000080008be6                vTaskResetState
+ .text          0x0000000080008c78      0xefc output/timers.o
+                0x0000000080008c78                xTimerCreateTimerTask
+                0x0000000080008d14                xTimerCreate
+                0x0000000080008d72                xTimerCreateStatic
+                0x0000000080008ea6                xTimerGenericCommandFromTask
+                0x0000000080008f68                xTimerGenericCommandFromISR
+                0x0000000080009000                xTimerGetTimerDaemonTaskHandle
+                0x0000000080009034                xTimerGetPeriod
+                0x000000008000906e                vTimerSetReloadMode
+                0x0000000080009116                xTimerGetReloadMode
+                0x00000000800091a0                uxTimerGetReloadMode
+                0x00000000800091c6                xTimerGetExpiryTime
+                0x0000000080009208                xTimerGetStaticBuffer
+                0x0000000080009266                pcTimerGetName
+                0x00000000800098be                xTimerIsTimerActive
+                0x0000000080009948                pvTimerGetTimerID
+                0x00000000800099c4                vTimerSetTimerID
+                0x0000000080009a40                xTimerPendFunctionCallFromISR
+                0x0000000080009aa2                xTimerPendFunctionCall
+                0x0000000080009b1e                uxTimerGetTimerNumber
+                0x0000000080009b36                vTimerSetTimerNumber
+                0x0000000080009b56                vTimerResetState
+ *fill*         0x0000000080009b74        0xc 
+ .text          0x0000000080009b80       0x80 output/vector.o
+                0x0000000080009b80                freertos_vector_table
+ .text          0x0000000080009c00       0xde c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+                0x0000000080009c00                memcpy
+ .text          0x0000000080009cde       0xa8 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+                0x0000000080009cde                memset
+ .text          0x0000000080009d86       0x82 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+                0x0000000080009d86                _puts_r
+                0x0000000080009e00                puts
+ .text          0x0000000080009e08       0x62 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
+                0x0000000080009e08                strlen
+ .text          0x0000000080009e6a      0x29e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                0x0000000080009e6e                _cleanup_r
+                0x0000000080009fb0                __sfmoreglue
+                0x0000000080009ff6                __sfp
+                0x000000008000a0ce                _cleanup
+                0x000000008000a0dc                __sinit
+                0x000000008000a0e4                __sfp_lock_acquire
+                0x000000008000a0e6                __sfp_lock_release
+                0x000000008000a0e8                __sinit_lock_acquire
+                0x000000008000a0ea                __sinit_lock_release
+                0x000000008000a0ec                __fp_lock_all
+                0x000000008000a0fa                __fp_unlock_all
+ .text          0x000000008000a108      0x32c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+                0x000000008000a108                __sfvwrite_r
+ .text          0x000000008000a434       0xe0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+                0x000000008000a434                _fwalk
+                0x000000008000a4a0                _fwalk_reent
+ .text          0x000000008000a514      0x5be c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                0x000000008000a514                _malloc_r
+ .text          0x000000008000aad2       0x94 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memchr.o)
+                0x000000008000aad2                memchr
+ .text          0x000000008000ab66       0xd0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memmove-stub.o)
+                0x000000008000ab66                memmove
+ .text          0x000000008000ac36        0x4 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+                0x000000008000ac36                __malloc_lock
+                0x000000008000ac38                __malloc_unlock
+ .text          0x000000008000ac3a      0x3ea c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                0x000000008000ac3a                _realloc_r
+ .text          0x000000008000b024       0x3a c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+                0x000000008000b024                _sbrk_r
+ .text          0x000000008000b05e       0xd6 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+                0x000000008000b05e                __sread
+                0x000000008000b096                __seofread
+                0x000000008000b09a                __swrite
+                0x000000008000b0ec                __sseek
+                0x000000008000b12e                __sclose
+ .text          0x000000008000b134       0x40 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+                0x000000008000b134                _write_r
+ .text          0x000000008000b174       0xf6 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+                0x000000008000b174                __swsetup_r
+ .text          0x000000008000b26a       0x3a c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+                0x000000008000b26a                _close_r
+ .text          0x000000008000b2a4       0xf8 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+                0x000000008000b31c                _fclose_r
+                0x000000008000b35a                fclose
+ .text          0x000000008000b39c      0x218 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                0x000000008000b39c                __sflush_r
+                0x000000008000b530                _fflush_r
+                0x000000008000b566                fflush
+ .text          0x000000008000b5b4      0x312 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+                0x000000008000b5b4                _malloc_trim_r
+                0x000000008000b68a                _free_r
+ .text          0x000000008000b8c6       0x40 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+                0x000000008000b8c6                _lseek_r
+ .text          0x000000008000b906      0x18c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+                0x000000008000b906                __smakebuf_r
+                0x000000008000ba12                __swhatbuf_r
+ .text          0x000000008000ba92       0x40 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+                0x000000008000ba92                _read_r
+ .text          0x000000008000bad2       0x3e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+                0x000000008000bad2                _fstat_r
+ .text          0x000000008000bb10       0x3a c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+                0x000000008000bb10                _isatty_r
+ .text          0x000000008000bb4a       0x3c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                0x000000008000bb4a                __clzsi2
+ *(.gnu.linkonce.t.*)
+
+.fini           0x000000008000bb86        0x0
+ *(SORT_NONE(.fini))
+                0x000000008000bb86                _etext = .
+
+.rodata.align   0x000000008000bb88        0x0 load address 0x000000008000bb86
+                0x000000008000bb88                _rodata = .
+
+.rodata.start   0x000000008000bb86        0x0
+                0x000000008000bb86                _rodata_lma = LOADADDR (.rodata.start)
+
+.rodata         0x000000008000bb88      0x5bc
+ *(.rdata)
+ *(.rodata .rodata.*)
+ .rodata        0x000000008000bb88       0x3b output/heap_4.o
+ *fill*         0x000000008000bbc3        0x1 
+ .rodata        0x000000008000bbc4       0x8e output/main.o
+ *fill*         0x000000008000bc52        0x2 
+ .rodata        0x000000008000bc54       0x3c output/port.o
+ .rodata        0x000000008000bc90        0x7 output/printf-stdarg.o
+ *fill*         0x000000008000bc97        0x1 
+ .rodata        0x000000008000bc98       0x29 output/queue.o
+ *fill*         0x000000008000bcc1        0x3 
+ .rodata        0x000000008000bcc4      0x2bc output/queue_test.o
+ .rodata        0x000000008000bf80       0x5c output/tasks.o
+ .rodata        0x000000008000bfdc       0x61 output/timers.o
+ *fill*         0x000000008000c03d        0x3 
+ .rodata.str1.4
+                0x000000008000c040        0x2 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+ *fill*         0x000000008000c042        0x2 
+ .rodata        0x000000008000c044      0x100 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                0x000000008000c044                __clz_tab
+ *(.gnu.linkonce.r.*)
+                0x000000008000c144                . = ALIGN (0x4)
+                0x000000008000c144                _erodata = .
+
+.rela.dyn       0x000000008000c144        0x0
+ .rela.text     0x000000008000c144        0x0 output/heap_4.o
+ .rela.text.freertos_risc_v_exception_handler
+                0x000000008000c144        0x0 output/heap_4.o
+ .rela.text.freertos_risc_v_interrupt_handler
+                0x000000008000c144        0x0 output/heap_4.o
+ .rela.init     0x000000008000c144        0x0 output/heap_4.o
+ .rela.sdata    0x000000008000c144        0x0 output/heap_4.o
+
+.tdata          0x000000008000c144        0x0
+ *(.tdata .tdata.*)
+
+.tbss           0x000000008000c144        0x0
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+                [!provide]                        PROVIDE (__tbss_end = .)
+                [!provide]                        PROVIDE (__tls_end = .)
+                [!provide]                        PROVIDE (__tdata_source = LOADADDR (.tdata))
+                [!provide]                        PROVIDE (__tdata_source_end = (LOADADDR (.tdata) + SIZEOF (.tdata)))
+                [!provide]                        PROVIDE (__tdata_size = SIZEOF (.tdata))
+                [!provide]                        PROVIDE (__tbss_offset = (ADDR (.tbss) - ADDR (.tdata)))
+                [!provide]                        PROVIDE (__tbss_start = ADDR (.tbss))
+                [!provide]                        PROVIDE (__tbss_size = SIZEOF (.tbss))
+                [!provide]                        PROVIDE (__tls_size = (__tls_end - ADDR (.tdata)))
+                [!provide]                        PROVIDE (__tls_align = MAX (ALIGNOF (.tdata), ALIGNOF (.tbss)))
+
+.data.align     0x0000000080080000        0x0 load address 0x000000008000c144
+                0x0000000080080000                . = ALIGN (0x4)
+                0x0000000080080000                _data = .
+
+.data.start     0x0000000080080000        0x0 load address 0x000000008000c144
+                0x000000008000c144                _data_lma = LOADADDR (.data.start)
+
+.data           0x0000000080080000      0x868 load address 0x000000008000c144
+ *(.data .data.*)
+ .data          0x0000000080080000      0x428 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+ .data          0x0000000080080428      0x408 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                0x0000000080080428                __malloc_av_
+ *(.gnu.linkonce.d.*)
+                0x0000000080080830                . = ALIGN (0x8)
+                0x0000000080081030                PROVIDE (__global_pointer$ = (. + 0x800))
+ *(.sdata .sdata.*)
+ .sdata         0x0000000080080830        0xc output/port.o
+                0x0000000080080830                pullNextTime
+                0x0000000080080834                xCriticalNesting
+                0x0000000080080838                pxCriticalNesting
+ .sdata         0x000000008008083c        0x4 output/printf-stdarg.o
+ .sdata         0x0000000080080840        0x4 output/syscalls.o
+ .sdata         0x0000000080080844        0x4 output/tasks.o
+ .sdata         0x0000000080080848        0x4 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+                0x0000000080080848                _impure_ptr
+ .sdata         0x000000008008084c        0x8 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                0x000000008008084c                __malloc_sbrk_base
+                0x0000000080080850                __malloc_trim_threshold
+ *(.sdata2 .sdata2.*)
+ *(.gnu.linkonce.s.*)
+                0x0000000080080858                . = ALIGN (0x8)
+ *fill*         0x0000000080080854        0x4 
+ *(.srodata.cst16)
+ *(.srodata.cst8)
+ *(.srodata.cst4)
+ *(.srodata.cst2)
+ *(.srodata .srodata.*)
+ .srodata       0x0000000080080858        0xc output/port.o
+                0x0000000080080858                xISRStackTop
+                0x000000008008085c                uxTimerIncrementsForOneTick
+                0x0000000080080860                ullMachineTimerCompareRegisterBase
+ .srodata       0x0000000080080864        0x4 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+                0x0000000080080864                _global_impure_ptr
+                0x0000000080080868                . = ALIGN (0x4)
+                0x0000000080080868                _edata = .
+
+.bss.align      0x0000000080080868        0x0 load address 0x000000008000c9ac
+                0x0000000080080868                . = ALIGN (0x4)
+                0x0000000080080868                _bss = .
+
+.bss.start      0x0000000080080868        0x0 load address 0x000000008000c9ac
+                0x000000008000c9ac                _bss_lma = LOADADDR (.bss.start)
+
+.bss            0x0000000080080870    0x16670 load address 0x000000008000c9ac
+ *(.sbss*)
+ .sbss          0x0000000080080870       0x10 output/port.o
+                0x0000000080080870                ullNextTime
+                0x0000000080080878                pullMachineTimerCompareRegister
+                0x000000008008087c                xTaskReturnAddress
+ .sbss          0x0000000080080880        0x4 output/tasks.o
+                0x0000000080080880                pxCurrentTCB
+ .sbss          0x0000000080080884        0xc c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                0x0000000080080884                __malloc_max_total_mem
+                0x0000000080080888                __malloc_max_sbrked_mem
+                0x000000008008088c                __malloc_top_pad
+ .sbss          0x0000000080080890        0x4 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+                0x0000000080080890                errno
+ *(.gnu.linkonce.sb.*)
+ *(.bss .bss.*)
+ .bss           0x0000000080080894    0x1401c output/heap_4.o
+ .bss           0x00000000800948b0      0x668 output/main.o
+ *fill*         0x0000000080094f18        0x8 
+ .bss           0x0000000080094f20      0x4b0 output/port.o
+ .bss           0x00000000800953d0       0x50 output/queue.o
+                0x00000000800953d0                xQueueRegistry
+ .bss           0x0000000080095420     0x1778 output/queue_test.o
+ .bss           0x0000000080096b98      0x150 output/tasks.o
+ .bss           0x0000000080096ce8      0x1d0 output/timers.o
+ .bss           0x0000000080096eb8       0x28 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                0x0000000080096eb8                __malloc_current_mallinfo
+ *(.gnu.linkonce.b.*)
+ *(COMMON)
+                0x0000000080096ee0                . = ALIGN (0x4)
+                0x0000000080096ee0                _ebss = .
+                0x0000000080096ee0                . = ALIGN (0x8)
+                0x0000000080096ee0                _end = .
+
+.stack          0x0000000080096ee0     0x2000
+                0x0000000080096ee0                . = ALIGN (0x10)
+                0x0000000080098ee0                . = (. + __stack_size)
+ *fill*         0x0000000080096ee0     0x2000 
+                0x0000000080098ee0                _stack_top = .
+OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
+
+.debug_info     0x0000000000000000     0x715b
+ .debug_info    0x0000000000000000      0x4ba output/heap_4.o
+ .debug_info    0x00000000000004ba      0x2c8 output/list.o
+ .debug_info    0x0000000000000782      0x4f0 output/main.o
+ .debug_info    0x0000000000000c72      0x158 output/ns16550.o
+ .debug_info    0x0000000000000dca      0x29e output/port.o
+ .debug_info    0x0000000000001068       0x22 output/portASM.o
+ .debug_info    0x000000000000108a      0x4b9 output/printf-stdarg.o
+ .debug_info    0x0000000000001543     0x1899 output/queue.o
+ .debug_info    0x0000000000002ddc      0x3a1 output/queue_test.o
+ .debug_info    0x000000000000317d       0x26 output/start.o
+ .debug_info    0x00000000000031a3      0x444 output/syscalls.o
+ .debug_info    0x00000000000035e7     0x268a output/tasks.o
+ .debug_info    0x0000000000005c71     0x12a9 output/timers.o
+ .debug_info    0x0000000000006f1a       0x26 output/vector.o
+ .debug_info    0x0000000000006f40      0x144 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_info    0x0000000000007084       0xd7 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+.debug_abbrev   0x0000000000000000     0x12e6
+ .debug_abbrev  0x0000000000000000      0x1bd output/heap_4.o
+ .debug_abbrev  0x00000000000001bd       0xe8 output/list.o
+ .debug_abbrev  0x00000000000002a5      0x1a2 output/main.o
+ .debug_abbrev  0x0000000000000447       0xe7 output/ns16550.o
+ .debug_abbrev  0x000000000000052e      0x123 output/port.o
+ .debug_abbrev  0x0000000000000651       0x12 output/portASM.o
+ .debug_abbrev  0x0000000000000663      0x168 output/printf-stdarg.o
+ .debug_abbrev  0x00000000000007cb      0x277 output/queue.o
+ .debug_abbrev  0x0000000000000a42       0xf5 output/queue_test.o
+ .debug_abbrev  0x0000000000000b37       0x14 output/start.o
+ .debug_abbrev  0x0000000000000b4b      0x102 output/syscalls.o
+ .debug_abbrev  0x0000000000000c4d      0x2a6 output/tasks.o
+ .debug_abbrev  0x0000000000000ef3      0x2a5 output/timers.o
+ .debug_abbrev  0x0000000000001198       0x14 output/vector.o
+ .debug_abbrev  0x00000000000011ac       0xca c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000000000001276       0x70 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+.debug_aranges  0x0000000000000000      0x218
+ .debug_aranges
+                0x0000000000000000       0x20 output/heap_4.o
+ .debug_aranges
+                0x0000000000000020       0x20 output/list.o
+ .debug_aranges
+                0x0000000000000040       0x20 output/main.o
+ .debug_aranges
+                0x0000000000000060       0x20 output/ns16550.o
+ .debug_aranges
+                0x0000000000000080       0x20 output/port.o
+ .debug_aranges
+                0x00000000000000a0       0x40 output/portASM.o
+ .debug_aranges
+                0x00000000000000e0       0x20 output/printf-stdarg.o
+ .debug_aranges
+                0x0000000000000100       0x20 output/queue.o
+ .debug_aranges
+                0x0000000000000120       0x20 output/queue_test.o
+ .debug_aranges
+                0x0000000000000140       0x20 output/start.o
+ .debug_aranges
+                0x0000000000000160       0x20 output/syscalls.o
+ .debug_aranges
+                0x0000000000000180       0x20 output/tasks.o
+ .debug_aranges
+                0x00000000000001a0       0x20 output/timers.o
+ .debug_aranges
+                0x00000000000001c0       0x20 output/vector.o
+ .debug_aranges
+                0x00000000000001e0       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x0000000000000200       0x18 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+.debug_line     0x0000000000000000     0x8c10
+ .debug_line    0x0000000000000000      0x9ea output/heap_4.o
+ .debug_line    0x00000000000009ea      0x361 output/list.o
+ .debug_line    0x0000000000000d4b      0x380 output/main.o
+ .debug_line    0x00000000000010cb      0x156 output/ns16550.o
+ .debug_line    0x0000000000001221      0x26f output/port.o
+ .debug_line    0x0000000000001490      0x342 output/portASM.o
+ .debug_line    0x00000000000017d2      0x80d output/printf-stdarg.o
+ .debug_line    0x0000000000001fdf     0x21f3 output/queue.o
+ .debug_line    0x00000000000041d2      0x5c2 output/queue_test.o
+ .debug_line    0x0000000000004794       0xda output/start.o
+ .debug_line    0x000000000000486e      0x1ab output/syscalls.o
+ .debug_line    0x0000000000004a19     0x320e output/tasks.o
+ .debug_line    0x0000000000007c27      0xde8 output/timers.o
+ .debug_line    0x0000000000008a0f       0x99 output/vector.o
+ .debug_line    0x0000000000008aa8       0xfa c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_line    0x0000000000008ba2       0x6e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+.debug_str      0x0000000000000000     0x2e76
+ .debug_str     0x0000000000000000      0x44e output/heap_4.o
+                                        0x4cd (size before relaxing)
+ .debug_str     0x000000000000044e      0x130 output/list.o
+                                        0x2a3 (size before relaxing)
+ .debug_str     0x000000000000057e      0x308 output/main.o
+                                        0x49c (size before relaxing)
+ .debug_str     0x0000000000000886       0x35 output/ns16550.o
+                                        0x174 (size before relaxing)
+ .debug_str     0x00000000000008bb      0x18f output/port.o
+                                        0x32e (size before relaxing)
+ .debug_str     0x0000000000000a4a       0x4b output/portASM.o
+                                         0x8e (size before relaxing)
+ .debug_str     0x0000000000000a95       0xa8 output/printf-stdarg.o
+                                        0x201 (size before relaxing)
+ .debug_str     0x0000000000000b3d      0x943 output/queue.o
+                                        0xc4e (size before relaxing)
+ .debug_str     0x0000000000001480      0x18e output/queue_test.o
+                                        0x360 (size before relaxing)
+ .debug_str     0x000000000000160e        0x8 output/start.o
+                                         0x57 (size before relaxing)
+ .debug_str     0x0000000000001616      0x14a output/syscalls.o
+                                        0x2e4 (size before relaxing)
+ .debug_str     0x0000000000001760      0xf3b output/tasks.o
+                                       0x13b7 (size before relaxing)
+ .debug_str     0x000000000000269b      0x627 output/timers.o
+                                        0xafd (size before relaxing)
+ .debug_str     0x0000000000002cc2        0xf output/vector.o
+                                         0x5e (size before relaxing)
+ .debug_str     0x0000000000002cd1      0x1a5 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                                        0x24e (size before relaxing)
+ .debug_str     0x0000000000002e76      0x231 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+.comment        0x0000000000000000       0x12
+ .comment       0x0000000000000000       0x12 output/heap_4.o
+                                         0x13 (size before relaxing)
+ .comment       0x0000000000000012       0x13 output/list.o
+ .comment       0x0000000000000012       0x13 output/main.o
+ .comment       0x0000000000000012       0x13 output/ns16550.o
+ .comment       0x0000000000000012       0x13 output/port.o
+ .comment       0x0000000000000012       0x13 output/printf-stdarg.o
+ .comment       0x0000000000000012       0x13 output/queue.o
+ .comment       0x0000000000000012       0x13 output/queue_test.o
+ .comment       0x0000000000000012       0x13 output/syscalls.o
+ .comment       0x0000000000000012       0x13 output/tasks.o
+ .comment       0x0000000000000012       0x13 output/timers.o
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memchr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memmove-stub.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+.riscv.attributes
+                0x0000000000000000       0x2b
+ .riscv.attributes
+                0x0000000000000000       0x2b output/heap_4.o
+ .riscv.attributes
+                0x000000000000002b       0x2b output/list.o
+ .riscv.attributes
+                0x0000000000000056       0x2b output/main.o
+ .riscv.attributes
+                0x0000000000000081       0x2b output/ns16550.o
+ .riscv.attributes
+                0x00000000000000ac       0x2b output/port.o
+ .riscv.attributes
+                0x00000000000000d7       0x29 output/portASM.o
+ .riscv.attributes
+                0x0000000000000100       0x2b output/printf-stdarg.o
+ .riscv.attributes
+                0x000000000000012b       0x2b output/queue.o
+ .riscv.attributes
+                0x0000000000000156       0x2b output/queue_test.o
+ .riscv.attributes
+                0x0000000000000181       0x29 output/start.o
+ .riscv.attributes
+                0x00000000000001aa       0x2b output/syscalls.o
+ .riscv.attributes
+                0x00000000000001d5       0x2b output/tasks.o
+ .riscv.attributes
+                0x0000000000000200       0x2b output/timers.o
+ .riscv.attributes
+                0x000000000000022b       0x29 output/vector.o
+ .riscv.attributes
+                0x0000000000000254       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+ .riscv.attributes
+                0x000000000000027f       0x29 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+ .riscv.attributes
+                0x00000000000002a8       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+ .riscv.attributes
+                0x00000000000002d3       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
+ .riscv.attributes
+                0x00000000000002fe       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+ .riscv.attributes
+                0x0000000000000329       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+ .riscv.attributes
+                0x0000000000000354       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+ .riscv.attributes
+                0x000000000000037f       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+ .riscv.attributes
+                0x00000000000003aa       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+ .riscv.attributes
+                0x00000000000003d5       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memchr.o)
+ .riscv.attributes
+                0x0000000000000400       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memmove-stub.o)
+ .riscv.attributes
+                0x000000000000042b       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+ .riscv.attributes
+                0x0000000000000456       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+ .riscv.attributes
+                0x0000000000000481       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+ .riscv.attributes
+                0x00000000000004ac       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+ .riscv.attributes
+                0x00000000000004d7       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+ .riscv.attributes
+                0x0000000000000502       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+ .riscv.attributes
+                0x000000000000052d       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+ .riscv.attributes
+                0x0000000000000558       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+ .riscv.attributes
+                0x0000000000000583       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+ .riscv.attributes
+                0x00000000000005ae       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+ .riscv.attributes
+                0x00000000000005d9       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+ .riscv.attributes
+                0x0000000000000604       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+ .riscv.attributes
+                0x000000000000062f       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+ .riscv.attributes
+                0x000000000000065a       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+ .riscv.attributes
+                0x0000000000000685       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+ .riscv.attributes
+                0x00000000000006b0       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+ .riscv.attributes
+                0x00000000000006db       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .riscv.attributes
+                0x0000000000000706       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+
+.debug_frame    0x0000000000000000     0x2090
+ .debug_frame   0x0000000000000000      0x1b0 output/heap_4.o
+ .debug_frame   0x00000000000001b0       0xc4 output/list.o
+ .debug_frame   0x0000000000000274      0x18c output/main.o
+ .debug_frame   0x0000000000000400       0x80 output/ns16550.o
+ .debug_frame   0x0000000000000480       0x78 output/port.o
+ .debug_frame   0x00000000000004f8      0x178 output/printf-stdarg.o
+ .debug_frame   0x0000000000000670      0x7c0 output/queue.o
+ .debug_frame   0x0000000000000e30       0xc8 output/queue_test.o
+ .debug_frame   0x0000000000000ef8      0x10c output/syscalls.o
+ .debug_frame   0x0000000000001004      0xb78 output/tasks.o
+ .debug_frame   0x0000000000001b7c      0x4f4 output/timers.o
+ .debug_frame   0x0000000000002070       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+
+.debug_ranges   0x0000000000000000       0x78
+ .debug_ranges  0x0000000000000000       0x38 output/portASM.o
+ .debug_ranges  0x0000000000000038       0x20 output/tasks.o
+ .debug_ranges  0x0000000000000058       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+
+.debug_loc      0x0000000000000000       0x6b
+ .debug_loc     0x0000000000000000       0x6b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+
+Cross Reference Table
+
+Symbol                                            File
+__clz_tab                                         c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+__clzsi2                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                                                  output/tasks.o
+__fp_lock_all                                     c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__fp_unlock_all                                   c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__global_pointer$                                 output/start.o
+__malloc_av_                                      c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+__malloc_current_mallinfo                         c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+__malloc_lock                                     c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+__malloc_max_sbrked_mem                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+__malloc_max_total_mem                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+__malloc_sbrk_base                                c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+__malloc_top_pad                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+__malloc_trim_threshold                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+__malloc_unlock                                   c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mlock.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+__sclose                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__seofread                                        c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+__sflush_r                                        c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+__sfmoreglue                                      c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__sfp                                             c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__sfp_lock_acquire                                c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+__sfp_lock_release                                c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+__sfvwrite_r                                      c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+__sinit                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+__sinit_lock_acquire                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__sinit_lock_release                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__smakebuf_r                                      c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+__sread                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__sseek                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__swhatbuf_r                                      c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+__swrite                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+__swsetup_r                                       c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+__write                                           output/main.o
+_bss                                              output/start.o
+_cleanup                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+_cleanup_r                                        c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+_close                                            output/syscalls.o
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+_close_r                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+_data                                             output/start.o
+_data_lma                                         output/start.o
+_ebss                                             output/start.o
+_edata                                            output/start.o
+_end                                              output/syscalls.o
+_fclose_r                                         c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+_fflush_r                                         c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+_free_r                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+_fstat                                            output/syscalls.o
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+_fstat_r                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+_fwalk                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+_fwalk_reent                                      c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fwalk.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+_global_impure_ptr                                c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+_impure_ptr                                       c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-impure.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-wsetup.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+_isatty                                           output/syscalls.o
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+_isatty_r                                         c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+_lseek                                            output/syscalls.o
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+_lseek_r                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+_malloc_r                                         c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-makebuf.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+_malloc_trim_r                                    c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+_puts_r                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+_read                                             output/syscalls.o
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+_read_r                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+_realloc_r                                        c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+_reclaim_reent                                    c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+_sbrk                                             output/syscalls.o
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+_sbrk_r                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-freer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-mallocr.o)
+_stack_top                                        output/start.o
+_start                                            output/start.o
+_write                                            output/syscalls.o
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+_write_r                                          c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-stdio.o)
+cleanup_glue                                      c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+eTaskGetState                                     output/tasks.o
+                                                  output/recmutex.o
+                                                  output/dynamic.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StaticAllocation.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/EventGroupsDemo.o
+errno                                             c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reent.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-isattyr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fstatr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-readr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-lseekr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-closer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-writer.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-sbrkr.o)
+fclose                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fclose.o)
+fflush                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fflush.o)
+freertos_risc_v_application_exception_handler     output/portASM.o
+freertos_risc_v_application_interrupt_handler     output/portASM.o
+freertos_risc_v_exception_handler                 output/portASM.o
+                                                  output/vector.o
+freertos_risc_v_interrupt_handler                 output/portASM.o
+                                                  output/vector.o
+freertos_risc_v_mtimer_interrupt_handler          output/portASM.o
+                                                  output/vector.o
+freertos_risc_v_trap_handler                      output/portASM.o
+freertos_vector_table                             output/vector.o
+                                                  output/main.o
+main                                              output/main.o
+                                                  output/start.o
+main_blinky                                       output/main_blinky.o
+main_full                                         output/main_full.o
+malloc                                            output/main.o
+memchr                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memchr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+memcmp                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcmp.o)
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+memcpy                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+                                                  output/stream_buffer.o
+                                                  output/queue.o
+memmove                                           c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memmove-stub.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-reallocr.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-fvwrite.o)
+memset                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-findfp.o)
+                                                  output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/port.o
+                                                  output/heap_4.o
+                                                  output/TimerDemo.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+pcQueueGetName                                    output/queue.o
+pcTaskGetName                                     output/tasks.o
+pcTimerGetName                                    output/timers.o
+                                                  output/TimerDemo.o
+printf                                            output/printf-stdarg.o
+                                                  output/test_memory_allocation.o
+                                                  output/test_ipc_performance.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/queue_test.o
+                                                  output/main_full.o
+                                                  output/main.o
+pulRegTest1LoopCounter                            output/main_full.o
+pulRegTest2LoopCounter                            output/main_full.o
+pullMachineTimerCompareRegister                   output/port.o
+                                                  output/portASM.o
+pullNextTime                                      output/port.o
+                                                  output/portASM.o
+puts                                              c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+                                                  output/test_memory_allocation.o
+                                                  output/test_ipc_performance.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/queue_test.o
+                                                  output/main_full.o
+                                                  output/main_blinky.o
+                                                  output/main.o
+pvPortCalloc                                      output/heap_4.o
+pvPortMalloc                                      output/heap_4.o
+                                                  output/timers.o
+                                                  output/test_memory_allocation.o
+                                                  output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/semtest.o
+                                                  output/queue.o
+                                                  output/event_groups.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+pvTaskIncrementMutexHeldCount                     output/tasks.o
+                                                  output/queue.o
+pvTimerGetTimerID                                 output/timers.o
+                                                  output/TimerDemo.o
+                                                  output/StaticAllocation.o
+pxCriticalNesting                                 output/port.o
+                                                  output/portASM.o
+pxCurrentTCB                                      output/tasks.o
+                                                  output/portASM.o
+pxPortInitialiseStack                             output/portASM.o
+                                                  output/tasks.o
+snprintf                                          output/printf-stdarg.o
+sprintf                                           output/printf-stdarg.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+start_ipc_test                                    output/queue_test.o
+                                                  output/main.o
+start_memory_allocation_test                      output/test_memory_allocation.o
+start_performance_test                            output/test_ipc_performance.o
+start_synchronization_test                        output/semaphore_mutex_test.o
+strcmp                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcmp.o)
+                                                  output/TimerDemo.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+strlen                                            c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
+                                                  c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-puts.o)
+                                                  output/tasks.o
+                                                  output/riscv-virt.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+ucQueueGetQueueType                               output/queue.o
+ucStreamBufferGetStreamBufferType                 output/stream_buffer.o
+ulRegTest1LoopCounter                             output/main_full.o
+                                                  output/RegTest.o
+ulRegTest2LoopCounter                             output/main_full.o
+                                                  output/RegTest.o
+ulTaskGenericNotifyTake                           output/tasks.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/AbortDelay.o
+ulTaskGenericNotifyValueClear                     output/tasks.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+ullMachineTimerCompareRegisterBase                output/port.o
+ullNextTime                                       output/port.o
+uxEventGroupGetNumber                             output/event_groups.o
+uxListRemove                                      output/list.o
+                                                  output/timers.o
+                                                  output/tasks.o
+uxQueueGetQueueItemSize                           output/queue.o
+uxQueueGetQueueLength                             output/queue.o
+uxQueueGetQueueNumber                             output/queue.o
+uxQueueMessagesWaiting                            output/queue.o
+                                                  output/countsem.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+                                                  output/QPeek.o
+                                                  output/PollQ.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+uxQueueMessagesWaitingFromISR                     output/queue.o
+uxQueueSpacesAvailable                            output/queue.o
+                                                  output/IntSemTest.o
+uxStreamBufferGetStreamBufferNotificationIndex    output/stream_buffer.o
+uxStreamBufferGetStreamBufferNumber               output/stream_buffer.o
+uxTaskBasePriorityGet                             output/tasks.o
+uxTaskBasePriorityGetFromISR                      output/tasks.o
+uxTaskGetNumberOfTasks                            output/tasks.o
+                                                  output/queue.o
+                                                  output/death.o
+uxTaskGetStackHighWaterMark                       output/tasks.o
+uxTaskGetSystemState                              output/tasks.o
+uxTaskGetTaskNumber                               output/tasks.o
+uxTaskPriorityGet                                 output/tasks.o
+                                                  output/recmutex.o
+                                                  output/dynamic.o
+                                                  output/death.o
+                                                  output/TimerDemo.o
+                                                  output/StreamBufferDemo.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSet.o
+                                                  output/MessageBufferDemo.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+uxTaskPriorityGetFromISR                          output/tasks.o
+uxTaskResetEventItemValue                         output/tasks.o
+                                                  output/event_groups.o
+uxTimerGetReloadMode                              output/timers.o
+                                                  output/TimerDemo.o
+uxTimerGetTimerNumber                             output/timers.o
+uxTimerIncrementsForOneTick                       output/port.o
+                                                  output/portASM.o
+vApplicationDaemonTaskStartupHook                 output/main.o
+vApplicationGetIdleTaskMemory                     output/main.o
+                                                  output/tasks.o
+vApplicationGetTimerTaskMemory                    output/main.o
+                                                  output/timers.o
+vApplicationIdleHook                              output/main.o
+vApplicationMallocFailedHook                      output/main.o
+                                                  output/heap_4.o
+vApplicationStackOverflowHook                     output/main.o
+                                                  output/tasks.o
+vApplicationTickHook                              output/main.o
+                                                  output/tasks.o
+vAssertCalled                                     output/main.o
+                                                  output/timers.o
+                                                  output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/recmutex.o
+                                                  output/queue.o
+                                                  output/port.o
+                                                  output/heap_4.o
+                                                  output/event_groups.o
+                                                  output/dynamic.o
+                                                  output/countsem.o
+                                                  output/TimerDemo.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/EventGroupsDemo.o
+                                                  output/AbortDelay.o
+vBasicStreamBufferSendFromISR                     output/StreamBufferInterrupt.o
+                                                  output/main_full.o
+vCreateAbortDelayTasks                            output/AbortDelay.o
+                                                  output/main_full.o
+vCreateBlockTimeTasks                             output/blocktim.o
+                                                  output/main_full.o
+vCreateSuicidalTasks                              output/death.o
+                                                  output/main_full.o
+vEventGroupClearBitsCallback                      output/event_groups.o
+vEventGroupDelete                                 output/event_groups.o
+                                                  output/StaticAllocation.o
+                                                  output/EventGroupsDemo.o
+                                                  output/AbortDelay.o
+vEventGroupSetBitsCallback                        output/event_groups.o
+vEventGroupSetNumber                              output/event_groups.o
+vFullDemoTickHookFunction                         output/main_full.o
+vGenerateCoreBInterrupt                           output/MessageBufferAMP.o
+vInterruptSemaphorePeriodicTest                   output/IntSemTest.o
+                                                  output/main_full.o
+vListInitialise                                   output/list.o
+                                                  output/timers.o
+                                                  output/tasks.o
+                                                  output/queue.o
+                                                  output/event_groups.o
+vListInitialiseItem                               output/list.o
+                                                  output/timers.o
+                                                  output/tasks.o
+vListInsert                                       output/list.o
+                                                  output/timers.o
+                                                  output/tasks.o
+vListInsertEnd                                    output/list.o
+                                                  output/tasks.o
+vOutNS16550                                       output/ns16550.o
+                                                  output/riscv-virt.o
+                                                  output/printf-stdarg.o
+vPeriodicEventGroupsProcessing                    output/EventGroupsDemo.o
+                                                  output/main_full.o
+vPeriodicStreamBufferProcessing                   output/StreamBufferDemo.o
+                                                  output/main_full.o
+vPortEndScheduler                                 output/port.o
+                                                  output/tasks.o
+vPortFree                                         output/heap_4.o
+                                                  output/timers.o
+                                                  output/test_memory_allocation.o
+                                                  output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/queue.o
+                                                  output/event_groups.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+vPortGetHeapStats                                 output/heap_4.o
+vPortHeapResetState                               output/heap_4.o
+vPortInitialiseBlocks                             output/heap_4.o
+vPortSetupTimerInterrupt                          output/port.o
+vQueueAddToRegistry                               output/queue.o
+                                                  output/timers.o
+                                                  output/semtest.o
+                                                  output/recmutex.o
+                                                  output/dynamic.o
+                                                  output/countsem.o
+                                                  output/blocktim.o
+                                                  output/QPeek.o
+                                                  output/PollQ.o
+                                                  output/GenQTest.o
+vQueueDelete                                      output/queue.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSet.o
+                                                  output/AbortDelay.o
+vQueueOverwritePeriodicISRDemo                    output/QueueOverwrite.o
+                                                  output/main_full.o
+vQueueSetAccessQueueSetFromISR                    output/QueueSet.o
+                                                  output/main_full.o
+vQueueSetPollingInterruptAccess                   output/QueueSetPolling.o
+                                                  output/main_full.o
+vQueueSetQueueNumber                              output/queue.o
+vQueueUnregisterQueue                             output/queue.o
+vQueueWaitForMessageRestricted                    output/queue.o
+                                                  output/timers.o
+vRegTest1Implementation                           output/RegTest.o
+                                                  output/main_full.o
+vRegTest2Implementation                           output/RegTest.o
+                                                  output/main_full.o
+vSendString                                       output/riscv-virt.o
+vStartCountingSemaphoreTasks                      output/countsem.o
+                                                  output/main_full.o
+vStartDynamicPriorityTasks                        output/dynamic.o
+                                                  output/main_full.o
+vStartEventGroupTasks                             output/EventGroupsDemo.o
+                                                  output/main_full.o
+vStartGenericQueueTasks                           output/GenQTest.o
+                                                  output/main_full.o
+vStartInterruptSemaphoreTasks                     output/IntSemTest.o
+                                                  output/main_full.o
+vStartMessageBufferAMPTasks                       output/MessageBufferAMP.o
+                                                  output/main_full.o
+vStartMessageBufferTasks                          output/MessageBufferDemo.o
+                                                  output/main_full.o
+vStartPolledQueueTasks                            output/PollQ.o
+                                                  output/main_full.o
+vStartQueueOverwriteTask                          output/QueueOverwrite.o
+                                                  output/main_full.o
+vStartQueuePeekTasks                              output/QPeek.o
+                                                  output/main_full.o
+vStartQueueSetPollingTask                         output/QueueSetPolling.o
+                                                  output/main_full.o
+vStartQueueSetTasks                               output/QueueSet.o
+                                                  output/main_full.o
+vStartRecursiveMutexTasks                         output/recmutex.o
+                                                  output/main_full.o
+vStartSemaphoreTasks                              output/semtest.o
+                                                  output/main_full.o
+vStartStaticallyAllocatedTasks                    output/StaticAllocation.o
+                                                  output/main_full.o
+vStartStreamBufferInterruptDemo                   output/StreamBufferInterrupt.o
+                                                  output/main_full.o
+vStartStreamBufferTasks                           output/StreamBufferDemo.o
+                                                  output/main_full.o
+vStartTaskNotifyArrayTask                         output/TaskNotifyArray.o
+                                                  output/main_full.o
+vStartTaskNotifyTask                              output/TaskNotify.o
+                                                  output/main_full.o
+vStartTimerDemoTask                               output/TimerDemo.o
+                                                  output/main_full.o
+vStreamBufferDelete                               output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/AbortDelay.o
+vStreamBufferSetStreamBufferNotificationIndex     output/stream_buffer.o
+vStreamBufferSetStreamBufferNumber                output/stream_buffer.o
+vTaskDelay                                        output/tasks.o
+                                                  output/test_memory_allocation.o
+                                                  output/test_ipc_performance.o
+                                                  output/semtest.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/recmutex.o
+                                                  output/queue_test.o
+                                                  output/dynamic.o
+                                                  output/death.o
+                                                  output/blocktim.o
+                                                  output/TimerDemo.o
+                                                  output/StreamBufferDemo.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSet.o
+                                                  output/QPeek.o
+                                                  output/PollQ.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/AbortDelay.o
+vTaskDelete                                       output/tasks.o
+                                                  output/test_memory_allocation.o
+                                                  output/test_ipc_performance.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/queue_test.o
+                                                  output/main_full.o
+                                                  output/death.o
+                                                  output/StaticAllocation.o
+vTaskEndScheduler                                 output/tasks.o
+vTaskGenericNotifyGiveFromISR                     output/tasks.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+vTaskGetInfo                                      output/tasks.o
+vTaskInternalSetTimeOutState                      output/tasks.o
+                                                  output/queue.o
+vTaskMissedYield                                  output/tasks.o
+                                                  output/queue.o
+vTaskPlaceOnEventList                             output/tasks.o
+                                                  output/queue.o
+vTaskPlaceOnEventListRestricted                   output/tasks.o
+                                                  output/queue.o
+vTaskPlaceOnUnorderedEventList                    output/tasks.o
+                                                  output/event_groups.o
+vTaskPriorityDisinheritAfterTimeout               output/tasks.o
+                                                  output/queue.o
+vTaskPrioritySet                                  output/tasks.o
+                                                  output/dynamic.o
+                                                  output/blocktim.o
+                                                  output/TimerDemo.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StreamBufferDemo.o
+                                                  output/QueueSet.o
+                                                  output/MessageBufferDemo.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/EventGroupsDemo.o
+                                                  output/AbortDelay.o
+vTaskRemoveFromUnorderedEventList                 output/tasks.o
+                                                  output/event_groups.o
+vTaskResetState                                   output/tasks.o
+vTaskResume                                       output/tasks.o
+                                                  output/recmutex.o
+                                                  output/dynamic.o
+                                                  output/blocktim.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/QueueSet.o
+                                                  output/QPeek.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/EventGroupsDemo.o
+vTaskSetTaskNumber                                output/tasks.o
+vTaskSetTimeOutState                              output/tasks.o
+                                                  output/stream_buffer.o
+vTaskStartScheduler                               output/tasks.o
+                                                  output/test_memory_allocation.o
+                                                  output/test_ipc_performance.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/queue_test.o
+                                                  output/main_full.o
+                                                  output/main_blinky.o
+vTaskSuspend                                      output/tasks.o
+                                                  output/test_ipc_performance.o
+                                                  output/recmutex.o
+                                                  output/queue_test.o
+                                                  output/dynamic.o
+                                                  output/blocktim.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSet.o
+                                                  output/QPeek.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/EventGroupsDemo.o
+vTaskSuspendAll                                   output/tasks.o
+                                                  output/timers.o
+                                                  output/stream_buffer.o
+                                                  output/queue.o
+                                                  output/heap_4.o
+                                                  output/event_groups.o
+                                                  output/dynamic.o
+vTaskSwitchContext                                output/tasks.o
+                                                  output/portASM.o
+                                                  output/MessageBufferAMP.o
+vTimerDemoIncludeBacklogTests                     output/TimerDemo.o
+vTimerPeriodicISRTests                            output/TimerDemo.o
+                                                  output/main_full.o
+vTimerResetState                                  output/timers.o
+vTimerSetReloadMode                               output/timers.o
+                                                  output/TimerDemo.o
+vTimerSetTimerID                                  output/timers.o
+                                                  output/TimerDemo.o
+vTimerSetTimerNumber                              output/timers.o
+write                                             output/printf-stdarg.o
+xAllowableMargin                                  output/AbortDelay.o
+xAreAbortDelayTestTasksStillRunning               output/AbortDelay.o
+                                                  output/main_full.o
+xAreBlockTimeTestTasksStillRunning                output/blocktim.o
+                                                  output/main_full.o
+xAreCountingSemaphoreTasksStillRunning            output/countsem.o
+                                                  output/main_full.o
+xAreDynamicPriorityTasksStillRunning              output/dynamic.o
+                                                  output/main_full.o
+xAreEventGroupTasksStillRunning                   output/EventGroupsDemo.o
+                                                  output/main_full.o
+xAreGenericQueueTasksStillRunning                 output/GenQTest.o
+                                                  output/main_full.o
+xAreInterruptSemaphoreTasksStillRunning           output/IntSemTest.o
+                                                  output/main_full.o
+xAreMessageBufferAMPTasksStillRunning             output/MessageBufferAMP.o
+                                                  output/main_full.o
+xAreMessageBufferTasksStillRunning                output/MessageBufferDemo.o
+                                                  output/main_full.o
+xArePollingQueuesStillRunning                     output/PollQ.o
+                                                  output/main_full.o
+xAreQueuePeekTasksStillRunning                    output/QPeek.o
+                                                  output/main_full.o
+xAreQueueSetPollTasksStillRunning                 output/QueueSetPolling.o
+                                                  output/main_full.o
+xAreQueueSetTasksStillRunning                     output/QueueSet.o
+                                                  output/main_full.o
+xAreRecursiveMutexTasksStillRunning               output/recmutex.o
+                                                  output/main_full.o
+xAreSemaphoreTasksStillRunning                    output/semtest.o
+                                                  output/main_full.o
+xAreStaticAllocationTasksStillRunning             output/StaticAllocation.o
+                                                  output/main_full.o
+xAreStreamBufferTasksStillRunning                 output/StreamBufferDemo.o
+                                                  output/main_full.o
+xAreTaskNotificationArrayTasksStillRunning        output/TaskNotifyArray.o
+                                                  output/main_full.o
+xAreTaskNotificationTasksStillRunning             output/TaskNotify.o
+                                                  output/main_full.o
+xAreTimerDemoTasksStillRunning                    output/TimerDemo.o
+                                                  output/main_full.o
+xCreatedTask                                      output/death.o
+xCriticalNesting                                  output/port.o
+                                                  output/timers.o
+                                                  output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/semtest.o
+                                                  output/riscv-virt.o
+                                                  output/queue.o
+                                                  output/portASM.o
+                                                  output/main.o
+                                                  output/heap_4.o
+                                                  output/event_groups.o
+                                                  output/dynamic.o
+                                                  output/TimerDemo.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StreamBufferDemo.o
+                                                  output/QueueSet.o
+                                                  output/PollQ.o
+                                                  output/MessageBufferDemo.o
+xDemoStatus                                       output/MessageBufferAMP.o
+xEventGroupClearBits                              output/event_groups.o
+                                                  output/StaticAllocation.o
+                                                  output/EventGroupsDemo.o
+xEventGroupClearBitsFromISR                       output/event_groups.o
+                                                  output/EventGroupsDemo.o
+xEventGroupCreate                                 output/event_groups.o
+                                                  output/StaticAllocation.o
+                                                  output/EventGroupsDemo.o
+xEventGroupCreateStatic                           output/event_groups.o
+                                                  output/StaticAllocation.o
+                                                  output/AbortDelay.o
+xEventGroupGetBitsFromISR                         output/event_groups.o
+                                                  output/EventGroupsDemo.o
+xEventGroupGetStaticBuffer                        output/event_groups.o
+xEventGroupSetBits                                output/event_groups.o
+                                                  output/StaticAllocation.o
+                                                  output/EventGroupsDemo.o
+xEventGroupSetBitsFromISR                         output/event_groups.o
+                                                  output/EventGroupsDemo.o
+xEventGroupSync                                   output/event_groups.o
+                                                  output/EventGroupsDemo.o
+xEventGroupWaitBits                               output/event_groups.o
+                                                  output/EventGroupsDemo.o
+                                                  output/AbortDelay.o
+xGetCoreID                                        output/riscv-virt.o
+xHalfMaxBlockTime                                 output/AbortDelay.o
+xHighPriorityTask                                 output/QPeek.o
+xHighestPriorityTask                              output/QPeek.o
+xISRStackTop                                      output/port.o
+                                                  output/portASM.o
+xInterruptGivePeriod                              output/IntSemTest.o
+xIsCreateTaskStillRunning                         output/death.o
+                                                  output/main_full.o
+xIsInterruptStreamBufferDemoStillRunning          output/StreamBufferInterrupt.o
+                                                  output/main_full.o
+xIsQueueOverwriteTaskStillRunning                 output/QueueOverwrite.o
+                                                  output/main_full.o
+xMaxBlockTime                                     output/AbortDelay.o
+xMediumPriorityTask                               output/QPeek.o
+xNotifyArrayTaskFromISR                           output/TaskNotifyArray.o
+                                                  output/main_full.o
+xNotifyTaskFromISR                                output/TaskNotify.o
+                                                  output/main_full.o
+xPortGetFreeHeapSize                              output/heap_4.o
+                                                  output/test_memory_allocation.o
+                                                  output/test_ipc_performance.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/queue_test.o
+xPortGetMinimumEverFreeHeapSize                   output/heap_4.o
+xPortResetHeapMinimumEverFreeHeapSize             output/heap_4.o
+xPortStartFirstTask                               output/portASM.o
+                                                  output/port.o
+xPortStartScheduler                               output/port.o
+                                                  output/tasks.o
+xQueueAddToSet                                    output/queue.o
+                                                  output/QueueSetPolling.o
+                                                  output/QueueSet.o
+xQueueCreateCountingSemaphore                     output/queue.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/countsem.o
+                                                  output/StaticAllocation.o
+                                                  output/IntSemTest.o
+xQueueCreateCountingSemaphoreStatic               output/queue.o
+                                                  output/StaticAllocation.o
+xQueueCreateMutex                                 output/queue.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/recmutex.o
+                                                  output/StaticAllocation.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+xQueueCreateMutexStatic                           output/queue.o
+                                                  output/StaticAllocation.o
+xQueueCreateSet                                   output/queue.o
+                                                  output/QueueSetPolling.o
+                                                  output/QueueSet.o
+xQueueCreateSetStatic                             output/queue.o
+xQueueGenericCreate                               output/queue.o
+                                                  output/semtest.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/queue_test.o
+                                                  output/main_blinky.o
+                                                  output/dynamic.o
+                                                  output/blocktim.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSetPolling.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+                                                  output/QPeek.o
+                                                  output/PollQ.o
+                                                  output/GenQTest.o
+xQueueGenericCreateStatic                         output/queue.o
+                                                  output/timers.o
+                                                  output/StaticAllocation.o
+                                                  output/AbortDelay.o
+xQueueGenericGetStaticBuffers                     output/queue.o
+xQueueGenericReset                                output/queue.o
+                                                  output/IntSemTest.o
+xQueueGenericSend                                 output/queue.o
+                                                  output/timers.o
+                                                  output/semtest.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/queue_test.o
+                                                  output/main_blinky.o
+                                                  output/dynamic.o
+                                                  output/countsem.o
+                                                  output/blocktim.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+                                                  output/QPeek.o
+                                                  output/PollQ.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/AbortDelay.o
+xQueueGenericSendFromISR                          output/queue.o
+                                                  output/timers.o
+                                                  output/QueueSetPolling.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+xQueueGetMutexHolder                              output/queue.o
+                                                  output/GenQTest.o
+xQueueGetMutexHolderFromISR                       output/queue.o
+                                                  output/GenQTest.o
+xQueueGiveFromISR                                 output/queue.o
+                                                  output/IntSemTest.o
+xQueueGiveMutexRecursive                          output/queue.o
+                                                  output/recmutex.o
+                                                  output/StaticAllocation.o
+xQueueIsQueueEmptyFromISR                         output/queue.o
+xQueueIsQueueFullFromISR                          output/queue.o
+xQueuePeek                                        output/queue.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+                                                  output/QPeek.o
+                                                  output/GenQTest.o
+xQueuePeekFromISR                                 output/queue.o
+                                                  output/QueueOverwrite.o
+xQueueReceive                                     output/queue.o
+                                                  output/timers.o
+                                                  output/queue_test.o
+                                                  output/main_blinky.o
+                                                  output/dynamic.o
+                                                  output/blocktim.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSetPolling.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+                                                  output/QPeek.o
+                                                  output/PollQ.o
+                                                  output/GenQTest.o
+xQueueReceiveFromISR                              output/queue.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+xQueueRegistry                                    output/queue.o
+xQueueRemoveFromSet                               output/queue.o
+                                                  output/QueueSet.o
+xQueueSelectFromSet                               output/queue.o
+                                                  output/QueueSetPolling.o
+                                                  output/QueueSet.o
+xQueueSelectFromSetFromISR                        output/queue.o
+                                                  output/QueueSet.o
+xQueueSemaphoreTake                               output/queue.o
+                                                  output/semtest.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/countsem.o
+                                                  output/StaticAllocation.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/AbortDelay.o
+xQueueSetReceivingTask                            output/QueueSet.o
+xQueueSetSendingTask                              output/QueueSet.o
+xQueueTakeMutexRecursive                          output/queue.o
+                                                  output/recmutex.o
+                                                  output/StaticAllocation.o
+xStreamBufferBytesAvailable                       output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+xStreamBufferGenericCreate                        output/stream_buffer.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+xStreamBufferGenericCreateStatic                  output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/AbortDelay.o
+xStreamBufferGetStaticBuffers                     output/stream_buffer.o
+xStreamBufferIsEmpty                              output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+xStreamBufferIsFull                               output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+xStreamBufferNextMessageLengthBytes               output/stream_buffer.o
+                                                  output/MessageBufferDemo.o
+xStreamBufferReceive                              output/stream_buffer.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+                                                  output/AbortDelay.o
+xStreamBufferReceiveCompletedFromISR              output/stream_buffer.o
+xStreamBufferReceiveFromISR                       output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+xStreamBufferReset                                output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+xStreamBufferResetFromISR                         output/stream_buffer.o
+xStreamBufferSend                                 output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+xStreamBufferSendCompletedFromISR                 output/stream_buffer.o
+                                                  output/MessageBufferAMP.o
+xStreamBufferSendFromISR                          output/stream_buffer.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+xStreamBufferSetTriggerLevel                      output/stream_buffer.o
+xStreamBufferSpacesAvailable                      output/stream_buffer.o
+                                                  output/StreamBufferDemo.o
+                                                  output/MessageBufferDemo.o
+xSuspendedTestQueue                               output/dynamic.o
+xTaskAbortDelay                                   output/tasks.o
+                                                  output/GenQTest.o
+                                                  output/AbortDelay.o
+xTaskCatchUpTicks                                 output/tasks.o
+                                                  output/TimerDemo.o
+xTaskCheckForTimeOut                              output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/queue.o
+xTaskCreate                                       output/tasks.o
+                                                  output/test_memory_allocation.o
+                                                  output/test_ipc_performance.o
+                                                  output/semtest.o
+                                                  output/semaphore_mutex_test.o
+                                                  output/recmutex.o
+                                                  output/queue_test.o
+                                                  output/main_full.o
+                                                  output/main_blinky.o
+                                                  output/dynamic.o
+                                                  output/death.o
+                                                  output/countsem.o
+                                                  output/blocktim.o
+                                                  output/TimerDemo.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StreamBufferInterrupt.o
+                                                  output/StreamBufferDemo.o
+                                                  output/StaticAllocation.o
+                                                  output/QueueSetPolling.o
+                                                  output/QueueSet.o
+                                                  output/QueueOverwrite.o
+                                                  output/QPeek.o
+                                                  output/PollQ.o
+                                                  output/MessageBufferDemo.o
+                                                  output/MessageBufferAMP.o
+                                                  output/IntSemTest.o
+                                                  output/GenQTest.o
+                                                  output/EventGroupsDemo.o
+                                                  output/AbortDelay.o
+xTaskCreateStatic                                 output/tasks.o
+                                                  output/timers.o
+                                                  output/StaticAllocation.o
+xTaskDelayUntil                                   output/tasks.o
+                                                  output/main_full.o
+                                                  output/main_blinky.o
+                                                  output/blocktim.o
+                                                  output/AbortDelay.o
+xTaskGenericNotify                                output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/AbortDelay.o
+xTaskGenericNotifyFromISR                         output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+xTaskGenericNotifyStateClear                      output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+xTaskGenericNotifyWait                            output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/AbortDelay.o
+xTaskGetCurrentTaskHandle                         output/tasks.o
+                                                  output/stream_buffer.o
+                                                  output/queue.o
+                                                  output/GenQTest.o
+                                                  output/EventGroupsDemo.o
+                                                  output/AbortDelay.o
+xTaskGetCurrentTaskHandleForCore                  output/tasks.o
+xTaskGetHandle                                    output/tasks.o
+                                                  output/AbortDelay.o
+xTaskGetIdleTaskHandle                            output/tasks.o
+xTaskGetIdleTaskHandleForCore                     output/tasks.o
+xTaskGetSchedulerState                            output/tasks.o
+                                                  output/timers.o
+                                                  output/queue.o
+                                                  output/event_groups.o
+xTaskGetStaticBuffers                             output/tasks.o
+xTaskGetTickCount                                 output/tasks.o
+                                                  output/timers.o
+                                                  output/main_full.o
+                                                  output/main_blinky.o
+                                                  output/blocktim.o
+                                                  output/TimerDemo.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StreamBufferDemo.o
+                                                  output/StaticAllocation.o
+                                                  output/MessageBufferDemo.o
+                                                  output/AbortDelay.o
+xTaskGetTickCountFromISR                          output/tasks.o
+                                                  output/TimerDemo.o
+                                                  output/IntSemTest.o
+xTaskIncrementTick                                output/tasks.o
+                                                  output/portASM.o
+xTaskPriorityDisinherit                           output/tasks.o
+                                                  output/queue.o
+xTaskPriorityInherit                              output/tasks.o
+                                                  output/queue.o
+xTaskRemoveFromEventList                          output/tasks.o
+                                                  output/queue.o
+xTaskResumeAll                                    output/tasks.o
+                                                  output/timers.o
+                                                  output/stream_buffer.o
+                                                  output/queue.o
+                                                  output/heap_4.o
+                                                  output/event_groups.o
+                                                  output/dynamic.o
+xTaskResumeFromISR                                output/tasks.o
+xTaskReturnAddress                                output/port.o
+                                                  output/portASM.o
+xTimerCreate                                      output/timers.o
+                                                  output/main_blinky.o
+                                                  output/TimerDemo.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StaticAllocation.o
+xTimerCreateStatic                                output/timers.o
+                                                  output/StaticAllocation.o
+xTimerCreateTimerTask                             output/timers.o
+                                                  output/tasks.o
+xTimerGenericCommandFromISR                       output/timers.o
+                                                  output/TimerDemo.o
+xTimerGenericCommandFromTask                      output/timers.o
+                                                  output/main_blinky.o
+                                                  output/TimerDemo.o
+                                                  output/TaskNotifyArray.o
+                                                  output/TaskNotify.o
+                                                  output/StaticAllocation.o
+xTimerGetExpiryTime                               output/timers.o
+xTimerGetPeriod                                   output/timers.o
+xTimerGetReloadMode                               output/timers.o
+xTimerGetStaticBuffer                             output/timers.o
+xTimerGetTimerDaemonTaskHandle                    output/timers.o
+                                                  output/tasks.o
+xTimerIsTimerActive                               output/timers.o
+                                                  output/TimerDemo.o
+xTimerPendFunctionCall                            output/timers.o
+xTimerPendFunctionCallFromISR                     output/timers.o
+                                                  output/event_groups.o

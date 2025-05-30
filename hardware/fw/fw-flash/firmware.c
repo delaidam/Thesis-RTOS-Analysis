@@ -11,9 +11,10 @@ typedef struct {
 } PICOUART;
 
 typedef struct {
-    volatile uint32_t OUT;
     volatile uint32_t IN;
-    volatile uint32_t OE;
+    volatile uint32_t OUT;
+    volatile uint32_t DIR;
+    volatile uint32_t CTRL;
 } PICOGPIO;
 
 typedef struct {
@@ -30,7 +31,8 @@ typedef struct {
 } PICOQSPI;
 
 #define QSPI0 ((PICOQSPI*)0x81000000)
-#define GPIO0 ((PICOGPIO*)0x82000000)
+#define GPIO0_BASE 0x40000000
+#define GPIO0 ((PICOGPIO*)GPIO0_BASE)
 #define UART0 ((PICOUART*)0x83000000)
 
 #define FLASHIO_ENTRY_ADDR ((void *)0x80000054)
@@ -284,7 +286,7 @@ void main()
 {
     UART0->CLKDIV = CLK_FREQ / UART_BAUD - 2;
 
-    GPIO0->OE = 0x3F;
+    GPIO0->DIR = 0x3F;
     GPIO0->OUT = 0x3F;
 
     cmd_set_crm(1);

@@ -4,6 +4,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#define MAX_TASKS 8
+#define STACK_SIZE 256
+#define TICK_FREQUENCY 1000
+
 // Task states
 typedef enum {
     TASK_READY = 0,
@@ -12,42 +16,45 @@ typedef enum {
     TASK_TERMINATED
 } task_state_t;
 
-// Task Control Block (TCB)
+// Task structure
 typedef struct {
-    uint32_t* stack_ptr;        // Trenutni stack pointer
-    uint32_t* stack_base;       // Početak stack-a
-    uint8_t priority;           // Task prioritet (0 = najviši)
-    task_state_t state;         // Trenutno stanje task-a
-    uint32_t wake_time;         // Za sleep funkcionalnost
-    const char* name;           // Debug naziv
+    uint32_t* stack_ptr;
+    uint32_t stack[STACK_SIZE];
+    task_state_t state;
+    uint8_t priority;
+    uint32_t sleep_ticks;
+    void (*task_func)(void);
+    char name[16];
 } task_t;
 
-// Osnovne funkcije
+// Performance statistics
+typedef struct {
+    uint32_t context_switches;
+    uint32_t total_interrupt_latency;
+    uint32_t interrupt_count;
+} perf_stats_t;
+
+// Function declarations
 int task_create(void (*task_func)(void), uint8_t priority, const char* name);
-void task_yield(void);
 void task_sleep(uint32_t ticks);
+uint8_t get_next_task(void);
+void schedule(void);
+void system_tick_handler(void);
+void task_yield(void);
+void kernel_run(void);
 void kernel_init(void);
 void kernel_start(void);
-void kernel_run(void);
-void schedule(void);
-
-// Performance funkcije  
 uint32_t get_context_switch_count(void);
 uint32_t get_average_interrupt_latency(void);
 uint32_t get_system_uptime(void);
 void print_task_info(void);
 
-// Demo funkcije
-void rt_system_init(void);
-void rt_main_loop(void);
-
-// Hardware funkcije
-uint32_t get_cycle_count(void);
-int check_system_tick(void);
-void configure_system_timer(uint32_t frequency);
-void start_first_task(void);
-void context_switch(void);
-void uart_printf(const char* format, ...);
-void system_tick_handler(void);
+// Hardware abstraction functions (implement in firmware.c)
+extern void context_switch(void);
+extern void start_first_task(void);
+extern uint32_t get_cycle_count(void);
+extern void configure_system_timer(uint32_t frequency);
+extern bool check_system_tick(void);
+extern void uart_printf(const char* format, ...);
 
 #endif // RT_KERNEL_H
