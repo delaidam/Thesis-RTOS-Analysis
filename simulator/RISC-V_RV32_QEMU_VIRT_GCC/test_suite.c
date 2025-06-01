@@ -136,7 +136,7 @@ static void run_selected_test(test_selection_t selection) {
 }
 
 /* Function to run all tests sequentially */
-static void run_all_tests_sequential(void) {
+void run_all_tests_sequential(void) {
     printf("\n=== RUNNING ALL TESTS SEQUENTIALLY ===\n");
     
     printf("\n[1/6] Task Creation/Deletion Test\n");

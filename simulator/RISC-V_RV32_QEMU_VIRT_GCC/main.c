@@ -50,6 +50,7 @@
 /* FreeRTOS includes. */
 #include "FreeRTOS.h"
 #include "task.h"
+#include "test_config.h"  // DODATI OVU LINIJU
 
 /* Standard includes. */
 #include <stdio.h>
@@ -69,6 +70,8 @@ extern void start_memory_allocation_test(void);
 extern void start_synchronization_test(void);
 /* IPC test function declaration */
 extern void start_ipc_test(void);
+/* DODATI OVU LINIJU - Test manager function declaration */
+extern void run_selected_test(void);
 
 /* This project provides two demo applications.  A simple blinky style demo
  * application, and a more comprehensive test and demo application.  The
@@ -148,7 +151,7 @@ void main( void )
     }
     #else
     {
-        start_ipc_test();  // IPC test
+        run_selected_test();  // ZAMIJENITI start_ipc_test() SA OVOM LINIJOM
     }
     #endif
 }
