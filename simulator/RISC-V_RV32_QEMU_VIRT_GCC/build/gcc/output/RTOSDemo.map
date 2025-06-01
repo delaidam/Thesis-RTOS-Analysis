@@ -96,8 +96,6 @@ Discarded input sections
                 0x0000000000000000       0x60 ./output/tasks.o
  .text.xTaskAbortDelay
                 0x0000000000000000       0xf4 ./output/tasks.o
- .text.vTaskSuspend
-                0x0000000000000000      0x192 ./output/tasks.o
  .text.vTaskPlaceOnUnorderedEventList
                 0x0000000000000000       0x94 ./output/tasks.o
  .text.vTaskRemoveFromUnorderedEventList
@@ -1783,6 +1781,27 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/test_interrupt_latency.o
  .data          0x0000000000000000        0x0 ./output/test_interrupt_latency.o
  .bss           0x0000000000000000        0x0 ./output/test_interrupt_latency.o
+ .rodata.simple_interrupt_test_task.str1.4
+                0x0000000000000000      0x169 ./output/test_interrupt_latency.o
+ .text.simple_interrupt_test_task
+                0x0000000000000000      0x1dc ./output/test_interrupt_latency.o
+ .rodata.start_interrupt_latency_test.str1.4
+                0x0000000000000000       0x66 ./output/test_interrupt_latency.o
+ .text.start_interrupt_latency_test
+                0x0000000000000000       0x6c ./output/test_interrupt_latency.o
+ .bss.interrupt_latency_cycles
+                0x0000000000000000       0xc8 ./output/test_interrupt_latency.o
+ .sbss.test_iteration
+                0x0000000000000000        0x4 ./output/test_interrupt_latency.o
+ .sbss.test_queue
+                0x0000000000000000        0x4 ./output/test_interrupt_latency.o
+ .debug_info    0x0000000000000000      0x56c ./output/test_interrupt_latency.o
+ .debug_abbrev  0x0000000000000000      0x19b ./output/test_interrupt_latency.o
+ .debug_loc     0x0000000000000000       0xf8 ./output/test_interrupt_latency.o
+ .debug_aranges
+                0x0000000000000000       0x28 ./output/test_interrupt_latency.o
+ .debug_ranges  0x0000000000000000       0x48 ./output/test_interrupt_latency.o
+ .debug_macro   0x0000000000000000      0x26c ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000      0x718 ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000      0x174 ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000       0x22 ./output/test_interrupt_latency.o
@@ -1830,6 +1849,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x3d ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000       0x16 ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000      0x145 ./output/test_interrupt_latency.o
+ .debug_line    0x0000000000000000      0x79d ./output/test_interrupt_latency.o
+ .debug_str     0x0000000000000000    0x1285e ./output/test_interrupt_latency.o
+ .comment       0x0000000000000000       0x13 ./output/test_interrupt_latency.o
+ .debug_frame   0x0000000000000000       0x6c ./output/test_interrupt_latency.o
+ .riscv.attributes
+                0x0000000000000000       0x2b ./output/test_interrupt_latency.o
  .group         0x0000000000000000        0xc ./output/test_suite.o
  .group         0x0000000000000000        0xc ./output/test_suite.o
  .group         0x0000000000000000        0xc ./output/test_suite.o
@@ -2008,35 +2033,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/queue_test.o
  .data          0x0000000000000000        0x0 ./output/queue_test.o
  .bss           0x0000000000000000        0x0 ./output/queue_test.o
- .rodata.ipc_sender_task.str1.4
-                0x0000000000000000      0x1fb ./output/queue_test.o
- .text.ipc_sender_task
-                0x0000000000000000      0x322 ./output/queue_test.o
- .rodata.ipc_receiver_task.str1.4
-                0x0000000000000000       0x53 ./output/queue_test.o
- .text.ipc_receiver_task
-                0x0000000000000000       0xba ./output/queue_test.o
- .rodata.start_ipc_test.str1.4
-                0x0000000000000000       0x6d ./output/queue_test.o
- .text.start_ipc_test
-                0x0000000000000000       0x8e ./output/queue_test.o
- .bss.end_to_end_cycles
-                0x0000000000000000      0x7d0 ./output/queue_test.o
- .bss.queue_receive_cycles
-                0x0000000000000000      0x7d0 ./output/queue_test.o
- .bss.queue_send_cycles
-                0x0000000000000000      0x7d0 ./output/queue_test.o
- .sbss.ipc_iteration
-                0x0000000000000000        0x4 ./output/queue_test.o
- .sbss.test_queue
-                0x0000000000000000        0x4 ./output/queue_test.o
- .debug_info    0x0000000000000000      0x978 ./output/queue_test.o
- .debug_abbrev  0x0000000000000000      0x1be ./output/queue_test.o
- .debug_loc     0x0000000000000000      0x260 ./output/queue_test.o
- .debug_aranges
-                0x0000000000000000       0x30 ./output/queue_test.o
- .debug_ranges  0x0000000000000000       0x58 ./output/queue_test.o
- .debug_macro   0x0000000000000000      0x284 ./output/queue_test.o
  .debug_macro   0x0000000000000000      0x718 ./output/queue_test.o
  .debug_macro   0x0000000000000000      0x174 ./output/queue_test.o
  .debug_macro   0x0000000000000000       0x22 ./output/queue_test.o
@@ -2084,12 +2080,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x3d ./output/queue_test.o
  .debug_macro   0x0000000000000000       0x16 ./output/queue_test.o
  .debug_macro   0x0000000000000000      0x145 ./output/queue_test.o
- .debug_line    0x0000000000000000      0xb21 ./output/queue_test.o
- .debug_str     0x0000000000000000    0x1298a ./output/queue_test.o
- .comment       0x0000000000000000       0x13 ./output/queue_test.o
- .debug_frame   0x0000000000000000       0xa0 ./output/queue_test.o
- .riscv.attributes
-                0x0000000000000000       0x2b ./output/queue_test.o
  .group         0x0000000000000000        0xc ./output/printf-stdarg.o
  .group         0x0000000000000000        0xc ./output/printf-stdarg.o
  .group         0x0000000000000000        0xc ./output/printf-stdarg.o
@@ -2293,7 +2283,7 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
  .init          0x0000000080000000       0x76 ./output/start.o
                 0x0000000080000000                _start
 
-.text           0x0000000080000080     0x2a74
+.text           0x0000000080000080     0x2df4
  *(.text.unlikely .text.unlikely.*)
  *(.text.startup .text.startup.*)
  .text.startup.main
@@ -2347,243 +2337,251 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
  .text.vTaskSwitchContext
                 0x0000000080000af4       0xde ./output/tasks.o
                 0x0000000080000af4                vTaskSwitchContext
+ .text.vTaskSuspend
+                0x0000000080000bd2      0x162 ./output/tasks.o
+                0x0000000080000bd2                vTaskSuspend
  .text.vTaskPlaceOnEventList
-                0x0000000080000bd2       0x3e ./output/tasks.o
-                0x0000000080000bd2                vTaskPlaceOnEventList
+                0x0000000080000d34       0x3e ./output/tasks.o
+                0x0000000080000d34                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x0000000080000c10       0x68 ./output/tasks.o
-                0x0000000080000c10                vTaskPlaceOnEventListRestricted
+                0x0000000080000d72       0x68 ./output/tasks.o
+                0x0000000080000d72                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x0000000080000c78       0xd8 ./output/tasks.o
-                0x0000000080000c78                xTaskRemoveFromEventList
+                0x0000000080000dda       0xd8 ./output/tasks.o
+                0x0000000080000dda                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x0000000080000d50       0x16 ./output/tasks.o
-                0x0000000080000d50                vTaskInternalSetTimeOutState
+                0x0000000080000eb2       0x16 ./output/tasks.o
+                0x0000000080000eb2                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x0000000080000d66       0xc2 ./output/tasks.o
-                0x0000000080000d66                xTaskCheckForTimeOut
+                0x0000000080000ec8       0xc2 ./output/tasks.o
+                0x0000000080000ec8                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x0000000080000e28        0xc ./output/tasks.o
-                0x0000000080000e28                vTaskMissedYield
+                0x0000000080000f8a        0xc ./output/tasks.o
+                0x0000000080000f8a                vTaskMissedYield
  .text.xTaskGetSchedulerState
-                0x0000000080000e34       0x1c ./output/tasks.o
-                0x0000000080000e34                xTaskGetSchedulerState
+                0x0000000080000f96       0x1c ./output/tasks.o
+                0x0000000080000f96                xTaskGetSchedulerState
  .text.xTaskPriorityDisinherit
-                0x0000000080000e50       0xc0 ./output/tasks.o
-                0x0000000080000e50                xTaskPriorityDisinherit
+                0x0000000080000fb2       0xc0 ./output/tasks.o
+                0x0000000080000fb2                xTaskPriorityDisinherit
  .text.vListInitialise
-                0x0000000080000f10       0x14 ./output/list.o
-                0x0000000080000f10                vListInitialise
+                0x0000000080001072       0x14 ./output/list.o
+                0x0000000080001072                vListInitialise
  .text.vListInitialiseItem
-                0x0000000080000f24        0x6 ./output/list.o
-                0x0000000080000f24                vListInitialiseItem
+                0x0000000080001086        0x6 ./output/list.o
+                0x0000000080001086                vListInitialiseItem
  .text.vListInsertEnd
-                0x0000000080000f2a       0x18 ./output/list.o
-                0x0000000080000f2a                vListInsertEnd
+                0x000000008000108c       0x18 ./output/list.o
+                0x000000008000108c                vListInsertEnd
  .text.vListInsert
-                0x0000000080000f42       0x2e ./output/list.o
-                0x0000000080000f42                vListInsert
+                0x00000000800010a4       0x2e ./output/list.o
+                0x00000000800010a4                vListInsert
  .text.uxListRemove
-                0x0000000080000f70       0x1e ./output/list.o
-                0x0000000080000f70                uxListRemove
+                0x00000000800010d2       0x1e ./output/list.o
+                0x00000000800010d2                uxListRemove
  .text.prvIsQueueEmpty
-                0x0000000080000f8e       0x16 ./output/queue.o
+                0x00000000800010f0       0x16 ./output/queue.o
  .text.prvCopyDataToQueue
-                0x0000000080000fa4       0x88 ./output/queue.o
+                0x0000000080001106       0x88 ./output/queue.o
  .text.prvCopyDataFromQueue
-                0x000000008000102c       0x20 ./output/queue.o
+                0x000000008000118e       0x20 ./output/queue.o
  .text.prvNotifyQueueSetContainer
-                0x000000008000104c       0xb0 ./output/queue.o
+                0x00000000800011ae       0xb0 ./output/queue.o
  .text.prvUnlockQueue
-                0x00000000800010fc       0xbe ./output/queue.o
+                0x000000008000125e       0xbe ./output/queue.o
  .text.xQueueGenericReset
-                0x00000000800011ba       0xb0 ./output/queue.o
-                0x00000000800011ba                xQueueGenericReset
+                0x000000008000131c       0xb0 ./output/queue.o
+                0x000000008000131c                xQueueGenericReset
  .text.xQueueGenericCreateStatic
-                0x000000008000126a       0x9a ./output/queue.o
-                0x000000008000126a                xQueueGenericCreateStatic
+                0x00000000800013cc       0x9a ./output/queue.o
+                0x00000000800013cc                xQueueGenericCreateStatic
  .text.xQueueGenericCreate
-                0x0000000080001304       0x78 ./output/queue.o
-                0x0000000080001304                xQueueGenericCreate
+                0x0000000080001466       0x78 ./output/queue.o
+                0x0000000080001466                xQueueGenericCreate
  .text.xQueueGenericSend
-                0x000000008000137c      0x1a6 ./output/queue.o
-                0x000000008000137c                xQueueGenericSend
+                0x00000000800014de      0x1a6 ./output/queue.o
+                0x00000000800014de                xQueueGenericSend
  .text.xQueueReceive
-                0x0000000080001522      0x16a ./output/queue.o
-                0x0000000080001522                xQueueReceive
+                0x0000000080001684      0x16a ./output/queue.o
+                0x0000000080001684                xQueueReceive
  .text.vQueueAddToRegistry
-                0x000000008000168c       0x5e ./output/queue.o
-                0x000000008000168c                vQueueAddToRegistry
+                0x00000000800017ee       0x5e ./output/queue.o
+                0x00000000800017ee                vQueueAddToRegistry
  .text.vQueueWaitForMessageRestricted
-                0x00000000800016ea       0x52 ./output/queue.o
-                0x00000000800016ea                vQueueWaitForMessageRestricted
+                0x000000008000184c       0x52 ./output/queue.o
+                0x000000008000184c                vQueueWaitForMessageRestricted
  .text.prvCheckForValidListAndQueue
-                0x000000008000173c       0x8e ./output/timers.o
+                0x000000008000189e       0x8e ./output/timers.o
  .text.prvInsertTimerInActiveList
-                0x00000000800017ca       0x48 ./output/timers.o
+                0x000000008000192c       0x48 ./output/timers.o
  .text.prvReloadTimer
-                0x0000000080001812       0x36 ./output/timers.o
+                0x0000000080001974       0x36 ./output/timers.o
  .text.prvProcessExpiredTimer
-                0x0000000080001848       0x48 ./output/timers.o
+                0x00000000800019aa       0x48 ./output/timers.o
  .text.prvSampleTimeNow
-                0x0000000080001890       0x68 ./output/timers.o
+                0x00000000800019f2       0x68 ./output/timers.o
  .text.prvTimerTask
-                0x00000000800018f8      0x162 ./output/timers.o
+                0x0000000080001a5a      0x164 ./output/timers.o
  .text.xTimerCreateTimerTask
-                0x0000000080001a5a       0x5e ./output/timers.o
-                0x0000000080001a5a                xTimerCreateTimerTask
+                0x0000000080001bbe       0x5e ./output/timers.o
+                0x0000000080001bbe                xTimerCreateTimerTask
  .text.pvPortMalloc
-                0x0000000080001ab8      0x206 ./output/heap_4.o
-                0x0000000080001ab8                pvPortMalloc
+                0x0000000080001c1c      0x206 ./output/heap_4.o
+                0x0000000080001c1c                pvPortMalloc
  .text.vPortFree
-                0x0000000080001cbe      0x132 ./output/heap_4.o
-                0x0000000080001cbe                vPortFree
+                0x0000000080001e22      0x132 ./output/heap_4.o
+                0x0000000080001e22                vPortFree
  .text.xPortGetFreeHeapSize
-                0x0000000080001df0        0xa ./output/heap_4.o
-                0x0000000080001df0                xPortGetFreeHeapSize
+                0x0000000080001f54        0xa ./output/heap_4.o
+                0x0000000080001f54                xPortGetFreeHeapSize
  .text.vPortSetupTimerInterrupt
-                0x0000000080001dfa       0x5c ./output/port.o
-                0x0000000080001dfa                vPortSetupTimerInterrupt
+                0x0000000080001f5e       0x5c ./output/port.o
+                0x0000000080001f5e                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x0000000080001e56       0x30 ./output/port.o
-                0x0000000080001e56                xPortStartScheduler
+                0x0000000080001fba       0x30 ./output/port.o
+                0x0000000080001fba                xPortStartScheduler
  .text.vApplicationMallocFailedHook
-                0x0000000080001e86       0x14 ./output/main.o
-                0x0000000080001e86                vApplicationMallocFailedHook
+                0x0000000080001fea       0x16 ./output/main.o
+                0x0000000080001fea                vApplicationMallocFailedHook
  .text.vApplicationStackOverflowHook
-                0x0000000080001e9a       0x14 ./output/main.o
-                0x0000000080001e9a                vApplicationStackOverflowHook
+                0x0000000080002000       0x16 ./output/main.o
+                0x0000000080002000                vApplicationStackOverflowHook
  .text.vApplicationTickHook
-                0x0000000080001eae        0x2 ./output/main.o
-                0x0000000080001eae                vApplicationTickHook
+                0x0000000080002016        0x2 ./output/main.o
+                0x0000000080002016                vApplicationTickHook
  .text.vAssertCalled
-                0x0000000080001eb0       0x40 ./output/main.o
-                0x0000000080001eb0                vAssertCalled
+                0x0000000080002018       0x42 ./output/main.o
+                0x0000000080002018                vAssertCalled
  .text.vApplicationGetIdleTaskMemory
-                0x0000000080001ef0       0x1c ./output/main.o
-                0x0000000080001ef0                vApplicationGetIdleTaskMemory
+                0x000000008000205a       0x1c ./output/main.o
+                0x000000008000205a                vApplicationGetIdleTaskMemory
  .text.vApplicationGetTimerTaskMemory
-                0x0000000080001f0c       0x1c ./output/main.o
-                0x0000000080001f0c                vApplicationGetTimerTaskMemory
+                0x0000000080002076       0x1c ./output/main.o
+                0x0000000080002076                vApplicationGetTimerTaskMemory
  .text.run_selected_test
-                0x0000000080001f28       0xb0 ./output/test_manager.o
-                0x0000000080001f28                run_selected_test
+                0x0000000080002092       0xca ./output/test_manager.o
+                0x0000000080002092                run_selected_test
  .text.vOutNS16550
-                0x0000000080001fd8       0x14 ./output/ns16550.o
-                0x0000000080001fd8                vOutNS16550
- .text.simple_interrupt_test_task
-                0x0000000080001fec      0x172 ./output/test_interrupt_latency.o
- .text.start_interrupt_latency_test
-                0x000000008000215e       0x50 ./output/test_interrupt_latency.o
-                0x000000008000215e                start_interrupt_latency_test
+                0x000000008000215c       0x14 ./output/ns16550.o
+                0x000000008000215c                vOutNS16550
+ .text.ipc_sender_task
+                0x0000000080002170      0x276 ./output/queue_test.o
+ .text.ipc_receiver_task
+                0x00000000800023e6       0xa2 ./output/queue_test.o
+ .text.start_ipc_test
+                0x0000000080002488       0x6e ./output/queue_test.o
+                0x0000000080002488                start_ipc_test
  .text.printchar
-                0x00000000800021ae       0x22 ./output/printf-stdarg.o
- .text.prints   0x00000000800021d0       0xb6 ./output/printf-stdarg.o
- .text.printi   0x0000000080002286       0xb6 ./output/printf-stdarg.o
+                0x00000000800024f6       0x24 ./output/printf-stdarg.o
+ .text.prints   0x000000008000251a       0xb6 ./output/printf-stdarg.o
+ .text.printi   0x00000000800025d0       0xb6 ./output/printf-stdarg.o
  .text.tiny_print
-                0x000000008000233c      0x184 ./output/printf-stdarg.o
- .text.printf   0x00000000800024c0       0x24 ./output/printf-stdarg.o
-                0x00000000800024c0                printf
- *fill*         0x00000000800024e4       0x1c 
- .text          0x0000000080002500       0x80 ./output/vector.o
-                0x0000000080002500                freertos_vector_table
- .text          0x0000000080002580       0xbc ./output/portASM.o
-                0x0000000080002580                pxPortInitialiseStack
-                0x00000000800025c6                xPortStartFirstTask
-                0x0000000080002620                freertos_risc_v_application_exception_handler
-                0x000000008000262e                freertos_risc_v_application_interrupt_handler
+                0x0000000080002686      0x186 ./output/printf-stdarg.o
+ .text.printf   0x000000008000280c       0x24 ./output/printf-stdarg.o
+                0x000000008000280c                printf
+ *fill*         0x0000000080002830       0x50 
+ .text          0x0000000080002880       0x80 ./output/vector.o
+                0x0000000080002880                freertos_vector_table
+ .text          0x0000000080002900       0xbc ./output/portASM.o
+                0x0000000080002900                pxPortInitialiseStack
+                0x0000000080002946                xPortStartFirstTask
+                0x00000000800029a0                freertos_risc_v_application_exception_handler
+                0x00000000800029ae                freertos_risc_v_application_interrupt_handler
  .text.freertos_risc_v_exception_handler
-                0x000000008000263c      0x134 ./output/portASM.o
-                0x000000008000263c                freertos_risc_v_exception_handler
+                0x00000000800029bc      0x134 ./output/portASM.o
+                0x00000000800029bc                freertos_risc_v_exception_handler
  .text.freertos_risc_v_interrupt_handler
-                0x0000000080002770       0xc6 ./output/portASM.o
-                0x0000000080002770                freertos_risc_v_interrupt_handler
+                0x0000000080002af0       0xc6 ./output/portASM.o
+                0x0000000080002af0                freertos_risc_v_interrupt_handler
  .text.freertos_risc_v_mtimer_interrupt_handler
-                0x0000000080002836       0xfc ./output/portASM.o
-                0x0000000080002836                freertos_risc_v_mtimer_interrupt_handler
- .text          0x0000000080002932       0x3c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
-                0x0000000080002932                __clzsi2
- .text          0x000000008000296e       0xde c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
-                0x000000008000296e                memcpy
- .text          0x0000000080002a4c       0xa8 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
-                0x0000000080002a4c                memset
+                0x0000000080002bb6       0xfc ./output/portASM.o
+                0x0000000080002bb6                freertos_risc_v_mtimer_interrupt_handler
+ .text          0x0000000080002cb2       0x3c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                0x0000000080002cb2                __clzsi2
+ .text          0x0000000080002cee       0xde c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+                0x0000000080002cee                memcpy
+ .text          0x0000000080002dcc       0xa8 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+                0x0000000080002dcc                memset
  *(.gnu.linkonce.t.*)
 
-.fini           0x0000000080002af4        0x0
+.fini           0x0000000080002e74        0x0
  *(SORT_NONE(.fini))
-                0x0000000080002af4                _etext = .
+                0x0000000080002e74                _etext = .
 
-.rodata.align   0x0000000080002af4        0x0
-                0x0000000080002af4                _rodata = .
+.rodata.align   0x0000000080002e74        0x0
+                0x0000000080002e74                _rodata = .
 
-.rodata.start   0x0000000080002af4        0x0
-                0x0000000080002af4                _rodata_lma = LOADADDR (.rodata.start)
+.rodata.start   0x0000000080002e74        0x0
+                0x0000000080002e74                _rodata_lma = LOADADDR (.rodata.start)
 
-.rodata         0x0000000080002af4      0x508
+.rodata         0x0000000080002e74      0x5f4
  *(.rdata)
  *(.rodata .rodata.*)
  .rodata.prvTaskIsTaskSuspended.str1.4
-                0x0000000080002af4       0x1b ./output/tasks.o
- *fill*         0x0000000080002b0f        0x1 
+                0x0000000080002e74       0x1b ./output/tasks.o
+ *fill*         0x0000000080002e8f        0x1 
  .rodata.vTaskStartScheduler.str1.4
-                0x0000000080002b10        0x5 ./output/tasks.o
- *fill*         0x0000000080002b15        0x3 
+                0x0000000080002e90        0x5 ./output/tasks.o
+ *fill*         0x0000000080002e95        0x3 
  .rodata.prvNotifyQueueSetContainer.str1.4
-                0x0000000080002b18       0x1b ./output/queue.o
- *fill*         0x0000000080002b33        0x1 
+                0x0000000080002e98       0x1b ./output/queue.o
+ *fill*         0x0000000080002eb3        0x1 
  .rodata.prvCheckForValidListAndQueue.str1.4
-                0x0000000080002b34        0x5 ./output/timers.o
- *fill*         0x0000000080002b39        0x3 
+                0x0000000080002eb4        0x5 ./output/timers.o
+ *fill*         0x0000000080002eb9        0x3 
  .rodata.prvTimerTask.str1.4
-                0x0000000080002b3c       0x1c ./output/timers.o
+                0x0000000080002ebc       0x1c ./output/timers.o
  .rodata.prvTimerTask
-                0x0000000080002b58       0x24 ./output/timers.o
+                0x0000000080002ed8       0x24 ./output/timers.o
  .rodata.xTimerCreateTimerTask.str1.4
-                0x0000000080002b7c        0x8 ./output/timers.o
+                0x0000000080002efc        0x8 ./output/timers.o
  .rodata.pvPortMalloc.str1.4
-                0x0000000080002b84       0x2d ./output/heap_4.o
- *fill*         0x0000000080002bb1        0x3 
+                0x0000000080002f04       0x2d ./output/heap_4.o
+ *fill*         0x0000000080002f31        0x3 
  .rodata.vApplicationMallocFailedHook.str1.4
-                0x0000000080002bb4       0x14 ./output/main.o
+                0x0000000080002f34       0x14 ./output/main.o
  .rodata.vApplicationStackOverflowHook.str1.4
-                0x0000000080002bc8       0x1b ./output/main.o
- *fill*         0x0000000080002be3        0x1 
+                0x0000000080002f48       0x1b ./output/main.o
+ *fill*         0x0000000080002f63        0x1 
  .rodata.vAssertCalled.str1.4
-                0x0000000080002be4       0x1b ./output/main.o
- *fill*         0x0000000080002bff        0x1 
+                0x0000000080002f64       0x1b ./output/main.o
+ *fill*         0x0000000080002f7f        0x1 
  .rodata.run_selected_test.str1.4
-                0x0000000080002c00      0x139 ./output/test_manager.o
+                0x0000000080002f80      0x139 ./output/test_manager.o
                                         0x13d (size before relaxing)
- *fill*         0x0000000080002d39        0x3 
- .rodata.simple_interrupt_test_task.str1.4
-                0x0000000080002d3c      0x14d ./output/test_interrupt_latency.o
-                                        0x169 (size before relaxing)
- *fill*         0x0000000080002e89        0x3 
- .rodata.start_interrupt_latency_test.str1.4
-                0x0000000080002e8c       0x66 ./output/test_interrupt_latency.o
- *fill*         0x0000000080002ef2        0x2 
+ *fill*         0x00000000800030b9        0x3 
+ .rodata.ipc_sender_task.str1.4
+                0x00000000800030bc      0x1df ./output/queue_test.o
+                                        0x1fb (size before relaxing)
+ *fill*         0x000000008000329b        0x1 
+ .rodata.ipc_receiver_task.str1.4
+                0x000000008000329c       0x53 ./output/queue_test.o
+ *fill*         0x00000000800032ef        0x1 
+ .rodata.start_ipc_test.str1.4
+                0x00000000800032f0       0x6d ./output/queue_test.o
+ *fill*         0x000000008000335d        0x3 
  .rodata.tiny_print.str1.4
-                0x0000000080002ef4        0x7 ./output/printf-stdarg.o
- *fill*         0x0000000080002efb        0x1 
- .rodata        0x0000000080002efc      0x100 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
-                0x0000000080002efc                __clz_tab
+                0x0000000080003360        0x7 ./output/printf-stdarg.o
+ *fill*         0x0000000080003367        0x1 
+ .rodata        0x0000000080003368      0x100 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                0x0000000080003368                __clz_tab
  *(.gnu.linkonce.r.*)
-                0x0000000080002ffc                . = ALIGN (0x4)
-                0x0000000080002ffc                _erodata = .
+                0x0000000080003468                . = ALIGN (0x4)
+                0x0000000080003468                _erodata = .
 
-.rela.dyn       0x0000000080002ffc        0x0
+.rela.dyn       0x0000000080003468        0x0
  .rela.text.xPortStartScheduler
-                0x0000000080002ffc        0x0 ./output/tasks.o
- .rela.init     0x0000000080002ffc        0x0 ./output/tasks.o
+                0x0000000080003468        0x0 ./output/tasks.o
+ .rela.init     0x0000000080003468        0x0 ./output/tasks.o
  .rela.text.freertos_risc_v_exception_handler
-                0x0000000080002ffc        0x0 ./output/tasks.o
+                0x0000000080003468        0x0 ./output/tasks.o
  .rela.text.freertos_risc_v_interrupt_handler
-                0x0000000080002ffc        0x0 ./output/tasks.o
+                0x0000000080003468        0x0 ./output/tasks.o
 
-.tdata          0x0000000080002ffc        0x0
+.tdata          0x0000000080003468        0x0
  *(.tdata .tdata.*)
 
-.tbss           0x0000000080002ffc        0x0
+.tbss           0x0000000080003468        0x0
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
                 [!provide]                        PROVIDE (__tbss_end = .)
@@ -2597,14 +2595,14 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
                 [!provide]                        PROVIDE (__tls_size = (__tls_end - ADDR (.tdata)))
                 [!provide]                        PROVIDE (__tls_align = MAX (ALIGNOF (.tdata), ALIGNOF (.tbss)))
 
-.data.align     0x0000000080080000        0x0 load address 0x0000000080002ffc
+.data.align     0x0000000080080000        0x0 load address 0x0000000080003468
                 0x0000000080080000                . = ALIGN (0x4)
                 0x0000000080080000                _data = .
 
-.data.start     0x0000000080080000        0x0 load address 0x0000000080002ffc
-                0x0000000080002ffc                _data_lma = LOADADDR (.data.start)
+.data.start     0x0000000080080000        0x0 load address 0x0000000080003468
+                0x0000000080003468                _data_lma = LOADADDR (.data.start)
 
-.data           0x0000000080080000       0x20 load address 0x0000000080002ffc
+.data           0x0000000080080000       0x20 load address 0x0000000080003468
  *(.data .data.*)
  *(.gnu.linkonce.d.*)
                 0x0000000080080000                . = ALIGN (0x8)
@@ -2640,14 +2638,14 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
                 0x0000000080080020                . = ALIGN (0x4)
                 0x0000000080080020                _edata = .
 
-.bss.align      0x0000000080080020        0x0 load address 0x000000008000301c
+.bss.align      0x0000000080080020        0x0 load address 0x0000000080003488
                 0x0000000080080020                . = ALIGN (0x4)
                 0x0000000080080020                _bss = .
 
-.bss.start      0x0000000080080020        0x0 load address 0x000000008000301c
-                0x000000008000301c                _bss_lma = LOADADDR (.bss.start)
+.bss.start      0x0000000080080020        0x0 load address 0x0000000080003488
+                0x0000000080003488                _bss_lma = LOADADDR (.bss.start)
 
-.bss            0x0000000080080020    0x14f90 load address 0x000000008000301c
+.bss            0x0000000080080020    0x16638 load address 0x0000000080003488
  *(.sbss*)
  .sbss.pxCurrentTCB
                 0x0000000080080020        0x4 ./output/tasks.o
@@ -2709,10 +2707,10 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
  .sbss.xTaskReturnAddress
                 0x0000000080080098        0x4 ./output/port.o
                 0x0000000080080098                xTaskReturnAddress
- .sbss.test_iteration
-                0x000000008008009c        0x4 ./output/test_interrupt_latency.o
+ .sbss.ipc_iteration
+                0x000000008008009c        0x4 ./output/queue_test.o
  .sbss.test_queue
-                0x00000000800800a0        0x4 ./output/test_interrupt_latency.o
+                0x00000000800800a0        0x4 ./output/queue_test.o
  *(.gnu.linkonce.sb.*)
  *(.bss .bss.*)
  .bss.pxReadyTasksLists
@@ -2750,23 +2748,28 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
                 0x0000000080094e20       0x64 ./output/main.o
  .bss.xTimerTaskTCB.1
                 0x0000000080094e84       0x64 ./output/main.o
- .bss.interrupt_latency_cycles
-                0x0000000080094ee8       0xc8 ./output/test_interrupt_latency.o
+ .bss.end_to_end_cycles
+                0x0000000080094ee8      0x7d0 ./output/queue_test.o
+ .bss.queue_receive_cycles
+                0x00000000800956b8      0x7d0 ./output/queue_test.o
+ .bss.queue_send_cycles
+                0x0000000080095e88      0x7d0 ./output/queue_test.o
  *(.gnu.linkonce.b.*)
  *(COMMON)
-                0x0000000080094fb0                . = ALIGN (0x4)
-                0x0000000080094fb0                _ebss = .
-                0x0000000080094fb0                . = ALIGN (0x8)
-                0x0000000080094fb0                _end = .
+                0x0000000080096658                . = ALIGN (0x4)
+                0x0000000080096658                _ebss = .
+                0x0000000080096658                . = ALIGN (0x8)
+                0x0000000080096658                _end = .
 
-.stack          0x0000000080094fb0      0x160
-                0x0000000080094fb0                . = ALIGN (0x10)
-                0x0000000080095110                . = (. + __stack_size)
- *fill*         0x0000000080094fb0      0x160 
-                0x0000000080095110                _stack_top = .
+.stack          0x0000000080096658      0x168
+                0x0000000080096660                . = ALIGN (0x10)
+ *fill*         0x0000000080096658        0x8 
+                0x00000000800967c0                . = (. + __stack_size)
+ *fill*         0x0000000080096660      0x160 
+                0x00000000800967c0                _stack_top = .
 OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0xa33e
+.debug_info     0x0000000000000000     0xa74b
  .debug_info    0x0000000000000000     0x3a91 ./output/tasks.o
  .debug_info    0x0000000000003a91      0x2c7 ./output/list.o
  .debug_info    0x0000000000003d58     0x294d ./output/queue.o
@@ -2774,17 +2777,17 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_info    0x0000000000008106      0x6f0 ./output/heap_4.o
  .debug_info    0x00000000000087f6      0x2f4 ./output/port.o
  .debug_info    0x0000000000008aea      0x573 ./output/main.o
- .debug_info    0x000000000000905d      0x2c0 ./output/test_manager.o
- .debug_info    0x000000000000931d      0x17b ./output/ns16550.o
- .debug_info    0x0000000000009498      0x56c ./output/test_interrupt_latency.o
- .debug_info    0x0000000000009a04      0x6b1 ./output/printf-stdarg.o
- .debug_info    0x000000000000a0b5       0x26 ./output/start.o
- .debug_info    0x000000000000a0db       0x26 ./output/vector.o
- .debug_info    0x000000000000a101       0x22 ./output/portASM.o
- .debug_info    0x000000000000a123      0x144 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
- .debug_info    0x000000000000a267       0xd7 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_info    0x000000000000905d      0x2c1 ./output/test_manager.o
+ .debug_info    0x000000000000931e      0x17b ./output/ns16550.o
+ .debug_info    0x0000000000009499      0x978 ./output/queue_test.o
+ .debug_info    0x0000000000009e11      0x6b1 ./output/printf-stdarg.o
+ .debug_info    0x000000000000a4c2       0x26 ./output/start.o
+ .debug_info    0x000000000000a4e8       0x26 ./output/vector.o
+ .debug_info    0x000000000000a50e       0x22 ./output/portASM.o
+ .debug_info    0x000000000000a530      0x144 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_info    0x000000000000a674       0xd7 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_abbrev   0x0000000000000000     0x1a55
+.debug_abbrev   0x0000000000000000     0x1a78
  .debug_abbrev  0x0000000000000000      0x451 ./output/tasks.o
  .debug_abbrev  0x0000000000000451      0x10d ./output/list.o
  .debug_abbrev  0x000000000000055e      0x383 ./output/queue.o
@@ -2794,15 +2797,15 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_abbrev  0x00000000000010e7      0x1e1 ./output/main.o
  .debug_abbrev  0x00000000000012c8      0x130 ./output/test_manager.o
  .debug_abbrev  0x00000000000013f8      0x11d ./output/ns16550.o
- .debug_abbrev  0x0000000000001515      0x19b ./output/test_interrupt_latency.o
- .debug_abbrev  0x00000000000016b0      0x231 ./output/printf-stdarg.o
- .debug_abbrev  0x00000000000018e1       0x14 ./output/start.o
- .debug_abbrev  0x00000000000018f5       0x14 ./output/vector.o
- .debug_abbrev  0x0000000000001909       0x12 ./output/portASM.o
- .debug_abbrev  0x000000000000191b       0xca c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
- .debug_abbrev  0x00000000000019e5       0x70 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_abbrev  0x0000000000001515      0x1be ./output/queue_test.o
+ .debug_abbrev  0x00000000000016d3      0x231 ./output/printf-stdarg.o
+ .debug_abbrev  0x0000000000001904       0x14 ./output/start.o
+ .debug_abbrev  0x0000000000001918       0x14 ./output/vector.o
+ .debug_abbrev  0x000000000000192c       0x12 ./output/portASM.o
+ .debug_abbrev  0x000000000000193e       0xca c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000000000001a08       0x70 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_loc      0x0000000000000000     0x6d7a
+.debug_loc      0x0000000000000000     0x6ee2
  .debug_loc     0x0000000000000000     0x2bdd ./output/tasks.o
  .debug_loc     0x0000000000002bdd       0x75 ./output/list.o
  .debug_loc     0x0000000000002c52     0x1e00 ./output/queue.o
@@ -2811,11 +2814,11 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_loc     0x0000000000005fbb       0x35 ./output/port.o
  .debug_loc     0x0000000000005ff0      0x13d ./output/main.o
  .debug_loc     0x000000000000612d       0x26 ./output/ns16550.o
- .debug_loc     0x0000000000006153       0xf8 ./output/test_interrupt_latency.o
- .debug_loc     0x000000000000624b      0xac4 ./output/printf-stdarg.o
- .debug_loc     0x0000000000006d0f       0x6b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_loc     0x0000000000006153      0x260 ./output/queue_test.o
+ .debug_loc     0x00000000000063b3      0xac4 ./output/printf-stdarg.o
+ .debug_loc     0x0000000000006e77       0x6b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
 
-.debug_aranges  0x0000000000000000      0x760
+.debug_aranges  0x0000000000000000      0x768
  .debug_aranges
                 0x0000000000000000      0x240 ./output/tasks.o
  .debug_aranges
@@ -2835,21 +2838,21 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000608       0x20 ./output/ns16550.o
  .debug_aranges
-                0x0000000000000628       0x28 ./output/test_interrupt_latency.o
+                0x0000000000000628       0x30 ./output/queue_test.o
  .debug_aranges
-                0x0000000000000650       0x58 ./output/printf-stdarg.o
+                0x0000000000000658       0x58 ./output/printf-stdarg.o
  .debug_aranges
-                0x00000000000006a8       0x20 ./output/start.o
+                0x00000000000006b0       0x20 ./output/start.o
  .debug_aranges
-                0x00000000000006c8       0x20 ./output/vector.o
+                0x00000000000006d0       0x20 ./output/vector.o
  .debug_aranges
-                0x00000000000006e8       0x40 ./output/portASM.o
+                0x00000000000006f0       0x40 ./output/portASM.o
  .debug_aranges
-                0x0000000000000728       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                0x0000000000000730       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
  .debug_aranges
-                0x0000000000000748       0x18 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                0x0000000000000750       0x18 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_ranges   0x0000000000000000      0xd30
+.debug_ranges   0x0000000000000000      0xd40
  .debug_ranges  0x0000000000000000      0x5d0 ./output/tasks.o
  .debug_ranges  0x00000000000005d0       0x30 ./output/list.o
  .debug_ranges  0x0000000000000600      0x340 ./output/queue.o
@@ -2859,12 +2862,12 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_ranges  0x0000000000000b80       0x50 ./output/main.o
  .debug_ranges  0x0000000000000bd0       0x28 ./output/test_manager.o
  .debug_ranges  0x0000000000000bf8       0x10 ./output/ns16550.o
- .debug_ranges  0x0000000000000c08       0x48 ./output/test_interrupt_latency.o
- .debug_ranges  0x0000000000000c50       0x88 ./output/printf-stdarg.o
- .debug_ranges  0x0000000000000cd8       0x38 ./output/portASM.o
- .debug_ranges  0x0000000000000d10       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_ranges  0x0000000000000c08       0x58 ./output/queue_test.o
+ .debug_ranges  0x0000000000000c60       0x88 ./output/printf-stdarg.o
+ .debug_ranges  0x0000000000000ce8       0x38 ./output/portASM.o
+ .debug_ranges  0x0000000000000d20       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
 
-.debug_macro    0x0000000000000000     0x48cc
+.debug_macro    0x0000000000000000     0x48e4
  .debug_macro   0x0000000000000000      0x2d6 ./output/tasks.o
  .debug_macro   0x00000000000002d6      0x718 ./output/tasks.o
  .debug_macro   0x00000000000009ee       0x19 ./output/tasks.o
@@ -2933,11 +2936,11 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_macro   0x00000000000040e2      0x145 ./output/main.o
  .debug_macro   0x0000000000004227      0x256 ./output/test_manager.o
  .debug_macro   0x000000000000447d       0xe5 ./output/ns16550.o
- .debug_macro   0x0000000000004562      0x26c ./output/test_interrupt_latency.o
- .debug_macro   0x00000000000047ce       0xa6 ./output/printf-stdarg.o
- .debug_macro   0x0000000000004874       0x58 ./output/printf-stdarg.o
+ .debug_macro   0x0000000000004562      0x284 ./output/queue_test.o
+ .debug_macro   0x00000000000047e6       0xa6 ./output/printf-stdarg.o
+ .debug_macro   0x000000000000488c       0x58 ./output/printf-stdarg.o
 
-.debug_line     0x0000000000000000    0x11147
+.debug_line     0x0000000000000000    0x114b3
  .debug_line    0x0000000000000000     0x6fab ./output/tasks.o
  .debug_line    0x0000000000006fab      0x736 ./output/list.o
  .debug_line    0x00000000000076e1     0x3fa2 ./output/queue.o
@@ -2945,17 +2948,17 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_line    0x000000000000d2dd      0xfdb ./output/heap_4.o
  .debug_line    0x000000000000e2b8      0x56d ./output/port.o
  .debug_line    0x000000000000e825      0x851 ./output/main.o
- .debug_line    0x000000000000f076      0x550 ./output/test_manager.o
- .debug_line    0x000000000000f5c6      0x206 ./output/ns16550.o
- .debug_line    0x000000000000f7cc      0x79d ./output/test_interrupt_latency.o
- .debug_line    0x000000000000ff69      0xbaa ./output/printf-stdarg.o
- .debug_line    0x0000000000010b13       0xda ./output/start.o
- .debug_line    0x0000000000010bed       0xbe ./output/vector.o
- .debug_line    0x0000000000010cab      0x334 ./output/portASM.o
- .debug_line    0x0000000000010fdf       0xfa c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
- .debug_line    0x00000000000110d9       0x6e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_line    0x000000000000f076      0x538 ./output/test_manager.o
+ .debug_line    0x000000000000f5ae      0x206 ./output/ns16550.o
+ .debug_line    0x000000000000f7b4      0xb21 ./output/queue_test.o
+ .debug_line    0x00000000000102d5      0xbaa ./output/printf-stdarg.o
+ .debug_line    0x0000000000010e7f       0xda ./output/start.o
+ .debug_line    0x0000000000010f59       0xbe ./output/vector.o
+ .debug_line    0x0000000000011017      0x334 ./output/portASM.o
+ .debug_line    0x000000000001134b       0xfa c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_line    0x0000000000011445       0x6e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_str      0x0000000000000000    0x17677
+.debug_str      0x0000000000000000    0x1777f
  .debug_str     0x0000000000000000    0x1356f ./output/tasks.o
                                       0x13901 (size before relaxing)
  .debug_str     0x000000000001356f       0x50 ./output/list.o
@@ -2970,23 +2973,23 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
                                       0x110a1 (size before relaxing)
  .debug_str     0x0000000000015ab7     0x14b6 ./output/main.o
                                       0x124f8 (size before relaxing)
- .debug_str     0x0000000000016f6d       0x92 ./output/test_manager.o
-                                      0x11f33 (size before relaxing)
- .debug_str     0x0000000000016fff      0x16a ./output/ns16550.o
+ .debug_str     0x0000000000016f6d       0x84 ./output/test_manager.o
+                                      0x11f25 (size before relaxing)
+ .debug_str     0x0000000000016ff1      0x16a ./output/ns16550.o
                                        0x34fc (size before relaxing)
- .debug_str     0x0000000000017169      0x14d ./output/test_interrupt_latency.o
-                                      0x1285e (size before relaxing)
- .debug_str     0x00000000000172b6      0x1ac ./output/printf-stdarg.o
+ .debug_str     0x000000000001715b      0x263 ./output/queue_test.o
+                                      0x1298a (size before relaxing)
+ .debug_str     0x00000000000173be      0x1ac ./output/printf-stdarg.o
                                        0x36e3 (size before relaxing)
- .debug_str     0x0000000000017462       0x14 ./output/start.o
+ .debug_str     0x000000000001756a       0x14 ./output/start.o
                                          0x57 (size before relaxing)
- .debug_str     0x0000000000017476       0x34 ./output/vector.o
+ .debug_str     0x000000000001757e       0x34 ./output/vector.o
                                          0x83 (size before relaxing)
- .debug_str     0x00000000000174aa       0x31 ./output/portASM.o
+ .debug_str     0x00000000000175b2       0x31 ./output/portASM.o
                                          0x80 (size before relaxing)
- .debug_str     0x00000000000174db      0x19c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_str     0x00000000000175e3      0x19c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
                                         0x24e (size before relaxing)
- .debug_str     0x0000000000017677      0x231 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_str     0x000000000001777f      0x231 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
 .comment        0x0000000000000000       0x12
  .comment       0x0000000000000000       0x12 ./output/tasks.o
@@ -2999,7 +3002,7 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .comment       0x0000000000000012       0x13 ./output/main.o
  .comment       0x0000000000000012       0x13 ./output/test_manager.o
  .comment       0x0000000000000012       0x13 ./output/ns16550.o
- .comment       0x0000000000000012       0x13 ./output/test_interrupt_latency.o
+ .comment       0x0000000000000012       0x13 ./output/queue_test.o
  .comment       0x0000000000000012       0x13 ./output/printf-stdarg.o
  .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
  .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
@@ -3026,7 +3029,7 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .riscv.attributes
                 0x0000000000000158       0x2b ./output/ns16550.o
  .riscv.attributes
-                0x0000000000000183       0x2b ./output/test_interrupt_latency.o
+                0x0000000000000183       0x2b ./output/queue_test.o
  .riscv.attributes
                 0x00000000000001ae       0x2b ./output/printf-stdarg.o
  .riscv.attributes
@@ -3044,7 +3047,7 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .riscv.attributes
                 0x00000000000002d5       0x29 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
 
-.debug_frame    0x0000000000000000     0x193c
+.debug_frame    0x0000000000000000     0x1970
  .debug_frame   0x0000000000000000      0xa48 ./output/tasks.o
  .debug_frame   0x0000000000000a48       0x60 ./output/list.o
  .debug_frame   0x0000000000000aa8      0x650 ./output/queue.o
@@ -3054,6 +3057,6 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_frame   0x000000000000163c       0xe8 ./output/main.o
  .debug_frame   0x0000000000001724       0x30 ./output/test_manager.o
  .debug_frame   0x0000000000001754       0x20 ./output/ns16550.o
- .debug_frame   0x0000000000001774       0x6c ./output/test_interrupt_latency.o
- .debug_frame   0x00000000000017e0      0x13c ./output/printf-stdarg.o
- .debug_frame   0x000000000000191c       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_frame   0x0000000000001774       0xa0 ./output/queue_test.o
+ .debug_frame   0x0000000000001814      0x13c ./output/printf-stdarg.o
+ .debug_frame   0x0000000000001950       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)

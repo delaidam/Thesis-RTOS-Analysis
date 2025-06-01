@@ -1,0 +1,50 @@
+
+==========================================
+=== FreeRTOS Performance Test Suite ===
+==========================================
+Selected test: 4
+CPU frequency: 25 MHz
+Number of iterations: 250
+Build timestamp: Jun  1 2025 12:36:38
+FreeRTOS version: V11.1.0+
+Free heap at start: 0 bytes
+==========================================
+Running: IPC Performance Test
+==========================================
+Queue test tasks created. Starting scheduler...
+Starting Queue Performance Test...
+Number of iterations: 500
+Queue length: 10
+Sent u/50 messages
+Sent u/100 messages
+Sent u/150 messages
+Sent u/200 messages
+Sent u/250 messages
+Sent u/300 messages
+Sent u/350 messages
+Sent u/400 messages
+Sent u/450 messages
+Receiver completed u iterations
+Sent u/500 messages
+
+=== QUEUE PERFORMANCE RESULTS ===
+QUEUE SEND CYCLES:
+  Min: 10492 cycles
+  Max: 1521127 cycles
+  Avg: 16315 cycles
+QUEUE RECEIVE CYCLES:
+  Min: 11459176 cycles
+  Max: -1557534369 cycles
+  Avg: 1973169 cycles
+END-TO-END IPC CYCLES:
+  Min: 11472735 cycles
+  Max: -1556013242 cycles
+  Avg: 1989484 cycles
+
+TIME ESTIMATES (assuming 25 MHz CPU):
+Queue Send Avg: 652.6 µs
+Queue Receive Avg: 78926.7 µs
+End-to-End IPC Avg: 79579.3 µs
+
+FREE HEAP AFTER TEST: 79536 bytes
+Queue test completed!

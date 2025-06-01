@@ -1,0 +1,39 @@
+
+==========================================
+=== FreeRTOS Performance Test Suite ===
+==========================================
+Selected test: 1
+CPU frequency: 25 MHz
+Number of iterations: 500
+Build timestamp: Jun  1 2025 12:32:45
+FreeRTOS version: V11.1.0+
+Free heap at start: 0 bytes
+==========================================
+Running: Context Switch Test
+==========================================
+Context switch test tasks created. Starting scheduler...
+Starting Context Switch Performance Test...
+Number of iterations: 1000
+Completed u/100 context switch iterations
+Completed u/200 context switch iterations
+Completed u/300 context switch iterations
+Completed u/400 context switch iterations
+Completed u/500 context switch iterations
+Completed u/600 context switch iterations
+Completed u/700 context switch iterations
+Completed u/800 context switch iterations
+Completed u/900 context switch iterations
+Completed u/1000 context switch iterations
+
+=== CONTEXT SWITCH PERFORMANCE RESULTS ===
+ROUND-TRIP CONTEXT SWITCH CYCLES:
+  Min: 9118 cycles
+  Max: 11126974 cycles
+  Avg: 41492 cycles
+SINGLE CONTEXT SWITCH (estimated):
+  Avg: 20746 cycles
+
+TIME ESTIMATES (assuming 25 MHz CPU):
+Round-trip Context Switch Avg: 1659.6 µs
+Single Context Switch Avg: 829.8 µs
+Context switch test completed!

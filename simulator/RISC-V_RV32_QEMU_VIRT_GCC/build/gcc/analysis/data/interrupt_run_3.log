@@ -1,0 +1,33 @@
+
+==========================================
+=== FreeRTOS Performance Test Suite ===
+==========================================
+Selected test: 5
+CPU frequency: 25 MHz
+Number of iterations: 100
+Build timestamp: Jun  1 2025 12:42:02
+FreeRTOS version: V11.1.0+
+Free heap at start: 0 bytes
+==========================================
+Running: Interrupt Latency Test
+==========================================
+Simple interrupt test created. Starting scheduler...
+Starting Simple Interrupt Latency Test...
+Number of iterations: 50
+Completed u/10 iterations
+Completed u/20 iterations
+Completed u/30 iterations
+Completed u/40 iterations
+Completed u/50 iterations
+
+=== SIMPLE INTERRUPT TEST RESULTS ===
+QUEUE OPERATION CYCLES:
+  Min: 6465 cycles
+  Max: 850988 cycles
+  Avg: 26217 cycles
+
+TIME ESTIMATES (assuming 25 MHz CPU):
+Queue Operation Avg: 1048.6 µs
+
+Simple interrupt test completed!
+FREE HEAP: 80656 bytes

@@ -1,0 +1,59 @@
+
+==========================================
+=== FreeRTOS Performance Test Suite ===
+==========================================
+Selected test: 3
+CPU frequency: 25 MHz
+Number of iterations: 300
+Build timestamp: Jun  1 2025 12:24:51
+FreeRTOS version: V11.1.0+
+Free heap at start: 0 bytes
+==========================================
+Running: Synchronization Test
+==========================================
+Synchronization test task created. Starting scheduler...
+Starting Synchronization Performance Test...
+Number of iterations: 300
+
+=== TESTING BINARY SEMAPHORE PERFORMANCE ===
+Completed u/50 semaphore operations
+Completed u/100 semaphore operations
+Completed u/150 semaphore operations
+Completed u/200 semaphore operations
+Completed u/250 semaphore operations
+Completed u/300 semaphore operations
+
+=== TESTING MUTEX PERFORMANCE ===
+Completed u/50 mutex operations
+Completed u/100 mutex operations
+Completed u/150 mutex operations
+Completed u/200 mutex operations
+Completed u/250 mutex operations
+Completed u/300 mutex operations
+
+=== SYNCHRONIZATION PERFORMANCE RESULTS ===
+BINARY SEMAPHORE GIVE CYCLES:
+  Min: 1081 cycles
+  Max: 177596 cycles
+  Avg: 1879 cycles
+BINARY SEMAPHORE TAKE CYCLES:
+  Min: 958 cycles
+  Max: 529188 cycles
+  Avg: 2785 cycles
+MUTEX GIVE CYCLES:
+  Min: 1173 cycles
+  Max: 198303 cycles
+  Avg: 1913 cycles
+MUTEX TAKE CYCLES:
+  Min: 1009 cycles
+  Max: 191305 cycles
+  Avg: 1729 cycles
+
+TIME ESTIMATES (assuming 25 MHz CPU):
+Semaphore Give Avg: 75.1 µs
+Semaphore Take Avg: 111.4 µs
+Mutex Give Avg: 76.5 µs
+Mutex Take Avg: 69.1 µs
+
+FREE HEAP AFTER TEST: 79488 bytes
+Synchronization test completed!

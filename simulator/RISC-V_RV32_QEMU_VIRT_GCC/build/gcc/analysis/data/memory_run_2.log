@@ -1,0 +1,79 @@
+
+==========================================
+=== FreeRTOS Performance Test Suite ===
+==========================================
+Selected test: 2
+CPU frequency: 25 MHz
+Number of iterations: 200
+Build timestamp: Jun  1 2025 12:29:39
+FreeRTOS version: V11.1.0+
+Free heap at start: 0 bytes
+==========================================
+Running: Memory Allocation Test
+==========================================
+Memory allocation test task created. Starting scheduler...
+Starting Memory Allocation Performance Test...
+Number of iterations per size: 200
+
+=== TESTING SMALL ALLOCATIONS (32 bytes) ===
+Free heap before test: 79824 bytes
+Allocated u/50 blocks
+Allocated u/100 blocks
+Allocated u/150 blocks
+Allocated u/200 blocks
+Free heap after allocations: 70224 bytes
+Freed u/u blocks
+Freed u/u blocks
+Freed u/u blocks
+Freed u/u blocks
+Free heap after deallocations: 79824 bytes
+
+=== SMALL ALLOCATION STATISTICS ===
+MALLOC CYCLES (u successful):
+  Min: 1040 cycles
+  Max: 68384 cycles
+  Avg: 1460 cycles
+FREE CYCLES (u successful):
+  Min: 989 cycles
+  Max: 488893 cycles
+  Avg: 5006 cycles
+
+TIME ESTIMATES (assuming 25 MHz CPU):
+Malloc Avg: 58.4 µs
+Free Avg: 200.2 µs
+
+=== TESTING MEDIUM ALLOCATIONS (128 bytes) ===
+Free heap before test: 79824 bytes
+Allocated u/50 blocks
+Allocated u/100 blocks
+Allocated u/150 blocks
+Allocated u/200 blocks
+Free heap after allocations: 51024 bytes
+Freed u/u blocks
+Freed u/u blocks
+Freed u/u blocks
+Freed u/u blocks
+Free heap after deallocations: 79824 bytes
+
+=== MEDIUM ALLOCATION STATISTICS ===
+MALLOC CYCLES (u successful):
+  Min: 1046 cycles
+  Max: 97018 cycles
+  Avg: 1609 cycles
+FREE CYCLES (u successful):
+  Min: 983 cycles
+  Max: 90445 cycles
+  Avg: 1656 cycles
+
+TIME ESTIMATES (assuming 25 MHz CPU):
+Malloc Avg: 64.3 µs
+Free Avg: 66.2 µs
+
+=== TESTING LARGE ALLOCATIONS (512 bytes) ===
+Free heap before test: 79824 bytes
+Allocated u/50 blocks
+Allocated u/100 blocks
+Allocated u/150 blocks
+
+
+Malloc failed

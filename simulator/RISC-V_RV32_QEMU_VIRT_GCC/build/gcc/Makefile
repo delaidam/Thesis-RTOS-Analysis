@@ -200,3 +200,152 @@ size: $(OUTPUT_DIR)/$(IMAGE)
 print-%: ; @echo $* = $($*)
 
 .PHONY: all clean run run-with-log size test-* quick-* test-all
+
+# === COMPLETE DATA COLLECTION FOR ALL TESTS ===
+
+# Collect synchronization data (semaphore_mutex_test.c)
+collect-sync-data:
+	@echo "Collecting synchronization data (20 runs)..."
+	@mkdir -p analysis/data
+	@for i in $$(seq 1 20); do \
+	    echo "Sync run $$i/20"; \
+	    $(MAKE) test-sync > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/sync_run_$$i.log 2>&1 || true; \
+	    sleep 2; \
+	  done
+	@echo "Sync data collection completed!"
+
+# Collect memory allocation data (test_memory_allocation.c)
+collect-memory-data:
+	@echo "Collecting memory allocation data (20 runs)..."
+	@mkdir -p analysis/data
+	@for i in $$(seq 1 20); do \
+	    echo "Memory run $$i/20"; \
+	    $(MAKE) test-memory > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/memory_run_$$i.log 2>&1 || true; \
+	    sleep 2; \
+	done
+	@echo "Memory data collection completed!"
+
+# Collect context switch data (test_context_switch.c)
+collect-context-data:
+	@echo "Collecting context switch data (20 runs)..."
+	@mkdir -p analysis/data
+	@for i in $$(seq 1 20); do \
+	    echo "Context run $$i/20"; \
+	    $(MAKE) test-context > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/context_run_$$i.log 2>&1 || true; \
+	    sleep 2; \
+	done
+	@echo "Context data collection completed!"
+
+# Collect IPC data (test_ipc_performance.c)
+collect-ipc-data:
+	@echo "Collecting IPC data (20 runs)..."
+	@mkdir -p analysis/data
+	@for i in $$(seq 1 20); do \
+	    echo "IPC run $$i/20"; \
+	    $(MAKE) test-ipc > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/ipc_run_$$i.log 2>&1 || true; \
+	    sleep 2; \
+	done
+	@echo "IPC data collection completed!"
+
+# Collect interrupt latency data (test_interrupt_latency.c)
+collect-interrupt-data:
+	@echo "Collecting interrupt latency data (20 runs)..."
+	@mkdir -p analysis/data
+	@for i in $$(seq 1 20); do \
+	    echo "Interrupt run $$i/20"; \
+	    $(MAKE) test-interrupt > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/interrupt_run_$$i.log 2>&1 || true; \
+	    sleep 2; \
+	done
+	@echo "Interrupt data collection completed!"
+
+# Collect queue test data (queue_test.c)
+collect-queue-data:
+	@echo "Collecting queue performance data (20 runs)..."
+	@mkdir -p analysis/data
+	@for i in $$(seq 1 20); do \
+	    echo "Queue run $$i/20"; \
+	    $(MAKE) clean > /dev/null 2>&1; \
+	    $(MAKE) all TEST_TYPE=4 > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/queue_run_$$i.log 2>&1 || true; \
+	    sleep 2; \
+	done
+	@echo "Queue data collection completed!"
+
+# Collect all data (complete dataset)
+collect-all-data:
+	@echo "=== COLLECTING ALL PERFORMANCE DATA ==="
+	@echo "This will take approximately 1 hour..."
+	@echo "Tests included: sync, memory, context, ipc, interrupt, queue"
+	$(MAKE) collect-sync-data
+	$(MAKE) collect-memory-data
+	$(MAKE) collect-context-data
+	$(MAKE) collect-ipc-data
+	$(MAKE) collect-interrupt-data
+	$(MAKE) collect-queue-data
+	@echo "=== ALL DATA COLLECTION COMPLETED ==="
+	@echo "Total runs: 120 (6 tests × 20 runs each)"
+	@echo "Ready for Python analysis!"
+
+# Quick data collection (5 runs each for testing)
+collect-quick-data:
+	@echo "Quick data collection (5 runs each)..."
+	@mkdir -p analysis/data
+	@echo "Collecting sync data..."
+	@for i in 1 2 3 4 5; do \
+	    $(MAKE) test-sync > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/sync_run_$$i.log 2>&1 || true; \
+	done
+	@echo "Collecting memory data..."
+	@for i in 1 2 3 4 5; do \
+	    $(MAKE) test-memory > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/memory_run_$$i.log 2>&1 || true; \
+	done
+	@echo "Collecting context data..."
+	@for i in 1 2 3 4 5; do \
+	    $(MAKE) test-context > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/context_run_$$i.log 2>&1 || true; \
+	done
+	@echo "Collecting IPC data..."
+	@for i in 1 2 3 4 5; do \
+	    $(MAKE) test-ipc > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/ipc_run_$$i.log 2>&1 || true; \
+	done
+	@echo "Collecting interrupt data..."
+	@for i in 1 2 3 4 5; do \
+	    $(MAKE) test-interrupt > /dev/null 2>&1; \
+	    timeout 30 $(QEMU_CMD) > analysis/data/interrupt_run_$$i.log 2>&1 || true; \
+	done
+	@echo "Quick data collection completed!"
+	@echo "Total runs: 25 (5 tests × 5 runs each)"
+
+# Individual test verification
+verify-context:
+	@echo "Testing context switch test..."
+	$(MAKE) test-context && timeout 10 $(QEMU_CMD)
+
+verify-interrupt:
+	@echo "Testing interrupt latency test..."
+	$(MAKE) test-interrupt && timeout 10 $(QEMU_CMD)
+
+verify-queue:
+	@echo "Testing queue performance test..."
+	$(MAKE) clean
+	$(MAKE) all TEST_TYPE=4
+	timeout 10 $(QEMU_CMD)
+
+# Verification of all tests
+verify-all-tests:
+	@echo "=== VERIFYING ALL TESTS ==="
+	@echo "Each test will run for 10 seconds..."
+	$(MAKE) verify-context
+	$(MAKE) verify-interrupt
+	$(MAKE) verify-queue
+	@echo "All tests verified!"
+
+.PHONY: collect-sync-data collect-memory-data collect-context-data collect-ipc-data collect-interrupt-data collect-queue-data
+.PHONY: collect-all-data collect-quick-data verify-context verify-interrupt verify-queue verify-all-tests
