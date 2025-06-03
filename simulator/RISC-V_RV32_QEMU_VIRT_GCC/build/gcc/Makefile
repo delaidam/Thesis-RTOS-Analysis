@@ -22,11 +22,13 @@ MARCH = rv32imac
 MABI = ilp32
 MCMODEL = medlow
 
+DEMO_ID ?= 0
 CFLAGS = -march=$(MARCH) -mabi=$(MABI) -mcmodel=$(MCMODEL)
 CFLAGS += -ffunction-sections -fdata-sections -fmessage-length=0
 CFLAGS += -Wno-unused-parameter -nostartfiles -g3 -Os
 CFLAGS += --specs=nano.specs -fno-builtin-printf
 CFLAGS += -DSELECTED_TEST=$(TEST_TYPE) -DNUM_ITERATIONS=$(ITERATIONS) -DCPU_FREQ_MHZ=$(CPU_FREQ)
+CFLAGS += -DDEMO_ID=$(DEMO_ID)
 
 # Include directories
 KERNEL_DIR = $(FREERTOS_ROOT)/Source
@@ -62,6 +64,9 @@ APP_SOURCES = $(DEMO_PROJECT)/main.c
 APP_SOURCES += $(DEMO_PROJECT)/test_manager.c
 APP_SOURCES += $(DEMO_PROJECT)/riscv-virt.c
 APP_SOURCES += $(DEMO_PROJECT)/ns16550.c
+APP_SOURCES += $(DEMO_PROJECT)/scheduler_validation_demo.c
+APP_SOURCES += $(DEMO_PROJECT)/queue_communication_demo.c
+APP_SOURCES += $(DEMO_PROJECT)/interrupt_io_demo.c
 
 # Test sources
 TEST_SOURCES = $(DEMO_PROJECT)/test_context_switch.c
@@ -349,3 +354,33 @@ verify-all-tests:
 
 .PHONY: collect-sync-data collect-memory-data collect-context-data collect-ipc-data collect-interrupt-data collect-queue-data
 .PHONY: collect-all-data collect-quick-data verify-context verify-interrupt verify-queue verify-all-tests
+
+# === DEMO APPLICATION TARGETS ===
+
+# Demo targets with proper dependency management
+demo-scheduler: clean
+	$(MAKE) all CFLAGS+="-DDEMO_ID=10"
+	$(QEMU_CMD)
+
+demo-queue: clean
+	$(MAKE) all CFLAGS+="-DDEMO_ID=11"
+	$(QEMU_CMD)
+
+demo-interrupt: clean
+	$(MAKE) all CFLAGS+="-DDEMO_ID=12"
+	$(QEMU_CMD)
+
+# Verification demos (shorter runs)
+verify-demo-scheduler: clean
+	$(MAKE) all CFLAGS+="-DDEMO_ID=10"
+	timeout 15 $(QEMU_CMD) || true
+
+verify-demo-queue: clean
+	$(MAKE) all CFLAGS+="-DDEMO_ID=11"
+	timeout 15 $(QEMU_CMD) || true
+
+verify-demo-interrupt: clean
+	$(MAKE) all CFLAGS+="-DDEMO_ID=12"
+	timeout 15 $(QEMU_CMD) || true
+
+.PHONY: demo-scheduler demo-queue demo-interrupt verify-demo-scheduler verify-demo-queue verify-demo-interrupt

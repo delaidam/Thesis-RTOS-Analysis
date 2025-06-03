@@ -56,3 +56,20 @@ size_t i;
 
 	portEXIT_CRITICAL();
 }
+
+void print_uint32(uint32_t value) {
+    char buf[12];
+    int i = 10;
+    buf[11] = '\0';
+    if (value == 0) {
+        buf[10] = '0';
+        printf(&buf[10]);
+        return;
+    }
+    while (value > 0 && i > 0) {
+        buf[i--] = '0' + (value % 10);
+        value /= 10;
+    }
+    printf(&buf[i+1]);
+}
+

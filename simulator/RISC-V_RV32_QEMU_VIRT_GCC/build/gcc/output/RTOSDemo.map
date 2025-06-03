@@ -8,6 +8,8 @@ c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-u
                               ./output/queue.o (memcpy)
 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
                               ./output/tasks.o (memset)
+c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcpy.o)
+                              ./output/scheduler_validation_demo.o (strcpy)
 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
                               ./output/tasks.o (strlen)
 
@@ -60,6 +62,8 @@ Discarded input sections
                 0x0000000000000000       0x3a ./output/tasks.o
  .text.prvTaskIsTaskSuspended
                 0x0000000000000000       0x70 ./output/tasks.o
+ .text.vTaskDelete
+                0x0000000000000000      0x156 ./output/tasks.o
  .text.eTaskGetState
                 0x0000000000000000       0xc2 ./output/tasks.o
  .text.uxTaskPriorityGet
@@ -78,8 +82,6 @@ Discarded input sections
                 0x0000000000000000       0xce ./output/tasks.o
  .text.vTaskEndScheduler
                 0x0000000000000000       0x44 ./output/tasks.o
- .text.xTaskGetTickCountFromISR
-                0x0000000000000000        0xa ./output/tasks.o
  .text.pcTaskGetName
                 0x0000000000000000       0x36 ./output/tasks.o
  .text.xTaskGetStaticBuffers
@@ -96,6 +98,8 @@ Discarded input sections
                 0x0000000000000000       0x60 ./output/tasks.o
  .text.xTaskAbortDelay
                 0x0000000000000000       0xf4 ./output/tasks.o
+ .text.vTaskSuspend
+                0x0000000000000000      0x192 ./output/tasks.o
  .text.vTaskPlaceOnUnorderedEventList
                 0x0000000000000000       0x94 ./output/tasks.o
  .text.vTaskRemoveFromUnorderedEventList
@@ -118,14 +122,8 @@ Discarded input sections
                 0x0000000000000000        0xa ./output/tasks.o
  .text.xTaskGetCurrentTaskHandleForCore
                 0x0000000000000000       0x10 ./output/tasks.o
- .text.xTaskPriorityInherit
-                0x0000000000000000       0xdc ./output/tasks.o
- .text.vTaskPriorityDisinheritAfterTimeout
-                0x0000000000000000       0xf4 ./output/tasks.o
  .text.uxTaskResetEventItemValue
                 0x0000000000000000       0x1a ./output/tasks.o
- .text.pvTaskIncrementMutexHeldCount
-                0x0000000000000000       0x12 ./output/tasks.o
  .text.ulTaskGenericNotifyTake
                 0x0000000000000000       0xf6 ./output/tasks.o
  .text.xTaskGenericNotifyWait
@@ -184,7 +182,9 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/list.o
  .data          0x0000000000000000        0x0 ./output/list.o
  .bss           0x0000000000000000        0x0 ./output/list.o
- .debug_macro   0x0000000000000000      0x718 ./output/list.o
+ .text.vListInsertEnd
+                0x0000000000000000       0x18 ./output/list.o
+ .debug_macro   0x0000000000000000      0x71e ./output/list.o
  .debug_macro   0x0000000000000000       0x19 ./output/list.o
  .debug_macro   0x0000000000000000       0x22 ./output/list.o
  .debug_macro   0x0000000000000000       0x34 ./output/list.o
@@ -277,12 +277,6 @@ Discarded input sections
                 0x0000000000000000       0x5c ./output/queue.o
  .text.xQueueCreateMutex
                 0x0000000000000000       0x3c ./output/queue.o
- .text.xQueueGenericSendFromISR
-                0x0000000000000000      0x124 ./output/queue.o
- .text.xQueueGiveFromISR
-                0x0000000000000000       0xec ./output/queue.o
- .text.xQueueSemaphoreTake
-                0x0000000000000000      0x20e ./output/queue.o
  .text.xQueueTakeMutexRecursive
                 0x0000000000000000       0x7e ./output/queue.o
  .text.xQueuePeek
@@ -329,7 +323,7 @@ Discarded input sections
                 0x0000000000000000       0x1a ./output/queue.o
  .text.xQueueSelectFromSetFromISR
                 0x0000000000000000       0x1a ./output/queue.o
- .debug_macro   0x0000000000000000      0x718 ./output/queue.o
+ .debug_macro   0x0000000000000000      0x71e ./output/queue.o
  .debug_macro   0x0000000000000000       0x19 ./output/queue.o
  .debug_macro   0x0000000000000000       0x22 ./output/queue.o
  .debug_macro   0x0000000000000000       0x34 ./output/queue.o
@@ -408,12 +402,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/timers.o
  .data          0x0000000000000000        0x0 ./output/timers.o
  .bss           0x0000000000000000        0x0 ./output/timers.o
- .text.xTimerCreate
-                0x0000000000000000       0x8a ./output/timers.o
  .text.xTimerCreateStatic
                 0x0000000000000000       0xb8 ./output/timers.o
- .text.xTimerGenericCommandFromTask
-                0x0000000000000000       0x70 ./output/timers.o
  .text.xTimerGenericCommandFromISR
                 0x0000000000000000       0x58 ./output/timers.o
  .text.xTimerGetTimerDaemonTaskHandle
@@ -448,7 +438,7 @@ Discarded input sections
                 0x0000000000000000        0x4 ./output/timers.o
  .text.vTimerResetState
                 0x0000000000000000       0x12 ./output/timers.o
- .debug_macro   0x0000000000000000      0x718 ./output/timers.o
+ .debug_macro   0x0000000000000000      0x71e ./output/timers.o
  .debug_macro   0x0000000000000000       0x19 ./output/timers.o
  .debug_macro   0x0000000000000000       0x22 ./output/timers.o
  .debug_macro   0x0000000000000000       0x34 ./output/timers.o
@@ -565,7 +555,7 @@ Discarded input sections
                 0x0000000000000000       0x90 ./output/event_groups.o
  .debug_ranges  0x0000000000000000       0xb0 ./output/event_groups.o
  .debug_macro   0x0000000000000000      0x1e6 ./output/event_groups.o
- .debug_macro   0x0000000000000000      0x718 ./output/event_groups.o
+ .debug_macro   0x0000000000000000      0x71e ./output/event_groups.o
  .debug_macro   0x0000000000000000       0x19 ./output/event_groups.o
  .debug_macro   0x0000000000000000       0x22 ./output/event_groups.o
  .debug_macro   0x0000000000000000       0x34 ./output/event_groups.o
@@ -604,7 +594,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x98 ./output/event_groups.o
  .debug_macro   0x0000000000000000       0x23 ./output/event_groups.o
  .debug_line    0x0000000000000000     0x138a ./output/event_groups.o
- .debug_str     0x0000000000000000    0x12006 ./output/event_groups.o
+ .debug_str     0x0000000000000000    0x12011 ./output/event_groups.o
  .comment       0x0000000000000000       0x13 ./output/event_groups.o
  .debug_frame   0x0000000000000000      0x1ec ./output/event_groups.o
  .riscv.attributes
@@ -714,7 +704,7 @@ Discarded input sections
                 0x0000000000000000      0x100 ./output/stream_buffer.o
  .debug_ranges  0x0000000000000000       0xf0 ./output/stream_buffer.o
  .debug_macro   0x0000000000000000      0x224 ./output/stream_buffer.o
- .debug_macro   0x0000000000000000      0x718 ./output/stream_buffer.o
+ .debug_macro   0x0000000000000000      0x71e ./output/stream_buffer.o
  .debug_macro   0x0000000000000000       0x22 ./output/stream_buffer.o
  .debug_macro   0x0000000000000000       0x34 ./output/stream_buffer.o
  .debug_macro   0x0000000000000000       0x19 ./output/stream_buffer.o
@@ -750,7 +740,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x14f ./output/stream_buffer.o
  .debug_macro   0x0000000000000000       0x38 ./output/stream_buffer.o
  .debug_line    0x0000000000000000     0x256e ./output/stream_buffer.o
- .debug_str     0x0000000000000000    0x125a5 ./output/stream_buffer.o
+ .debug_str     0x0000000000000000    0x125b0 ./output/stream_buffer.o
  .comment       0x0000000000000000       0x13 ./output/stream_buffer.o
  .debug_frame   0x0000000000000000      0x468 ./output/stream_buffer.o
  .riscv.attributes
@@ -796,6 +786,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/heap_4.o
  .data          0x0000000000000000        0x0 ./output/heap_4.o
  .bss           0x0000000000000000        0x0 ./output/heap_4.o
+ .text.xPortGetFreeHeapSize
+                0x0000000000000000        0xa ./output/heap_4.o
  .text.xPortGetMinimumEverFreeHeapSize
                 0x0000000000000000        0xa ./output/heap_4.o
  .text.xPortResetHeapMinimumEverFreeHeapSize
@@ -808,7 +800,7 @@ Discarded input sections
                 0x0000000000000000       0xac ./output/heap_4.o
  .text.vPortHeapResetState
                 0x0000000000000000       0x2a ./output/heap_4.o
- .debug_macro   0x0000000000000000      0x718 ./output/heap_4.o
+ .debug_macro   0x0000000000000000      0x71e ./output/heap_4.o
  .debug_macro   0x0000000000000000       0x19 ./output/heap_4.o
  .debug_macro   0x0000000000000000       0x22 ./output/heap_4.o
  .debug_macro   0x0000000000000000       0x34 ./output/heap_4.o
@@ -887,7 +879,7 @@ Discarded input sections
                 0x0000000000000000        0x2 ./output/port.o
  .srodata.ullMachineTimerCompareRegisterBase
                 0x0000000000000000        0x4 ./output/port.o
- .debug_macro   0x0000000000000000      0x718 ./output/port.o
+ .debug_macro   0x0000000000000000      0x71e ./output/port.o
  .debug_macro   0x0000000000000000      0x174 ./output/port.o
  .debug_macro   0x0000000000000000       0x22 ./output/port.o
  .debug_macro   0x0000000000000000      0x103 ./output/port.o
@@ -977,7 +969,7 @@ Discarded input sections
  .rodata.malloc.str1.4
                 0x0000000000000000       0x43 ./output/main.o
  .text.malloc   0x0000000000000000       0x1a ./output/main.o
- .debug_macro   0x0000000000000000      0x718 ./output/main.o
+ .debug_macro   0x0000000000000000      0x71e ./output/main.o
  .debug_macro   0x0000000000000000      0x174 ./output/main.o
  .debug_macro   0x0000000000000000       0x22 ./output/main.o
  .debug_macro   0x0000000000000000       0x8e ./output/main.o
@@ -1061,7 +1053,17 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/test_manager.o
  .data          0x0000000000000000        0x0 ./output/test_manager.o
  .bss           0x0000000000000000        0x0 ./output/test_manager.o
- .debug_macro   0x0000000000000000      0x718 ./output/test_manager.o
+ .rodata.run_selected_test.str1.4
+                0x0000000000000000      0x13d ./output/test_manager.o
+ .text.run_selected_test
+                0x0000000000000000      0x10a ./output/test_manager.o
+ .debug_info    0x0000000000000000      0x2c1 ./output/test_manager.o
+ .debug_abbrev  0x0000000000000000      0x130 ./output/test_manager.o
+ .debug_aranges
+                0x0000000000000000       0x20 ./output/test_manager.o
+ .debug_ranges  0x0000000000000000       0x28 ./output/test_manager.o
+ .debug_macro   0x0000000000000000      0x256 ./output/test_manager.o
+ .debug_macro   0x0000000000000000      0x71e ./output/test_manager.o
  .debug_macro   0x0000000000000000       0x52 ./output/test_manager.o
  .debug_macro   0x0000000000000000      0x174 ./output/test_manager.o
  .debug_macro   0x0000000000000000       0x22 ./output/test_manager.o
@@ -1108,6 +1110,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x3d ./output/test_manager.o
  .debug_macro   0x0000000000000000       0x16 ./output/test_manager.o
  .debug_macro   0x0000000000000000      0x145 ./output/test_manager.o
+ .debug_line    0x0000000000000000      0x520 ./output/test_manager.o
+ .debug_str     0x0000000000000000    0x11f3c ./output/test_manager.o
+ .comment       0x0000000000000000       0x13 ./output/test_manager.o
+ .debug_frame   0x0000000000000000       0x30 ./output/test_manager.o
+ .riscv.attributes
+                0x0000000000000000       0x2b ./output/test_manager.o
  .group         0x0000000000000000        0xc ./output/riscv-virt.o
  .group         0x0000000000000000        0xc ./output/riscv-virt.o
  .group         0x0000000000000000        0xc ./output/riscv-virt.o
@@ -1147,14 +1155,7 @@ Discarded input sections
                 0x0000000000000000        0x6 ./output/riscv-virt.o
  .text.vSendString
                 0x0000000000000000       0x74 ./output/riscv-virt.o
- .debug_info    0x0000000000000000      0x193 ./output/riscv-virt.o
- .debug_abbrev  0x0000000000000000      0x125 ./output/riscv-virt.o
- .debug_loc     0x0000000000000000       0x6d ./output/riscv-virt.o
- .debug_aranges
-                0x0000000000000000       0x28 ./output/riscv-virt.o
- .debug_ranges  0x0000000000000000       0x18 ./output/riscv-virt.o
- .debug_macro   0x0000000000000000      0x1b3 ./output/riscv-virt.o
- .debug_macro   0x0000000000000000      0x718 ./output/riscv-virt.o
+ .debug_macro   0x0000000000000000      0x71e ./output/riscv-virt.o
  .debug_macro   0x0000000000000000      0x174 ./output/riscv-virt.o
  .debug_macro   0x0000000000000000       0x22 ./output/riscv-virt.o
  .debug_macro   0x0000000000000000       0x8e ./output/riscv-virt.o
@@ -1186,12 +1187,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x333 ./output/riscv-virt.o
  .debug_macro   0x0000000000000000       0x10 ./output/riscv-virt.o
  .debug_macro   0x0000000000000000       0x35 ./output/riscv-virt.o
- .debug_line    0x0000000000000000      0x4cf ./output/riscv-virt.o
- .debug_str     0x0000000000000000     0xef14 ./output/riscv-virt.o
- .comment       0x0000000000000000       0x13 ./output/riscv-virt.o
- .debug_frame   0x0000000000000000       0x4c ./output/riscv-virt.o
- .riscv.attributes
-                0x0000000000000000       0x2b ./output/riscv-virt.o
  .group         0x0000000000000000        0xc ./output/ns16550.o
  .group         0x0000000000000000        0xc ./output/ns16550.o
  .group         0x0000000000000000        0xc ./output/ns16550.o
@@ -1202,13 +1197,394 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/ns16550.o
  .data          0x0000000000000000        0x0 ./output/ns16550.o
  .bss           0x0000000000000000        0x0 ./output/ns16550.o
- .debug_macro   0x0000000000000000      0x718 ./output/ns16550.o
+ .debug_macro   0x0000000000000000      0x71e ./output/ns16550.o
  .debug_macro   0x0000000000000000       0x22 ./output/ns16550.o
  .debug_macro   0x0000000000000000       0x8e ./output/ns16550.o
  .debug_macro   0x0000000000000000       0x51 ./output/ns16550.o
  .debug_macro   0x0000000000000000      0x103 ./output/ns16550.o
  .debug_macro   0x0000000000000000       0x6a ./output/ns16550.o
  .debug_macro   0x0000000000000000      0x1df ./output/ns16550.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/scheduler_validation_demo.o
+ .text          0x0000000000000000        0x0 ./output/scheduler_validation_demo.o
+ .data          0x0000000000000000        0x0 ./output/scheduler_validation_demo.o
+ .bss           0x0000000000000000        0x0 ./output/scheduler_validation_demo.o
+ .rodata.vHighPriorityTask.str1.4
+                0x0000000000000000       0x23 ./output/scheduler_validation_demo.o
+ .text.vHighPriorityTask
+                0x0000000000000000       0xc8 ./output/scheduler_validation_demo.o
+ .rodata.vMediumPriorityTask.str1.4
+                0x0000000000000000       0x22 ./output/scheduler_validation_demo.o
+ .text.vMediumPriorityTask
+                0x0000000000000000       0xc8 ./output/scheduler_validation_demo.o
+ .rodata.vLowPriorityTask.str1.4
+                0x0000000000000000       0x1b ./output/scheduler_validation_demo.o
+ .text.vLowPriorityTask
+                0x0000000000000000       0xca ./output/scheduler_validation_demo.o
+ .rodata.vSchedulerMonitorTask.str1.4
+                0x0000000000000000      0x117 ./output/scheduler_validation_demo.o
+ .text.vSchedulerMonitorTask
+                0x0000000000000000      0x21e ./output/scheduler_validation_demo.o
+ .rodata.start_scheduler_validation_demo.str1.4
+                0x0000000000000000      0x150 ./output/scheduler_validation_demo.o
+ .text.start_scheduler_validation_demo
+                0x0000000000000000      0x114 ./output/scheduler_validation_demo.o
+ .bss.task_metrics
+                0x0000000000000000       0x90 ./output/scheduler_validation_demo.o
+ .sbss.context_switches
+                0x0000000000000000        0x4 ./output/scheduler_validation_demo.o
+ .debug_info    0x0000000000000000      0x9b0 ./output/scheduler_validation_demo.o
+ .debug_abbrev  0x0000000000000000      0x198 ./output/scheduler_validation_demo.o
+ .debug_loc     0x0000000000000000      0x184 ./output/scheduler_validation_demo.o
+ .debug_aranges
+                0x0000000000000000       0x40 ./output/scheduler_validation_demo.o
+ .debug_ranges  0x0000000000000000      0x150 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x282 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x71e ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x174 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x8e ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x51 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x103 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x6a ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x1df ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x2e ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x156 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x182 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0xc7 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x3a ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x1f ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x12 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000     0x10c5 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0xc3 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x14f ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x3a ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x19 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x3b ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x34 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x35 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x333 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x43 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x34 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x52 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x197 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x1c ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x52 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x40 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0xd5 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x1c ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x3d ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000      0x145 ./output/scheduler_validation_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/scheduler_validation_demo.o
+ .debug_line    0x0000000000000000      0xd6b ./output/scheduler_validation_demo.o
+ .debug_str     0x0000000000000000    0x11fe3 ./output/scheduler_validation_demo.o
+ .comment       0x0000000000000000       0x13 ./output/scheduler_validation_demo.o
+ .debug_frame   0x0000000000000000       0xc4 ./output/scheduler_validation_demo.o
+ .riscv.attributes
+                0x0000000000000000       0x2b ./output/scheduler_validation_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/queue_communication_demo.o
+ .text          0x0000000000000000        0x0 ./output/queue_communication_demo.o
+ .data          0x0000000000000000        0x0 ./output/queue_communication_demo.o
+ .bss           0x0000000000000000        0x0 ./output/queue_communication_demo.o
+ .rodata.vQueueProducerTask.str1.4
+                0x0000000000000000      0x109 ./output/queue_communication_demo.o
+ .text.vQueueProducerTask
+                0x0000000000000000      0x1c4 ./output/queue_communication_demo.o
+ .rodata.vQueueHighPriorityConsumer.str1.4
+                0x0000000000000000       0x58 ./output/queue_communication_demo.o
+ .text.vQueueHighPriorityConsumer
+                0x0000000000000000      0x152 ./output/queue_communication_demo.o
+ .rodata.vQueueMediumPriorityConsumer.str1.4
+                0x0000000000000000       0x2e ./output/queue_communication_demo.o
+ .text.vQueueMediumPriorityConsumer
+                0x0000000000000000      0x10a ./output/queue_communication_demo.o
+ .rodata.vQueueResultMonitor.str1.4
+                0x0000000000000000      0x143 ./output/queue_communication_demo.o
+ .text.vQueueResultMonitor
+                0x0000000000000000      0x230 ./output/queue_communication_demo.o
+ .rodata.start_queue_communication_demo.str1.4
+                0x0000000000000000      0x17c ./output/queue_communication_demo.o
+ .text.start_queue_communication_demo
+                0x0000000000000000      0x1a2 ./output/queue_communication_demo.o
+ .bss.queue_stats
+                0x0000000000000000       0xb0 ./output/queue_communication_demo.o
+ .sbss.xHighPriorityQueue
+                0x0000000000000000        0x4 ./output/queue_communication_demo.o
+ .sbss.xMediumPriorityQueue
+                0x0000000000000000        0x4 ./output/queue_communication_demo.o
+ .sbss.xResultQueue
+                0x0000000000000000        0x4 ./output/queue_communication_demo.o
+ .sbss.xSyncSemaphore
+                0x0000000000000000        0x4 ./output/queue_communication_demo.o
+ .debug_info    0x0000000000000000      0xe06 ./output/queue_communication_demo.o
+ .debug_abbrev  0x0000000000000000      0x1b4 ./output/queue_communication_demo.o
+ .debug_loc     0x0000000000000000      0x185 ./output/queue_communication_demo.o
+ .debug_aranges
+                0x0000000000000000       0x40 ./output/queue_communication_demo.o
+ .debug_ranges  0x0000000000000000      0x148 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x2a8 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x71e ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x174 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x8e ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x51 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x103 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x6a ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x1df ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x2e ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x156 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x182 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0xc7 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x3a ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x1f ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x12 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000     0x10c5 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0xc3 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x14f ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x8e ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0xa8 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x3a ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x19 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x3b ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x34 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x35 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x333 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x43 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x34 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x52 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x197 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x1c ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x52 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x40 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0xd5 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x1c ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x3d ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000      0x145 ./output/queue_communication_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/queue_communication_demo.o
+ .debug_line    0x0000000000000000      0xff5 ./output/queue_communication_demo.o
+ .debug_str     0x0000000000000000    0x13483 ./output/queue_communication_demo.o
+ .comment       0x0000000000000000       0x13 ./output/queue_communication_demo.o
+ .debug_frame   0x0000000000000000       0xf4 ./output/queue_communication_demo.o
+ .riscv.attributes
+                0x0000000000000000       0x2b ./output/queue_communication_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .group         0x0000000000000000        0xc ./output/interrupt_io_demo.o
+ .text          0x0000000000000000        0x0 ./output/interrupt_io_demo.o
+ .data          0x0000000000000000        0x0 ./output/interrupt_io_demo.o
+ .bss           0x0000000000000000        0x0 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x71e ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x174 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x8e ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x51 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x103 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x6a ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x1df ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x2e ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x156 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x182 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0xc7 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x3a ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x1f ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x12 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000     0x10c5 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0xc3 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x14f ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x8e ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0xa8 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x9e ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x3a ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x19 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x3b ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x34 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x35 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x333 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x43 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x34 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x52 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x197 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x1c ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x52 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x22 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x10 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x40 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0xd5 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x1c ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x3d ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000      0x145 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000000000       0x16 ./output/interrupt_io_demo.o
  .group         0x0000000000000000        0xc ./output/test_context_switch.o
  .group         0x0000000000000000        0xc ./output/test_context_switch.o
  .group         0x0000000000000000        0xc ./output/test_context_switch.o
@@ -1287,7 +1663,7 @@ Discarded input sections
                 0x0000000000000000       0x30 ./output/test_context_switch.o
  .debug_ranges  0x0000000000000000       0x50 ./output/test_context_switch.o
  .debug_macro   0x0000000000000000      0x281 ./output/test_context_switch.o
- .debug_macro   0x0000000000000000      0x718 ./output/test_context_switch.o
+ .debug_macro   0x0000000000000000      0x71e ./output/test_context_switch.o
  .debug_macro   0x0000000000000000      0x174 ./output/test_context_switch.o
  .debug_macro   0x0000000000000000       0x22 ./output/test_context_switch.o
  .debug_macro   0x0000000000000000       0x8e ./output/test_context_switch.o
@@ -1336,7 +1712,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./output/test_context_switch.o
  .debug_macro   0x0000000000000000      0x145 ./output/test_context_switch.o
  .debug_line    0x0000000000000000      0x86d ./output/test_context_switch.o
- .debug_str     0x0000000000000000    0x1336c ./output/test_context_switch.o
+ .debug_str     0x0000000000000000    0x13377 ./output/test_context_switch.o
  .comment       0x0000000000000000       0x13 ./output/test_context_switch.o
  .debug_frame   0x0000000000000000       0x94 ./output/test_context_switch.o
  .riscv.attributes
@@ -1417,7 +1793,7 @@ Discarded input sections
                 0x0000000000000000       0x30 ./output/test_memory_allocation.o
  .debug_ranges  0x0000000000000000       0xb8 ./output/test_memory_allocation.o
  .debug_macro   0x0000000000000000      0x271 ./output/test_memory_allocation.o
- .debug_macro   0x0000000000000000      0x718 ./output/test_memory_allocation.o
+ .debug_macro   0x0000000000000000      0x71e ./output/test_memory_allocation.o
  .debug_macro   0x0000000000000000      0x174 ./output/test_memory_allocation.o
  .debug_macro   0x0000000000000000       0x22 ./output/test_memory_allocation.o
  .debug_macro   0x0000000000000000       0x8e ./output/test_memory_allocation.o
@@ -1464,7 +1840,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./output/test_memory_allocation.o
  .debug_macro   0x0000000000000000      0x145 ./output/test_memory_allocation.o
  .debug_line    0x0000000000000000      0xaed ./output/test_memory_allocation.o
- .debug_str     0x0000000000000000    0x120b7 ./output/test_memory_allocation.o
+ .debug_str     0x0000000000000000    0x120c2 ./output/test_memory_allocation.o
  .comment       0x0000000000000000       0x13 ./output/test_memory_allocation.o
  .debug_frame   0x0000000000000000       0xb4 ./output/test_memory_allocation.o
  .riscv.attributes
@@ -1549,7 +1925,7 @@ Discarded input sections
                 0x0000000000000000       0x28 ./output/semaphore_mutex_test.o
  .debug_ranges  0x0000000000000000       0xc0 ./output/semaphore_mutex_test.o
  .debug_macro   0x0000000000000000      0x281 ./output/semaphore_mutex_test.o
- .debug_macro   0x0000000000000000      0x718 ./output/semaphore_mutex_test.o
+ .debug_macro   0x0000000000000000      0x71e ./output/semaphore_mutex_test.o
  .debug_macro   0x0000000000000000      0x174 ./output/semaphore_mutex_test.o
  .debug_macro   0x0000000000000000       0x22 ./output/semaphore_mutex_test.o
  .debug_macro   0x0000000000000000       0x8e ./output/semaphore_mutex_test.o
@@ -1598,7 +1974,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./output/semaphore_mutex_test.o
  .debug_macro   0x0000000000000000      0x145 ./output/semaphore_mutex_test.o
  .debug_line    0x0000000000000000      0xc33 ./output/semaphore_mutex_test.o
- .debug_str     0x0000000000000000    0x134ea ./output/semaphore_mutex_test.o
+ .debug_str     0x0000000000000000    0x134f5 ./output/semaphore_mutex_test.o
  .comment       0x0000000000000000       0x13 ./output/semaphore_mutex_test.o
  .debug_frame   0x0000000000000000       0x80 ./output/semaphore_mutex_test.o
  .riscv.attributes
@@ -1677,7 +2053,7 @@ Discarded input sections
                 0x0000000000000000       0x30 ./output/test_ipc_performance.o
  .debug_ranges  0x0000000000000000       0x50 ./output/test_ipc_performance.o
  .debug_macro   0x0000000000000000      0x285 ./output/test_ipc_performance.o
- .debug_macro   0x0000000000000000      0x718 ./output/test_ipc_performance.o
+ .debug_macro   0x0000000000000000      0x71e ./output/test_ipc_performance.o
  .debug_macro   0x0000000000000000      0x174 ./output/test_ipc_performance.o
  .debug_macro   0x0000000000000000       0x22 ./output/test_ipc_performance.o
  .debug_macro   0x0000000000000000       0x8e ./output/test_ipc_performance.o
@@ -1726,7 +2102,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./output/test_ipc_performance.o
  .debug_macro   0x0000000000000000      0x145 ./output/test_ipc_performance.o
  .debug_line    0x0000000000000000      0x91a ./output/test_ipc_performance.o
- .debug_str     0x0000000000000000    0x1336f ./output/test_ipc_performance.o
+ .debug_str     0x0000000000000000    0x1337a ./output/test_ipc_performance.o
  .comment       0x0000000000000000       0x13 ./output/test_ipc_performance.o
  .debug_frame   0x0000000000000000       0x88 ./output/test_ipc_performance.o
  .riscv.attributes
@@ -1802,7 +2178,7 @@ Discarded input sections
                 0x0000000000000000       0x28 ./output/test_interrupt_latency.o
  .debug_ranges  0x0000000000000000       0x48 ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000      0x26c ./output/test_interrupt_latency.o
- .debug_macro   0x0000000000000000      0x718 ./output/test_interrupt_latency.o
+ .debug_macro   0x0000000000000000      0x71e ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000      0x174 ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000       0x22 ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000       0x8e ./output/test_interrupt_latency.o
@@ -1850,7 +2226,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./output/test_interrupt_latency.o
  .debug_macro   0x0000000000000000      0x145 ./output/test_interrupt_latency.o
  .debug_line    0x0000000000000000      0x79d ./output/test_interrupt_latency.o
- .debug_str     0x0000000000000000    0x1285e ./output/test_interrupt_latency.o
+ .debug_str     0x0000000000000000    0x12869 ./output/test_interrupt_latency.o
  .comment       0x0000000000000000       0x13 ./output/test_interrupt_latency.o
  .debug_frame   0x0000000000000000       0x6c ./output/test_interrupt_latency.o
  .riscv.attributes
@@ -1928,7 +2304,7 @@ Discarded input sections
                 0x0000000000000000       0x30 ./output/test_suite.o
  .debug_ranges  0x0000000000000000       0x20 ./output/test_suite.o
  .debug_macro   0x0000000000000000      0x2aa ./output/test_suite.o
- .debug_macro   0x0000000000000000      0x718 ./output/test_suite.o
+ .debug_macro   0x0000000000000000      0x71e ./output/test_suite.o
  .debug_macro   0x0000000000000000      0x174 ./output/test_suite.o
  .debug_macro   0x0000000000000000       0x22 ./output/test_suite.o
  .debug_macro   0x0000000000000000       0x8e ./output/test_suite.o
@@ -1978,7 +2354,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x145 ./output/test_suite.o
  .debug_macro   0x0000000000000000       0x16 ./output/test_suite.o
  .debug_line    0x0000000000000000      0x64e ./output/test_suite.o
- .debug_str     0x0000000000000000    0x1327e ./output/test_suite.o
+ .debug_str     0x0000000000000000    0x13289 ./output/test_suite.o
  .comment       0x0000000000000000       0x13 ./output/test_suite.o
  .debug_frame   0x0000000000000000       0x68 ./output/test_suite.o
  .riscv.attributes
@@ -2033,7 +2409,36 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./output/queue_test.o
  .data          0x0000000000000000        0x0 ./output/queue_test.o
  .bss           0x0000000000000000        0x0 ./output/queue_test.o
- .debug_macro   0x0000000000000000      0x718 ./output/queue_test.o
+ .rodata.ipc_sender_task.str1.4
+                0x0000000000000000      0x1fb ./output/queue_test.o
+ .text.ipc_sender_task
+                0x0000000000000000      0x322 ./output/queue_test.o
+ .rodata.ipc_receiver_task.str1.4
+                0x0000000000000000       0x53 ./output/queue_test.o
+ .text.ipc_receiver_task
+                0x0000000000000000       0xba ./output/queue_test.o
+ .rodata.start_ipc_test.str1.4
+                0x0000000000000000       0x6d ./output/queue_test.o
+ .text.start_ipc_test
+                0x0000000000000000       0x8e ./output/queue_test.o
+ .bss.end_to_end_cycles
+                0x0000000000000000      0x7d0 ./output/queue_test.o
+ .bss.queue_receive_cycles
+                0x0000000000000000      0x7d0 ./output/queue_test.o
+ .bss.queue_send_cycles
+                0x0000000000000000      0x7d0 ./output/queue_test.o
+ .sbss.ipc_iteration
+                0x0000000000000000        0x4 ./output/queue_test.o
+ .sbss.test_queue
+                0x0000000000000000        0x4 ./output/queue_test.o
+ .debug_info    0x0000000000000000      0x978 ./output/queue_test.o
+ .debug_abbrev  0x0000000000000000      0x1be ./output/queue_test.o
+ .debug_loc     0x0000000000000000      0x260 ./output/queue_test.o
+ .debug_aranges
+                0x0000000000000000       0x30 ./output/queue_test.o
+ .debug_ranges  0x0000000000000000       0x58 ./output/queue_test.o
+ .debug_macro   0x0000000000000000      0x284 ./output/queue_test.o
+ .debug_macro   0x0000000000000000      0x71e ./output/queue_test.o
  .debug_macro   0x0000000000000000      0x174 ./output/queue_test.o
  .debug_macro   0x0000000000000000       0x22 ./output/queue_test.o
  .debug_macro   0x0000000000000000       0x8e ./output/queue_test.o
@@ -2080,6 +2485,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x3d ./output/queue_test.o
  .debug_macro   0x0000000000000000       0x16 ./output/queue_test.o
  .debug_macro   0x0000000000000000      0x145 ./output/queue_test.o
+ .debug_line    0x0000000000000000      0xb21 ./output/queue_test.o
+ .debug_str     0x0000000000000000    0x12995 ./output/queue_test.o
+ .comment       0x0000000000000000       0x13 ./output/queue_test.o
+ .debug_frame   0x0000000000000000       0xa0 ./output/queue_test.o
+ .riscv.attributes
+                0x0000000000000000       0x2b ./output/queue_test.o
  .group         0x0000000000000000        0xc ./output/printf-stdarg.o
  .group         0x0000000000000000        0xc ./output/printf-stdarg.o
  .group         0x0000000000000000        0xc ./output/printf-stdarg.o
@@ -2097,7 +2508,7 @@ Discarded input sections
  .text.snprintf
                 0x0000000000000000       0x2a ./output/printf-stdarg.o
  .text.write    0x0000000000000000        0x4 ./output/printf-stdarg.o
- .debug_macro   0x0000000000000000      0x718 ./output/printf-stdarg.o
+ .debug_macro   0x0000000000000000      0x71e ./output/printf-stdarg.o
  .debug_macro   0x0000000000000000       0x22 ./output/printf-stdarg.o
  .debug_macro   0x0000000000000000       0x8e ./output/printf-stdarg.o
  .debug_macro   0x0000000000000000       0x51 ./output/printf-stdarg.o
@@ -2157,7 +2568,7 @@ Discarded input sections
                 0x0000000000000000       0x50 ./output/syscalls.o
  .debug_ranges  0x0000000000000000       0x40 ./output/syscalls.o
  .debug_macro   0x0000000000000000      0x193 ./output/syscalls.o
- .debug_macro   0x0000000000000000      0x718 ./output/syscalls.o
+ .debug_macro   0x0000000000000000      0x71e ./output/syscalls.o
  .debug_macro   0x0000000000000000       0x22 ./output/syscalls.o
  .debug_macro   0x0000000000000000       0x34 ./output/syscalls.o
  .debug_macro   0x0000000000000000       0x19 ./output/syscalls.o
@@ -2190,7 +2601,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x35 ./output/syscalls.o
  .debug_macro   0x0000000000000000      0x12c ./output/syscalls.o
  .debug_line    0x0000000000000000      0x3eb ./output/syscalls.o
- .debug_str     0x0000000000000000     0x6802 ./output/syscalls.o
+ .debug_str     0x0000000000000000     0x680d ./output/syscalls.o
  .comment       0x0000000000000000       0x13 ./output/syscalls.o
  .debug_frame   0x0000000000000000       0x80 ./output/syscalls.o
  .riscv.attributes
@@ -2225,6 +2636,8 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
  .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
  .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcpy.o)
+ .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcpy.o)
  .text          0x0000000000000000       0x62 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
  .data          0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
  .bss           0x0000000000000000        0x0 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strlen.o)
@@ -2253,6 +2666,9 @@ LOAD ./output/main.o
 LOAD ./output/test_manager.o
 LOAD ./output/riscv-virt.o
 LOAD ./output/ns16550.o
+LOAD ./output/scheduler_validation_demo.o
+LOAD ./output/queue_communication_demo.o
+LOAD ./output/interrupt_io_demo.o
 LOAD ./output/test_context_switch.o
 LOAD ./output/test_memory_allocation.o
 LOAD ./output/semaphore_mutex_test.o
@@ -2283,7 +2699,7 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
  .init          0x0000000080000000       0x76 ./output/start.o
                 0x0000000080000000                _start
 
-.text           0x0000000080000080     0x2df4
+.text           0x0000000080000080     0x3470
  *(.text.unlikely .text.unlikely.*)
  *(.text.startup .text.startup.*)
  .text.startup.main
@@ -2310,278 +2726,321 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
  .text.xTaskCreate
                 0x0000000080000506       0x7a ./output/tasks.o
                 0x0000000080000506                xTaskCreate
- .text.vTaskDelete
-                0x0000000080000580      0x12a ./output/tasks.o
-                0x0000000080000580                vTaskDelete
  .text.vTaskStartScheduler
-                0x00000000800006aa       0xaa ./output/tasks.o
-                0x00000000800006aa                vTaskStartScheduler
+                0x0000000080000580       0xaa ./output/tasks.o
+                0x0000000080000580                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x0000000080000754       0x10 ./output/tasks.o
-                0x0000000080000754                vTaskSuspendAll
+                0x000000008000062a       0x10 ./output/tasks.o
+                0x000000008000062a                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x0000000080000764        0xa ./output/tasks.o
-                0x0000000080000764                xTaskGetTickCount
+                0x000000008000063a        0xa ./output/tasks.o
+                0x000000008000063a                xTaskGetTickCount
+ .text.xTaskGetTickCountFromISR
+                0x0000000080000644        0xa ./output/tasks.o
+                0x0000000080000644                xTaskGetTickCountFromISR
  .text.uxTaskGetNumberOfTasks
-                0x000000008000076e        0xa ./output/tasks.o
-                0x000000008000076e                uxTaskGetNumberOfTasks
+                0x000000008000064e        0xa ./output/tasks.o
+                0x000000008000064e                uxTaskGetNumberOfTasks
  .text.xTaskIncrementTick
-                0x0000000080000778      0x1bc ./output/tasks.o
-                0x0000000080000778                xTaskIncrementTick
+                0x0000000080000658      0x1bc ./output/tasks.o
+                0x0000000080000658                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x0000000080000934      0x176 ./output/tasks.o
-                0x0000000080000934                xTaskResumeAll
+                0x0000000080000814      0x174 ./output/tasks.o
+                0x0000000080000814                xTaskResumeAll
  .text.vTaskDelay
-                0x0000000080000aaa       0x4a ./output/tasks.o
-                0x0000000080000aaa                vTaskDelay
+                0x0000000080000988       0x4a ./output/tasks.o
+                0x0000000080000988                vTaskDelay
  .text.vTaskSwitchContext
-                0x0000000080000af4       0xde ./output/tasks.o
-                0x0000000080000af4                vTaskSwitchContext
- .text.vTaskSuspend
-                0x0000000080000bd2      0x162 ./output/tasks.o
-                0x0000000080000bd2                vTaskSuspend
+                0x00000000800009d2       0xde ./output/tasks.o
+                0x00000000800009d2                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x0000000080000d34       0x3e ./output/tasks.o
-                0x0000000080000d34                vTaskPlaceOnEventList
+                0x0000000080000ab0       0x3e ./output/tasks.o
+                0x0000000080000ab0                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x0000000080000d72       0x68 ./output/tasks.o
-                0x0000000080000d72                vTaskPlaceOnEventListRestricted
+                0x0000000080000aee       0x68 ./output/tasks.o
+                0x0000000080000aee                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x0000000080000dda       0xd8 ./output/tasks.o
-                0x0000000080000dda                xTaskRemoveFromEventList
+                0x0000000080000b56       0xd8 ./output/tasks.o
+                0x0000000080000b56                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x0000000080000eb2       0x16 ./output/tasks.o
-                0x0000000080000eb2                vTaskInternalSetTimeOutState
+                0x0000000080000c2e       0x16 ./output/tasks.o
+                0x0000000080000c2e                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x0000000080000ec8       0xc2 ./output/tasks.o
-                0x0000000080000ec8                xTaskCheckForTimeOut
+                0x0000000080000c44       0xc2 ./output/tasks.o
+                0x0000000080000c44                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x0000000080000f8a        0xc ./output/tasks.o
-                0x0000000080000f8a                vTaskMissedYield
+                0x0000000080000d06        0xc ./output/tasks.o
+                0x0000000080000d06                vTaskMissedYield
  .text.xTaskGetSchedulerState
-                0x0000000080000f96       0x1c ./output/tasks.o
-                0x0000000080000f96                xTaskGetSchedulerState
+                0x0000000080000d12       0x1c ./output/tasks.o
+                0x0000000080000d12                xTaskGetSchedulerState
+ .text.xTaskPriorityInherit
+                0x0000000080000d2e       0xd2 ./output/tasks.o
+                0x0000000080000d2e                xTaskPriorityInherit
  .text.xTaskPriorityDisinherit
-                0x0000000080000fb2       0xc0 ./output/tasks.o
-                0x0000000080000fb2                xTaskPriorityDisinherit
+                0x0000000080000e00       0xc0 ./output/tasks.o
+                0x0000000080000e00                xTaskPriorityDisinherit
+ .text.vTaskPriorityDisinheritAfterTimeout
+                0x0000000080000ec0       0xe2 ./output/tasks.o
+                0x0000000080000ec0                vTaskPriorityDisinheritAfterTimeout
+ .text.pvTaskIncrementMutexHeldCount
+                0x0000000080000fa2       0x12 ./output/tasks.o
+                0x0000000080000fa2                pvTaskIncrementMutexHeldCount
  .text.vListInitialise
-                0x0000000080001072       0x14 ./output/list.o
-                0x0000000080001072                vListInitialise
+                0x0000000080000fb4       0x14 ./output/list.o
+                0x0000000080000fb4                vListInitialise
  .text.vListInitialiseItem
-                0x0000000080001086        0x6 ./output/list.o
-                0x0000000080001086                vListInitialiseItem
- .text.vListInsertEnd
-                0x000000008000108c       0x18 ./output/list.o
-                0x000000008000108c                vListInsertEnd
+                0x0000000080000fc8        0x6 ./output/list.o
+                0x0000000080000fc8                vListInitialiseItem
  .text.vListInsert
-                0x00000000800010a4       0x2e ./output/list.o
-                0x00000000800010a4                vListInsert
+                0x0000000080000fce       0x2e ./output/list.o
+                0x0000000080000fce                vListInsert
  .text.uxListRemove
-                0x00000000800010d2       0x1e ./output/list.o
-                0x00000000800010d2                uxListRemove
+                0x0000000080000ffc       0x1e ./output/list.o
+                0x0000000080000ffc                uxListRemove
  .text.prvIsQueueEmpty
-                0x00000000800010f0       0x16 ./output/queue.o
+                0x000000008000101a       0x16 ./output/queue.o
  .text.prvCopyDataToQueue
-                0x0000000080001106       0x88 ./output/queue.o
+                0x0000000080001030       0x88 ./output/queue.o
  .text.prvCopyDataFromQueue
-                0x000000008000118e       0x20 ./output/queue.o
+                0x00000000800010b8       0x20 ./output/queue.o
  .text.prvNotifyQueueSetContainer
-                0x00000000800011ae       0xb0 ./output/queue.o
+                0x00000000800010d8       0xb2 ./output/queue.o
  .text.prvUnlockQueue
-                0x000000008000125e       0xbe ./output/queue.o
+                0x000000008000118a       0xc2 ./output/queue.o
  .text.xQueueGenericReset
-                0x000000008000131c       0xb0 ./output/queue.o
-                0x000000008000131c                xQueueGenericReset
+                0x000000008000124c       0xb0 ./output/queue.o
+                0x000000008000124c                xQueueGenericReset
  .text.xQueueGenericCreateStatic
-                0x00000000800013cc       0x9a ./output/queue.o
-                0x00000000800013cc                xQueueGenericCreateStatic
+                0x00000000800012fc       0x9a ./output/queue.o
+                0x00000000800012fc                xQueueGenericCreateStatic
  .text.xQueueGenericCreate
-                0x0000000080001466       0x78 ./output/queue.o
-                0x0000000080001466                xQueueGenericCreate
+                0x0000000080001396       0x78 ./output/queue.o
+                0x0000000080001396                xQueueGenericCreate
  .text.xQueueGenericSend
-                0x00000000800014de      0x1a6 ./output/queue.o
-                0x00000000800014de                xQueueGenericSend
+                0x000000008000140e      0x1a6 ./output/queue.o
+                0x000000008000140e                xQueueGenericSend
+ .text.xQueueGenericSendFromISR
+                0x00000000800015b4      0x104 ./output/queue.o
+                0x00000000800015b4                xQueueGenericSendFromISR
+ .text.xQueueGiveFromISR
+                0x00000000800016b8       0xd0 ./output/queue.o
+                0x00000000800016b8                xQueueGiveFromISR
  .text.xQueueReceive
-                0x0000000080001684      0x16a ./output/queue.o
-                0x0000000080001684                xQueueReceive
+                0x0000000080001788      0x16a ./output/queue.o
+                0x0000000080001788                xQueueReceive
+ .text.xQueueSemaphoreTake
+                0x00000000800018f2      0x1ba ./output/queue.o
+                0x00000000800018f2                xQueueSemaphoreTake
  .text.vQueueAddToRegistry
-                0x00000000800017ee       0x5e ./output/queue.o
-                0x00000000800017ee                vQueueAddToRegistry
+                0x0000000080001aac       0x5e ./output/queue.o
+                0x0000000080001aac                vQueueAddToRegistry
  .text.vQueueWaitForMessageRestricted
-                0x000000008000184c       0x52 ./output/queue.o
-                0x000000008000184c                vQueueWaitForMessageRestricted
+                0x0000000080001b0a       0x52 ./output/queue.o
+                0x0000000080001b0a                vQueueWaitForMessageRestricted
  .text.prvCheckForValidListAndQueue
-                0x000000008000189e       0x8e ./output/timers.o
+                0x0000000080001b5c       0x8e ./output/timers.o
  .text.prvInsertTimerInActiveList
-                0x000000008000192c       0x48 ./output/timers.o
+                0x0000000080001bea       0x48 ./output/timers.o
  .text.prvReloadTimer
-                0x0000000080001974       0x36 ./output/timers.o
+                0x0000000080001c32       0x36 ./output/timers.o
  .text.prvProcessExpiredTimer
-                0x00000000800019aa       0x48 ./output/timers.o
+                0x0000000080001c68       0x48 ./output/timers.o
  .text.prvSampleTimeNow
-                0x00000000800019f2       0x68 ./output/timers.o
+                0x0000000080001cb0       0x68 ./output/timers.o
  .text.prvTimerTask
-                0x0000000080001a5a      0x164 ./output/timers.o
+                0x0000000080001d18      0x164 ./output/timers.o
  .text.xTimerCreateTimerTask
-                0x0000000080001bbe       0x5e ./output/timers.o
-                0x0000000080001bbe                xTimerCreateTimerTask
+                0x0000000080001e7c       0x5e ./output/timers.o
+                0x0000000080001e7c                xTimerCreateTimerTask
+ .text.xTimerCreate
+                0x0000000080001eda       0x76 ./output/timers.o
+                0x0000000080001eda                xTimerCreate
+ .text.xTimerGenericCommandFromTask
+                0x0000000080001f50       0x62 ./output/timers.o
+                0x0000000080001f50                xTimerGenericCommandFromTask
  .text.pvPortMalloc
-                0x0000000080001c1c      0x206 ./output/heap_4.o
-                0x0000000080001c1c                pvPortMalloc
+                0x0000000080001fb2      0x206 ./output/heap_4.o
+                0x0000000080001fb2                pvPortMalloc
  .text.vPortFree
-                0x0000000080001e22      0x132 ./output/heap_4.o
-                0x0000000080001e22                vPortFree
- .text.xPortGetFreeHeapSize
-                0x0000000080001f54        0xa ./output/heap_4.o
-                0x0000000080001f54                xPortGetFreeHeapSize
+                0x00000000800021b8      0x132 ./output/heap_4.o
+                0x00000000800021b8                vPortFree
  .text.vPortSetupTimerInterrupt
-                0x0000000080001f5e       0x5c ./output/port.o
-                0x0000000080001f5e                vPortSetupTimerInterrupt
+                0x00000000800022ea       0x5c ./output/port.o
+                0x00000000800022ea                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x0000000080001fba       0x30 ./output/port.o
-                0x0000000080001fba                xPortStartScheduler
+                0x0000000080002346       0x30 ./output/port.o
+                0x0000000080002346                xPortStartScheduler
+ .text.run_demo_applications
+                0x0000000080002376       0x16 ./output/main.o
+                0x0000000080002376                run_demo_applications
  .text.vApplicationMallocFailedHook
-                0x0000000080001fea       0x16 ./output/main.o
-                0x0000000080001fea                vApplicationMallocFailedHook
+                0x000000008000238c       0x16 ./output/main.o
+                0x000000008000238c                vApplicationMallocFailedHook
  .text.vApplicationStackOverflowHook
-                0x0000000080002000       0x16 ./output/main.o
-                0x0000000080002000                vApplicationStackOverflowHook
+                0x00000000800023a2       0x16 ./output/main.o
+                0x00000000800023a2                vApplicationStackOverflowHook
  .text.vApplicationTickHook
-                0x0000000080002016        0x2 ./output/main.o
-                0x0000000080002016                vApplicationTickHook
+                0x00000000800023b8        0x2 ./output/main.o
+                0x00000000800023b8                vApplicationTickHook
  .text.vAssertCalled
-                0x0000000080002018       0x42 ./output/main.o
-                0x0000000080002018                vAssertCalled
+                0x00000000800023ba       0x42 ./output/main.o
+                0x00000000800023ba                vAssertCalled
  .text.vApplicationGetIdleTaskMemory
-                0x000000008000205a       0x1c ./output/main.o
-                0x000000008000205a                vApplicationGetIdleTaskMemory
+                0x00000000800023fc       0x1c ./output/main.o
+                0x00000000800023fc                vApplicationGetIdleTaskMemory
  .text.vApplicationGetTimerTaskMemory
-                0x0000000080002076       0x1c ./output/main.o
-                0x0000000080002076                vApplicationGetTimerTaskMemory
- .text.run_selected_test
-                0x0000000080002092       0xca ./output/test_manager.o
-                0x0000000080002092                run_selected_test
+                0x0000000080002418       0x1c ./output/main.o
+                0x0000000080002418                vApplicationGetTimerTaskMemory
+ .text.print_uint32
+                0x0000000080002434       0x50 ./output/riscv-virt.o
+                0x0000000080002434                print_uint32
  .text.vOutNS16550
-                0x000000008000215c       0x14 ./output/ns16550.o
-                0x000000008000215c                vOutNS16550
- .text.ipc_sender_task
-                0x0000000080002170      0x276 ./output/queue_test.o
- .text.ipc_receiver_task
-                0x00000000800023e6       0xa2 ./output/queue_test.o
- .text.start_ipc_test
-                0x0000000080002488       0x6e ./output/queue_test.o
-                0x0000000080002488                start_ipc_test
+                0x0000000080002484       0x14 ./output/ns16550.o
+                0x0000000080002484                vOutNS16550
+ .text.vInterruptSimulationCallback
+                0x0000000080002498       0xa8 ./output/interrupt_io_demo.o
+                0x0000000080002498                vInterruptSimulationCallback
+ .text.vPeriodicTimerCallback
+                0x0000000080002540       0x56 ./output/interrupt_io_demo.o
+                0x0000000080002540                vPeriodicTimerCallback
+ .text.vTimerHandlerTask
+                0x0000000080002596       0x54 ./output/interrupt_io_demo.o
+                0x0000000080002596                vTimerHandlerTask
+ .text.vInterruptHandlerTask
+                0x00000000800025ea      0x10a ./output/interrupt_io_demo.o
+                0x00000000800025ea                vInterruptHandlerTask
+ .text.vIOSimulationTask
+                0x00000000800026f4      0x13c ./output/interrupt_io_demo.o
+                0x00000000800026f4                vIOSimulationTask
+ .text.vInterruptMonitorTask
+                0x0000000080002830      0x11e ./output/interrupt_io_demo.o
+                0x0000000080002830                vInterruptMonitorTask
+ .text.start_interrupt_driven_io_demo
+                0x000000008000294e      0x1e4 ./output/interrupt_io_demo.o
+                0x000000008000294e                start_interrupt_driven_io_demo
  .text.printchar
-                0x00000000800024f6       0x24 ./output/printf-stdarg.o
- .text.prints   0x000000008000251a       0xb6 ./output/printf-stdarg.o
- .text.printi   0x00000000800025d0       0xb6 ./output/printf-stdarg.o
+                0x0000000080002b32       0x24 ./output/printf-stdarg.o
+ .text.prints   0x0000000080002b56       0xb8 ./output/printf-stdarg.o
+ .text.printi   0x0000000080002c0e       0xbc ./output/printf-stdarg.o
  .text.tiny_print
-                0x0000000080002686      0x186 ./output/printf-stdarg.o
- .text.printf   0x000000008000280c       0x24 ./output/printf-stdarg.o
-                0x000000008000280c                printf
- *fill*         0x0000000080002830       0x50 
- .text          0x0000000080002880       0x80 ./output/vector.o
-                0x0000000080002880                freertos_vector_table
- .text          0x0000000080002900       0xbc ./output/portASM.o
-                0x0000000080002900                pxPortInitialiseStack
-                0x0000000080002946                xPortStartFirstTask
-                0x00000000800029a0                freertos_risc_v_application_exception_handler
-                0x00000000800029ae                freertos_risc_v_application_interrupt_handler
+                0x0000000080002cca      0x188 ./output/printf-stdarg.o
+ .text.printf   0x0000000080002e52       0x26 ./output/printf-stdarg.o
+                0x0000000080002e52                printf
+ *fill*         0x0000000080002e78        0x8 
+ .text          0x0000000080002e80       0x80 ./output/vector.o
+                0x0000000080002e80                freertos_vector_table
+ .text          0x0000000080002f00       0xbc ./output/portASM.o
+                0x0000000080002f00                pxPortInitialiseStack
+                0x0000000080002f46                xPortStartFirstTask
+                0x0000000080002fa0                freertos_risc_v_application_exception_handler
+                0x0000000080002fae                freertos_risc_v_application_interrupt_handler
  .text.freertos_risc_v_exception_handler
-                0x00000000800029bc      0x134 ./output/portASM.o
-                0x00000000800029bc                freertos_risc_v_exception_handler
+                0x0000000080002fbc      0x136 ./output/portASM.o
+                0x0000000080002fbc                freertos_risc_v_exception_handler
  .text.freertos_risc_v_interrupt_handler
-                0x0000000080002af0       0xc6 ./output/portASM.o
-                0x0000000080002af0                freertos_risc_v_interrupt_handler
+                0x00000000800030f2       0xc8 ./output/portASM.o
+                0x00000000800030f2                freertos_risc_v_interrupt_handler
  .text.freertos_risc_v_mtimer_interrupt_handler
-                0x0000000080002bb6       0xfc ./output/portASM.o
-                0x0000000080002bb6                freertos_risc_v_mtimer_interrupt_handler
- .text          0x0000000080002cb2       0x3c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
-                0x0000000080002cb2                __clzsi2
- .text          0x0000000080002cee       0xde c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
-                0x0000000080002cee                memcpy
- .text          0x0000000080002dcc       0xa8 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
-                0x0000000080002dcc                memset
+                0x00000000800031ba       0xfc ./output/portASM.o
+                0x00000000800031ba                freertos_risc_v_mtimer_interrupt_handler
+ .text          0x00000000800032b6       0x3c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                0x00000000800032b6                __clzsi2
+ .text          0x00000000800032f2       0xde c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+                0x00000000800032f2                memcpy
+ .text          0x00000000800033d0       0xa8 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+                0x00000000800033d0                memset
+ .text          0x0000000080003478       0x78 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcpy.o)
+                0x0000000080003478                strcpy
  *(.gnu.linkonce.t.*)
 
-.fini           0x0000000080002e74        0x0
+.fini           0x00000000800034f0        0x0
  *(SORT_NONE(.fini))
-                0x0000000080002e74                _etext = .
+                0x00000000800034f0                _etext = .
 
-.rodata.align   0x0000000080002e74        0x0
-                0x0000000080002e74                _rodata = .
+.rodata.align   0x00000000800034f0        0x0
+                0x00000000800034f0                _rodata = .
 
-.rodata.start   0x0000000080002e74        0x0
-                0x0000000080002e74                _rodata_lma = LOADADDR (.rodata.start)
+.rodata.start   0x00000000800034f0        0x0
+                0x00000000800034f0                _rodata_lma = LOADADDR (.rodata.start)
 
-.rodata         0x0000000080002e74      0x5f4
+.rodata         0x00000000800034f0      0x750
  *(.rdata)
  *(.rodata .rodata.*)
  .rodata.prvTaskIsTaskSuspended.str1.4
-                0x0000000080002e74       0x1b ./output/tasks.o
- *fill*         0x0000000080002e8f        0x1 
+                0x00000000800034f0       0x1b ./output/tasks.o
+ *fill*         0x000000008000350b        0x1 
  .rodata.vTaskStartScheduler.str1.4
-                0x0000000080002e90        0x5 ./output/tasks.o
- *fill*         0x0000000080002e95        0x3 
+                0x000000008000350c        0x5 ./output/tasks.o
+ *fill*         0x0000000080003511        0x3 
  .rodata.prvNotifyQueueSetContainer.str1.4
-                0x0000000080002e98       0x1b ./output/queue.o
- *fill*         0x0000000080002eb3        0x1 
+                0x0000000080003514       0x1b ./output/queue.o
+ *fill*         0x000000008000352f        0x1 
  .rodata.prvCheckForValidListAndQueue.str1.4
-                0x0000000080002eb4        0x5 ./output/timers.o
- *fill*         0x0000000080002eb9        0x3 
+                0x0000000080003530        0x5 ./output/timers.o
+ *fill*         0x0000000080003535        0x3 
  .rodata.prvTimerTask.str1.4
-                0x0000000080002ebc       0x1c ./output/timers.o
+                0x0000000080003538       0x1c ./output/timers.o
  .rodata.prvTimerTask
-                0x0000000080002ed8       0x24 ./output/timers.o
+                0x0000000080003554       0x24 ./output/timers.o
  .rodata.xTimerCreateTimerTask.str1.4
-                0x0000000080002efc        0x8 ./output/timers.o
+                0x0000000080003578        0x8 ./output/timers.o
  .rodata.pvPortMalloc.str1.4
-                0x0000000080002f04       0x2d ./output/heap_4.o
- *fill*         0x0000000080002f31        0x3 
+                0x0000000080003580       0x2d ./output/heap_4.o
+ *fill*         0x00000000800035ad        0x3 
+ .rodata.run_demo_applications.str1.4
+                0x00000000800035b0       0x32 ./output/main.o
+ *fill*         0x00000000800035e2        0x2 
  .rodata.vApplicationMallocFailedHook.str1.4
-                0x0000000080002f34       0x14 ./output/main.o
+                0x00000000800035e4       0x14 ./output/main.o
  .rodata.vApplicationStackOverflowHook.str1.4
-                0x0000000080002f48       0x1b ./output/main.o
- *fill*         0x0000000080002f63        0x1 
+                0x00000000800035f8       0x1b ./output/main.o
+ *fill*         0x0000000080003613        0x1 
  .rodata.vAssertCalled.str1.4
-                0x0000000080002f64       0x1b ./output/main.o
- *fill*         0x0000000080002f7f        0x1 
- .rodata.run_selected_test.str1.4
-                0x0000000080002f80      0x139 ./output/test_manager.o
-                                        0x13d (size before relaxing)
- *fill*         0x00000000800030b9        0x3 
- .rodata.ipc_sender_task.str1.4
-                0x00000000800030bc      0x1df ./output/queue_test.o
-                                        0x1fb (size before relaxing)
- *fill*         0x000000008000329b        0x1 
- .rodata.ipc_receiver_task.str1.4
-                0x000000008000329c       0x53 ./output/queue_test.o
- *fill*         0x00000000800032ef        0x1 
- .rodata.start_ipc_test.str1.4
-                0x00000000800032f0       0x6d ./output/queue_test.o
- *fill*         0x000000008000335d        0x3 
+                0x0000000080003614       0x1b ./output/main.o
+ *fill*         0x000000008000362f        0x1 
+ .rodata.vInterruptSimulationCallback.str1.4
+                0x0000000080003630        0xc ./output/interrupt_io_demo.o
+ .rodata.vPeriodicTimerCallback.str1.4
+                0x000000008000363c        0xf ./output/interrupt_io_demo.o
+ *fill*         0x000000008000364b        0x1 
+ .rodata.vTimerHandlerTask.str1.4
+                0x000000008000364c       0x35 ./output/interrupt_io_demo.o
+ *fill*         0x0000000080003681        0x3 
+ .rodata.vInterruptHandlerTask.str1.4
+                0x0000000080003684       0xa6 ./output/interrupt_io_demo.o
+                                         0xaa (size before relaxing)
+ *fill*         0x000000008000372a        0x2 
+ .rodata.vIOSimulationTask.str1.4
+                0x000000008000372c       0xd2 ./output/interrupt_io_demo.o
+ *fill*         0x00000000800037fe        0x2 
+ .rodata.vInterruptMonitorTask.str1.4
+                0x0000000080003800      0x111 ./output/interrupt_io_demo.o
+ *fill*         0x0000000080003911        0x3 
+ .rodata.start_interrupt_driven_io_demo.str1.4
+                0x0000000080003914      0x224 ./output/interrupt_io_demo.o
  .rodata.tiny_print.str1.4
-                0x0000000080003360        0x7 ./output/printf-stdarg.o
- *fill*         0x0000000080003367        0x1 
- .rodata        0x0000000080003368      0x100 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
-                0x0000000080003368                __clz_tab
+                0x0000000080003b38        0x7 ./output/printf-stdarg.o
+ *fill*         0x0000000080003b3f        0x1 
+ .rodata        0x0000000080003b40      0x100 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                0x0000000080003b40                __clz_tab
  *(.gnu.linkonce.r.*)
-                0x0000000080003468                . = ALIGN (0x4)
-                0x0000000080003468                _erodata = .
+                0x0000000080003c40                . = ALIGN (0x4)
+                0x0000000080003c40                _erodata = .
 
-.rela.dyn       0x0000000080003468        0x0
+.rela.dyn       0x0000000080003c40        0x0
  .rela.text.xPortStartScheduler
-                0x0000000080003468        0x0 ./output/tasks.o
- .rela.init     0x0000000080003468        0x0 ./output/tasks.o
+                0x0000000080003c40        0x0 ./output/tasks.o
+ .rela.init     0x0000000080003c40        0x0 ./output/tasks.o
  .rela.text.freertos_risc_v_exception_handler
-                0x0000000080003468        0x0 ./output/tasks.o
+                0x0000000080003c40        0x0 ./output/tasks.o
  .rela.text.freertos_risc_v_interrupt_handler
-                0x0000000080003468        0x0 ./output/tasks.o
+                0x0000000080003c40        0x0 ./output/tasks.o
 
-.tdata          0x0000000080003468        0x0
+.tdata          0x0000000080003c40        0x0
  *(.tdata .tdata.*)
 
-.tbss           0x0000000080003468        0x0
+.tbss           0x0000000080003c40        0x0
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
                 [!provide]                        PROVIDE (__tbss_end = .)
@@ -2595,14 +3054,14 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
                 [!provide]                        PROVIDE (__tls_size = (__tls_end - ADDR (.tdata)))
                 [!provide]                        PROVIDE (__tls_align = MAX (ALIGNOF (.tdata), ALIGNOF (.tbss)))
 
-.data.align     0x0000000080080000        0x0 load address 0x0000000080003468
+.data.align     0x0000000080080000        0x0 load address 0x0000000080003c40
                 0x0000000080080000                . = ALIGN (0x4)
                 0x0000000080080000                _data = .
 
-.data.start     0x0000000080080000        0x0 load address 0x0000000080003468
-                0x0000000080003468                _data_lma = LOADADDR (.data.start)
+.data.start     0x0000000080080000        0x0 load address 0x0000000080003c40
+                0x0000000080003c40                _data_lma = LOADADDR (.data.start)
 
-.data           0x0000000080080000       0x20 load address 0x0000000080003468
+.data           0x0000000080080000       0x20 load address 0x0000000080003c40
  *(.data .data.*)
  *(.gnu.linkonce.d.*)
                 0x0000000080080000                . = ALIGN (0x8)
@@ -2638,14 +3097,14 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
                 0x0000000080080020                . = ALIGN (0x4)
                 0x0000000080080020                _edata = .
 
-.bss.align      0x0000000080080020        0x0 load address 0x0000000080003488
+.bss.align      0x0000000080080020        0x0 load address 0x0000000080003c60
                 0x0000000080080020                . = ALIGN (0x4)
                 0x0000000080080020                _bss = .
 
-.bss.start      0x0000000080080020        0x0 load address 0x0000000080003488
-                0x0000000080003488                _bss_lma = LOADADDR (.bss.start)
+.bss.start      0x0000000080080020        0x0 load address 0x0000000080003c60
+                0x0000000080003c60                _bss_lma = LOADADDR (.bss.start)
 
-.bss            0x0000000080080020    0x16638 load address 0x0000000080003488
+.bss            0x0000000080080020    0x14f04 load address 0x0000000080003c60
  *(.sbss*)
  .sbss.pxCurrentTCB
                 0x0000000080080020        0x4 ./output/tasks.o
@@ -2707,105 +3166,115 @@ LOAD c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\l
  .sbss.xTaskReturnAddress
                 0x0000000080080098        0x4 ./output/port.o
                 0x0000000080080098                xTaskReturnAddress
- .sbss.ipc_iteration
-                0x000000008008009c        0x4 ./output/queue_test.o
- .sbss.test_queue
-                0x00000000800800a0        0x4 ./output/queue_test.o
+ .sbss.io_operations_count
+                0x000000008008009c        0x4 ./output/interrupt_io_demo.o
+ .sbss.isr_entry_time
+                0x00000000800800a0        0x4 ./output/interrupt_io_demo.o
+ .sbss.isr_exit_time
+                0x00000000800800a4        0x4 ./output/interrupt_io_demo.o
+ .sbss.xIOSemaphore
+                0x00000000800800a8        0x4 ./output/interrupt_io_demo.o
+ .sbss.xInterruptQueue
+                0x00000000800800ac        0x4 ./output/interrupt_io_demo.o
+ .sbss.xInterruptSemaphore
+                0x00000000800800b0        0x4 ./output/interrupt_io_demo.o
+ .sbss.xInterruptSimulationTimer
+                0x00000000800800b4        0x4 ./output/interrupt_io_demo.o
+ .sbss.xPeriodicTimer
+                0x00000000800800b8        0x4 ./output/interrupt_io_demo.o
+ .sbss.xTimerSemaphore
+                0x00000000800800bc        0x4 ./output/interrupt_io_demo.o
  *(.gnu.linkonce.sb.*)
  *(.bss .bss.*)
  .bss.pxReadyTasksLists
-                0x00000000800800a4       0xb4 ./output/tasks.o
+                0x00000000800800c0       0xb4 ./output/tasks.o
  .bss.xDelayedTaskList1
-                0x0000000080080158       0x14 ./output/tasks.o
+                0x0000000080080174       0x14 ./output/tasks.o
  .bss.xDelayedTaskList2
-                0x000000008008016c       0x14 ./output/tasks.o
+                0x0000000080080188       0x14 ./output/tasks.o
  .bss.xPendingReadyList
-                0x0000000080080180       0x14 ./output/tasks.o
+                0x000000008008019c       0x14 ./output/tasks.o
  .bss.xSuspendedTaskList
-                0x0000000080080194       0x14 ./output/tasks.o
+                0x00000000800801b0       0x14 ./output/tasks.o
  .bss.xTasksWaitingTermination
-                0x00000000800801a8       0x14 ./output/tasks.o
+                0x00000000800801c4       0x14 ./output/tasks.o
  .bss.xQueueRegistry
-                0x00000000800801bc       0x50 ./output/queue.o
-                0x00000000800801bc                xQueueRegistry
+                0x00000000800801d8       0x50 ./output/queue.o
+                0x00000000800801d8                xQueueRegistry
  .bss.ucStaticTimerQueueStorage.1
-                0x000000008008020c      0x140 ./output/timers.o
+                0x0000000080080228      0x140 ./output/timers.o
  .bss.xActiveTimerList1
-                0x000000008008034c       0x14 ./output/timers.o
+                0x0000000080080368       0x14 ./output/timers.o
  .bss.xActiveTimerList2
-                0x0000000080080360       0x14 ./output/timers.o
+                0x000000008008037c       0x14 ./output/timers.o
  .bss.xStaticTimerQueue.0
-                0x0000000080080374       0x54 ./output/timers.o
- .bss.ucHeap    0x00000000800803c8    0x14000 ./output/heap_4.o
- *fill*         0x00000000800943c8        0x8 
+                0x0000000080080390       0x54 ./output/timers.o
+ .bss.ucHeap    0x00000000800803e4    0x14000 ./output/heap_4.o
+ *fill*         0x00000000800943e4        0xc 
  .bss.xISRStack
-                0x00000000800943d0      0x4b0 ./output/port.o
+                0x00000000800943f0      0x4b0 ./output/port.o
  .bss.uxIdleTaskStack.2
-                0x0000000080094880      0x1e0 ./output/main.o
+                0x00000000800948a0      0x1e0 ./output/main.o
  .bss.uxTimerTaskStack.0
-                0x0000000080094a60      0x3c0 ./output/main.o
+                0x0000000080094a80      0x3c0 ./output/main.o
  .bss.xIdleTaskTCB.3
-                0x0000000080094e20       0x64 ./output/main.o
+                0x0000000080094e40       0x64 ./output/main.o
  .bss.xTimerTaskTCB.1
-                0x0000000080094e84       0x64 ./output/main.o
- .bss.end_to_end_cycles
-                0x0000000080094ee8      0x7d0 ./output/queue_test.o
- .bss.queue_receive_cycles
-                0x00000000800956b8      0x7d0 ./output/queue_test.o
- .bss.queue_send_cycles
-                0x0000000080095e88      0x7d0 ./output/queue_test.o
+                0x0000000080094ea4       0x64 ./output/main.o
+ .bss.interrupt_stats
+                0x0000000080094f08       0x1c ./output/interrupt_io_demo.o
  *(.gnu.linkonce.b.*)
  *(COMMON)
-                0x0000000080096658                . = ALIGN (0x4)
-                0x0000000080096658                _ebss = .
-                0x0000000080096658                . = ALIGN (0x8)
-                0x0000000080096658                _end = .
+                0x0000000080094f24                . = ALIGN (0x4)
+                0x0000000080094f24                _ebss = .
+                0x0000000080094f28                . = ALIGN (0x8)
+                0x0000000080094f28                _end = .
 
-.stack          0x0000000080096658      0x168
-                0x0000000080096660                . = ALIGN (0x10)
- *fill*         0x0000000080096658        0x8 
-                0x00000000800967c0                . = (. + __stack_size)
- *fill*         0x0000000080096660      0x160 
-                0x00000000800967c0                _stack_top = .
+.stack          0x0000000080094f24      0x16c
+                0x0000000080094f30                . = ALIGN (0x10)
+ *fill*         0x0000000080094f24        0xc 
+                0x0000000080095090                . = (. + __stack_size)
+ *fill*         0x0000000080094f30      0x160 
+                0x0000000080095090                _stack_top = .
 OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0xa74b
+.debug_info     0x0000000000000000     0xaca8
  .debug_info    0x0000000000000000     0x3a91 ./output/tasks.o
  .debug_info    0x0000000000003a91      0x2c7 ./output/list.o
  .debug_info    0x0000000000003d58     0x294d ./output/queue.o
  .debug_info    0x00000000000066a5     0x1a61 ./output/timers.o
  .debug_info    0x0000000000008106      0x6f0 ./output/heap_4.o
  .debug_info    0x00000000000087f6      0x2f4 ./output/port.o
- .debug_info    0x0000000000008aea      0x573 ./output/main.o
- .debug_info    0x000000000000905d      0x2c1 ./output/test_manager.o
- .debug_info    0x000000000000931e      0x17b ./output/ns16550.o
- .debug_info    0x0000000000009499      0x978 ./output/queue_test.o
- .debug_info    0x0000000000009e11      0x6b1 ./output/printf-stdarg.o
- .debug_info    0x000000000000a4c2       0x26 ./output/start.o
- .debug_info    0x000000000000a4e8       0x26 ./output/vector.o
- .debug_info    0x000000000000a50e       0x22 ./output/portASM.o
- .debug_info    0x000000000000a530      0x144 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
- .debug_info    0x000000000000a674       0xd7 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_info    0x0000000000008aea      0x5af ./output/main.o
+ .debug_info    0x0000000000009099      0x242 ./output/riscv-virt.o
+ .debug_info    0x00000000000092db      0x17b ./output/ns16550.o
+ .debug_info    0x0000000000009456      0xf18 ./output/interrupt_io_demo.o
+ .debug_info    0x000000000000a36e      0x6b1 ./output/printf-stdarg.o
+ .debug_info    0x000000000000aa1f       0x26 ./output/start.o
+ .debug_info    0x000000000000aa45       0x26 ./output/vector.o
+ .debug_info    0x000000000000aa6b       0x22 ./output/portASM.o
+ .debug_info    0x000000000000aa8d      0x144 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_info    0x000000000000abd1       0xd7 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_abbrev   0x0000000000000000     0x1a78
+.debug_abbrev   0x0000000000000000     0x1b02
  .debug_abbrev  0x0000000000000000      0x451 ./output/tasks.o
  .debug_abbrev  0x0000000000000451      0x10d ./output/list.o
  .debug_abbrev  0x000000000000055e      0x383 ./output/queue.o
  .debug_abbrev  0x00000000000008e1      0x3e4 ./output/timers.o
  .debug_abbrev  0x0000000000000cc5      0x2a3 ./output/heap_4.o
  .debug_abbrev  0x0000000000000f68      0x17f ./output/port.o
- .debug_abbrev  0x00000000000010e7      0x1e1 ./output/main.o
- .debug_abbrev  0x00000000000012c8      0x130 ./output/test_manager.o
- .debug_abbrev  0x00000000000013f8      0x11d ./output/ns16550.o
- .debug_abbrev  0x0000000000001515      0x1be ./output/queue_test.o
- .debug_abbrev  0x00000000000016d3      0x231 ./output/printf-stdarg.o
- .debug_abbrev  0x0000000000001904       0x14 ./output/start.o
- .debug_abbrev  0x0000000000001918       0x14 ./output/vector.o
- .debug_abbrev  0x000000000000192c       0x12 ./output/portASM.o
- .debug_abbrev  0x000000000000193e       0xca c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
- .debug_abbrev  0x0000000000001a08       0x70 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_abbrev  0x00000000000010e7      0x1ee ./output/main.o
+ .debug_abbrev  0x00000000000012d5      0x18b ./output/riscv-virt.o
+ .debug_abbrev  0x0000000000001460      0x11d ./output/ns16550.o
+ .debug_abbrev  0x000000000000157d      0x1e0 ./output/interrupt_io_demo.o
+ .debug_abbrev  0x000000000000175d      0x231 ./output/printf-stdarg.o
+ .debug_abbrev  0x000000000000198e       0x14 ./output/start.o
+ .debug_abbrev  0x00000000000019a2       0x14 ./output/vector.o
+ .debug_abbrev  0x00000000000019b6       0x12 ./output/portASM.o
+ .debug_abbrev  0x00000000000019c8       0xca c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000000000001a92       0x70 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_loc      0x0000000000000000     0x6ee2
+.debug_loc      0x0000000000000000     0x6f21
  .debug_loc     0x0000000000000000     0x2bdd ./output/tasks.o
  .debug_loc     0x0000000000002bdd       0x75 ./output/list.o
  .debug_loc     0x0000000000002c52     0x1e00 ./output/queue.o
@@ -2813,12 +3282,13 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_loc     0x0000000000005afe      0x4bd ./output/heap_4.o
  .debug_loc     0x0000000000005fbb       0x35 ./output/port.o
  .debug_loc     0x0000000000005ff0      0x13d ./output/main.o
- .debug_loc     0x000000000000612d       0x26 ./output/ns16550.o
- .debug_loc     0x0000000000006153      0x260 ./output/queue_test.o
- .debug_loc     0x00000000000063b3      0xac4 ./output/printf-stdarg.o
- .debug_loc     0x0000000000006e77       0x6b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_loc     0x000000000000612d       0xef ./output/riscv-virt.o
+ .debug_loc     0x000000000000621c       0x26 ./output/ns16550.o
+ .debug_loc     0x0000000000006242      0x1b0 ./output/interrupt_io_demo.o
+ .debug_loc     0x00000000000063f2      0xac4 ./output/printf-stdarg.o
+ .debug_loc     0x0000000000006eb6       0x6b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
 
-.debug_aranges  0x0000000000000000      0x768
+.debug_aranges  0x0000000000000000      0x7a0
  .debug_aranges
                 0x0000000000000000      0x240 ./output/tasks.o
  .debug_aranges
@@ -2832,164 +3302,164 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000558       0x30 ./output/port.o
  .debug_aranges
-                0x0000000000000588       0x60 ./output/main.o
+                0x0000000000000588       0x68 ./output/main.o
  .debug_aranges
-                0x00000000000005e8       0x20 ./output/test_manager.o
+                0x00000000000005f0       0x30 ./output/riscv-virt.o
  .debug_aranges
-                0x0000000000000608       0x20 ./output/ns16550.o
+                0x0000000000000620       0x20 ./output/ns16550.o
  .debug_aranges
-                0x0000000000000628       0x30 ./output/queue_test.o
+                0x0000000000000640       0x50 ./output/interrupt_io_demo.o
  .debug_aranges
-                0x0000000000000658       0x58 ./output/printf-stdarg.o
+                0x0000000000000690       0x58 ./output/printf-stdarg.o
  .debug_aranges
-                0x00000000000006b0       0x20 ./output/start.o
+                0x00000000000006e8       0x20 ./output/start.o
  .debug_aranges
-                0x00000000000006d0       0x20 ./output/vector.o
+                0x0000000000000708       0x20 ./output/vector.o
  .debug_aranges
-                0x00000000000006f0       0x40 ./output/portASM.o
+                0x0000000000000728       0x40 ./output/portASM.o
  .debug_aranges
-                0x0000000000000730       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+                0x0000000000000768       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
  .debug_aranges
-                0x0000000000000750       0x18 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                0x0000000000000788       0x18 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_ranges   0x0000000000000000      0xd40
+.debug_ranges   0x0000000000000000      0xe40
  .debug_ranges  0x0000000000000000      0x5d0 ./output/tasks.o
  .debug_ranges  0x00000000000005d0       0x30 ./output/list.o
  .debug_ranges  0x0000000000000600      0x340 ./output/queue.o
  .debug_ranges  0x0000000000000940      0x1b8 ./output/timers.o
  .debug_ranges  0x0000000000000af8       0x68 ./output/heap_4.o
  .debug_ranges  0x0000000000000b60       0x20 ./output/port.o
- .debug_ranges  0x0000000000000b80       0x50 ./output/main.o
- .debug_ranges  0x0000000000000bd0       0x28 ./output/test_manager.o
+ .debug_ranges  0x0000000000000b80       0x58 ./output/main.o
+ .debug_ranges  0x0000000000000bd8       0x20 ./output/riscv-virt.o
  .debug_ranges  0x0000000000000bf8       0x10 ./output/ns16550.o
- .debug_ranges  0x0000000000000c08       0x58 ./output/queue_test.o
- .debug_ranges  0x0000000000000c60       0x88 ./output/printf-stdarg.o
- .debug_ranges  0x0000000000000ce8       0x38 ./output/portASM.o
- .debug_ranges  0x0000000000000d20       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_ranges  0x0000000000000c08      0x158 ./output/interrupt_io_demo.o
+ .debug_ranges  0x0000000000000d60       0x88 ./output/printf-stdarg.o
+ .debug_ranges  0x0000000000000de8       0x38 ./output/portASM.o
+ .debug_ranges  0x0000000000000e20       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
 
-.debug_macro    0x0000000000000000     0x48e4
+.debug_macro    0x0000000000000000     0x4874
  .debug_macro   0x0000000000000000      0x2d6 ./output/tasks.o
- .debug_macro   0x00000000000002d6      0x718 ./output/tasks.o
- .debug_macro   0x00000000000009ee       0x19 ./output/tasks.o
- .debug_macro   0x0000000000000a07       0x22 ./output/tasks.o
- .debug_macro   0x0000000000000a29       0x34 ./output/tasks.o
- .debug_macro   0x0000000000000a5d       0x94 ./output/tasks.o
- .debug_macro   0x0000000000000af1       0x3b ./output/tasks.o
- .debug_macro   0x0000000000000b2c       0x34 ./output/tasks.o
- .debug_macro   0x0000000000000b60       0x16 ./output/tasks.o
- .debug_macro   0x0000000000000b76      0x10e ./output/tasks.o
- .debug_macro   0x0000000000000c84       0x8d ./output/tasks.o
- .debug_macro   0x0000000000000d11       0x16 ./output/tasks.o
- .debug_macro   0x0000000000000d27       0x43 ./output/tasks.o
- .debug_macro   0x0000000000000d6a       0x57 ./output/tasks.o
- .debug_macro   0x0000000000000dc1       0x34 ./output/tasks.o
- .debug_macro   0x0000000000000df5       0x10 ./output/tasks.o
- .debug_macro   0x0000000000000e05       0x52 ./output/tasks.o
- .debug_macro   0x0000000000000e57      0x197 ./output/tasks.o
- .debug_macro   0x0000000000000fee      0x333 ./output/tasks.o
- .debug_macro   0x0000000000001321       0x16 ./output/tasks.o
- .debug_macro   0x0000000000001337       0x29 ./output/tasks.o
- .debug_macro   0x0000000000001360       0x16 ./output/tasks.o
- .debug_macro   0x0000000000001376       0x35 ./output/tasks.o
- .debug_macro   0x00000000000013ab      0x103 ./output/tasks.o
- .debug_macro   0x00000000000014ae       0x6a ./output/tasks.o
- .debug_macro   0x0000000000001518      0x1df ./output/tasks.o
- .debug_macro   0x00000000000016f7       0x16 ./output/tasks.o
- .debug_macro   0x000000000000170d       0x22 ./output/tasks.o
- .debug_macro   0x000000000000172f       0x2e ./output/tasks.o
- .debug_macro   0x000000000000175d      0x156 ./output/tasks.o
- .debug_macro   0x00000000000018b3       0x22 ./output/tasks.o
- .debug_macro   0x00000000000018d5      0x182 ./output/tasks.o
- .debug_macro   0x0000000000001a57       0xc7 ./output/tasks.o
- .debug_macro   0x0000000000001b1e       0x3a ./output/tasks.o
- .debug_macro   0x0000000000001b58       0x1f ./output/tasks.o
- .debug_macro   0x0000000000001b77       0x12 ./output/tasks.o
- .debug_macro   0x0000000000001b89     0x10c5 ./output/tasks.o
- .debug_macro   0x0000000000002c4e       0xc3 ./output/tasks.o
- .debug_macro   0x0000000000002d11      0x14f ./output/tasks.o
- .debug_macro   0x0000000000002e60       0x98 ./output/tasks.o
- .debug_macro   0x0000000000002ef8       0x16 ./output/tasks.o
- .debug_macro   0x0000000000002f0e      0x1b1 ./output/list.o
- .debug_macro   0x00000000000030bf      0x249 ./output/queue.o
- .debug_macro   0x0000000000003308       0x8e ./output/queue.o
- .debug_macro   0x0000000000003396      0x200 ./output/timers.o
- .debug_macro   0x0000000000003596       0x9e ./output/timers.o
- .debug_macro   0x0000000000003634      0x247 ./output/heap_4.o
- .debug_macro   0x000000000000387b      0x1d3 ./output/port.o
- .debug_macro   0x0000000000003a4e       0x8e ./output/port.o
- .debug_macro   0x0000000000003adc       0x51 ./output/port.o
- .debug_macro   0x0000000000003b2d       0x3a ./output/port.o
- .debug_macro   0x0000000000003b67      0x2cf ./output/main.o
- .debug_macro   0x0000000000003e36       0x52 ./output/main.o
- .debug_macro   0x0000000000003e88       0x16 ./output/main.o
- .debug_macro   0x0000000000003e9e       0x10 ./output/main.o
- .debug_macro   0x0000000000003eae       0x10 ./output/main.o
- .debug_macro   0x0000000000003ebe       0x1c ./output/main.o
- .debug_macro   0x0000000000003eda       0x52 ./output/main.o
- .debug_macro   0x0000000000003f2c       0x22 ./output/main.o
- .debug_macro   0x0000000000003f4e       0x10 ./output/main.o
- .debug_macro   0x0000000000003f5e       0x40 ./output/main.o
- .debug_macro   0x0000000000003f9e       0xd5 ./output/main.o
- .debug_macro   0x0000000000004073       0x1c ./output/main.o
- .debug_macro   0x000000000000408f       0x3d ./output/main.o
- .debug_macro   0x00000000000040cc       0x16 ./output/main.o
- .debug_macro   0x00000000000040e2      0x145 ./output/main.o
- .debug_macro   0x0000000000004227      0x256 ./output/test_manager.o
- .debug_macro   0x000000000000447d       0xe5 ./output/ns16550.o
- .debug_macro   0x0000000000004562      0x284 ./output/queue_test.o
- .debug_macro   0x00000000000047e6       0xa6 ./output/printf-stdarg.o
- .debug_macro   0x000000000000488c       0x58 ./output/printf-stdarg.o
+ .debug_macro   0x00000000000002d6      0x71e ./output/tasks.o
+ .debug_macro   0x00000000000009f4       0x19 ./output/tasks.o
+ .debug_macro   0x0000000000000a0d       0x22 ./output/tasks.o
+ .debug_macro   0x0000000000000a2f       0x34 ./output/tasks.o
+ .debug_macro   0x0000000000000a63       0x94 ./output/tasks.o
+ .debug_macro   0x0000000000000af7       0x3b ./output/tasks.o
+ .debug_macro   0x0000000000000b32       0x34 ./output/tasks.o
+ .debug_macro   0x0000000000000b66       0x16 ./output/tasks.o
+ .debug_macro   0x0000000000000b7c      0x10e ./output/tasks.o
+ .debug_macro   0x0000000000000c8a       0x8d ./output/tasks.o
+ .debug_macro   0x0000000000000d17       0x16 ./output/tasks.o
+ .debug_macro   0x0000000000000d2d       0x43 ./output/tasks.o
+ .debug_macro   0x0000000000000d70       0x57 ./output/tasks.o
+ .debug_macro   0x0000000000000dc7       0x34 ./output/tasks.o
+ .debug_macro   0x0000000000000dfb       0x10 ./output/tasks.o
+ .debug_macro   0x0000000000000e0b       0x52 ./output/tasks.o
+ .debug_macro   0x0000000000000e5d      0x197 ./output/tasks.o
+ .debug_macro   0x0000000000000ff4      0x333 ./output/tasks.o
+ .debug_macro   0x0000000000001327       0x16 ./output/tasks.o
+ .debug_macro   0x000000000000133d       0x29 ./output/tasks.o
+ .debug_macro   0x0000000000001366       0x16 ./output/tasks.o
+ .debug_macro   0x000000000000137c       0x35 ./output/tasks.o
+ .debug_macro   0x00000000000013b1      0x103 ./output/tasks.o
+ .debug_macro   0x00000000000014b4       0x6a ./output/tasks.o
+ .debug_macro   0x000000000000151e      0x1df ./output/tasks.o
+ .debug_macro   0x00000000000016fd       0x16 ./output/tasks.o
+ .debug_macro   0x0000000000001713       0x22 ./output/tasks.o
+ .debug_macro   0x0000000000001735       0x2e ./output/tasks.o
+ .debug_macro   0x0000000000001763      0x156 ./output/tasks.o
+ .debug_macro   0x00000000000018b9       0x22 ./output/tasks.o
+ .debug_macro   0x00000000000018db      0x182 ./output/tasks.o
+ .debug_macro   0x0000000000001a5d       0xc7 ./output/tasks.o
+ .debug_macro   0x0000000000001b24       0x3a ./output/tasks.o
+ .debug_macro   0x0000000000001b5e       0x1f ./output/tasks.o
+ .debug_macro   0x0000000000001b7d       0x12 ./output/tasks.o
+ .debug_macro   0x0000000000001b8f     0x10c5 ./output/tasks.o
+ .debug_macro   0x0000000000002c54       0xc3 ./output/tasks.o
+ .debug_macro   0x0000000000002d17      0x14f ./output/tasks.o
+ .debug_macro   0x0000000000002e66       0x98 ./output/tasks.o
+ .debug_macro   0x0000000000002efe       0x16 ./output/tasks.o
+ .debug_macro   0x0000000000002f14      0x1b1 ./output/list.o
+ .debug_macro   0x00000000000030c5      0x249 ./output/queue.o
+ .debug_macro   0x000000000000330e       0x8e ./output/queue.o
+ .debug_macro   0x000000000000339c      0x200 ./output/timers.o
+ .debug_macro   0x000000000000359c       0x9e ./output/timers.o
+ .debug_macro   0x000000000000363a      0x247 ./output/heap_4.o
+ .debug_macro   0x0000000000003881      0x1d3 ./output/port.o
+ .debug_macro   0x0000000000003a54       0x8e ./output/port.o
+ .debug_macro   0x0000000000003ae2       0x51 ./output/port.o
+ .debug_macro   0x0000000000003b33       0x3a ./output/port.o
+ .debug_macro   0x0000000000003b6d      0x2cf ./output/main.o
+ .debug_macro   0x0000000000003e3c       0x52 ./output/main.o
+ .debug_macro   0x0000000000003e8e       0x16 ./output/main.o
+ .debug_macro   0x0000000000003ea4       0x10 ./output/main.o
+ .debug_macro   0x0000000000003eb4       0x10 ./output/main.o
+ .debug_macro   0x0000000000003ec4       0x1c ./output/main.o
+ .debug_macro   0x0000000000003ee0       0x52 ./output/main.o
+ .debug_macro   0x0000000000003f32       0x22 ./output/main.o
+ .debug_macro   0x0000000000003f54       0x10 ./output/main.o
+ .debug_macro   0x0000000000003f64       0x40 ./output/main.o
+ .debug_macro   0x0000000000003fa4       0xd5 ./output/main.o
+ .debug_macro   0x0000000000004079       0x1c ./output/main.o
+ .debug_macro   0x0000000000004095       0x3d ./output/main.o
+ .debug_macro   0x00000000000040d2       0x16 ./output/main.o
+ .debug_macro   0x00000000000040e8      0x145 ./output/main.o
+ .debug_macro   0x000000000000422d      0x1b3 ./output/riscv-virt.o
+ .debug_macro   0x00000000000043e0       0xe5 ./output/ns16550.o
+ .debug_macro   0x00000000000044c5      0x2b1 ./output/interrupt_io_demo.o
+ .debug_macro   0x0000000000004776       0xa6 ./output/printf-stdarg.o
+ .debug_macro   0x000000000000481c       0x58 ./output/printf-stdarg.o
 
-.debug_line     0x0000000000000000    0x114b3
+.debug_line     0x0000000000000000    0x11c5e
  .debug_line    0x0000000000000000     0x6fab ./output/tasks.o
  .debug_line    0x0000000000006fab      0x736 ./output/list.o
  .debug_line    0x00000000000076e1     0x3fa2 ./output/queue.o
  .debug_line    0x000000000000b683     0x1c5a ./output/timers.o
  .debug_line    0x000000000000d2dd      0xfdb ./output/heap_4.o
  .debug_line    0x000000000000e2b8      0x56d ./output/port.o
- .debug_line    0x000000000000e825      0x851 ./output/main.o
- .debug_line    0x000000000000f076      0x538 ./output/test_manager.o
- .debug_line    0x000000000000f5ae      0x206 ./output/ns16550.o
- .debug_line    0x000000000000f7b4      0xb21 ./output/queue_test.o
- .debug_line    0x00000000000102d5      0xbaa ./output/printf-stdarg.o
- .debug_line    0x0000000000010e7f       0xda ./output/start.o
- .debug_line    0x0000000000010f59       0xbe ./output/vector.o
- .debug_line    0x0000000000011017      0x334 ./output/portASM.o
- .debug_line    0x000000000001134b       0xfa c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
- .debug_line    0x0000000000011445       0x6e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_line    0x000000000000e825      0x8ad ./output/main.o
+ .debug_line    0x000000000000f0d2      0x5c8 ./output/riscv-virt.o
+ .debug_line    0x000000000000f69a      0x206 ./output/ns16550.o
+ .debug_line    0x000000000000f8a0     0x11e0 ./output/interrupt_io_demo.o
+ .debug_line    0x0000000000010a80      0xbaa ./output/printf-stdarg.o
+ .debug_line    0x000000000001162a       0xda ./output/start.o
+ .debug_line    0x0000000000011704       0xbe ./output/vector.o
+ .debug_line    0x00000000000117c2      0x334 ./output/portASM.o
+ .debug_line    0x0000000000011af6       0xfa c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_line    0x0000000000011bf0       0x6e c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_str      0x0000000000000000    0x1777f
- .debug_str     0x0000000000000000    0x1356f ./output/tasks.o
-                                      0x13901 (size before relaxing)
- .debug_str     0x000000000001356f       0x50 ./output/list.o
-                                       0xfc50 (size before relaxing)
- .debug_str     0x00000000000135bf     0x1544 ./output/queue.o
-                                      0x12943 (size before relaxing)
- .debug_str     0x0000000000014b03      0x6bf ./output/timers.o
-                                      0x12cea (size before relaxing)
- .debug_str     0x00000000000151c2      0x756 ./output/heap_4.o
-                                      0x1179f (size before relaxing)
- .debug_str     0x0000000000015918      0x19f ./output/port.o
-                                      0x110a1 (size before relaxing)
- .debug_str     0x0000000000015ab7     0x14b6 ./output/main.o
-                                      0x124f8 (size before relaxing)
- .debug_str     0x0000000000016f6d       0x84 ./output/test_manager.o
-                                      0x11f25 (size before relaxing)
- .debug_str     0x0000000000016ff1      0x16a ./output/ns16550.o
-                                       0x34fc (size before relaxing)
- .debug_str     0x000000000001715b      0x263 ./output/queue_test.o
-                                      0x1298a (size before relaxing)
- .debug_str     0x00000000000173be      0x1ac ./output/printf-stdarg.o
-                                       0x36e3 (size before relaxing)
- .debug_str     0x000000000001756a       0x14 ./output/start.o
+.debug_str      0x0000000000000000    0x182c3
+ .debug_str     0x0000000000000000    0x1357a ./output/tasks.o
+                                      0x1390c (size before relaxing)
+ .debug_str     0x000000000001357a       0x50 ./output/list.o
+                                       0xfc5b (size before relaxing)
+ .debug_str     0x00000000000135ca     0x1544 ./output/queue.o
+                                      0x1294e (size before relaxing)
+ .debug_str     0x0000000000014b0e      0x6bf ./output/timers.o
+                                      0x12cf5 (size before relaxing)
+ .debug_str     0x00000000000151cd      0x756 ./output/heap_4.o
+                                      0x117aa (size before relaxing)
+ .debug_str     0x0000000000015923      0x19f ./output/port.o
+                                      0x110ac (size before relaxing)
+ .debug_str     0x0000000000015ac2     0x14d9 ./output/main.o
+                                      0x12526 (size before relaxing)
+ .debug_str     0x0000000000016f9b       0x86 ./output/riscv-virt.o
+                                       0xef4d (size before relaxing)
+ .debug_str     0x0000000000017021      0x146 ./output/ns16550.o
+                                       0x3507 (size before relaxing)
+ .debug_str     0x0000000000017167      0xd9b ./output/interrupt_io_demo.o
+                                      0x13f0f (size before relaxing)
+ .debug_str     0x0000000000017f02      0x1ac ./output/printf-stdarg.o
+                                       0x36ee (size before relaxing)
+ .debug_str     0x00000000000180ae       0x14 ./output/start.o
                                          0x57 (size before relaxing)
- .debug_str     0x000000000001757e       0x34 ./output/vector.o
+ .debug_str     0x00000000000180c2       0x34 ./output/vector.o
                                          0x83 (size before relaxing)
- .debug_str     0x00000000000175b2       0x31 ./output/portASM.o
+ .debug_str     0x00000000000180f6       0x31 ./output/portASM.o
                                          0x80 (size before relaxing)
- .debug_str     0x00000000000175e3      0x19c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_str     0x0000000000018127      0x19c c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
                                         0x24e (size before relaxing)
- .debug_str     0x000000000001777f      0x231 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_str     0x00000000000182c3      0x231 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
 .comment        0x0000000000000000       0x12
  .comment       0x0000000000000000       0x12 ./output/tasks.o
@@ -3000,13 +3470,14 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .comment       0x0000000000000012       0x13 ./output/heap_4.o
  .comment       0x0000000000000012       0x13 ./output/port.o
  .comment       0x0000000000000012       0x13 ./output/main.o
- .comment       0x0000000000000012       0x13 ./output/test_manager.o
+ .comment       0x0000000000000012       0x13 ./output/riscv-virt.o
  .comment       0x0000000000000012       0x13 ./output/ns16550.o
- .comment       0x0000000000000012       0x13 ./output/queue_test.o
+ .comment       0x0000000000000012       0x13 ./output/interrupt_io_demo.o
  .comment       0x0000000000000012       0x13 ./output/printf-stdarg.o
  .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
  .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
  .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
+ .comment       0x0000000000000012       0x13 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcpy.o)
 
 .riscv.attributes
                 0x0000000000000000       0x2b
@@ -3025,11 +3496,11 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
  .riscv.attributes
                 0x0000000000000102       0x2b ./output/main.o
  .riscv.attributes
-                0x000000000000012d       0x2b ./output/test_manager.o
+                0x000000000000012d       0x2b ./output/riscv-virt.o
  .riscv.attributes
                 0x0000000000000158       0x2b ./output/ns16550.o
  .riscv.attributes
-                0x0000000000000183       0x2b ./output/queue_test.o
+                0x0000000000000183       0x2b ./output/interrupt_io_demo.o
  .riscv.attributes
                 0x00000000000001ae       0x2b ./output/printf-stdarg.o
  .riscv.attributes
@@ -3046,17 +3517,19 @@ OUTPUT(output/RTOSDemo.elf elf32-littleriscv)
                 0x00000000000002aa       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memcpy.o)
  .riscv.attributes
                 0x00000000000002d5       0x29 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-memset.o)
+ .riscv.attributes
+                0x00000000000002fe       0x2b c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc.a(lib_a-strcpy.o)
 
-.debug_frame    0x0000000000000000     0x1970
+.debug_frame    0x0000000000000000     0x1a58
  .debug_frame   0x0000000000000000      0xa48 ./output/tasks.o
  .debug_frame   0x0000000000000a48       0x60 ./output/list.o
  .debug_frame   0x0000000000000aa8      0x650 ./output/queue.o
  .debug_frame   0x00000000000010f8      0x3bc ./output/timers.o
  .debug_frame   0x00000000000014b4      0x134 ./output/heap_4.o
  .debug_frame   0x00000000000015e8       0x54 ./output/port.o
- .debug_frame   0x000000000000163c       0xe8 ./output/main.o
- .debug_frame   0x0000000000001724       0x30 ./output/test_manager.o
- .debug_frame   0x0000000000001754       0x20 ./output/ns16550.o
- .debug_frame   0x0000000000001774       0xa0 ./output/queue_test.o
- .debug_frame   0x0000000000001814      0x13c ./output/printf-stdarg.o
- .debug_frame   0x0000000000001950       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_frame   0x000000000000163c      0x104 ./output/main.o
+ .debug_frame   0x0000000000001740       0x68 ./output/riscv-virt.o
+ .debug_frame   0x00000000000017a8       0x20 ./output/ns16550.o
+ .debug_frame   0x00000000000017c8      0x134 ./output/interrupt_io_demo.o
+ .debug_frame   0x00000000000018fc      0x13c ./output/printf-stdarg.o
+ .debug_frame   0x0000000000001a38       0x20 c:/sysgcc/risc-v/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)

@@ -73,6 +73,11 @@ extern void start_ipc_test(void);
 /* DODATI OVU LINIJU - Test manager function declaration */
 extern void run_selected_test(void);
 
+/* Demo applications function declarations */
+extern void start_scheduler_validation_demo(void);
+extern void start_queue_communication_demo(void);
+extern void start_interrupt_driven_io_demo(void);
+
 /* This project provides two demo applications.  A simple blinky style demo
  * application, and a more comprehensive test and demo application.  The
  * mainCREATE_SIMPLE_BLINKY_DEMO_ONLY setting is used to select between the two.
@@ -84,15 +89,12 @@ extern void run_selected_test(void);
  * demo application will be built.  The comprehensive test and demo application is
  * implemented and described in main_full.c. */
 #define mainCREATE_SIMPLE_BLINKY_DEMO_ONLY    0
-
-/* Set to 1 to use direct mode and set to 0 to use vectored mode.
- * VECTOR MODE=Direct --> all traps into machine mode cause the pc to be set to the
- * vector base address (BASE) in the mtvec register.
- * VECTOR MODE=Vectored --> all synchronous exceptions into machine mode cause the
- * pc to be set to the BASE, whereas interrupts cause the pc to be set to the
- * address BASE plus four times the interrupt cause number.
- */
 #define mainVECTOR_MODE_DIRECT                0
+
+/* Demo application selection - used when mainCREATE_SIMPLE_BLINKY_DEMO_ONLY is 0 */
+#ifndef DEMO_ID
+    #define DEMO_ID 0  // Default: run test manager (your existing logic)
+#endif
 
 /* printf() output uses the UART.  These constants define the addresses of the
  * required UART registers. */
@@ -128,6 +130,33 @@ void vFullDemoIdleFunction( void );
 
 /*-----------------------------------------------------------*/
 
+void run_demo_applications(void)
+{
+    switch(DEMO_ID) {
+        case 10:
+            printf("Starting Scheduler Validation Demo (DEMO_ID=10)\r\n");
+            start_scheduler_validation_demo();
+            break;
+        case 11:
+            printf("Starting Queue Communication Demo (DEMO_ID=11)\r\n");
+            start_queue_communication_demo();
+            break;
+        case 12:
+            printf("Starting Interrupt-driven I/O Demo (DEMO_ID=12)\r\n");
+            start_interrupt_driven_io_demo();
+            break;
+        default:
+            printf("No demo selected or invalid DEMO_ID: %d\r\n", DEMO_ID);
+            printf("Available demo DEMO_IDs:\r\n");
+            printf("  10 - Scheduler Validation Demo\r\n");
+            printf("  11 - Queue Communication Demo\r\n");
+            printf("  12 - Interrupt-driven I/O Demo\r\n");
+            printf("Falling back to test manager...\r\n");
+            run_selected_test();  // Fallback to your existing test logic
+            break;
+    }
+}
+
 void main( void )
 {
     /* See https://www.freertos.org/freertos-on-qemu-mps2-an385-model.html for
@@ -151,7 +180,7 @@ void main( void )
     }
     #else
     {
-        run_selected_test();  // ZAMIJENITI start_ipc_test() SA OVOM LINIJOM
+        run_demo_applications();  // Poziva novu funkciju za demo/test izbor
     }
     #endif
 }
