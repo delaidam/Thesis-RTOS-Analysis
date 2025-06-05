@@ -1,0 +1,51 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\Configuration.v'
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\RAM.v'
+WARN  (EX3261) : Loop variable declaration is not allowed in this mode of Verilog("C:\tang-nano-9k--riscv\src\RAM.v":44)
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\RAMIO.v'
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\Registers.v'
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\SoC.v'
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\Top.v'
+Analyzing included file 'C:\tang-nano-9k--riscv\src\Configuration.v'("C:\tang-nano-9k--riscv\src\Top.v":4)
+Back to file 'C:\tang-nano-9k--riscv\src\Top.v'("C:\tang-nano-9k--riscv\src\Top.v":4)
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\UartRx.v'
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\UartTx.v'
+Analyzing Verilog file 'C:\tang-nano-9k--riscv\src\gowin_rpll\gowin_rpll.v'
+Compiling module 'Top'("C:\tang-nano-9k--riscv\src\Top.v":6)
+Compiling module 'Gowin_rPLL'("C:\tang-nano-9k--riscv\src\gowin_rpll\gowin_rpll.v":10)
+Compiling module 'SoC(RAM_FILE="..\os\os.mem",CLK_FREQ=20250000)'("C:\tang-nano-9k--riscv\src\SoC.v":4)
+Compiling module 'Registers'("C:\tang-nano-9k--riscv\src\Registers.v":4)
+Extracting RAM for identifier 'mem'("C:\tang-nano-9k--riscv\src\Registers.v":21)
+Compiling module 'RAMIO(ADDR_WIDTH=13,DATA_FILE="..\os\os.mem")'("C:\tang-nano-9k--riscv\src\RAMIO.v":8)
+Compiling module 'RAM(ADDR_WIDTH=13,DATA_FILE="..\os\os.mem")'("C:\tang-nano-9k--riscv\src\RAM.v":10)
+Extracting RAM for identifier 'instr'("C:\tang-nano-9k--riscv\src\RAM.v":29)
+Extracting RAM for identifier 'data'("C:\tang-nano-9k--riscv\src\RAM.v":32)
+Compiling module 'UartTx(CLK_FREQ=20250000)'("C:\tang-nano-9k--riscv\src\UartTx.v":4)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\tang-nano-9k--riscv\src\UartTx.v":71)
+Compiling module 'UartRx(CLK_FREQ=20250000)'("C:\tang-nano-9k--riscv\src\UartRx.v":4)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 12("C:\tang-nano-9k--riscv\src\UartRx.v":56)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("C:\tang-nano-9k--riscv\src\UartRx.v":63)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 12("C:\tang-nano-9k--riscv\src\UartRx.v":69)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 12("C:\tang-nano-9k--riscv\src\UartRx.v":77)
+NOTE  (EX0101) : Current top module is "Top"
+[5%] Running netlist conversion ...
+WARN  (CV0016) : Input btn1 is unused("C:\tang-nano-9k--riscv\src\Top.v":12)
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\tang-nano-9k--riscv\impl\gwsynthesis\riscv.vg" completed
+[100%] Generate report file "C:\tang-nano-9k--riscv\impl\gwsynthesis\riscv_syn.rpt.html" completed
+GowinSynthesis finish

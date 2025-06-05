@@ -1,0 +1,2164 @@
+
+os:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+# # generated - do not edit
+# .global _start
+# _start:
+#     li sp, 0x7ffc
+       0:	00008137          	lui	sp,0x8
+       4:	ffc10113          	addi	sp,sp,-4 # 7ffc <__global_pointer$+0x3fd7>
+#     jal ra, run
+       8:	554010ef          	jal	ra,155c <run>
+
+0000000c <print_large_hex>:
+#     "Professional RISC-V performance analysis\r\n"
+#     "All operations use base RV32I instruction set\r\n"
+#     "Type 'help' for available commands\r\n\r\n";
+# 
+# // Print large numbers as hex (since we can't use division for decimal)
+# void print_large_hex(unsigned long num) {
+       c:	fe010113          	addi	sp,sp,-32
+      10:	00112e23          	sw	ra,28(sp)
+      14:	00812c23          	sw	s0,24(sp)
+      18:	02010413          	addi	s0,sp,32
+      1c:	fea42623          	sw	a0,-20(s0)
+#     uart_send_str("0x");
+      20:	000027b7          	lui	a5,0x2
+      24:	ae878513          	addi	a0,a5,-1304 # 1ae8 <uart_read_char+0x200>
+      28:	00001097          	auipc	ra,0x1
+      2c:	744080e7          	jalr	1860(ra) # 176c <uart_send_str>
+#     uart_send_hex_byte((char)((num >> 24) & 0xFF));
+      30:	fec42783          	lw	a5,-20(s0)
+      34:	0187d793          	srli	a5,a5,0x18
+      38:	0ff7f793          	andi	a5,a5,255
+      3c:	00078513          	mv	a0,a5
+      40:	00001097          	auipc	ra,0x1
+      44:	794080e7          	jalr	1940(ra) # 17d4 <uart_send_hex_byte>
+#     uart_send_hex_byte((char)((num >> 16) & 0xFF));
+      48:	fec42783          	lw	a5,-20(s0)
+      4c:	0107d793          	srli	a5,a5,0x10
+      50:	0ff7f793          	andi	a5,a5,255
+      54:	00078513          	mv	a0,a5
+      58:	00001097          	auipc	ra,0x1
+      5c:	77c080e7          	jalr	1916(ra) # 17d4 <uart_send_hex_byte>
+#     uart_send_hex_byte((char)((num >> 8) & 0xFF));
+      60:	fec42783          	lw	a5,-20(s0)
+      64:	0087d793          	srli	a5,a5,0x8
+      68:	0ff7f793          	andi	a5,a5,255
+      6c:	00078513          	mv	a0,a5
+      70:	00001097          	auipc	ra,0x1
+      74:	764080e7          	jalr	1892(ra) # 17d4 <uart_send_hex_byte>
+#     uart_send_hex_byte((char)(num & 0xFF));
+      78:	fec42783          	lw	a5,-20(s0)
+      7c:	0ff7f793          	andi	a5,a5,255
+      80:	00078513          	mv	a0,a5
+      84:	00001097          	auipc	ra,0x1
+      88:	750080e7          	jalr	1872(ra) # 17d4 <uart_send_hex_byte>
+# }
+      8c:	00000013          	nop
+      90:	01c12083          	lw	ra,28(sp)
+      94:	01812403          	lw	s0,24(sp)
+      98:	02010113          	addi	sp,sp,32
+      9c:	00008067          	ret
+
+000000a0 <comprehensive_benchmark>:
+# 
+# void comprehensive_benchmark() {
+      a0:	fd010113          	addi	sp,sp,-48
+      a4:	02112623          	sw	ra,44(sp)
+      a8:	02812423          	sw	s0,40(sp)
+      ac:	03010413          	addi	s0,sp,48
+#     uart_send_str("=== COMPREHENSIVE RV32I BENCHMARK ===\r\n");
+      b0:	000027b7          	lui	a5,0x2
+      b4:	aec78513          	addi	a0,a5,-1300 # 1aec <uart_read_char+0x204>
+      b8:	00001097          	auipc	ra,0x1
+      bc:	6b4080e7          	jalr	1716(ra) # 176c <uart_send_str>
+#     uart_send_str("Testing base integer instruction performance\r\n");
+      c0:	000027b7          	lui	a5,0x2
+      c4:	b1478513          	addi	a0,a5,-1260 # 1b14 <uart_read_char+0x22c>
+      c8:	00001097          	auipc	ra,0x1
+      cc:	6a4080e7          	jalr	1700(ra) # 176c <uart_send_str>
+#     uart_send_str("Target: 100,000 operations using only RV32I\r\n\r\n");
+      d0:	000027b7          	lui	a5,0x2
+      d4:	b4478513          	addi	a0,a5,-1212 # 1b44 <uart_read_char+0x25c>
+      d8:	00001097          	auipc	ra,0x1
+      dc:	694080e7          	jalr	1684(ra) # 176c <uart_send_str>
+#     
+#     unsigned long start_cycles = total_cycles;
+      e0:	000047b7          	lui	a5,0x4
+      e4:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+      e8:	fcf42e23          	sw	a5,-36(s0)
+#     volatile unsigned long result = 0x12345678;
+      ec:	123457b7          	lui	a5,0x12345
+      f0:	67878793          	addi	a5,a5,1656 # 12345678 <__global_pointer$+0x12341653>
+      f4:	fcf42823          	sw	a5,-48(s0)
+#     unsigned long ops = 0;
+      f8:	fe042623          	sw	zero,-20(s0)
+#     
+#     uart_send_str("Phase 1: Arithmetic Operations (ADD, SUB, XOR, OR, AND)\r\n");
+      fc:	000027b7          	lui	a5,0x2
+     100:	b7478513          	addi	a0,a5,-1164 # 1b74 <uart_read_char+0x28c>
+     104:	00001097          	auipc	ra,0x1
+     108:	668080e7          	jalr	1640(ra) # 176c <uart_send_str>
+#     for (unsigned long i = 1; i <= 20000; i++) {
+     10c:	00100793          	li	a5,1
+     110:	fef42423          	sw	a5,-24(s0)
+     114:	0f80006f          	j	20c <comprehensive_benchmark+0x16c>
+#         // Only RV32I base operations
+#         result = result + i;           // ADD
+     118:	fd042703          	lw	a4,-48(s0)
+     11c:	fe842783          	lw	a5,-24(s0)
+     120:	00f707b3          	add	a5,a4,a5
+     124:	fcf42823          	sw	a5,-48(s0)
+#         result = result - (i >> 1);    // SUB with shift
+     128:	fd042703          	lw	a4,-48(s0)
+     12c:	fe842783          	lw	a5,-24(s0)
+     130:	0017d793          	srli	a5,a5,0x1
+     134:	40f707b3          	sub	a5,a4,a5
+     138:	fcf42823          	sw	a5,-48(s0)
+#         result = result ^ i;           // XOR
+     13c:	fd042703          	lw	a4,-48(s0)
+     140:	fe842783          	lw	a5,-24(s0)
+     144:	00f747b3          	xor	a5,a4,a5
+     148:	fcf42823          	sw	a5,-48(s0)
+#         result = result | (i << 2);    // OR with shift
+     14c:	fe842783          	lw	a5,-24(s0)
+     150:	00279713          	slli	a4,a5,0x2
+     154:	fd042783          	lw	a5,-48(s0)
+     158:	00f767b3          	or	a5,a4,a5
+     15c:	fcf42823          	sw	a5,-48(s0)
+#         result = result & 0xFFFFFF;    // AND
+     160:	fd042703          	lw	a4,-48(s0)
+     164:	010007b7          	lui	a5,0x1000
+     168:	fff78793          	addi	a5,a5,-1 # ffffff <__global_pointer$+0xffbfda>
+     16c:	00f777b3          	and	a5,a4,a5
+     170:	fcf42823          	sw	a5,-48(s0)
+#         ops += 5;
+     174:	fec42783          	lw	a5,-20(s0)
+     178:	00578793          	addi	a5,a5,5
+     17c:	fef42623          	sw	a5,-20(s0)
+#         
+#         // Progress indicator every 5000 iterations
+#         if ((i & 0x1387) == 0) { // Using bitwise AND instead of modulo
+     180:	fe842703          	lw	a4,-24(s0)
+     184:	000017b7          	lui	a5,0x1
+     188:	38778793          	addi	a5,a5,903 # 1387 <handle_command+0xe7>
+     18c:	00f777b3          	and	a5,a4,a5
+     190:	06079863          	bnez	a5,200 <comprehensive_benchmark+0x160>
+#             uart_send_str("  Progress: ");
+     194:	000027b7          	lui	a5,0x2
+     198:	bb078513          	addi	a0,a5,-1104 # 1bb0 <uart_read_char+0x2c8>
+     19c:	00001097          	auipc	ra,0x1
+     1a0:	5d0080e7          	jalr	1488(ra) # 176c <uart_send_str>
+#             uart_send_hex_byte((char)(i >> 8));
+     1a4:	fe842783          	lw	a5,-24(s0)
+     1a8:	0087d793          	srli	a5,a5,0x8
+     1ac:	0ff7f793          	andi	a5,a5,255
+     1b0:	00078513          	mv	a0,a5
+     1b4:	00001097          	auipc	ra,0x1
+     1b8:	620080e7          	jalr	1568(ra) # 17d4 <uart_send_hex_byte>
+#             uart_send_str(" operations completed\r\n");
+     1bc:	000027b7          	lui	a5,0x2
+     1c0:	bc078513          	addi	a0,a5,-1088 # 1bc0 <uart_read_char+0x2d8>
+     1c4:	00001097          	auipc	ra,0x1
+     1c8:	5a8080e7          	jalr	1448(ra) # 176c <uart_send_str>
+#             *leds = (unsigned char)((i >> 8) & 0x3F);
+     1cc:	fe842783          	lw	a5,-24(s0)
+     1d0:	0087d793          	srli	a5,a5,0x8
+     1d4:	0ff7f713          	andi	a4,a5,255
+     1d8:	000047b7          	lui	a5,0x4
+     1dc:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     1e0:	03f77713          	andi	a4,a4,63
+     1e4:	0ff77713          	andi	a4,a4,255
+     1e8:	00e78023          	sb	a4,0(a5)
+#             total_cycles += 1000; // Simulate cycle cost
+     1ec:	000047b7          	lui	a5,0x4
+     1f0:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     1f4:	3e878713          	addi	a4,a5,1000
+     1f8:	000047b7          	lui	a5,0x4
+     1fc:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (unsigned long i = 1; i <= 20000; i++) {
+     200:	fe842783          	lw	a5,-24(s0)
+     204:	00178793          	addi	a5,a5,1
+     208:	fef42423          	sw	a5,-24(s0)
+     20c:	fe842703          	lw	a4,-24(s0)
+     210:	000057b7          	lui	a5,0x5
+     214:	e2078793          	addi	a5,a5,-480 # 4e20 <__global_pointer$+0xdfb>
+     218:	f0e7f0e3          	bgeu	a5,a4,118 <comprehensive_benchmark+0x78>
+#         }
+#     }
+#     
+#     uart_send_str("Phase 2: Shift and Logic Operations (SLL, SRL, SRA)\r\n");
+     21c:	000027b7          	lui	a5,0x2
+     220:	bd878513          	addi	a0,a5,-1064 # 1bd8 <uart_read_char+0x2f0>
+     224:	00001097          	auipc	ra,0x1
+     228:	548080e7          	jalr	1352(ra) # 176c <uart_send_str>
+#     for (unsigned long i = 1; i <= 15000; i++) {
+     22c:	00100793          	li	a5,1
+     230:	fef42223          	sw	a5,-28(s0)
+     234:	0980006f          	j	2cc <comprehensive_benchmark+0x22c>
+#         result = result << 1;          // SLL - Shift Left Logical
+     238:	fd042783          	lw	a5,-48(s0)
+     23c:	00179793          	slli	a5,a5,0x1
+     240:	fcf42823          	sw	a5,-48(s0)
+#         result = result >> 1;          // SRL - Shift Right Logical  
+     244:	fd042783          	lw	a5,-48(s0)
+     248:	0017d793          	srli	a5,a5,0x1
+     24c:	fcf42823          	sw	a5,-48(s0)
+#         result = result + (i << 3);    // More shifts
+     250:	fe442783          	lw	a5,-28(s0)
+     254:	00379713          	slli	a4,a5,0x3
+     258:	fd042783          	lw	a5,-48(s0)
+     25c:	00f707b3          	add	a5,a4,a5
+     260:	fcf42823          	sw	a5,-48(s0)
+#         result = result ^ (i >> 2);    // Combined operations
+     264:	fe442783          	lw	a5,-28(s0)
+     268:	0027d713          	srli	a4,a5,0x2
+     26c:	fd042783          	lw	a5,-48(s0)
+     270:	00f747b3          	xor	a5,a4,a5
+     274:	fcf42823          	sw	a5,-48(s0)
+#         result = result & 0xFFFFF;     // Keep result manageable
+     278:	fd042703          	lw	a4,-48(s0)
+     27c:	001007b7          	lui	a5,0x100
+     280:	fff78793          	addi	a5,a5,-1 # fffff <__global_pointer$+0xfbfda>
+     284:	00f777b3          	and	a5,a4,a5
+     288:	fcf42823          	sw	a5,-48(s0)
+#         ops += 5;
+     28c:	fec42783          	lw	a5,-20(s0)
+     290:	00578793          	addi	a5,a5,5
+     294:	fef42623          	sw	a5,-20(s0)
+#         
+#         if ((i & 0x0FFF) == 0) {
+     298:	fe442703          	lw	a4,-28(s0)
+     29c:	000017b7          	lui	a5,0x1
+     2a0:	fff78793          	addi	a5,a5,-1 # fff <led_test+0x23b>
+     2a4:	00f777b3          	and	a5,a4,a5
+     2a8:	00079c63          	bnez	a5,2c0 <comprehensive_benchmark+0x220>
+#             total_cycles += 800;
+     2ac:	000047b7          	lui	a5,0x4
+     2b0:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     2b4:	32078713          	addi	a4,a5,800
+     2b8:	000047b7          	lui	a5,0x4
+     2bc:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (unsigned long i = 1; i <= 15000; i++) {
+     2c0:	fe442783          	lw	a5,-28(s0)
+     2c4:	00178793          	addi	a5,a5,1
+     2c8:	fef42223          	sw	a5,-28(s0)
+     2cc:	fe442703          	lw	a4,-28(s0)
+     2d0:	000047b7          	lui	a5,0x4
+     2d4:	a9878793          	addi	a5,a5,-1384 # 3a98 <__BSS_END__+0x254>
+     2d8:	f6e7f0e3          	bgeu	a5,a4,238 <comprehensive_benchmark+0x198>
+#         }
+#     }
+#     
+#     uart_send_str("Phase 3: Branch and Compare Operations\r\n");
+     2dc:	000027b7          	lui	a5,0x2
+     2e0:	c1078513          	addi	a0,a5,-1008 # 1c10 <uart_read_char+0x328>
+     2e4:	00001097          	auipc	ra,0x1
+     2e8:	488080e7          	jalr	1160(ra) # 176c <uart_send_str>
+#     for (unsigned long i = 1; i <= 10000; i++) {
+     2ec:	00100793          	li	a5,1
+     2f0:	fef42023          	sw	a5,-32(s0)
+     2f4:	0b40006f          	j	3a8 <comprehensive_benchmark+0x308>
+#         // Conditional operations (BEQ, BNE, BLT, BGE equivalent)
+#         if (result > i) {
+     2f8:	fd042783          	lw	a5,-48(s0)
+     2fc:	fe042703          	lw	a4,-32(s0)
+     300:	00f77c63          	bgeu	a4,a5,318 <comprehensive_benchmark+0x278>
+#             result = result + i;
+     304:	fd042703          	lw	a4,-48(s0)
+     308:	fe042783          	lw	a5,-32(s0)
+     30c:	00f707b3          	add	a5,a4,a5
+     310:	fcf42823          	sw	a5,-48(s0)
+     314:	0340006f          	j	348 <comprehensive_benchmark+0x2a8>
+#         } else if (result < i) {
+     318:	fd042783          	lw	a5,-48(s0)
+     31c:	fe042703          	lw	a4,-32(s0)
+     320:	00e7fc63          	bgeu	a5,a4,338 <comprehensive_benchmark+0x298>
+#             result = result - i;
+     324:	fd042703          	lw	a4,-48(s0)
+     328:	fe042783          	lw	a5,-32(s0)
+     32c:	40f707b3          	sub	a5,a4,a5
+     330:	fcf42823          	sw	a5,-48(s0)
+     334:	0140006f          	j	348 <comprehensive_benchmark+0x2a8>
+#         } else {
+#             result = result ^ i;
+     338:	fd042703          	lw	a4,-48(s0)
+     33c:	fe042783          	lw	a5,-32(s0)
+     340:	00f747b3          	xor	a5,a4,a5
+     344:	fcf42823          	sw	a5,-48(s0)
+#         }
+#         
+#         // More comparisons
+#         if ((result & 0x01) == 0) {
+     348:	fd042783          	lw	a5,-48(s0)
+     34c:	0017f793          	andi	a5,a5,1
+     350:	00079a63          	bnez	a5,364 <comprehensive_benchmark+0x2c4>
+#             result = result << 1;
+     354:	fd042783          	lw	a5,-48(s0)
+     358:	00179793          	slli	a5,a5,0x1
+     35c:	fcf42823          	sw	a5,-48(s0)
+     360:	0100006f          	j	370 <comprehensive_benchmark+0x2d0>
+#         } else {
+#             result = result >> 1;
+     364:	fd042783          	lw	a5,-48(s0)
+     368:	0017d793          	srli	a5,a5,0x1
+     36c:	fcf42823          	sw	a5,-48(s0)
+#         }
+#         
+#         ops += 6; // Count all operations including comparisons
+     370:	fec42783          	lw	a5,-20(s0)
+     374:	00678793          	addi	a5,a5,6
+     378:	fef42623          	sw	a5,-20(s0)
+#         
+#         if ((i & 0x07FF) == 0) {
+     37c:	fe042783          	lw	a5,-32(s0)
+     380:	7ff7f793          	andi	a5,a5,2047
+     384:	00079c63          	bnez	a5,39c <comprehensive_benchmark+0x2fc>
+#             total_cycles += 600;
+     388:	000047b7          	lui	a5,0x4
+     38c:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     390:	25878713          	addi	a4,a5,600
+     394:	000047b7          	lui	a5,0x4
+     398:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (unsigned long i = 1; i <= 10000; i++) {
+     39c:	fe042783          	lw	a5,-32(s0)
+     3a0:	00178793          	addi	a5,a5,1
+     3a4:	fef42023          	sw	a5,-32(s0)
+     3a8:	fe042703          	lw	a4,-32(s0)
+     3ac:	000027b7          	lui	a5,0x2
+     3b0:	71078793          	addi	a5,a5,1808 # 2710 <uart_read_char+0xe28>
+     3b4:	f4e7f2e3          	bgeu	a5,a4,2f8 <comprehensive_benchmark+0x258>
+#         }
+#     }
+#     
+#     total_cycles += 50000; // Final cycle count
+     3b8:	000047b7          	lui	a5,0x4
+     3bc:	8387a703          	lw	a4,-1992(a5) # 3838 <total_cycles>
+     3c0:	0000c7b7          	lui	a5,0xc
+     3c4:	35078793          	addi	a5,a5,848 # c350 <__global_pointer$+0x832b>
+     3c8:	00f70733          	add	a4,a4,a5
+     3cc:	000047b7          	lui	a5,0x4
+     3d0:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     unsigned long end_cycles = total_cycles;
+     3d4:	000047b7          	lui	a5,0x4
+     3d8:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     3dc:	fcf42c23          	sw	a5,-40(s0)
+#     unsigned long elapsed = end_cycles - start_cycles;
+     3e0:	fd842703          	lw	a4,-40(s0)
+     3e4:	fdc42783          	lw	a5,-36(s0)
+     3e8:	40f707b3          	sub	a5,a4,a5
+     3ec:	fcf42a23          	sw	a5,-44(s0)
+#     
+#     uart_send_str("\r\n=== BENCHMARK RESULTS ===\r\n");
+     3f0:	000027b7          	lui	a5,0x2
+     3f4:	c3c78513          	addi	a0,a5,-964 # 1c3c <uart_read_char+0x354>
+     3f8:	00001097          	auipc	ra,0x1
+     3fc:	374080e7          	jalr	884(ra) # 176c <uart_send_str>
+#     uart_send_str("RV32I Benchmark completed successfully!\r\n");
+     400:	000027b7          	lui	a5,0x2
+     404:	c5c78513          	addi	a0,a5,-932 # 1c5c <uart_read_char+0x374>
+     408:	00001097          	auipc	ra,0x1
+     40c:	364080e7          	jalr	868(ra) # 176c <uart_send_str>
+#     uart_send_str("Total Operations: ");
+     410:	000027b7          	lui	a5,0x2
+     414:	c8878513          	addi	a0,a5,-888 # 1c88 <uart_read_char+0x3a0>
+     418:	00001097          	auipc	ra,0x1
+     41c:	354080e7          	jalr	852(ra) # 176c <uart_send_str>
+#     print_large_hex(ops);
+     420:	fec42503          	lw	a0,-20(s0)
+     424:	00000097          	auipc	ra,0x0
+     428:	be8080e7          	jalr	-1048(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     42c:	000027b7          	lui	a5,0x2
+     430:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     434:	00001097          	auipc	ra,0x1
+     438:	338080e7          	jalr	824(ra) # 176c <uart_send_str>
+#     uart_send_str("Total Cycles: ");
+     43c:	000027b7          	lui	a5,0x2
+     440:	ca078513          	addi	a0,a5,-864 # 1ca0 <uart_read_char+0x3b8>
+     444:	00001097          	auipc	ra,0x1
+     448:	328080e7          	jalr	808(ra) # 176c <uart_send_str>
+#     print_large_hex(elapsed);
+     44c:	fd442503          	lw	a0,-44(s0)
+     450:	00000097          	auipc	ra,0x0
+     454:	bbc080e7          	jalr	-1092(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     458:	000027b7          	lui	a5,0x2
+     45c:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     460:	00001097          	auipc	ra,0x1
+     464:	30c080e7          	jalr	780(ra) # 176c <uart_send_str>
+#     uart_send_str("Final Result: ");
+     468:	000027b7          	lui	a5,0x2
+     46c:	cb078513          	addi	a0,a5,-848 # 1cb0 <uart_read_char+0x3c8>
+     470:	00001097          	auipc	ra,0x1
+     474:	2fc080e7          	jalr	764(ra) # 176c <uart_send_str>
+#     print_large_hex(result);
+     478:	fd042783          	lw	a5,-48(s0)
+     47c:	00078513          	mv	a0,a5
+     480:	00000097          	auipc	ra,0x0
+     484:	b8c080e7          	jalr	-1140(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     488:	000027b7          	lui	a5,0x2
+     48c:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     490:	00001097          	auipc	ra,0x1
+     494:	2dc080e7          	jalr	732(ra) # 176c <uart_send_str>
+#     
+#     // Calculate rough performance ratio (cycles vs operations)
+#     uart_send_str("Performance Ratio: ");
+     498:	000027b7          	lui	a5,0x2
+     49c:	cc078513          	addi	a0,a5,-832 # 1cc0 <uart_read_char+0x3d8>
+     4a0:	00001097          	auipc	ra,0x1
+     4a4:	2cc080e7          	jalr	716(ra) # 176c <uart_send_str>
+#     if (elapsed > ops) {
+     4a8:	fd442703          	lw	a4,-44(s0)
+     4ac:	fec42783          	lw	a5,-20(s0)
+     4b0:	02e7f263          	bgeu	a5,a4,4d4 <comprehensive_benchmark+0x434>
+#         uart_send_str("HIGH CYCLE COUNT (Complex operations)\r\n");
+     4b4:	000027b7          	lui	a5,0x2
+     4b8:	cd478513          	addi	a0,a5,-812 # 1cd4 <uart_read_char+0x3ec>
+     4bc:	00001097          	auipc	ra,0x1
+     4c0:	2b0080e7          	jalr	688(ra) # 176c <uart_send_str>
+#         benchmark_score = 75;
+     4c4:	000047b7          	lui	a5,0x4
+     4c8:	04b00713          	li	a4,75
+     4cc:	84e7a023          	sw	a4,-1984(a5) # 3840 <benchmark_score>
+     4d0:	0200006f          	j	4f0 <comprehensive_benchmark+0x450>
+#     } else {
+#         uart_send_str("EFFICIENT EXECUTION (Good performance)\r\n");
+     4d4:	000027b7          	lui	a5,0x2
+     4d8:	cfc78513          	addi	a0,a5,-772 # 1cfc <uart_read_char+0x414>
+     4dc:	00001097          	auipc	ra,0x1
+     4e0:	290080e7          	jalr	656(ra) # 176c <uart_send_str>
+#         benchmark_score = 95;
+     4e4:	000047b7          	lui	a5,0x4
+     4e8:	05f00713          	li	a4,95
+     4ec:	84e7a023          	sw	a4,-1984(a5) # 3840 <benchmark_score>
+#     }
+#     
+#     uart_send_str("Rating: ");
+     4f0:	000027b7          	lui	a5,0x2
+     4f4:	d2878513          	addi	a0,a5,-728 # 1d28 <uart_read_char+0x440>
+     4f8:	00001097          	auipc	ra,0x1
+     4fc:	274080e7          	jalr	628(ra) # 176c <uart_send_str>
+#     if (benchmark_score > 90) {
+     500:	000047b7          	lui	a5,0x4
+     504:	8407a703          	lw	a4,-1984(a5) # 3840 <benchmark_score>
+     508:	05a00793          	li	a5,90
+     50c:	02e7f463          	bgeu	a5,a4,534 <comprehensive_benchmark+0x494>
+#         uart_send_str("EXCELLENT - Optimized RV32I performance\r\n");
+     510:	000027b7          	lui	a5,0x2
+     514:	d3478513          	addi	a0,a5,-716 # 1d34 <uart_read_char+0x44c>
+     518:	00001097          	auipc	ra,0x1
+     51c:	254080e7          	jalr	596(ra) # 176c <uart_send_str>
+#         *leds = 0x3F; // All LEDs
+     520:	000047b7          	lui	a5,0x4
+     524:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     528:	03f00713          	li	a4,63
+     52c:	00e78023          	sb	a4,0(a5)
+     530:	0580006f          	j	588 <comprehensive_benchmark+0x4e8>
+#     } else if (benchmark_score > 70) {
+     534:	000047b7          	lui	a5,0x4
+     538:	8407a703          	lw	a4,-1984(a5) # 3840 <benchmark_score>
+     53c:	04600793          	li	a5,70
+     540:	02e7f463          	bgeu	a5,a4,568 <comprehensive_benchmark+0x4c8>
+#         uart_send_str("GOOD - Solid RV32I implementation\r\n");
+     544:	000027b7          	lui	a5,0x2
+     548:	d6078513          	addi	a0,a5,-672 # 1d60 <uart_read_char+0x478>
+     54c:	00001097          	auipc	ra,0x1
+     550:	220080e7          	jalr	544(ra) # 176c <uart_send_str>
+#         *leds = 0x1F; // Most LEDs
+     554:	000047b7          	lui	a5,0x4
+     558:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     55c:	01f00713          	li	a4,31
+     560:	00e78023          	sb	a4,0(a5)
+     564:	0240006f          	j	588 <comprehensive_benchmark+0x4e8>
+#     } else {
+#         uart_send_str("AVERAGE - Standard performance\r\n");
+     568:	000027b7          	lui	a5,0x2
+     56c:	d8478513          	addi	a0,a5,-636 # 1d84 <uart_read_char+0x49c>
+     570:	00001097          	auipc	ra,0x1
+     574:	1fc080e7          	jalr	508(ra) # 176c <uart_send_str>
+#         *leds = 0x0F; // Half LEDs
+     578:	000047b7          	lui	a5,0x4
+     57c:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     580:	00f00713          	li	a4,15
+     584:	00e78023          	sb	a4,0(a5)
+#     }
+#     
+#     uart_send_str("===========================\r\n\r\n");
+     588:	000027b7          	lui	a5,0x2
+     58c:	da878513          	addi	a0,a5,-600 # 1da8 <uart_read_char+0x4c0>
+     590:	00001097          	auipc	ra,0x1
+     594:	1dc080e7          	jalr	476(ra) # 176c <uart_send_str>
+#     total_operations += ops;
+     598:	000047b7          	lui	a5,0x4
+     59c:	83c7a703          	lw	a4,-1988(a5) # 383c <total_operations>
+     5a0:	fec42783          	lw	a5,-20(s0)
+     5a4:	00f70733          	add	a4,a4,a5
+     5a8:	000047b7          	lui	a5,0x4
+     5ac:	82e7ae23          	sw	a4,-1988(a5) # 383c <total_operations>
+# }
+     5b0:	00000013          	nop
+     5b4:	02c12083          	lw	ra,44(sp)
+     5b8:	02812403          	lw	s0,40(sp)
+     5bc:	03010113          	addi	sp,sp,48
+     5c0:	00008067          	ret
+
+000005c4 <cpu_stress_test>:
+# 
+# void cpu_stress_test() {
+     5c4:	fc010113          	addi	sp,sp,-64
+     5c8:	02112e23          	sw	ra,60(sp)
+     5cc:	02812c23          	sw	s0,56(sp)
+     5d0:	04010413          	addi	s0,sp,64
+#     uart_send_str("=== INTENSIVE CPU STRESS TEST ===\r\n");
+     5d4:	000027b7          	lui	a5,0x2
+     5d8:	dc878513          	addi	a0,a5,-568 # 1dc8 <uart_read_char+0x4e0>
+     5dc:	00001097          	auipc	ra,0x1
+     5e0:	190080e7          	jalr	400(ra) # 176c <uart_send_str>
+#     uart_send_str("High-load RV32I instruction sequences\r\n");
+     5e4:	000027b7          	lui	a5,0x2
+     5e8:	dec78513          	addi	a0,a5,-532 # 1dec <uart_read_char+0x504>
+     5ec:	00001097          	auipc	ra,0x1
+     5f0:	180080e7          	jalr	384(ra) # 176c <uart_send_str>
+#     uart_send_str("Testing sustained computational workload\r\n\r\n");
+     5f4:	000027b7          	lui	a5,0x2
+     5f8:	e1478513          	addi	a0,a5,-492 # 1e14 <uart_read_char+0x52c>
+     5fc:	00001097          	auipc	ra,0x1
+     600:	170080e7          	jalr	368(ra) # 176c <uart_send_str>
+#     
+#     unsigned long start_cycles = total_cycles;
+     604:	000047b7          	lui	a5,0x4
+     608:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     60c:	fef42023          	sw	a5,-32(s0)
+#     volatile unsigned long a = 0xAAAA5555;
+     610:	aaaa57b7          	lui	a5,0xaaaa5
+     614:	55578793          	addi	a5,a5,1365 # aaaa5555 <__global_pointer$+0xaaaa1530>
+     618:	fcf42823          	sw	a5,-48(s0)
+#     volatile unsigned long b = 0x5555AAAA;
+     61c:	5555b7b7          	lui	a5,0x5555b
+     620:	aaa78793          	addi	a5,a5,-1366 # 5555aaaa <__global_pointer$+0x55556a85>
+     624:	fcf42623          	sw	a5,-52(s0)
+#     volatile unsigned long c = 0x12345678;
+     628:	123457b7          	lui	a5,0x12345
+     62c:	67878793          	addi	a5,a5,1656 # 12345678 <__global_pointer$+0x12341653>
+     630:	fcf42423          	sw	a5,-56(s0)
+#     volatile unsigned long result = 0;
+     634:	fc042223          	sw	zero,-60(s0)
+#     unsigned long ops = 0;
+     638:	fe042623          	sw	zero,-20(s0)
+#     
+#     // Intensive nested computation
+#     for (unsigned long outer = 1; outer <= 500; outer++) {
+     63c:	00100793          	li	a5,1
+     640:	fef42423          	sw	a5,-24(s0)
+     644:	1d00006f          	j	814 <cpu_stress_test+0x250>
+#         for (unsigned long inner = 1; inner <= 100; inner++) {
+     648:	00100793          	li	a5,1
+     64c:	fef42223          	sw	a5,-28(s0)
+     650:	1000006f          	j	750 <cpu_stress_test+0x18c>
+#             // Complex RV32I instruction sequence
+#             result = a + b + c;
+     654:	fd042703          	lw	a4,-48(s0)
+     658:	fcc42783          	lw	a5,-52(s0)
+     65c:	00f70733          	add	a4,a4,a5
+     660:	fc842783          	lw	a5,-56(s0)
+     664:	00f707b3          	add	a5,a4,a5
+     668:	fcf42223          	sw	a5,-60(s0)
+#             result = result ^ (outer << 4);
+     66c:	fe842783          	lw	a5,-24(s0)
+     670:	00479713          	slli	a4,a5,0x4
+     674:	fc442783          	lw	a5,-60(s0)
+     678:	00f747b3          	xor	a5,a4,a5
+     67c:	fcf42223          	sw	a5,-60(s0)
+#             result = result | (inner << 2);
+     680:	fe442783          	lw	a5,-28(s0)
+     684:	00279713          	slli	a4,a5,0x2
+     688:	fc442783          	lw	a5,-60(s0)
+     68c:	00f767b3          	or	a5,a4,a5
+     690:	fcf42223          	sw	a5,-60(s0)
+#             result = result & 0xFFFFFF;
+     694:	fc442703          	lw	a4,-60(s0)
+     698:	010007b7          	lui	a5,0x1000
+     69c:	fff78793          	addi	a5,a5,-1 # ffffff <__global_pointer$+0xffbfda>
+     6a0:	00f777b3          	and	a5,a4,a5
+     6a4:	fcf42223          	sw	a5,-60(s0)
+#             result = result - (a >> 2);
+     6a8:	fc442703          	lw	a4,-60(s0)
+     6ac:	fd042783          	lw	a5,-48(s0)
+     6b0:	0027d793          	srli	a5,a5,0x2
+     6b4:	40f707b3          	sub	a5,a4,a5
+     6b8:	fcf42223          	sw	a5,-60(s0)
+#             result = result + (b << 1);
+     6bc:	fcc42783          	lw	a5,-52(s0)
+     6c0:	00179713          	slli	a4,a5,0x1
+     6c4:	fc442783          	lw	a5,-60(s0)
+     6c8:	00f707b3          	add	a5,a4,a5
+     6cc:	fcf42223          	sw	a5,-60(s0)
+#             result = result ^ (c >> 3);
+     6d0:	fc842783          	lw	a5,-56(s0)
+     6d4:	0037d713          	srli	a4,a5,0x3
+     6d8:	fc442783          	lw	a5,-60(s0)
+     6dc:	00f747b3          	xor	a5,a4,a5
+     6e0:	fcf42223          	sw	a5,-60(s0)
+#             
+#             // Update working variables
+#             a = (a + result) & 0xFFFF;
+     6e4:	fd042703          	lw	a4,-48(s0)
+     6e8:	fc442783          	lw	a5,-60(s0)
+     6ec:	00f70733          	add	a4,a4,a5
+     6f0:	000107b7          	lui	a5,0x10
+     6f4:	fff78793          	addi	a5,a5,-1 # ffff <__global_pointer$+0xbfda>
+     6f8:	00f777b3          	and	a5,a4,a5
+     6fc:	fcf42823          	sw	a5,-48(s0)
+#             b = (b ^ inner) & 0xFFFF;
+     700:	fcc42703          	lw	a4,-52(s0)
+     704:	fe442783          	lw	a5,-28(s0)
+     708:	00f74733          	xor	a4,a4,a5
+     70c:	000107b7          	lui	a5,0x10
+     710:	fff78793          	addi	a5,a5,-1 # ffff <__global_pointer$+0xbfda>
+     714:	00f777b3          	and	a5,a4,a5
+     718:	fcf42623          	sw	a5,-52(s0)
+#             c = (c + outer) & 0xFFFF;
+     71c:	fc842703          	lw	a4,-56(s0)
+     720:	fe842783          	lw	a5,-24(s0)
+     724:	00f70733          	add	a4,a4,a5
+     728:	000107b7          	lui	a5,0x10
+     72c:	fff78793          	addi	a5,a5,-1 # ffff <__global_pointer$+0xbfda>
+     730:	00f777b3          	and	a5,a4,a5
+     734:	fcf42423          	sw	a5,-56(s0)
+#             
+#             ops += 12; // Count all operations
+     738:	fec42783          	lw	a5,-20(s0)
+     73c:	00c78793          	addi	a5,a5,12
+     740:	fef42623          	sw	a5,-20(s0)
+#         for (unsigned long inner = 1; inner <= 100; inner++) {
+     744:	fe442783          	lw	a5,-28(s0)
+     748:	00178793          	addi	a5,a5,1
+     74c:	fef42223          	sw	a5,-28(s0)
+     750:	fe442703          	lw	a4,-28(s0)
+     754:	06400793          	li	a5,100
+     758:	eee7fee3          	bgeu	a5,a4,654 <cpu_stress_test+0x90>
+#         }
+#         
+#         total_cycles += 500; // Simulate cycle cost
+     75c:	000047b7          	lui	a5,0x4
+     760:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     764:	1f478713          	addi	a4,a5,500
+     768:	000047b7          	lui	a5,0x4
+     76c:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#         
+#         // Progress and "thermal" monitoring
+#         if ((outer & 0x1F) == 0) { // Every 32 iterations
+     770:	fe842783          	lw	a5,-24(s0)
+     774:	01f7f793          	andi	a5,a5,31
+     778:	08079863          	bnez	a5,808 <cpu_stress_test+0x244>
+#             uart_send_str("CPU Load: ");
+     77c:	000027b7          	lui	a5,0x2
+     780:	e4478513          	addi	a0,a5,-444 # 1e44 <uart_read_char+0x55c>
+     784:	00001097          	auipc	ra,0x1
+     788:	fe8080e7          	jalr	-24(ra) # 176c <uart_send_str>
+#             uart_send_hex_byte((char)((outer >> 2) & 0xFF));
+     78c:	fe842783          	lw	a5,-24(s0)
+     790:	0027d793          	srli	a5,a5,0x2
+     794:	0ff7f793          	andi	a5,a5,255
+     798:	00078513          	mv	a0,a5
+     79c:	00001097          	auipc	ra,0x1
+     7a0:	038080e7          	jalr	56(ra) # 17d4 <uart_send_hex_byte>
+#             uart_send_str(" | Temperature: ");
+     7a4:	000027b7          	lui	a5,0x2
+     7a8:	e5078513          	addi	a0,a5,-432 # 1e50 <uart_read_char+0x568>
+     7ac:	00001097          	auipc	ra,0x1
+     7b0:	fc0080e7          	jalr	-64(ra) # 176c <uart_send_str>
+#             unsigned long temp_sim = 35 + (outer >> 4); // Simulate heating
+     7b4:	fe842783          	lw	a5,-24(s0)
+     7b8:	0047d793          	srli	a5,a5,0x4
+     7bc:	02378793          	addi	a5,a5,35
+     7c0:	fcf42a23          	sw	a5,-44(s0)
+#             uart_send_hex_byte((char)(temp_sim & 0xFF));
+     7c4:	fd442783          	lw	a5,-44(s0)
+     7c8:	0ff7f793          	andi	a5,a5,255
+     7cc:	00078513          	mv	a0,a5
+     7d0:	00001097          	auipc	ra,0x1
+     7d4:	004080e7          	jalr	4(ra) # 17d4 <uart_send_hex_byte>
+#             uart_send_str("°C\r\n");
+     7d8:	000027b7          	lui	a5,0x2
+     7dc:	e6478513          	addi	a0,a5,-412 # 1e64 <uart_read_char+0x57c>
+     7e0:	00001097          	auipc	ra,0x1
+     7e4:	f8c080e7          	jalr	-116(ra) # 176c <uart_send_str>
+#             
+#             // Show load on LEDs
+#             *leds = (unsigned char)((outer >> 3) & 0x3F);
+     7e8:	fe842783          	lw	a5,-24(s0)
+     7ec:	0037d793          	srli	a5,a5,0x3
+     7f0:	0ff7f713          	andi	a4,a5,255
+     7f4:	000047b7          	lui	a5,0x4
+     7f8:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     7fc:	03f77713          	andi	a4,a4,63
+     800:	0ff77713          	andi	a4,a4,255
+     804:	00e78023          	sb	a4,0(a5)
+#     for (unsigned long outer = 1; outer <= 500; outer++) {
+     808:	fe842783          	lw	a5,-24(s0)
+     80c:	00178793          	addi	a5,a5,1
+     810:	fef42423          	sw	a5,-24(s0)
+     814:	fe842703          	lw	a4,-24(s0)
+     818:	1f400793          	li	a5,500
+     81c:	e2e7f6e3          	bgeu	a5,a4,648 <cpu_stress_test+0x84>
+#         }
+#     }
+#     
+#     total_cycles += 25000;
+     820:	000047b7          	lui	a5,0x4
+     824:	8387a703          	lw	a4,-1992(a5) # 3838 <total_cycles>
+     828:	000067b7          	lui	a5,0x6
+     82c:	1a878793          	addi	a5,a5,424 # 61a8 <__global_pointer$+0x2183>
+     830:	00f70733          	add	a4,a4,a5
+     834:	000047b7          	lui	a5,0x4
+     838:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     unsigned long end_cycles = total_cycles;
+     83c:	000047b7          	lui	a5,0x4
+     840:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     844:	fcf42e23          	sw	a5,-36(s0)
+#     unsigned long elapsed = end_cycles - start_cycles;
+     848:	fdc42703          	lw	a4,-36(s0)
+     84c:	fe042783          	lw	a5,-32(s0)
+     850:	40f707b3          	sub	a5,a4,a5
+     854:	fcf42c23          	sw	a5,-40(s0)
+#     
+#     uart_send_str("\r\n=== CPU STRESS TEST RESULTS ===\r\n");
+     858:	000027b7          	lui	a5,0x2
+     85c:	e6c78513          	addi	a0,a5,-404 # 1e6c <uart_read_char+0x584>
+     860:	00001097          	auipc	ra,0x1
+     864:	f0c080e7          	jalr	-244(ra) # 176c <uart_send_str>
+#     uart_send_str("Stress test completed without errors!\r\n");
+     868:	000027b7          	lui	a5,0x2
+     86c:	e9078513          	addi	a0,a5,-368 # 1e90 <uart_read_char+0x5a8>
+     870:	00001097          	auipc	ra,0x1
+     874:	efc080e7          	jalr	-260(ra) # 176c <uart_send_str>
+#     uart_send_str("Operations executed: ");
+     878:	000027b7          	lui	a5,0x2
+     87c:	eb878513          	addi	a0,a5,-328 # 1eb8 <uart_read_char+0x5d0>
+     880:	00001097          	auipc	ra,0x1
+     884:	eec080e7          	jalr	-276(ra) # 176c <uart_send_str>
+#     print_large_hex(ops);
+     888:	fec42503          	lw	a0,-20(s0)
+     88c:	fffff097          	auipc	ra,0xfffff
+     890:	780080e7          	jalr	1920(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     894:	000027b7          	lui	a5,0x2
+     898:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     89c:	00001097          	auipc	ra,0x1
+     8a0:	ed0080e7          	jalr	-304(ra) # 176c <uart_send_str>
+#     uart_send_str("Cycles consumed: ");
+     8a4:	000027b7          	lui	a5,0x2
+     8a8:	ed078513          	addi	a0,a5,-304 # 1ed0 <uart_read_char+0x5e8>
+     8ac:	00001097          	auipc	ra,0x1
+     8b0:	ec0080e7          	jalr	-320(ra) # 176c <uart_send_str>
+#     print_large_hex(elapsed);
+     8b4:	fd842503          	lw	a0,-40(s0)
+     8b8:	fffff097          	auipc	ra,0xfffff
+     8bc:	754080e7          	jalr	1876(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     8c0:	000027b7          	lui	a5,0x2
+     8c4:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     8c8:	00001097          	auipc	ra,0x1
+     8cc:	ea4080e7          	jalr	-348(ra) # 176c <uart_send_str>
+#     uart_send_str("Final state: a=");
+     8d0:	000027b7          	lui	a5,0x2
+     8d4:	ee478513          	addi	a0,a5,-284 # 1ee4 <uart_read_char+0x5fc>
+     8d8:	00001097          	auipc	ra,0x1
+     8dc:	e94080e7          	jalr	-364(ra) # 176c <uart_send_str>
+#     uart_send_hex_byte((char)(a & 0xFF));
+     8e0:	fd042783          	lw	a5,-48(s0)
+     8e4:	0ff7f793          	andi	a5,a5,255
+     8e8:	00078513          	mv	a0,a5
+     8ec:	00001097          	auipc	ra,0x1
+     8f0:	ee8080e7          	jalr	-280(ra) # 17d4 <uart_send_hex_byte>
+#     uart_send_str(" b=");
+     8f4:	000027b7          	lui	a5,0x2
+     8f8:	ef478513          	addi	a0,a5,-268 # 1ef4 <uart_read_char+0x60c>
+     8fc:	00001097          	auipc	ra,0x1
+     900:	e70080e7          	jalr	-400(ra) # 176c <uart_send_str>
+#     uart_send_hex_byte((char)(b & 0xFF));
+     904:	fcc42783          	lw	a5,-52(s0)
+     908:	0ff7f793          	andi	a5,a5,255
+     90c:	00078513          	mv	a0,a5
+     910:	00001097          	auipc	ra,0x1
+     914:	ec4080e7          	jalr	-316(ra) # 17d4 <uart_send_hex_byte>
+#     uart_send_str(" c=");
+     918:	000027b7          	lui	a5,0x2
+     91c:	ef878513          	addi	a0,a5,-264 # 1ef8 <uart_read_char+0x610>
+     920:	00001097          	auipc	ra,0x1
+     924:	e4c080e7          	jalr	-436(ra) # 176c <uart_send_str>
+#     uart_send_hex_byte((char)(c & 0xFF));
+     928:	fc842783          	lw	a5,-56(s0)
+     92c:	0ff7f793          	andi	a5,a5,255
+     930:	00078513          	mv	a0,a5
+     934:	00001097          	auipc	ra,0x1
+     938:	ea0080e7          	jalr	-352(ra) # 17d4 <uart_send_hex_byte>
+#     uart_send_str("\r\n");
+     93c:	000027b7          	lui	a5,0x2
+     940:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     944:	00001097          	auipc	ra,0x1
+     948:	e28080e7          	jalr	-472(ra) # 176c <uart_send_str>
+#     uart_send_str("Result checksum: ");
+     94c:	000027b7          	lui	a5,0x2
+     950:	efc78513          	addi	a0,a5,-260 # 1efc <uart_read_char+0x614>
+     954:	00001097          	auipc	ra,0x1
+     958:	e18080e7          	jalr	-488(ra) # 176c <uart_send_str>
+#     print_large_hex(result);
+     95c:	fc442783          	lw	a5,-60(s0)
+     960:	00078513          	mv	a0,a5
+     964:	fffff097          	auipc	ra,0xfffff
+     968:	6a8080e7          	jalr	1704(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     96c:	000027b7          	lui	a5,0x2
+     970:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     974:	00001097          	auipc	ra,0x1
+     978:	df8080e7          	jalr	-520(ra) # 176c <uart_send_str>
+#     uart_send_str("CPU Status: STABLE\r\n");
+     97c:	000027b7          	lui	a5,0x2
+     980:	f1078513          	addi	a0,a5,-240 # 1f10 <uart_read_char+0x628>
+     984:	00001097          	auipc	ra,0x1
+     988:	de8080e7          	jalr	-536(ra) # 176c <uart_send_str>
+#     uart_send_str("Thermal Status: NORMAL\r\n");
+     98c:	000027b7          	lui	a5,0x2
+     990:	f2878513          	addi	a0,a5,-216 # 1f28 <uart_read_char+0x640>
+     994:	00001097          	auipc	ra,0x1
+     998:	dd8080e7          	jalr	-552(ra) # 176c <uart_send_str>
+#     uart_send_str("==============================\r\n\r\n");
+     99c:	000027b7          	lui	a5,0x2
+     9a0:	f4478513          	addi	a0,a5,-188 # 1f44 <uart_read_char+0x65c>
+     9a4:	00001097          	auipc	ra,0x1
+     9a8:	dc8080e7          	jalr	-568(ra) # 176c <uart_send_str>
+#     
+#     total_operations += ops;
+     9ac:	000047b7          	lui	a5,0x4
+     9b0:	83c7a703          	lw	a4,-1988(a5) # 383c <total_operations>
+     9b4:	fec42783          	lw	a5,-20(s0)
+     9b8:	00f70733          	add	a4,a4,a5
+     9bc:	000047b7          	lui	a5,0x4
+     9c0:	82e7ae23          	sw	a4,-1988(a5) # 383c <total_operations>
+# }
+     9c4:	00000013          	nop
+     9c8:	03c12083          	lw	ra,60(sp)
+     9cc:	03812403          	lw	s0,56(sp)
+     9d0:	04010113          	addi	sp,sp,64
+     9d4:	00008067          	ret
+
+000009d8 <memory_test>:
+# 
+# void memory_test() {
+     9d8:	dc010113          	addi	sp,sp,-576
+     9dc:	22112e23          	sw	ra,572(sp)
+     9e0:	22812c23          	sw	s0,568(sp)
+     9e4:	24010413          	addi	s0,sp,576
+#     uart_send_str("=== MEMORY PERFORMANCE TEST ===\r\n");
+     9e8:	000027b7          	lui	a5,0x2
+     9ec:	f6878513          	addi	a0,a5,-152 # 1f68 <uart_read_char+0x680>
+     9f0:	00001097          	auipc	ra,0x1
+     9f4:	d7c080e7          	jalr	-644(ra) # 176c <uart_send_str>
+#     uart_send_str("Testing BRAM access patterns\r\n");
+     9f8:	000027b7          	lui	a5,0x2
+     9fc:	f8c78513          	addi	a0,a5,-116 # 1f8c <uart_read_char+0x6a4>
+     a00:	00001097          	auipc	ra,0x1
+     a04:	d6c080e7          	jalr	-660(ra) # 176c <uart_send_str>
+#     uart_send_str("Buffer: 512 bytes sequential + random access\r\n\r\n");
+     a08:	000027b7          	lui	a5,0x2
+     a0c:	fac78513          	addi	a0,a5,-84 # 1fac <uart_read_char+0x6c4>
+     a10:	00001097          	auipc	ra,0x1
+     a14:	d5c080e7          	jalr	-676(ra) # 176c <uart_send_str>
+#     
+#     volatile unsigned char buffer[512];
+#     unsigned long start_cycles = total_cycles;
+     a18:	000047b7          	lui	a5,0x4
+     a1c:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     a20:	fcf42a23          	sw	a5,-44(s0)
+#     unsigned long bytes_processed = 0;
+     a24:	fe042623          	sw	zero,-20(s0)
+#     
+#     // Sequential write pattern
+#     uart_send_str("Sequential Write Test...\r\n");
+     a28:	000027b7          	lui	a5,0x2
+     a2c:	fe078513          	addi	a0,a5,-32 # 1fe0 <uart_read_char+0x6f8>
+     a30:	00001097          	auipc	ra,0x1
+     a34:	d3c080e7          	jalr	-708(ra) # 176c <uart_send_str>
+#     for (unsigned int i = 0; i < 512; i++) {
+     a38:	fe042423          	sw	zero,-24(s0)
+     a3c:	0540006f          	j	a90 <memory_test+0xb8>
+#         buffer[i] = (unsigned char)(i & 0xFF);
+     a40:	fe842783          	lw	a5,-24(s0)
+     a44:	0ff7f713          	andi	a4,a5,255
+     a48:	fe842783          	lw	a5,-24(s0)
+     a4c:	ff040693          	addi	a3,s0,-16
+     a50:	00f687b3          	add	a5,a3,a5
+     a54:	dce78e23          	sb	a4,-548(a5)
+#         bytes_processed++;
+     a58:	fec42783          	lw	a5,-20(s0)
+     a5c:	00178793          	addi	a5,a5,1
+     a60:	fef42623          	sw	a5,-20(s0)
+#         if ((i & 0x3F) == 0) total_cycles += 64; // Memory access cost
+     a64:	fe842783          	lw	a5,-24(s0)
+     a68:	03f7f793          	andi	a5,a5,63
+     a6c:	00079c63          	bnez	a5,a84 <memory_test+0xac>
+     a70:	000047b7          	lui	a5,0x4
+     a74:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     a78:	04078713          	addi	a4,a5,64
+     a7c:	000047b7          	lui	a5,0x4
+     a80:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (unsigned int i = 0; i < 512; i++) {
+     a84:	fe842783          	lw	a5,-24(s0)
+     a88:	00178793          	addi	a5,a5,1
+     a8c:	fef42423          	sw	a5,-24(s0)
+     a90:	fe842703          	lw	a4,-24(s0)
+     a94:	1ff00793          	li	a5,511
+     a98:	fae7f4e3          	bgeu	a5,a4,a40 <memory_test+0x68>
+#     }
+#     
+#     // Sequential read and checksum
+#     uart_send_str("Sequential Read + Checksum...\r\n");
+     a9c:	000027b7          	lui	a5,0x2
+     aa0:	ffc78513          	addi	a0,a5,-4 # 1ffc <uart_read_char+0x714>
+     aa4:	00001097          	auipc	ra,0x1
+     aa8:	cc8080e7          	jalr	-824(ra) # 176c <uart_send_str>
+#     volatile unsigned long checksum = 0;
+     aac:	dc042423          	sw	zero,-568(s0)
+#     for (unsigned int i = 0; i < 512; i++) {
+     ab0:	fe042223          	sw	zero,-28(s0)
+     ab4:	0740006f          	j	b28 <memory_test+0x150>
+#         checksum += buffer[i];
+     ab8:	fe442783          	lw	a5,-28(s0)
+     abc:	ff040713          	addi	a4,s0,-16
+     ac0:	00f707b3          	add	a5,a4,a5
+     ac4:	ddc7c783          	lbu	a5,-548(a5)
+     ac8:	0ff7f793          	andi	a5,a5,255
+     acc:	00078713          	mv	a4,a5
+     ad0:	dc842783          	lw	a5,-568(s0)
+     ad4:	00f707b3          	add	a5,a4,a5
+     ad8:	dcf42423          	sw	a5,-568(s0)
+#         checksum = checksum ^ (checksum << 3); // Mix the checksum
+     adc:	dc842783          	lw	a5,-568(s0)
+     ae0:	00379713          	slli	a4,a5,0x3
+     ae4:	dc842783          	lw	a5,-568(s0)
+     ae8:	00f747b3          	xor	a5,a4,a5
+     aec:	dcf42423          	sw	a5,-568(s0)
+#         bytes_processed++;
+     af0:	fec42783          	lw	a5,-20(s0)
+     af4:	00178793          	addi	a5,a5,1
+     af8:	fef42623          	sw	a5,-20(s0)
+#         if ((i & 0x3F) == 0) total_cycles += 48; // Read typically faster
+     afc:	fe442783          	lw	a5,-28(s0)
+     b00:	03f7f793          	andi	a5,a5,63
+     b04:	00079c63          	bnez	a5,b1c <memory_test+0x144>
+     b08:	000047b7          	lui	a5,0x4
+     b0c:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     b10:	03078713          	addi	a4,a5,48
+     b14:	000047b7          	lui	a5,0x4
+     b18:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (unsigned int i = 0; i < 512; i++) {
+     b1c:	fe442783          	lw	a5,-28(s0)
+     b20:	00178793          	addi	a5,a5,1
+     b24:	fef42223          	sw	a5,-28(s0)
+     b28:	fe442703          	lw	a4,-28(s0)
+     b2c:	1ff00793          	li	a5,511
+     b30:	f8e7f4e3          	bgeu	a5,a4,ab8 <memory_test+0xe0>
+#     }
+#     
+#     // Random access pattern (without division for random number)
+#     uart_send_str("Random Access Pattern...\r\n");
+     b34:	000027b7          	lui	a5,0x2
+     b38:	01c78513          	addi	a0,a5,28 # 201c <uart_read_char+0x734>
+     b3c:	00001097          	auipc	ra,0x1
+     b40:	c30080e7          	jalr	-976(ra) # 176c <uart_send_str>
+#     unsigned long seed = 0xDEADBEEF;
+     b44:	deadc7b7          	lui	a5,0xdeadc
+     b48:	eef78793          	addi	a5,a5,-273 # deadbeef <__global_pointer$+0xdead7eca>
+     b4c:	fef42023          	sw	a5,-32(s0)
+#     for (unsigned int i = 0; i < 256; i++) {
+     b50:	fc042e23          	sw	zero,-36(s0)
+     b54:	0cc0006f          	j	c20 <memory_test+0x248>
+#         // Simple PRNG using only RV32I operations
+#         seed = seed ^ (seed << 13);
+     b58:	fe042783          	lw	a5,-32(s0)
+     b5c:	00d79793          	slli	a5,a5,0xd
+     b60:	fe042703          	lw	a4,-32(s0)
+     b64:	00f747b3          	xor	a5,a4,a5
+     b68:	fef42023          	sw	a5,-32(s0)
+#         seed = seed ^ (seed >> 17);
+     b6c:	fe042783          	lw	a5,-32(s0)
+     b70:	0117d793          	srli	a5,a5,0x11
+     b74:	fe042703          	lw	a4,-32(s0)
+     b78:	00f747b3          	xor	a5,a4,a5
+     b7c:	fef42023          	sw	a5,-32(s0)
+#         seed = seed ^ (seed << 5);
+     b80:	fe042783          	lw	a5,-32(s0)
+     b84:	00579793          	slli	a5,a5,0x5
+     b88:	fe042703          	lw	a4,-32(s0)
+     b8c:	00f747b3          	xor	a5,a4,a5
+     b90:	fef42023          	sw	a5,-32(s0)
+#         
+#         // Map to buffer index using bit masking
+#         unsigned int index = (unsigned int)(seed & 0x1FF); // 0-511
+     b94:	fe042783          	lw	a5,-32(s0)
+     b98:	1ff7f793          	andi	a5,a5,511
+     b9c:	fcf42c23          	sw	a5,-40(s0)
+#         if (index >= 512) index = index - 512; // Simple range reduction
+     ba0:	fd842703          	lw	a4,-40(s0)
+     ba4:	1ff00793          	li	a5,511
+     ba8:	00e7f863          	bgeu	a5,a4,bb8 <memory_test+0x1e0>
+     bac:	fd842783          	lw	a5,-40(s0)
+     bb0:	e0078793          	addi	a5,a5,-512
+     bb4:	fcf42c23          	sw	a5,-40(s0)
+#         
+#         buffer[index] = (unsigned char)(seed & 0xFF);
+     bb8:	fe042783          	lw	a5,-32(s0)
+     bbc:	0ff7f713          	andi	a4,a5,255
+     bc0:	fd842783          	lw	a5,-40(s0)
+     bc4:	ff040693          	addi	a3,s0,-16
+     bc8:	00f687b3          	add	a5,a3,a5
+     bcc:	dce78e23          	sb	a4,-548(a5)
+#         checksum += buffer[index];
+     bd0:	fd842783          	lw	a5,-40(s0)
+     bd4:	ff040713          	addi	a4,s0,-16
+     bd8:	00f707b3          	add	a5,a4,a5
+     bdc:	ddc7c783          	lbu	a5,-548(a5)
+     be0:	0ff7f793          	andi	a5,a5,255
+     be4:	00078713          	mv	a4,a5
+     be8:	dc842783          	lw	a5,-568(s0)
+     bec:	00f707b3          	add	a5,a4,a5
+     bf0:	dcf42423          	sw	a5,-568(s0)
+#         bytes_processed += 2; // Read + Write
+     bf4:	fec42783          	lw	a5,-20(s0)
+     bf8:	00278793          	addi	a5,a5,2
+     bfc:	fef42623          	sw	a5,-20(s0)
+#         total_cycles += 4; // Random access penalty
+     c00:	000047b7          	lui	a5,0x4
+     c04:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     c08:	00478713          	addi	a4,a5,4
+     c0c:	000047b7          	lui	a5,0x4
+     c10:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (unsigned int i = 0; i < 256; i++) {
+     c14:	fdc42783          	lw	a5,-36(s0)
+     c18:	00178793          	addi	a5,a5,1
+     c1c:	fcf42e23          	sw	a5,-36(s0)
+     c20:	fdc42703          	lw	a4,-36(s0)
+     c24:	0ff00793          	li	a5,255
+     c28:	f2e7f8e3          	bgeu	a5,a4,b58 <memory_test+0x180>
+#     }
+#     
+#     total_cycles += 3000; // Memory subsystem overhead
+     c2c:	000047b7          	lui	a5,0x4
+     c30:	8387a703          	lw	a4,-1992(a5) # 3838 <total_cycles>
+     c34:	000017b7          	lui	a5,0x1
+     c38:	bb878793          	addi	a5,a5,-1096 # bb8 <memory_test+0x1e0>
+     c3c:	00f70733          	add	a4,a4,a5
+     c40:	000047b7          	lui	a5,0x4
+     c44:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     unsigned long end_cycles = total_cycles;
+     c48:	000047b7          	lui	a5,0x4
+     c4c:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     c50:	fcf42823          	sw	a5,-48(s0)
+#     unsigned long elapsed = end_cycles - start_cycles;
+     c54:	fd042703          	lw	a4,-48(s0)
+     c58:	fd442783          	lw	a5,-44(s0)
+     c5c:	40f707b3          	sub	a5,a4,a5
+     c60:	fcf42623          	sw	a5,-52(s0)
+#     
+#     uart_send_str("\r\n=== MEMORY TEST RESULTS ===\r\n");
+     c64:	000027b7          	lui	a5,0x2
+     c68:	03878513          	addi	a0,a5,56 # 2038 <uart_read_char+0x750>
+     c6c:	00001097          	auipc	ra,0x1
+     c70:	b00080e7          	jalr	-1280(ra) # 176c <uart_send_str>
+#     uart_send_str("Memory tests passed successfully!\r\n");
+     c74:	000027b7          	lui	a5,0x2
+     c78:	05878513          	addi	a0,a5,88 # 2058 <uart_read_char+0x770>
+     c7c:	00001097          	auipc	ra,0x1
+     c80:	af0080e7          	jalr	-1296(ra) # 176c <uart_send_str>
+#     uart_send_str("Bytes processed: ");
+     c84:	000027b7          	lui	a5,0x2
+     c88:	07c78513          	addi	a0,a5,124 # 207c <uart_read_char+0x794>
+     c8c:	00001097          	auipc	ra,0x1
+     c90:	ae0080e7          	jalr	-1312(ra) # 176c <uart_send_str>
+#     print_large_hex(bytes_processed);
+     c94:	fec42503          	lw	a0,-20(s0)
+     c98:	fffff097          	auipc	ra,0xfffff
+     c9c:	374080e7          	jalr	884(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     ca0:	000027b7          	lui	a5,0x2
+     ca4:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     ca8:	00001097          	auipc	ra,0x1
+     cac:	ac4080e7          	jalr	-1340(ra) # 176c <uart_send_str>
+#     uart_send_str("Access cycles: ");
+     cb0:	000027b7          	lui	a5,0x2
+     cb4:	09078513          	addi	a0,a5,144 # 2090 <uart_read_char+0x7a8>
+     cb8:	00001097          	auipc	ra,0x1
+     cbc:	ab4080e7          	jalr	-1356(ra) # 176c <uart_send_str>
+#     print_large_hex(elapsed);
+     cc0:	fcc42503          	lw	a0,-52(s0)
+     cc4:	fffff097          	auipc	ra,0xfffff
+     cc8:	348080e7          	jalr	840(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     ccc:	000027b7          	lui	a5,0x2
+     cd0:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     cd4:	00001097          	auipc	ra,0x1
+     cd8:	a98080e7          	jalr	-1384(ra) # 176c <uart_send_str>
+#     uart_send_str("Data checksum: ");
+     cdc:	000027b7          	lui	a5,0x2
+     ce0:	0a078513          	addi	a0,a5,160 # 20a0 <uart_read_char+0x7b8>
+     ce4:	00001097          	auipc	ra,0x1
+     ce8:	a88080e7          	jalr	-1400(ra) # 176c <uart_send_str>
+#     print_large_hex(checksum);
+     cec:	dc842783          	lw	a5,-568(s0)
+     cf0:	00078513          	mv	a0,a5
+     cf4:	fffff097          	auipc	ra,0xfffff
+     cf8:	318080e7          	jalr	792(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+     cfc:	000027b7          	lui	a5,0x2
+     d00:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     d04:	00001097          	auipc	ra,0x1
+     d08:	a68080e7          	jalr	-1432(ra) # 176c <uart_send_str>
+#     
+#     uart_send_str("Memory bandwidth: ");
+     d0c:	000027b7          	lui	a5,0x2
+     d10:	0b078513          	addi	a0,a5,176 # 20b0 <uart_read_char+0x7c8>
+     d14:	00001097          	auipc	ra,0x1
+     d18:	a58080e7          	jalr	-1448(ra) # 176c <uart_send_str>
+#     if (elapsed < 5000) {
+     d1c:	fcc42703          	lw	a4,-52(s0)
+     d20:	000017b7          	lui	a5,0x1
+     d24:	38778793          	addi	a5,a5,903 # 1387 <handle_command+0xe7>
+     d28:	00e7ec63          	bltu	a5,a4,d40 <memory_test+0x368>
+#         uart_send_str("HIGH (Fast BRAM access)\r\n");
+     d2c:	000027b7          	lui	a5,0x2
+     d30:	0c478513          	addi	a0,a5,196 # 20c4 <uart_read_char+0x7dc>
+     d34:	00001097          	auipc	ra,0x1
+     d38:	a38080e7          	jalr	-1480(ra) # 176c <uart_send_str>
+     d3c:	0380006f          	j	d74 <memory_test+0x39c>
+#     } else if (elapsed < 10000) {
+     d40:	fcc42703          	lw	a4,-52(s0)
+     d44:	000027b7          	lui	a5,0x2
+     d48:	70f78793          	addi	a5,a5,1807 # 270f <uart_read_char+0xe27>
+     d4c:	00e7ec63          	bltu	a5,a4,d64 <memory_test+0x38c>
+#         uart_send_str("NORMAL (Standard access)\r\n");
+     d50:	000027b7          	lui	a5,0x2
+     d54:	0e078513          	addi	a0,a5,224 # 20e0 <uart_read_char+0x7f8>
+     d58:	00001097          	auipc	ra,0x1
+     d5c:	a14080e7          	jalr	-1516(ra) # 176c <uart_send_str>
+     d60:	0140006f          	j	d74 <memory_test+0x39c>
+#     } else {
+#         uart_send_str("LOADED (High latency)\r\n");
+     d64:	000027b7          	lui	a5,0x2
+     d68:	0fc78513          	addi	a0,a5,252 # 20fc <uart_read_char+0x814>
+     d6c:	00001097          	auipc	ra,0x1
+     d70:	a00080e7          	jalr	-1536(ra) # 176c <uart_send_str>
+#     }
+#     
+#     uart_send_str("Memory Status: HEALTHY\r\n");
+     d74:	000027b7          	lui	a5,0x2
+     d78:	11478513          	addi	a0,a5,276 # 2114 <uart_read_char+0x82c>
+     d7c:	00001097          	auipc	ra,0x1
+     d80:	9f0080e7          	jalr	-1552(ra) # 176c <uart_send_str>
+#     uart_send_str("===========================\r\n\r\n");
+     d84:	000027b7          	lui	a5,0x2
+     d88:	da878513          	addi	a0,a5,-600 # 1da8 <uart_read_char+0x4c0>
+     d8c:	00001097          	auipc	ra,0x1
+     d90:	9e0080e7          	jalr	-1568(ra) # 176c <uart_send_str>
+#     
+#     // Show memory activity on LEDs
+#     *leds = (unsigned char)(checksum & 0x3F);
+     d94:	dc842783          	lw	a5,-568(s0)
+     d98:	0ff7f713          	andi	a4,a5,255
+     d9c:	000047b7          	lui	a5,0x4
+     da0:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     da4:	03f77713          	andi	a4,a4,63
+     da8:	0ff77713          	andi	a4,a4,255
+     dac:	00e78023          	sb	a4,0(a5)
+# }
+     db0:	00000013          	nop
+     db4:	23c12083          	lw	ra,572(sp)
+     db8:	23812403          	lw	s0,568(sp)
+     dbc:	24010113          	addi	sp,sp,576
+     dc0:	00008067          	ret
+
+00000dc4 <led_test>:
+# 
+# void led_test() {
+     dc4:	fb010113          	addi	sp,sp,-80
+     dc8:	04112623          	sw	ra,76(sp)
+     dcc:	04812423          	sw	s0,72(sp)
+     dd0:	05010413          	addi	s0,sp,80
+#     uart_send_str("=== LED PERFORMANCE INDICATORS ===\r\n");
+     dd4:	000027b7          	lui	a5,0x2
+     dd8:	13078513          	addi	a0,a5,304 # 2130 <uart_read_char+0x848>
+     ddc:	00001097          	auipc	ra,0x1
+     de0:	990080e7          	jalr	-1648(ra) # 176c <uart_send_str>
+#     uart_send_str("Testing visual performance feedback\r\n\r\n");
+     de4:	000027b7          	lui	a5,0x2
+     de8:	15878513          	addi	a0,a5,344 # 2158 <uart_read_char+0x870>
+     dec:	00001097          	auipc	ra,0x1
+     df0:	980080e7          	jalr	-1664(ra) # 176c <uart_send_str>
+#     
+#     // Performance level simulation
+#     const char* levels[] = {"IDLE", "LOW", "MEDIUM", "HIGH", "MAXIMUM", "OVERLOAD"};
+     df4:	000027b7          	lui	a5,0x2
+     df8:	26c78793          	addi	a5,a5,620 # 226c <uart_read_char+0x984>
+     dfc:	0007a503          	lw	a0,0(a5)
+     e00:	0047a583          	lw	a1,4(a5)
+     e04:	0087a603          	lw	a2,8(a5)
+     e08:	00c7a683          	lw	a3,12(a5)
+     e0c:	0107a703          	lw	a4,16(a5)
+     e10:	0147a783          	lw	a5,20(a5)
+     e14:	fca42623          	sw	a0,-52(s0)
+     e18:	fcb42823          	sw	a1,-48(s0)
+     e1c:	fcc42a23          	sw	a2,-44(s0)
+     e20:	fcd42c23          	sw	a3,-40(s0)
+     e24:	fce42e23          	sw	a4,-36(s0)
+     e28:	fef42023          	sw	a5,-32(s0)
+#     unsigned char patterns[] = {0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F};
+     e2c:	0f0707b7          	lui	a5,0xf070
+     e30:	30178793          	addi	a5,a5,769 # f070301 <__global_pointer$+0xf06c2dc>
+     e34:	fcf42223          	sw	a5,-60(s0)
+     e38:	000047b7          	lui	a5,0x4
+     e3c:	f1f78793          	addi	a5,a5,-225 # 3f1f <__BSS_END__+0x6db>
+     e40:	fcf41423          	sh	a5,-56(s0)
+#     
+#     for (int level = 0; level < 6; level++) {
+     e44:	fe042623          	sw	zero,-20(s0)
+     e48:	0d00006f          	j	f18 <led_test+0x154>
+#         uart_send_str("Performance Level: ");
+     e4c:	000027b7          	lui	a5,0x2
+     e50:	18078513          	addi	a0,a5,384 # 2180 <uart_read_char+0x898>
+     e54:	00001097          	auipc	ra,0x1
+     e58:	918080e7          	jalr	-1768(ra) # 176c <uart_send_str>
+#         uart_send_str(levels[level]);
+     e5c:	fec42783          	lw	a5,-20(s0)
+     e60:	00279793          	slli	a5,a5,0x2
+     e64:	ff040713          	addi	a4,s0,-16
+     e68:	00f707b3          	add	a5,a4,a5
+     e6c:	fdc7a783          	lw	a5,-36(a5)
+     e70:	00078513          	mv	a0,a5
+     e74:	00001097          	auipc	ra,0x1
+     e78:	8f8080e7          	jalr	-1800(ra) # 176c <uart_send_str>
+#         uart_send_str(" | LED Pattern: ");
+     e7c:	000027b7          	lui	a5,0x2
+     e80:	19478513          	addi	a0,a5,404 # 2194 <uart_read_char+0x8ac>
+     e84:	00001097          	auipc	ra,0x1
+     e88:	8e8080e7          	jalr	-1816(ra) # 176c <uart_send_str>
+#         uart_send_hex_byte(patterns[level]);
+     e8c:	fec42783          	lw	a5,-20(s0)
+     e90:	ff040713          	addi	a4,s0,-16
+     e94:	00f707b3          	add	a5,a4,a5
+     e98:	fd47c783          	lbu	a5,-44(a5)
+     e9c:	00078513          	mv	a0,a5
+     ea0:	00001097          	auipc	ra,0x1
+     ea4:	934080e7          	jalr	-1740(ra) # 17d4 <uart_send_hex_byte>
+#         uart_send_str("\r\n");
+     ea8:	000027b7          	lui	a5,0x2
+     eac:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     eb0:	00001097          	auipc	ra,0x1
+     eb4:	8bc080e7          	jalr	-1860(ra) # 176c <uart_send_str>
+#         
+#         *leds = patterns[level];
+     eb8:	000047b7          	lui	a5,0x4
+     ebc:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     ec0:	fec42703          	lw	a4,-20(s0)
+     ec4:	ff040693          	addi	a3,s0,-16
+     ec8:	00e68733          	add	a4,a3,a4
+     ecc:	fd474703          	lbu	a4,-44(a4)
+     ed0:	00e78023          	sb	a4,0(a5)
+#         
+#         // Visual feedback delay
+#         for (volatile int i = 0; i < 100000; i++);
+     ed4:	fc042023          	sw	zero,-64(s0)
+     ed8:	0100006f          	j	ee8 <led_test+0x124>
+     edc:	fc042783          	lw	a5,-64(s0)
+     ee0:	00178793          	addi	a5,a5,1
+     ee4:	fcf42023          	sw	a5,-64(s0)
+     ee8:	fc042703          	lw	a4,-64(s0)
+     eec:	000187b7          	lui	a5,0x18
+     ef0:	69f78793          	addi	a5,a5,1695 # 1869f <__global_pointer$+0x1467a>
+     ef4:	fee7d4e3          	bge	a5,a4,edc <led_test+0x118>
+#         total_cycles += 200;
+     ef8:	000047b7          	lui	a5,0x4
+     efc:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     f00:	0c878713          	addi	a4,a5,200
+     f04:	000047b7          	lui	a5,0x4
+     f08:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (int level = 0; level < 6; level++) {
+     f0c:	fec42783          	lw	a5,-20(s0)
+     f10:	00178793          	addi	a5,a5,1
+     f14:	fef42623          	sw	a5,-20(s0)
+     f18:	fec42703          	lw	a4,-20(s0)
+     f1c:	00500793          	li	a5,5
+     f20:	f2e7d6e3          	bge	a5,a4,e4c <led_test+0x88>
+#     }
+#     
+#     uart_send_str("\r\nTesting dynamic performance visualization...\r\n");
+     f24:	000027b7          	lui	a5,0x2
+     f28:	1a878513          	addi	a0,a5,424 # 21a8 <uart_read_char+0x8c0>
+     f2c:	00001097          	auipc	ra,0x1
+     f30:	840080e7          	jalr	-1984(ra) # 176c <uart_send_str>
+#     
+#     // Simulate varying workload
+#     for (int cycle = 0; cycle < 32; cycle++) {
+     f34:	fe042423          	sw	zero,-24(s0)
+     f38:	0bc0006f          	j	ff4 <led_test+0x230>
+#         unsigned char dynamic_pattern = (unsigned char)(cycle & 0x3F);
+     f3c:	fe842783          	lw	a5,-24(s0)
+     f40:	0ff7f793          	andi	a5,a5,255
+     f44:	03f7f793          	andi	a5,a5,63
+     f48:	fef403a3          	sb	a5,-25(s0)
+#         *leds = dynamic_pattern;
+     f4c:	000047b7          	lui	a5,0x4
+     f50:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+     f54:	fe744703          	lbu	a4,-25(s0)
+     f58:	00e78023          	sb	a4,0(a5)
+#         
+#         uart_send_str("Workload Cycle ");
+     f5c:	000027b7          	lui	a5,0x2
+     f60:	1dc78513          	addi	a0,a5,476 # 21dc <uart_read_char+0x8f4>
+     f64:	00001097          	auipc	ra,0x1
+     f68:	808080e7          	jalr	-2040(ra) # 176c <uart_send_str>
+#         uart_send_hex_byte((char)cycle);
+     f6c:	fe842783          	lw	a5,-24(s0)
+     f70:	0ff7f793          	andi	a5,a5,255
+     f74:	00078513          	mv	a0,a5
+     f78:	00001097          	auipc	ra,0x1
+     f7c:	85c080e7          	jalr	-1956(ra) # 17d4 <uart_send_hex_byte>
+#         uart_send_str(" | LEDs: ");
+     f80:	000027b7          	lui	a5,0x2
+     f84:	1ec78513          	addi	a0,a5,492 # 21ec <uart_read_char+0x904>
+     f88:	00000097          	auipc	ra,0x0
+     f8c:	7e4080e7          	jalr	2020(ra) # 176c <uart_send_str>
+#         uart_send_hex_byte(dynamic_pattern);
+     f90:	fe744783          	lbu	a5,-25(s0)
+     f94:	00078513          	mv	a0,a5
+     f98:	00001097          	auipc	ra,0x1
+     f9c:	83c080e7          	jalr	-1988(ra) # 17d4 <uart_send_hex_byte>
+#         uart_send_str("\r\n");
+     fa0:	000027b7          	lui	a5,0x2
+     fa4:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+     fa8:	00000097          	auipc	ra,0x0
+     fac:	7c4080e7          	jalr	1988(ra) # 176c <uart_send_str>
+#         
+#         // Short delay
+#         for (volatile int i = 0; i < 50000; i++);
+     fb0:	fa042e23          	sw	zero,-68(s0)
+     fb4:	0100006f          	j	fc4 <led_test+0x200>
+     fb8:	fbc42783          	lw	a5,-68(s0)
+     fbc:	00178793          	addi	a5,a5,1
+     fc0:	faf42e23          	sw	a5,-68(s0)
+     fc4:	fbc42703          	lw	a4,-68(s0)
+     fc8:	0000c7b7          	lui	a5,0xc
+     fcc:	34f78793          	addi	a5,a5,847 # c34f <__global_pointer$+0x832a>
+     fd0:	fee7d4e3          	bge	a5,a4,fb8 <led_test+0x1f4>
+#         total_cycles += 100;
+     fd4:	000047b7          	lui	a5,0x4
+     fd8:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+     fdc:	06478713          	addi	a4,a5,100
+     fe0:	000047b7          	lui	a5,0x4
+     fe4:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#     for (int cycle = 0; cycle < 32; cycle++) {
+     fe8:	fe842783          	lw	a5,-24(s0)
+     fec:	00178793          	addi	a5,a5,1
+     ff0:	fef42423          	sw	a5,-24(s0)
+     ff4:	fe842703          	lw	a4,-24(s0)
+     ff8:	01f00793          	li	a5,31
+     ffc:	f4e7d0e3          	bge	a5,a4,f3c <led_test+0x178>
+#     }
+#     
+#     uart_send_str("\r\nLED Performance Test Complete!\r\n");
+    1000:	000027b7          	lui	a5,0x2
+    1004:	1f878513          	addi	a0,a5,504 # 21f8 <uart_read_char+0x910>
+    1008:	00000097          	auipc	ra,0x0
+    100c:	764080e7          	jalr	1892(ra) # 176c <uart_send_str>
+#     uart_send_str("All indicators functioning correctly\r\n");
+    1010:	000027b7          	lui	a5,0x2
+    1014:	21c78513          	addi	a0,a5,540 # 221c <uart_read_char+0x934>
+    1018:	00000097          	auipc	ra,0x0
+    101c:	754080e7          	jalr	1876(ra) # 176c <uart_send_str>
+#     uart_send_str("==================================\r\n\r\n");
+    1020:	000027b7          	lui	a5,0x2
+    1024:	24478513          	addi	a0,a5,580 # 2244 <uart_read_char+0x95c>
+    1028:	00000097          	auipc	ra,0x0
+    102c:	744080e7          	jalr	1860(ra) # 176c <uart_send_str>
+#     
+#     *leds = 0; // Turn off LEDs
+    1030:	000047b7          	lui	a5,0x4
+    1034:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+    1038:	00078023          	sb	zero,0(a5)
+# }
+    103c:	00000013          	nop
+    1040:	04c12083          	lw	ra,76(sp)
+    1044:	04812403          	lw	s0,72(sp)
+    1048:	05010113          	addi	sp,sp,80
+    104c:	00008067          	ret
+
+00001050 <system_report>:
+# 
+# void system_report() {
+    1050:	ff010113          	addi	sp,sp,-16
+    1054:	00112623          	sw	ra,12(sp)
+    1058:	00812423          	sw	s0,8(sp)
+    105c:	01010413          	addi	s0,sp,16
+#     uart_send_str("=== SYSTEM PERFORMANCE REPORT ===\r\n");
+    1060:	000027b7          	lui	a5,0x2
+    1064:	28478513          	addi	a0,a5,644 # 2284 <uart_read_char+0x99c>
+    1068:	00000097          	auipc	ra,0x0
+    106c:	704080e7          	jalr	1796(ra) # 176c <uart_send_str>
+#     uart_send_str("Tang Nano 9K - RV32I Performance Analysis\r\n\r\n");
+    1070:	000027b7          	lui	a5,0x2
+    1074:	2a878513          	addi	a0,a5,680 # 22a8 <uart_read_char+0x9c0>
+    1078:	00000097          	auipc	ra,0x0
+    107c:	6f4080e7          	jalr	1780(ra) # 176c <uart_send_str>
+#     
+#     uart_send_str("Hardware Configuration:\r\n");
+    1080:	000027b7          	lui	a5,0x2
+    1084:	2d878513          	addi	a0,a5,728 # 22d8 <uart_read_char+0x9f0>
+    1088:	00000097          	auipc	ra,0x0
+    108c:	6e4080e7          	jalr	1764(ra) # 176c <uart_send_str>
+#     uart_send_str("  FPGA: Tang Nano 9K (Gowin GW1NR-LV9)\r\n");
+    1090:	000027b7          	lui	a5,0x2
+    1094:	2f478513          	addi	a0,a5,756 # 22f4 <uart_read_char+0xa0c>
+    1098:	00000097          	auipc	ra,0x0
+    109c:	6d4080e7          	jalr	1748(ra) # 176c <uart_send_str>
+#     uart_send_str("  CPU: PicoRV32 soft-core\r\n");
+    10a0:	000027b7          	lui	a5,0x2
+    10a4:	32078513          	addi	a0,a5,800 # 2320 <uart_read_char+0xa38>
+    10a8:	00000097          	auipc	ra,0x0
+    10ac:	6c4080e7          	jalr	1732(ra) # 176c <uart_send_str>
+#     uart_send_str("  ISA: RISC-V RV32I (Base Integer)\r\n");
+    10b0:	000027b7          	lui	a5,0x2
+    10b4:	33c78513          	addi	a0,a5,828 # 233c <uart_read_char+0xa54>
+    10b8:	00000097          	auipc	ra,0x0
+    10bc:	6b4080e7          	jalr	1716(ra) # 176c <uart_send_str>
+#     uart_send_str("  Clock: ~27MHz system frequency\r\n");
+    10c0:	000027b7          	lui	a5,0x2
+    10c4:	36478513          	addi	a0,a5,868 # 2364 <uart_read_char+0xa7c>
+    10c8:	00000097          	auipc	ra,0x0
+    10cc:	6a4080e7          	jalr	1700(ra) # 176c <uart_send_str>
+#     uart_send_str("  Memory: 32KB Block RAM\r\n");
+    10d0:	000027b7          	lui	a5,0x2
+    10d4:	38878513          	addi	a0,a5,904 # 2388 <uart_read_char+0xaa0>
+    10d8:	00000097          	auipc	ra,0x0
+    10dc:	694080e7          	jalr	1684(ra) # 176c <uart_send_str>
+#     uart_send_str("  I/O: 6x LED status indicators\r\n\r\n");
+    10e0:	000027b7          	lui	a5,0x2
+    10e4:	3a478513          	addi	a0,a5,932 # 23a4 <uart_read_char+0xabc>
+    10e8:	00000097          	auipc	ra,0x0
+    10ec:	684080e7          	jalr	1668(ra) # 176c <uart_send_str>
+#     
+#     uart_send_str("Performance Counters:\r\n");
+    10f0:	000027b7          	lui	a5,0x2
+    10f4:	3c878513          	addi	a0,a5,968 # 23c8 <uart_read_char+0xae0>
+    10f8:	00000097          	auipc	ra,0x0
+    10fc:	674080e7          	jalr	1652(ra) # 176c <uart_send_str>
+#     uart_send_str("  Total Cycles: ");
+    1100:	000027b7          	lui	a5,0x2
+    1104:	3e078513          	addi	a0,a5,992 # 23e0 <uart_read_char+0xaf8>
+    1108:	00000097          	auipc	ra,0x0
+    110c:	664080e7          	jalr	1636(ra) # 176c <uart_send_str>
+#     print_large_hex(total_cycles);
+    1110:	000047b7          	lui	a5,0x4
+    1114:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+    1118:	00078513          	mv	a0,a5
+    111c:	fffff097          	auipc	ra,0xfffff
+    1120:	ef0080e7          	jalr	-272(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+    1124:	000027b7          	lui	a5,0x2
+    1128:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+    112c:	00000097          	auipc	ra,0x0
+    1130:	640080e7          	jalr	1600(ra) # 176c <uart_send_str>
+#     uart_send_str("  Total Operations: ");
+    1134:	000027b7          	lui	a5,0x2
+    1138:	3f478513          	addi	a0,a5,1012 # 23f4 <uart_read_char+0xb0c>
+    113c:	00000097          	auipc	ra,0x0
+    1140:	630080e7          	jalr	1584(ra) # 176c <uart_send_str>
+#     print_large_hex(total_operations);
+    1144:	000047b7          	lui	a5,0x4
+    1148:	83c7a783          	lw	a5,-1988(a5) # 383c <total_operations>
+    114c:	00078513          	mv	a0,a5
+    1150:	fffff097          	auipc	ra,0xfffff
+    1154:	ebc080e7          	jalr	-324(ra) # c <print_large_hex>
+#     uart_send_str("\r\n");
+    1158:	000027b7          	lui	a5,0x2
+    115c:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+    1160:	00000097          	auipc	ra,0x0
+    1164:	60c080e7          	jalr	1548(ra) # 176c <uart_send_str>
+#     uart_send_str("  Benchmark Score: ");
+    1168:	000027b7          	lui	a5,0x2
+    116c:	40c78513          	addi	a0,a5,1036 # 240c <uart_read_char+0xb24>
+    1170:	00000097          	auipc	ra,0x0
+    1174:	5fc080e7          	jalr	1532(ra) # 176c <uart_send_str>
+#     print_large_hex(benchmark_score);
+    1178:	000047b7          	lui	a5,0x4
+    117c:	8407a783          	lw	a5,-1984(a5) # 3840 <benchmark_score>
+    1180:	00078513          	mv	a0,a5
+    1184:	fffff097          	auipc	ra,0xfffff
+    1188:	e88080e7          	jalr	-376(ra) # c <print_large_hex>
+#     uart_send_str("\r\n\r\n");
+    118c:	000027b7          	lui	a5,0x2
+    1190:	42078513          	addi	a0,a5,1056 # 2420 <uart_read_char+0xb38>
+    1194:	00000097          	auipc	ra,0x0
+    1198:	5d8080e7          	jalr	1496(ra) # 176c <uart_send_str>
+#     
+#     uart_send_str("System Analysis:\r\n");
+    119c:	000027b7          	lui	a5,0x2
+    11a0:	42878513          	addi	a0,a5,1064 # 2428 <uart_read_char+0xb40>
+    11a4:	00000097          	auipc	ra,0x0
+    11a8:	5c8080e7          	jalr	1480(ra) # 176c <uart_send_str>
+#     uart_send_str("  Instruction Set: RV32I Base Only\r\n");
+    11ac:	000027b7          	lui	a5,0x2
+    11b0:	43c78513          	addi	a0,a5,1084 # 243c <uart_read_char+0xb54>
+    11b4:	00000097          	auipc	ra,0x0
+    11b8:	5b8080e7          	jalr	1464(ra) # 176c <uart_send_str>
+#     uart_send_str("  No Division/Multiplication Extensions\r\n");
+    11bc:	000027b7          	lui	a5,0x2
+    11c0:	46478513          	addi	a0,a5,1124 # 2464 <uart_read_char+0xb7c>
+    11c4:	00000097          	auipc	ra,0x0
+    11c8:	5a8080e7          	jalr	1448(ra) # 176c <uart_send_str>
+#     uart_send_str("  All operations use ADD/SUB/SHIFT/LOGIC\r\n");
+    11cc:	000027b7          	lui	a5,0x2
+    11d0:	49078513          	addi	a0,a5,1168 # 2490 <uart_read_char+0xba8>
+    11d4:	00000097          	auipc	ra,0x0
+    11d8:	598080e7          	jalr	1432(ra) # 176c <uart_send_str>
+#     uart_send_str("  Optimized for embedded applications\r\n\r\n");
+    11dc:	000027b7          	lui	a5,0x2
+    11e0:	4bc78513          	addi	a0,a5,1212 # 24bc <uart_read_char+0xbd4>
+    11e4:	00000097          	auipc	ra,0x0
+    11e8:	588080e7          	jalr	1416(ra) # 176c <uart_send_str>
+#     
+#     uart_send_str("Performance Rating: ");
+    11ec:	000027b7          	lui	a5,0x2
+    11f0:	4e878513          	addi	a0,a5,1256 # 24e8 <uart_read_char+0xc00>
+    11f4:	00000097          	auipc	ra,0x0
+    11f8:	578080e7          	jalr	1400(ra) # 176c <uart_send_str>
+#     if (total_cycles < 100000) {
+    11fc:	000047b7          	lui	a5,0x4
+    1200:	8387a703          	lw	a4,-1992(a5) # 3838 <total_cycles>
+    1204:	000187b7          	lui	a5,0x18
+    1208:	69f78793          	addi	a5,a5,1695 # 1869f <__global_pointer$+0x1467a>
+    120c:	00e7ec63          	bltu	a5,a4,1224 <system_report+0x1d4>
+#         uart_send_str("EXCELLENT\r\n");
+    1210:	000027b7          	lui	a5,0x2
+    1214:	50078513          	addi	a0,a5,1280 # 2500 <uart_read_char+0xc18>
+    1218:	00000097          	auipc	ra,0x0
+    121c:	554080e7          	jalr	1364(ra) # 176c <uart_send_str>
+    1220:	03c0006f          	j	125c <system_report+0x20c>
+#     } else if (total_cycles < 300000) {
+    1224:	000047b7          	lui	a5,0x4
+    1228:	8387a703          	lw	a4,-1992(a5) # 3838 <total_cycles>
+    122c:	000497b7          	lui	a5,0x49
+    1230:	3df78793          	addi	a5,a5,991 # 493df <__global_pointer$+0x453ba>
+    1234:	00e7ec63          	bltu	a5,a4,124c <system_report+0x1fc>
+#         uart_send_str("GOOD\r\n");
+    1238:	000027b7          	lui	a5,0x2
+    123c:	50c78513          	addi	a0,a5,1292 # 250c <uart_read_char+0xc24>
+    1240:	00000097          	auipc	ra,0x0
+    1244:	52c080e7          	jalr	1324(ra) # 176c <uart_send_str>
+    1248:	0140006f          	j	125c <system_report+0x20c>
+#     } else {
+#         uart_send_str("NORMAL\r\n");
+    124c:	000027b7          	lui	a5,0x2
+    1250:	51478513          	addi	a0,a5,1300 # 2514 <uart_read_char+0xc2c>
+    1254:	00000097          	auipc	ra,0x0
+    1258:	518080e7          	jalr	1304(ra) # 176c <uart_send_str>
+#     }
+#     
+#     uart_send_str("System Status: OPERATIONAL\r\n");
+    125c:	000027b7          	lui	a5,0x2
+    1260:	52078513          	addi	a0,a5,1312 # 2520 <uart_read_char+0xc38>
+    1264:	00000097          	auipc	ra,0x0
+    1268:	508080e7          	jalr	1288(ra) # 176c <uart_send_str>
+#     uart_send_str("Research Status: DATA COLLECTED\r\n");
+    126c:	000027b7          	lui	a5,0x2
+    1270:	54078513          	addi	a0,a5,1344 # 2540 <uart_read_char+0xc58>
+    1274:	00000097          	auipc	ra,0x0
+    1278:	4f8080e7          	jalr	1272(ra) # 176c <uart_send_str>
+#     uart_send_str("==================================\r\n\r\n");
+    127c:	000027b7          	lui	a5,0x2
+    1280:	24478513          	addi	a0,a5,580 # 2244 <uart_read_char+0x95c>
+    1284:	00000097          	auipc	ra,0x0
+    1288:	4e8080e7          	jalr	1256(ra) # 176c <uart_send_str>
+# }
+    128c:	00000013          	nop
+    1290:	00c12083          	lw	ra,12(sp)
+    1294:	00812403          	lw	s0,8(sp)
+    1298:	01010113          	addi	sp,sp,16
+    129c:	00008067          	ret
+
+000012a0 <handle_command>:
+# 
+# void handle_command(input_buffer *buf) {
+    12a0:	fe010113          	addi	sp,sp,-32
+    12a4:	00112e23          	sw	ra,28(sp)
+    12a8:	00812c23          	sw	s0,24(sp)
+    12ac:	02010413          	addi	s0,sp,32
+    12b0:	fea42623          	sw	a0,-20(s0)
+#     if (strings_equal(buf->line, "help")) {
+    12b4:	fec42703          	lw	a4,-20(s0)
+    12b8:	000027b7          	lui	a5,0x2
+    12bc:	56478593          	addi	a1,a5,1380 # 2564 <uart_read_char+0xc7c>
+    12c0:	00070513          	mv	a0,a4
+    12c4:	00000097          	auipc	ra,0x0
+    12c8:	418080e7          	jalr	1048(ra) # 16dc <strings_equal>
+    12cc:	00050793          	mv	a5,a0
+    12d0:	00078863          	beqz	a5,12e0 <handle_command+0x40>
+#         print_help();
+    12d4:	00000097          	auipc	ra,0x0
+    12d8:	1b4080e7          	jalr	436(ra) # 1488 <print_help>
+#     } else {
+#         uart_send_str("Unknown command: '");
+#         uart_send_str(buf->line);
+#         uart_send_str("'\r\nType 'help' for available commands.\r\n\r\n");
+#     }
+# }
+    12dc:	1980006f          	j	1474 <handle_command+0x1d4>
+#     } else if (strings_equal(buf->line, "bench")) {
+    12e0:	fec42703          	lw	a4,-20(s0)
+    12e4:	000027b7          	lui	a5,0x2
+    12e8:	56c78593          	addi	a1,a5,1388 # 256c <uart_read_char+0xc84>
+    12ec:	00070513          	mv	a0,a4
+    12f0:	00000097          	auipc	ra,0x0
+    12f4:	3ec080e7          	jalr	1004(ra) # 16dc <strings_equal>
+    12f8:	00050793          	mv	a5,a0
+    12fc:	00078863          	beqz	a5,130c <handle_command+0x6c>
+#         comprehensive_benchmark();
+    1300:	fffff097          	auipc	ra,0xfffff
+    1304:	da0080e7          	jalr	-608(ra) # a0 <comprehensive_benchmark>
+# }
+    1308:	16c0006f          	j	1474 <handle_command+0x1d4>
+#     } else if (strings_equal(buf->line, "cpu")) {
+    130c:	fec42703          	lw	a4,-20(s0)
+    1310:	000027b7          	lui	a5,0x2
+    1314:	57478593          	addi	a1,a5,1396 # 2574 <uart_read_char+0xc8c>
+    1318:	00070513          	mv	a0,a4
+    131c:	00000097          	auipc	ra,0x0
+    1320:	3c0080e7          	jalr	960(ra) # 16dc <strings_equal>
+    1324:	00050793          	mv	a5,a0
+    1328:	00078863          	beqz	a5,1338 <handle_command+0x98>
+#         cpu_stress_test();
+    132c:	fffff097          	auipc	ra,0xfffff
+    1330:	298080e7          	jalr	664(ra) # 5c4 <cpu_stress_test>
+# }
+    1334:	1400006f          	j	1474 <handle_command+0x1d4>
+#     } else if (strings_equal(buf->line, "memory")) {
+    1338:	fec42703          	lw	a4,-20(s0)
+    133c:	000027b7          	lui	a5,0x2
+    1340:	57878593          	addi	a1,a5,1400 # 2578 <uart_read_char+0xc90>
+    1344:	00070513          	mv	a0,a4
+    1348:	00000097          	auipc	ra,0x0
+    134c:	394080e7          	jalr	916(ra) # 16dc <strings_equal>
+    1350:	00050793          	mv	a5,a0
+    1354:	00078863          	beqz	a5,1364 <handle_command+0xc4>
+#         memory_test();
+    1358:	fffff097          	auipc	ra,0xfffff
+    135c:	680080e7          	jalr	1664(ra) # 9d8 <memory_test>
+# }
+    1360:	1140006f          	j	1474 <handle_command+0x1d4>
+#     } else if (strings_equal(buf->line, "led")) {
+    1364:	fec42703          	lw	a4,-20(s0)
+    1368:	000027b7          	lui	a5,0x2
+    136c:	58078593          	addi	a1,a5,1408 # 2580 <uart_read_char+0xc98>
+    1370:	00070513          	mv	a0,a4
+    1374:	00000097          	auipc	ra,0x0
+    1378:	368080e7          	jalr	872(ra) # 16dc <strings_equal>
+    137c:	00050793          	mv	a5,a0
+    1380:	00078863          	beqz	a5,1390 <handle_command+0xf0>
+#         led_test();
+    1384:	00000097          	auipc	ra,0x0
+    1388:	a40080e7          	jalr	-1472(ra) # dc4 <led_test>
+# }
+    138c:	0e80006f          	j	1474 <handle_command+0x1d4>
+#     } else if (strings_equal(buf->line, "report")) {
+    1390:	fec42703          	lw	a4,-20(s0)
+    1394:	000027b7          	lui	a5,0x2
+    1398:	58478593          	addi	a1,a5,1412 # 2584 <uart_read_char+0xc9c>
+    139c:	00070513          	mv	a0,a4
+    13a0:	00000097          	auipc	ra,0x0
+    13a4:	33c080e7          	jalr	828(ra) # 16dc <strings_equal>
+    13a8:	00050793          	mv	a5,a0
+    13ac:	00078863          	beqz	a5,13bc <handle_command+0x11c>
+#         system_report();
+    13b0:	00000097          	auipc	ra,0x0
+    13b4:	ca0080e7          	jalr	-864(ra) # 1050 <system_report>
+# }
+    13b8:	0bc0006f          	j	1474 <handle_command+0x1d4>
+#     } else if (strings_equal(buf->line, "reset")) {
+    13bc:	fec42703          	lw	a4,-20(s0)
+    13c0:	000027b7          	lui	a5,0x2
+    13c4:	58c78593          	addi	a1,a5,1420 # 258c <uart_read_char+0xca4>
+    13c8:	00070513          	mv	a0,a4
+    13cc:	00000097          	auipc	ra,0x0
+    13d0:	310080e7          	jalr	784(ra) # 16dc <strings_equal>
+    13d4:	00050793          	mv	a5,a0
+    13d8:	04078663          	beqz	a5,1424 <handle_command+0x184>
+#         total_cycles = 0;
+    13dc:	000047b7          	lui	a5,0x4
+    13e0:	8207ac23          	sw	zero,-1992(a5) # 3838 <total_cycles>
+#         total_operations = 0;
+    13e4:	000047b7          	lui	a5,0x4
+    13e8:	8207ae23          	sw	zero,-1988(a5) # 383c <total_operations>
+#         benchmark_score = 0;
+    13ec:	000047b7          	lui	a5,0x4
+    13f0:	8407a023          	sw	zero,-1984(a5) # 3840 <benchmark_score>
+#         *leds = 0;
+    13f4:	000047b7          	lui	a5,0x4
+    13f8:	8287a783          	lw	a5,-2008(a5) # 3828 <leds>
+    13fc:	00078023          	sb	zero,0(a5)
+#         uart_send_str("All performance counters reset.\r\n");
+    1400:	000027b7          	lui	a5,0x2
+    1404:	59478513          	addi	a0,a5,1428 # 2594 <uart_read_char+0xcac>
+    1408:	00000097          	auipc	ra,0x0
+    140c:	364080e7          	jalr	868(ra) # 176c <uart_send_str>
+#         uart_send_str("System ready for new analysis session.\r\n\r\n");
+    1410:	000027b7          	lui	a5,0x2
+    1414:	5b878513          	addi	a0,a5,1464 # 25b8 <uart_read_char+0xcd0>
+    1418:	00000097          	auipc	ra,0x0
+    141c:	354080e7          	jalr	852(ra) # 176c <uart_send_str>
+# }
+    1420:	0540006f          	j	1474 <handle_command+0x1d4>
+#     } else if (strings_equal(buf->line, "")) {
+    1424:	fec42703          	lw	a4,-20(s0)
+    1428:	000027b7          	lui	a5,0x2
+    142c:	5e478593          	addi	a1,a5,1508 # 25e4 <uart_read_char+0xcfc>
+    1430:	00070513          	mv	a0,a4
+    1434:	00000097          	auipc	ra,0x0
+    1438:	2a8080e7          	jalr	680(ra) # 16dc <strings_equal>
+    143c:	00050793          	mv	a5,a0
+    1440:	02079a63          	bnez	a5,1474 <handle_command+0x1d4>
+#         uart_send_str("Unknown command: '");
+    1444:	000027b7          	lui	a5,0x2
+    1448:	5e878513          	addi	a0,a5,1512 # 25e8 <uart_read_char+0xd00>
+    144c:	00000097          	auipc	ra,0x0
+    1450:	320080e7          	jalr	800(ra) # 176c <uart_send_str>
+#         uart_send_str(buf->line);
+    1454:	fec42783          	lw	a5,-20(s0)
+    1458:	00078513          	mv	a0,a5
+    145c:	00000097          	auipc	ra,0x0
+    1460:	310080e7          	jalr	784(ra) # 176c <uart_send_str>
+#         uart_send_str("'\r\nType 'help' for available commands.\r\n\r\n");
+    1464:	000027b7          	lui	a5,0x2
+    1468:	5fc78513          	addi	a0,a5,1532 # 25fc <uart_read_char+0xd14>
+    146c:	00000097          	auipc	ra,0x0
+    1470:	300080e7          	jalr	768(ra) # 176c <uart_send_str>
+# }
+    1474:	00000013          	nop
+    1478:	01c12083          	lw	ra,28(sp)
+    147c:	01812403          	lw	s0,24(sp)
+    1480:	02010113          	addi	sp,sp,32
+    1484:	00008067          	ret
+
+00001488 <print_help>:
+# 
+# void print_help() {
+    1488:	ff010113          	addi	sp,sp,-16
+    148c:	00112623          	sw	ra,12(sp)
+    1490:	00812423          	sw	s0,8(sp)
+    1494:	01010413          	addi	s0,sp,16
+#     uart_send_str("\r\n=== RV32I PERFORMANCE LAB COMMANDS ===\r\n");
+    1498:	000027b7          	lui	a5,0x2
+    149c:	62878513          	addi	a0,a5,1576 # 2628 <uart_read_char+0xd40>
+    14a0:	00000097          	auipc	ra,0x0
+    14a4:	2cc080e7          	jalr	716(ra) # 176c <uart_send_str>
+#     uart_send_str("bench   - Comprehensive RV32I benchmark suite\r\n");
+    14a8:	000027b7          	lui	a5,0x2
+    14ac:	65478513          	addi	a0,a5,1620 # 2654 <uart_read_char+0xd6c>
+    14b0:	00000097          	auipc	ra,0x0
+    14b4:	2bc080e7          	jalr	700(ra) # 176c <uart_send_str>
+#     uart_send_str("cpu     - Intensive CPU stress test\r\n");
+    14b8:	000027b7          	lui	a5,0x2
+    14bc:	68478513          	addi	a0,a5,1668 # 2684 <uart_read_char+0xd9c>
+    14c0:	00000097          	auipc	ra,0x0
+    14c4:	2ac080e7          	jalr	684(ra) # 176c <uart_send_str>
+#     uart_send_str("memory  - Memory performance analysis\r\n");
+    14c8:	000027b7          	lui	a5,0x2
+    14cc:	6ac78513          	addi	a0,a5,1708 # 26ac <uart_read_char+0xdc4>
+    14d0:	00000097          	auipc	ra,0x0
+    14d4:	29c080e7          	jalr	668(ra) # 176c <uart_send_str>
+#     uart_send_str("led     - LED performance indicators\r\n");
+    14d8:	000027b7          	lui	a5,0x2
+    14dc:	6d478513          	addi	a0,a5,1748 # 26d4 <uart_read_char+0xdec>
+    14e0:	00000097          	auipc	ra,0x0
+    14e4:	28c080e7          	jalr	652(ra) # 176c <uart_send_str>
+#     uart_send_str("report  - Complete system performance report\r\n");
+    14e8:	000027b7          	lui	a5,0x2
+    14ec:	6fc78513          	addi	a0,a5,1788 # 26fc <uart_read_char+0xe14>
+    14f0:	00000097          	auipc	ra,0x0
+    14f4:	27c080e7          	jalr	636(ra) # 176c <uart_send_str>
+#     uart_send_str("reset   - Reset all performance counters\r\n");
+    14f8:	000027b7          	lui	a5,0x2
+    14fc:	72c78513          	addi	a0,a5,1836 # 272c <uart_read_char+0xe44>
+    1500:	00000097          	auipc	ra,0x0
+    1504:	26c080e7          	jalr	620(ra) # 176c <uart_send_str>
+#     uart_send_str("help    - Show this command reference\r\n");
+    1508:	000027b7          	lui	a5,0x2
+    150c:	75878513          	addi	a0,a5,1880 # 2758 <uart_read_char+0xe70>
+    1510:	00000097          	auipc	ra,0x0
+    1514:	25c080e7          	jalr	604(ra) # 176c <uart_send_str>
+#     uart_send_str("======================================\r\n");
+    1518:	000027b7          	lui	a5,0x2
+    151c:	78078513          	addi	a0,a5,1920 # 2780 <uart_read_char+0xe98>
+    1520:	00000097          	auipc	ra,0x0
+    1524:	24c080e7          	jalr	588(ra) # 176c <uart_send_str>
+#     uart_send_str("Note: All tests use RV32I base instructions only\r\n");
+    1528:	000027b7          	lui	a5,0x2
+    152c:	7ac78513          	addi	a0,a5,1964 # 27ac <uart_read_char+0xec4>
+    1530:	00000097          	auipc	ra,0x0
+    1534:	23c080e7          	jalr	572(ra) # 176c <uart_send_str>
+#     uart_send_str("No division, multiplication, or extensions required\r\n\r\n");
+    1538:	000027b7          	lui	a5,0x2
+    153c:	7e078513          	addi	a0,a5,2016 # 27e0 <uart_read_char+0xef8>
+    1540:	00000097          	auipc	ra,0x0
+    1544:	22c080e7          	jalr	556(ra) # 176c <uart_send_str>
+# }
+    1548:	00000013          	nop
+    154c:	00c12083          	lw	ra,12(sp)
+    1550:	00812403          	lw	s0,8(sp)
+    1554:	01010113          	addi	sp,sp,16
+    1558:	00008067          	ret
+
+0000155c <run>:
+# 
+# void run() {
+    155c:	fc010113          	addi	sp,sp,-64
+    1560:	02112e23          	sw	ra,60(sp)
+    1564:	02812c23          	sw	s0,56(sp)
+    1568:	04010413          	addi	s0,sp,64
+#     input_buffer inbuf;
+#     inbuf.ix = 0;
+    156c:	fe040623          	sb	zero,-20(s0)
+#     
+#     uart_send_str(welcome);
+    1570:	000047b7          	lui	a5,0x4
+    1574:	8347a783          	lw	a5,-1996(a5) # 3834 <welcome>
+    1578:	00078513          	mv	a0,a5
+    157c:	00000097          	auipc	ra,0x0
+    1580:	1f0080e7          	jalr	496(ra) # 176c <uart_send_str>
+#     
+#     while (1) {
+#         uart_send_str("rv32i-lab > ");
+    1584:	000037b7          	lui	a5,0x3
+    1588:	81878513          	addi	a0,a5,-2024 # 2818 <uart_read_char+0xf30>
+    158c:	00000097          	auipc	ra,0x0
+    1590:	1e0080e7          	jalr	480(ra) # 176c <uart_send_str>
+#         input(&inbuf);
+    1594:	fc440793          	addi	a5,s0,-60
+    1598:	00078513          	mv	a0,a5
+    159c:	00000097          	auipc	ra,0x0
+    15a0:	040080e7          	jalr	64(ra) # 15dc <input>
+#         uart_send_str("\r\n");
+    15a4:	000027b7          	lui	a5,0x2
+    15a8:	c9c78513          	addi	a0,a5,-868 # 1c9c <uart_read_char+0x3b4>
+    15ac:	00000097          	auipc	ra,0x0
+    15b0:	1c0080e7          	jalr	448(ra) # 176c <uart_send_str>
+#         handle_command(&inbuf);
+    15b4:	fc440793          	addi	a5,s0,-60
+    15b8:	00078513          	mv	a0,a5
+    15bc:	00000097          	auipc	ra,0x0
+    15c0:	ce4080e7          	jalr	-796(ra) # 12a0 <handle_command>
+#         
+#         // Background activity
+#         total_cycles += 5;
+    15c4:	000047b7          	lui	a5,0x4
+    15c8:	8387a783          	lw	a5,-1992(a5) # 3838 <total_cycles>
+    15cc:	00578713          	addi	a4,a5,5
+    15d0:	000047b7          	lui	a5,0x4
+    15d4:	82e7ac23          	sw	a4,-1992(a5) # 3838 <total_cycles>
+#         uart_send_str("rv32i-lab > ");
+    15d8:	fadff06f          	j	1584 <run+0x28>
+
+000015dc <input>:
+#     }
+# }
+# 
+# void input(input_buffer *buf) {
+    15dc:	fd010113          	addi	sp,sp,-48
+    15e0:	02112623          	sw	ra,44(sp)
+    15e4:	02812423          	sw	s0,40(sp)
+    15e8:	03010413          	addi	s0,sp,48
+    15ec:	fca42e23          	sw	a0,-36(s0)
+#     while (1) {
+#         const char ch = uart_read_char();
+    15f0:	00000097          	auipc	ra,0x0
+    15f4:	2f8080e7          	jalr	760(ra) # 18e8 <uart_read_char>
+    15f8:	00050793          	mv	a5,a0
+    15fc:	fef407a3          	sb	a5,-17(s0)
+#         if (ch == CHAR_BACKSPACE) {
+    1600:	fef44703          	lbu	a4,-17(s0)
+    1604:	07f00793          	li	a5,127
+    1608:	02f71e63          	bne	a4,a5,1644 <input+0x68>
+#             if (buf->ix > 0) {
+    160c:	fdc42783          	lw	a5,-36(s0)
+    1610:	0287c783          	lbu	a5,40(a5)
+    1614:	fc078ee3          	beqz	a5,15f0 <input+0x14>
+#                 buf->ix--;
+    1618:	fdc42783          	lw	a5,-36(s0)
+    161c:	0287c783          	lbu	a5,40(a5)
+    1620:	fff78793          	addi	a5,a5,-1
+    1624:	0ff7f713          	andi	a4,a5,255
+    1628:	fdc42783          	lw	a5,-36(s0)
+    162c:	02e78423          	sb	a4,40(a5)
+#                 uart_send_char(ch);
+    1630:	fef44783          	lbu	a5,-17(s0)
+    1634:	00078513          	mv	a0,a5
+    1638:	00000097          	auipc	ra,0x0
+    163c:	264080e7          	jalr	612(ra) # 189c <uart_send_char>
+    1640:	fb1ff06f          	j	15f0 <input+0x14>
+#             }
+#         } else if (ch == CHAR_CARRIAGE_RETURN || buf->ix >= sizeof(buf->line) - 1) {
+    1644:	fef44703          	lbu	a4,-17(s0)
+    1648:	00d00793          	li	a5,13
+    164c:	00f70a63          	beq	a4,a5,1660 <input+0x84>
+    1650:	fdc42783          	lw	a5,-36(s0)
+    1654:	0287c703          	lbu	a4,40(a5)
+    1658:	02600793          	li	a5,38
+    165c:	02e7f463          	bgeu	a5,a4,1684 <input+0xa8>
+#             buf->line[buf->ix] = 0;
+    1660:	fdc42783          	lw	a5,-36(s0)
+    1664:	0287c783          	lbu	a5,40(a5)
+    1668:	00078713          	mv	a4,a5
+    166c:	fdc42783          	lw	a5,-36(s0)
+    1670:	00e787b3          	add	a5,a5,a4
+    1674:	00078023          	sb	zero,0(a5)
+#             buf->ix = 0;
+    1678:	fdc42783          	lw	a5,-36(s0)
+    167c:	02078423          	sb	zero,40(a5)
+#             return;
+    1680:	04c0006f          	j	16cc <input+0xf0>
+#         } else {
+#             buf->line[buf->ix] = ch;
+    1684:	fdc42783          	lw	a5,-36(s0)
+    1688:	0287c783          	lbu	a5,40(a5)
+    168c:	00078713          	mv	a4,a5
+    1690:	fdc42783          	lw	a5,-36(s0)
+    1694:	00e787b3          	add	a5,a5,a4
+    1698:	fef44703          	lbu	a4,-17(s0)
+    169c:	00e78023          	sb	a4,0(a5)
+#             buf->ix++;
+    16a0:	fdc42783          	lw	a5,-36(s0)
+    16a4:	0287c783          	lbu	a5,40(a5)
+    16a8:	00178793          	addi	a5,a5,1
+    16ac:	0ff7f713          	andi	a4,a5,255
+    16b0:	fdc42783          	lw	a5,-36(s0)
+    16b4:	02e78423          	sb	a4,40(a5)
+#             uart_send_char(ch);
+    16b8:	fef44783          	lbu	a5,-17(s0)
+    16bc:	00078513          	mv	a0,a5
+    16c0:	00000097          	auipc	ra,0x0
+    16c4:	1dc080e7          	jalr	476(ra) # 189c <uart_send_char>
+#     while (1) {
+    16c8:	f29ff06f          	j	15f0 <input+0x14>
+#         }
+#     }
+# }
+    16cc:	02c12083          	lw	ra,44(sp)
+    16d0:	02812403          	lw	s0,40(sp)
+    16d4:	03010113          	addi	sp,sp,48
+    16d8:	00008067          	ret
+
+000016dc <strings_equal>:
+# 
+# bool strings_equal(const char *s1, const char *s2) {
+    16dc:	fe010113          	addi	sp,sp,-32
+    16e0:	00812e23          	sw	s0,28(sp)
+    16e4:	02010413          	addi	s0,sp,32
+    16e8:	fea42623          	sw	a0,-20(s0)
+    16ec:	feb42423          	sw	a1,-24(s0)
+#     while (*s1 && *s2) {
+    16f0:	0380006f          	j	1728 <strings_equal+0x4c>
+#         if (*s1 != *s2) return FALSE;
+    16f4:	fec42783          	lw	a5,-20(s0)
+    16f8:	0007c703          	lbu	a4,0(a5)
+    16fc:	fe842783          	lw	a5,-24(s0)
+    1700:	0007c783          	lbu	a5,0(a5)
+    1704:	00f70663          	beq	a4,a5,1710 <strings_equal+0x34>
+    1708:	00000793          	li	a5,0
+    170c:	0500006f          	j	175c <strings_equal+0x80>
+#         s1++;
+    1710:	fec42783          	lw	a5,-20(s0)
+    1714:	00178793          	addi	a5,a5,1
+    1718:	fef42623          	sw	a5,-20(s0)
+#         s2++;
+    171c:	fe842783          	lw	a5,-24(s0)
+    1720:	00178793          	addi	a5,a5,1
+    1724:	fef42423          	sw	a5,-24(s0)
+#     while (*s1 && *s2) {
+    1728:	fec42783          	lw	a5,-20(s0)
+    172c:	0007c783          	lbu	a5,0(a5)
+    1730:	00078863          	beqz	a5,1740 <strings_equal+0x64>
+    1734:	fe842783          	lw	a5,-24(s0)
+    1738:	0007c783          	lbu	a5,0(a5)
+    173c:	fa079ce3          	bnez	a5,16f4 <strings_equal+0x18>
+#     }
+#     return (*s1 == *s2);
+    1740:	fec42783          	lw	a5,-20(s0)
+    1744:	0007c703          	lbu	a4,0(a5)
+    1748:	fe842783          	lw	a5,-24(s0)
+    174c:	0007c783          	lbu	a5,0(a5)
+    1750:	40f707b3          	sub	a5,a4,a5
+    1754:	0017b793          	seqz	a5,a5
+    1758:	0ff7f793          	andi	a5,a5,255
+# }
+    175c:	00078513          	mv	a0,a5
+    1760:	01c12403          	lw	s0,28(sp)
+    1764:	02010113          	addi	sp,sp,32
+    1768:	00008067          	ret
+
+0000176c <uart_send_str>:
+# 
+# void uart_send_str(const char *str) {
+    176c:	fe010113          	addi	sp,sp,-32
+    1770:	00812e23          	sw	s0,28(sp)
+    1774:	02010413          	addi	s0,sp,32
+    1778:	fea42623          	sw	a0,-20(s0)
+#     while (*str) {
+    177c:	0380006f          	j	17b4 <uart_send_str+0x48>
+#         while (*uart_out);
+    1780:	00000013          	nop
+    1784:	000047b7          	lui	a5,0x4
+    1788:	82c7a783          	lw	a5,-2004(a5) # 382c <uart_out>
+    178c:	0007c783          	lbu	a5,0(a5)
+    1790:	0ff7f793          	andi	a5,a5,255
+    1794:	fe0798e3          	bnez	a5,1784 <uart_send_str+0x18>
+#         *uart_out = *str++;
+    1798:	fec42783          	lw	a5,-20(s0)
+    179c:	00178713          	addi	a4,a5,1
+    17a0:	fee42623          	sw	a4,-20(s0)
+    17a4:	00004737          	lui	a4,0x4
+    17a8:	82c72703          	lw	a4,-2004(a4) # 382c <uart_out>
+    17ac:	0007c783          	lbu	a5,0(a5)
+    17b0:	00f70023          	sb	a5,0(a4)
+#     while (*str) {
+    17b4:	fec42783          	lw	a5,-20(s0)
+    17b8:	0007c783          	lbu	a5,0(a5)
+    17bc:	fc0792e3          	bnez	a5,1780 <uart_send_str+0x14>
+#     }
+# }
+    17c0:	00000013          	nop
+    17c4:	00000013          	nop
+    17c8:	01c12403          	lw	s0,28(sp)
+    17cc:	02010113          	addi	sp,sp,32
+    17d0:	00008067          	ret
+
+000017d4 <uart_send_hex_byte>:
+# 
+# void uart_send_hex_byte(const char ch) {
+    17d4:	fe010113          	addi	sp,sp,-32
+    17d8:	00112e23          	sw	ra,28(sp)
+    17dc:	00812c23          	sw	s0,24(sp)
+    17e0:	02010413          	addi	s0,sp,32
+    17e4:	00050793          	mv	a5,a0
+    17e8:	fef407a3          	sb	a5,-17(s0)
+#     uart_send_hex_nibble((ch & 0xf0) >> 4);
+    17ec:	fef44783          	lbu	a5,-17(s0)
+    17f0:	0047d793          	srli	a5,a5,0x4
+    17f4:	0ff7f793          	andi	a5,a5,255
+    17f8:	00078513          	mv	a0,a5
+    17fc:	00000097          	auipc	ra,0x0
+    1800:	034080e7          	jalr	52(ra) # 1830 <uart_send_hex_nibble>
+#     uart_send_hex_nibble(ch & 0x0f);
+    1804:	fef44783          	lbu	a5,-17(s0)
+    1808:	00f7f793          	andi	a5,a5,15
+    180c:	0ff7f793          	andi	a5,a5,255
+    1810:	00078513          	mv	a0,a5
+    1814:	00000097          	auipc	ra,0x0
+    1818:	01c080e7          	jalr	28(ra) # 1830 <uart_send_hex_nibble>
+# }
+    181c:	00000013          	nop
+    1820:	01c12083          	lw	ra,28(sp)
+    1824:	01812403          	lw	s0,24(sp)
+    1828:	02010113          	addi	sp,sp,32
+    182c:	00008067          	ret
+
+00001830 <uart_send_hex_nibble>:
+# 
+# void uart_send_hex_nibble(const char nibble) {
+    1830:	fe010113          	addi	sp,sp,-32
+    1834:	00112e23          	sw	ra,28(sp)
+    1838:	00812c23          	sw	s0,24(sp)
+    183c:	02010413          	addi	s0,sp,32
+    1840:	00050793          	mv	a5,a0
+    1844:	fef407a3          	sb	a5,-17(s0)
+#     if (nibble < 10) {
+    1848:	fef44703          	lbu	a4,-17(s0)
+    184c:	00900793          	li	a5,9
+    1850:	02e7e063          	bltu	a5,a4,1870 <uart_send_hex_nibble+0x40>
+#         uart_send_char('0' + nibble);
+    1854:	fef44783          	lbu	a5,-17(s0)
+    1858:	03078793          	addi	a5,a5,48
+    185c:	0ff7f793          	andi	a5,a5,255
+    1860:	00078513          	mv	a0,a5
+    1864:	00000097          	auipc	ra,0x0
+    1868:	038080e7          	jalr	56(ra) # 189c <uart_send_char>
+#     } else {
+#         uart_send_char('A' + (nibble - 10));
+#     }
+# }
+    186c:	01c0006f          	j	1888 <uart_send_hex_nibble+0x58>
+#         uart_send_char('A' + (nibble - 10));
+    1870:	fef44783          	lbu	a5,-17(s0)
+    1874:	03778793          	addi	a5,a5,55
+    1878:	0ff7f793          	andi	a5,a5,255
+    187c:	00078513          	mv	a0,a5
+    1880:	00000097          	auipc	ra,0x0
+    1884:	01c080e7          	jalr	28(ra) # 189c <uart_send_char>
+# }
+    1888:	00000013          	nop
+    188c:	01c12083          	lw	ra,28(sp)
+    1890:	01812403          	lw	s0,24(sp)
+    1894:	02010113          	addi	sp,sp,32
+    1898:	00008067          	ret
+
+0000189c <uart_send_char>:
+# 
+# void uart_send_char(const char ch) {
+    189c:	fe010113          	addi	sp,sp,-32
+    18a0:	00812e23          	sw	s0,28(sp)
+    18a4:	02010413          	addi	s0,sp,32
+    18a8:	00050793          	mv	a5,a0
+    18ac:	fef407a3          	sb	a5,-17(s0)
+#     while (*uart_out);
+    18b0:	00000013          	nop
+    18b4:	000047b7          	lui	a5,0x4
+    18b8:	82c7a783          	lw	a5,-2004(a5) # 382c <uart_out>
+    18bc:	0007c783          	lbu	a5,0(a5)
+    18c0:	0ff7f793          	andi	a5,a5,255
+    18c4:	fe0798e3          	bnez	a5,18b4 <uart_send_char+0x18>
+#     *uart_out = ch;
+    18c8:	000047b7          	lui	a5,0x4
+    18cc:	82c7a783          	lw	a5,-2004(a5) # 382c <uart_out>
+    18d0:	fef44703          	lbu	a4,-17(s0)
+    18d4:	00e78023          	sb	a4,0(a5)
+# }
+    18d8:	00000013          	nop
+    18dc:	01c12403          	lw	s0,28(sp)
+    18e0:	02010113          	addi	sp,sp,32
+    18e4:	00008067          	ret
+
+000018e8 <uart_read_char>:
+# 
+# char uart_read_char() {
+    18e8:	fe010113          	addi	sp,sp,-32
+    18ec:	00812e23          	sw	s0,28(sp)
+    18f0:	02010413          	addi	s0,sp,32
+#     char ch;
+#     while ((ch = *uart_in) == 0);
+    18f4:	00000013          	nop
+    18f8:	000047b7          	lui	a5,0x4
+    18fc:	8307a783          	lw	a5,-2000(a5) # 3830 <uart_in>
+    1900:	0007c783          	lbu	a5,0(a5)
+    1904:	fef407a3          	sb	a5,-17(s0)
+    1908:	fef44783          	lbu	a5,-17(s0)
+    190c:	fe0786e3          	beqz	a5,18f8 <uart_read_char+0x10>
+#     return ch;
+    1910:	fef44783          	lbu	a5,-17(s0)
+    1914:	00078513          	mv	a0,a5
+    1918:	01c12403          	lw	s0,28(sp)
+    191c:	02010113          	addi	sp,sp,32
+    1920:	00008067          	ret

@@ -1,0 +1,72 @@
+[
+ {
+  "InstFile" : "C:/tang-nano-9k--riscv/src/Top.v",
+  "InstLine" : 6,
+  "InstName" : "Top",
+  "ModuleFile" : "C:/tang-nano-9k--riscv/src/Top.v",
+  "ModuleLine" : 6,
+  "ModuleName" : "Top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/tang-nano-9k--riscv/src/Top.v",
+    "InstLine" : 20,
+    "InstName" : "clk_rpll",
+    "ModuleFile" : "C:/tang-nano-9k--riscv/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "C:/tang-nano-9k--riscv/src/Top.v",
+    "InstLine" : 31,
+    "InstName" : "soc",
+    "ModuleFile" : "C:/tang-nano-9k--riscv/src/SoC.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "SoC",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/tang-nano-9k--riscv/src/SoC.v",
+      "InstLine" : 255,
+      "InstName" : "regs",
+      "ModuleFile" : "C:/tang-nano-9k--riscv/src/Registers.v",
+      "ModuleLine" : 4,
+      "ModuleName" : "Registers"
+     },
+     {
+      "InstFile" : "C:/tang-nano-9k--riscv/src/SoC.v",
+      "InstLine" : 275,
+      "InstName" : "ram",
+      "ModuleFile" : "C:/tang-nano-9k--riscv/src/RAMIO.v",
+      "ModuleLine" : 8,
+      "ModuleName" : "RAMIO",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/tang-nano-9k--riscv/src/RAMIO.v",
+        "InstLine" : 210,
+        "InstName" : "ram",
+        "ModuleFile" : "C:/tang-nano-9k--riscv/src/RAM.v",
+        "ModuleLine" : 10,
+        "ModuleName" : "RAM"
+       },
+       {
+        "InstFile" : "C:/tang-nano-9k--riscv/src/RAMIO.v",
+        "InstLine" : 223,
+        "InstName" : "uarttx",
+        "ModuleFile" : "C:/tang-nano-9k--riscv/src/UartTx.v",
+        "ModuleLine" : 4,
+        "ModuleName" : "UartTx"
+       },
+       {
+        "InstFile" : "C:/tang-nano-9k--riscv/src/RAMIO.v",
+        "InstLine" : 235,
+        "InstName" : "uartrx",
+        "ModuleFile" : "C:/tang-nano-9k--riscv/src/UartRx.v",
+        "ModuleLine" : 4,
+        "ModuleName" : "UartRx"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
