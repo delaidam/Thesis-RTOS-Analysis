@@ -1,0 +1,148 @@
+{
+    "log_file": "queue_run_01.log",
+    "timestamp": "2025-06-09 01:17 AM ",
+    "data": {
+        "CRITICAL": [
+            {
+                "sent": 0,
+                "received": 0,
+                "avg_latency": 1
+            },
+            {
+                "sent": 0,
+                "received": 0,
+                "avg_latency": 4
+            },
+            {
+                "sent": 1,
+                "received": 1,
+                "avg_latency": 5
+            },
+            {
+                "sent": 1,
+                "received": 1,
+                "avg_latency": 5
+            },
+            {
+                "sent": 2,
+                "received": 2,
+                "avg_latency": 3
+            }
+        ],
+        "HIGH": [
+            {
+                "sent": 0,
+                "received": 0,
+                "avg_latency": 1
+            },
+            {
+                "sent": 2,
+                "received": 2,
+                "avg_latency": 4
+            },
+            {
+                "sent": 4,
+                "received": 4,
+                "avg_latency": 3
+            },
+            {
+                "sent": 7,
+                "received": 7,
+                "avg_latency": 3
+            },
+            {
+                "sent": 8,
+                "received": 8,
+                "avg_latency": 3
+            }
+        ],
+        "NORMAL": [
+            {
+                "sent": 0,
+                "received": 0,
+                "avg_latency": 1
+            },
+            {
+                "sent": 9,
+                "received": 9,
+                "avg_latency": 4
+            },
+            {
+                "sent": 16,
+                "received": 16,
+                "avg_latency": 3
+            },
+            {
+                "sent": 24,
+                "received": 24,
+                "avg_latency": 4
+            },
+            {
+                "sent": 31,
+                "received": 31,
+                "avg_latency": 3
+            }
+        ],
+        "LOW": [
+            {
+                "sent": 1,
+                "received": 1,
+                "avg_latency": 1
+            },
+            {
+                "sent": 18,
+                "received": 18,
+                "avg_latency": 0
+            },
+            {
+                "sent": 30,
+                "received": 30,
+                "avg_latency": 0
+            },
+            {
+                "sent": 48,
+                "received": 48,
+                "avg_latency": 0
+            },
+            {
+                "sent": 63,
+                "received": 63,
+                "avg_latency": 0
+            }
+        ]
+    },
+    "stats": {
+        "CRITICAL": {
+            "total_sent": 4,
+            "total_received": 4,
+            "avg_latency": 3.6,
+            "min_latency": 1,
+            "max_latency": 5,
+            "throughput": 8.0
+        },
+        "HIGH": {
+            "total_sent": 21,
+            "total_received": 21,
+            "avg_latency": 2.8,
+            "min_latency": 1,
+            "max_latency": 4,
+            "throughput": 42.0
+        },
+        "NORMAL": {
+            "total_sent": 80,
+            "total_received": 80,
+            "avg_latency": 3.0,
+            "min_latency": 1,
+            "max_latency": 4,
+            "throughput": 160.0
+        },
+        "LOW": {
+            "total_sent": 160,
+            "total_received": 160,
+            "avg_latency": 0.2,
+            "min_latency": 0,
+            "max_latency": 1,
+            "throughput": 320.0
+        }
+    }
+}

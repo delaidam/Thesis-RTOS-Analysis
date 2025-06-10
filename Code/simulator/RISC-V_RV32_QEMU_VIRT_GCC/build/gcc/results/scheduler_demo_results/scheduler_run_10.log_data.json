@@ -1,0 +1,26 @@
+{
+    "log_file": "scheduler_run_10.log",
+    "timestamp": "2025-06-08 11:52 AM CEST",
+    "utilization": {
+        "HIGH": [
+            629.0
+        ],
+        "MEDIUM": [
+            276.0
+        ],
+        "LOW": [
+            703.0
+        ]
+    },
+    "wcet": {
+        "HIGH": [
+            629
+        ],
+        "MEDIUM": [
+            553
+        ],
+        "LOW": [
+            3515
+        ]
+    }
+}

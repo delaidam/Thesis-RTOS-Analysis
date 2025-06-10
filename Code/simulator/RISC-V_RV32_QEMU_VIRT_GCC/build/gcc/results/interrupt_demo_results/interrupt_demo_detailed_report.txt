@@ -1,0 +1,43 @@
+================================================================================
+FREERTOS ADAPTIVE INTERRUPT SYSTEM - DETAILED ANALYSIS REPORT
+================================================================================
+Log File: interrupt_demo.log
+Analysis Date: 2025-06-10 09:45:45
+
+INTERRUPT ANALYSIS:
+----------------------------------------
+Total Interrupts: 628
+Response Time - Min: 1, Max: 29, Avg: 1.44
+Priority Distribution: {1: 265, 2: 251, 3: 112}
+Deadline Success Rate: 99.8%
+Complexity Optimizations: 418/628 (66.6%)
+
+I/O OPERATIONS ANALYSIS:
+----------------------------------------
+Total I/O Operations: 616
+Latency - Min: 1, Max: 9, Avg: 1.88
+I/O Priority Distribution: {2: 34, 3: 582}
+
+CYCLE PERFORMANCE ANALYSIS:
+----------------------------------------
+Total Cycles Analyzed: 5
+Success Rate - Min: 99%, Max: 100%, Avg: 99.8%
+CPU Utilization - Min: 0%, Max: 5%, Avg: 2.6%
+Total Adaptive Interventions:
+  - Complexity Adjustments: 0
+  - Deadline Adjustments: 0
+  - Load Optimizations: 14
+
+TIMER EVENTS:
+----------------------------------------
+Total Timer Events: 71
+
+SYSTEM HEALTH SUMMARY:
+----------------------------------------
+Queue Overflows: 0 (Status: GOOD)
+Overall Success Rate: 99.8% (Status: EXCELLENT)
+Performance Stability: 0.40% std dev (Status: STABLE)
+
+================================================================================
+ANALYSIS COMPLETED
+================================================================================

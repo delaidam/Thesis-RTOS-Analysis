@@ -1,0 +1,612 @@
+Starting Scheduler Validation Demo (DEMO_ID=10)
+
+************************************************
+*** REALISTIC SCHEDULER VALIDATION DEMO ***
+************************************************
+This demo demonstrates Rate Monotonic scheduling
+with realistic computational workloads and precise
+execution time measurements.
+
+Task Configuration:
+- HIGH Priority (4): Light load, 100ms period
+- MEDIUM Priority (3): Medium load, 200ms period
+- LOW Priority (2): Heavy load, 500ms period
+
+All tasks created successfully!
+Starting FreeRTOS scheduler...
+Performance reports every 5 seconds.
+
+[HIGH] Task execution #1
+[MEDIUM] Task execution #1
+[LOW] Task execution #1
+[HIGH] Task execution #2
+[HIGH] Task execution #3
+[MEDIUM] Task execution #2
+[HIGH] Task execution #4
+[HIGH] Task execution #5
+[MEDIUM] Task execution #3
+[HIGH] Task execution #6
+[HIGH] Task execution #7
+[MEDIUM] Task execution #4
+[LOW] Task execution #2
+[HIGH] Task execution #8
+[HIGH] Task execution #9
+[MEDIUM] Task execution #5
+[HIGH] Task execution #10
+[HIGH] Task execution #11
+[MEDIUM] Task execution #6
+[HIGH] Task execution #12
+[HIGH] Task execution #13
+[LOW] Task execution #3
+[MEDIUM] Task execution #7
+[HIGH] Task execution #14
+[HIGH] Task execution #15
+[MEDIUM] Task execution #8
+[HIGH] Task execution #16
+[HIGH] Task execution #17
+[HIGH] Task execution #18
+[MEDIUM] Task execution #9
+[HIGH] Task execution #19
+[LOW] Task execution #4
+[HIGH] Task execution #20
+[MEDIUM] Task execution #10
+[HIGH] Task execution #21
+[HIGH] Task execution #22
+[MEDIUM] Task execution #11
+[HIGH] Task execution #23
+[HIGH] Task execution #24
+[MEDIUM] Task execution #12
+[HIGH] Task execution #25
+[LOW] Task execution #5
+[HIGH] Task execution #26
+[MEDIUM] Task execution #13
+[HIGH] Task execution #27
+[HIGH] Task execution #28
+[MEDIUM] Task execution #14
+[HIGH] Task execution #29
+[HIGH] Task execution #30
+[MEDIUM] Task execution #15
+[LOW] Task execution #6
+[HIGH] Task execution #31
+[HIGH] Task execution #32
+[MEDIUM] Task execution #16
+[HIGH] Task execution #33
+[HIGH] Task execution #34
+[MEDIUM] Task execution #17
+[HIGH] Task execution #35
+[HIGH] Task execution #36
+[LOW] Task execution #7
+[MEDIUM] Task execution #18
+[HIGH] Task execution #37
+[HIGH] Task execution #38
+[HIGH] Task execution #39
+[MEDIUM] Task execution #19
+[HIGH] Task execution #40
+[HIGH] Task execution #41
+[MEDIUM] Task execution #20
+[HIGH] Task execution #42
+[LOW] Task execution #8
+[HIGH] Task execution #43
+[MEDIUM] Task execution #21
+[HIGH] Task execution #44
+[HIGH] Task execution #45
+[MEDIUM] Task execution #22
+[HIGH] Task execution #46
+[HIGH] Task execution #47
+[LOW] Task execution #9
+[MEDIUM] Task execution #23
+[HIGH] Task execution #48
+
+============================================
+=== REALISTIC SCHEDULER PERFORMANCE REPORT ===
+============================================
+System uptime: 5322 ticks
+
+Task HIGH (Priority 4, Period 100ms):
+  Executions: 48
+  Avg execution time: 11 ticks
+  Min execution time: 9 ticks
+  Max execution time: 18 ticks (WCET)
+  CPU Utilization: 11%
+
+Task MEDIUM (Priority 3, Period 200ms):
+  Executions: 23
+  Avg execution time: 35 ticks
+  Min execution time: 28 ticks
+  Max execution time: 47 ticks (WCET)
+  CPU Utilization: 18%
+
+Task LOW (Priority 2, Period 500ms):
+  Executions: 9
+  Avg execution time: 135 ticks
+  Min execution time: 85 ticks
+  Max execution time: 223 ticks (WCET)
+  CPU Utilization: 27%
+
+=== SCHEDULABILITY ANALYSIS ===
+Total CPU Utilization: 55.5%
+Rate Monotonic Bound (3 tasks): 78%
+RESULT: SCHEDULABLE! ✓
+
+Total task executions: 80
+Context switches: 80
+============================================
+
+[HIGH] Task execution #49
+[MEDIUM] Task execution #24
+[HIGH] Task execution #50
+[HIGH] Task execution #51
+[MEDIUM] Task execution #25
+[HIGH] Task execution #52
+[HIGH] Task execution #53
+[LOW] Task execution #10
+[MEDIUM] Task execution #26
+[HIGH] Task execution #54
+[HIGH] Task execution #55
+[MEDIUM] Task execution #27
+[HIGH] Task execution #56
+[HIGH] Task execution #57
+[MEDIUM] Task execution #28
+[HIGH] Task execution #58
+[LOW] Task execution #11
+[HIGH] Task execution #59
+[HIGH] Task execution #60
+[MEDIUM] Task execution #29
+[HIGH] Task execution #61
+[HIGH] Task execution #62
+[MEDIUM] Task execution #30
+[HIGH] Task execution #63
+[HIGH] Task execution #64
+[LOW] Task execution #12
+[MEDIUM] Task execution #31
+[HIGH] Task execution #65
+[HIGH] Task execution #66
+[MEDIUM] Task execution #32
+[HIGH] Task execution #67
+[HIGH] Task execution #68
+[MEDIUM] Task execution #33
+[HIGH] Task execution #69
+[LOW] Task execution #13
+[HIGH] Task execution #70
+[MEDIUM] Task execution #34
+[HIGH] Task execution #71
+[HIGH] Task execution #72
+[MEDIUM] Task execution #35
+[HIGH] Task execution #73
+[HIGH] Task execution #74
+[MEDIUM] Task execution #36
+[HIGH] Task execution #75
+[LOW] Task execution #14
+[HIGH] Task execution #76
+[MEDIUM] Task execution #37
+[HIGH] Task execution #77
+[HIGH] Task execution #78
+[MEDIUM] Task execution #38
+[HIGH] Task execution #79
+[HIGH] Task execution #80
+[HIGH] Task execution #81
+[LOW] Task execution #15
+[MEDIUM] Task execution #39
+[HIGH] Task execution #82
+[HIGH] Task execution #83
+[MEDIUM] Task execution #40
+[HIGH] Task execution #84
+[HIGH] Task execution #85
+[MEDIUM] Task execution #41
+[HIGH] Task execution #86
+[LOW] Task execution #16
+[HIGH] Task execution #87
+[MEDIUM] Task execution #42
+[HIGH] Task execution #88
+[HIGH] Task execution #89
+[MEDIUM] Task execution #43
+[HIGH] Task execution #90
+[HIGH] Task execution #91
+[MEDIUM] Task execution #44
+[HIGH] Task execution #92
+[LOW] Task execution #17
+[HIGH] Task execution #93
+[MEDIUM] Task execution #45
+[HIGH] Task execution #94
+
+============================================
+=== REALISTIC SCHEDULER PERFORMANCE REPORT ===
+============================================
+System uptime: 10331 ticks
+
+Task HIGH (Priority 4, Period 100ms):
+  Executions: 94
+  Avg execution time: 10 ticks
+  Min execution time: 9 ticks
+  Max execution time: 18 ticks (WCET)
+  CPU Utilization: 10%
+
+Task MEDIUM (Priority 3, Period 200ms):
+  Executions: 45
+  Avg execution time: 32 ticks
+  Min execution time: 27 ticks
+  Max execution time: 51 ticks (WCET)
+  CPU Utilization: 16%
+
+Task LOW (Priority 2, Period 500ms):
+  Executions: 17
+  Avg execution time: 126 ticks
+  Min execution time: 85 ticks
+  Max execution time: 223 ticks (WCET)
+  CPU Utilization: 25%
+
+=== SCHEDULABILITY ANALYSIS ===
+Total CPU Utilization: 51.2%
+Rate Monotonic Bound (3 tasks): 78%
+RESULT: SCHEDULABLE! ✓
+
+Total task executions: 156
+Context switches: 156
+============================================
+
+[HIGH] Task execution #95
+[MEDIUM] Task execution #46
+[HIGH] Task execution #96
+[HIGH] Task execution #97
+[MEDIUM] Task execution #47
+[HIGH] Task execution #98
+[LOW] Task execution #18
+[HIGH] Task execution #99
+[MEDIUM] Task execution #48
+[HIGH] Task execution #100
+[HIGH] Task execution #101
+[HIGH] Task execution #102
+[MEDIUM] Task execution #49
+[HIGH] Task execution #103
+[LOW] Task execution #19
+[HIGH] Task execution #104
+[MEDIUM] Task execution #50
+[HIGH] Task execution #105
+[HIGH] Task execution #106
+[MEDIUM] Task execution #51
+[HIGH] Task execution #107
+[HIGH] Task execution #108
+[MEDIUM] Task execution #52
+[HIGH] Task execution #109
+[LOW] Task execution #20
+[HIGH] Task execution #110
+[MEDIUM] Task execution #53
+[HIGH] Task execution #111
+[HIGH] Task execution #112
+[MEDIUM] Task execution #54
+[HIGH] Task execution #113
+[HIGH] Task execution #114
+[LOW] Task execution #21
+[MEDIUM] Task execution #55
+[HIGH] Task execution #115
+[HIGH] Task execution #116
+[MEDIUM] Task execution #56
+[HIGH] Task execution #117
+[HIGH] Task execution #118
+[MEDIUM] Task execution #57
+[HIGH] Task execution #119
+[HIGH] Task execution #120
+[LOW] Task execution #22
+[MEDIUM] Task execution #58
+[HIGH] Task execution #121
+[HIGH] Task execution #122
+[MEDIUM] Task execution #59
+[HIGH] Task execution #123
+[HIGH] Task execution #124
+[HIGH] Task execution #125
+[MEDIUM] Task execution #60
+[LOW] Task execution #23
+[HIGH] Task execution #126
+[HIGH] Task execution #127
+[MEDIUM] Task execution #61
+[HIGH] Task execution #128
+[HIGH] Task execution #129
+[MEDIUM] Task execution #62
+[HIGH] Task execution #130
+[HIGH] Task execution #131
+[MEDIUM] Task execution #63
+[LOW] Task execution #24
+[HIGH] Task execution #132
+[HIGH] Task execution #133
+[MEDIUM] Task execution #64
+[HIGH] Task execution #134
+[HIGH] Task execution #135
+[MEDIUM] Task execution #65
+[HIGH] Task execution #136
+[HIGH] Task execution #137
+[LOW] Task execution #25
+[MEDIUM] Task execution #66
+[HIGH] Task execution #138
+[HIGH] Task execution #139
+
+============================================
+=== REALISTIC SCHEDULER PERFORMANCE REPORT ===
+============================================
+System uptime: 15337 ticks
+
+Task HIGH (Priority 4, Period 100ms):
+  Executions: 139
+  Avg execution time: 10 ticks
+  Min execution time: 9 ticks
+  Max execution time: 18 ticks (WCET)
+  CPU Utilization: 10%
+
+Task MEDIUM (Priority 3, Period 200ms):
+  Executions: 66
+  Avg execution time: 32 ticks
+  Min execution time: 27 ticks
+  Max execution time: 51 ticks (WCET)
+  CPU Utilization: 16%
+
+Task LOW (Priority 2, Period 500ms):
+  Executions: 25
+  Avg execution time: 120 ticks
+  Min execution time: 84 ticks
+  Max execution time: 223 ticks (WCET)
+  CPU Utilization: 24%
+
+=== SCHEDULABILITY ANALYSIS ===
+Total CPU Utilization: 50.0%
+Rate Monotonic Bound (3 tasks): 78%
+RESULT: SCHEDULABLE! ✓
+
+Total task executions: 230
+Context switches: 230
+=============================[MEDIUM] Task execution #67
+===============
+
+[HIGH] Task execution #140
+[HIGH] Task execution #141
+[MEDIUM] Task execution #68
+[HIGH] Task execution #142
+[LOW] Task execution #26
+[HIGH] Task execution #143
+[MEDIUM] Task execution #69
+[HIGH] Task execution #144
+[HIGH] Task execution #145
+[MEDIUM] Task execution #70
+[HIGH] Task execution #146
+[HIGH] Task execution #147
+[HIGH] Task execution #148
+[MEDIUM] Task execution #71
+[LOW] Task execution #27
+[HIGH] Task execution #149
+[HIGH] Task execution #150
+[MEDIUM] Task execution #72
+[HIGH] Task execution #151
+[HIGH] Task execution #152
+[MEDIUM] Task execution #73
+[HIGH] Task execution #153
+[LOW] Task execution #28
+[HIGH] Task execution #154
+[MEDIUM] Task execution #74
+[HIGH] Task execution #155
+[HIGH] Task execution #156
+[MEDIUM] Task execution #75
+[HIGH] Task execution #157
+[HIGH] Task execution #158
+[MEDIUM] Task execution #76
+[HIGH] Task execution #159
+[LOW] Task execution #29
+[HIGH] Task execution #160
+[MEDIUM] Task execution #77
+[HIGH] Task execution #161
+[HIGH] Task execution #162
+[MEDIUM] Task execution #78
+[HIGH] Task execution #163
+[HIGH] Task execution #164
+[MEDIUM] Task execution #79
+[HIGH] Task execution #165
+[LOW] Task execution #30
+[HIGH] Task execution #166
+[HIGH] Task execution #167
+[MEDIUM] Task execution #80
+[HIGH] Task execution #168
+[HIGH] Task execution #169
+[MEDIUM] Task execution #81
+[HIGH] Task execution #170
+[LOW] Task execution #31
+[HIGH] Task execution #171
+[MEDIUM] Task execution #82
+[HIGH] Task execution #172
+[HIGH] Task execution #173
+[MEDIUM] Task execution #83
+[HIGH] Task execution #174
+[HIGH] Task execution #175
+[MEDIUM] Task execution #84
+[HIGH] Task execution #176
+[LOW] Task execution #32
+[HIGH] Task execution #177
+[MEDIUM] Task execution #85
+[HIGH] Task execution #178
+[HIGH] Task execution #179
+[MEDIUM] Task execution #86
+[HIGH] Task execution #180
+[HIGH] Task execution #181
+[MEDIUM] Task execution #87
+[HIGH] Task execution #182
+[LOW] Task execution #33
+[HIGH] Task execution #183
+[MEDIUM] Task execution #88
+[HIGH] Task execution #184
+[HIGH] Task execution #185
+
+============================================
+=== REALISTIC SCHEDULER PERFORMANCE REPORT ===
+============================================
+System uptime: 20372 ticks
+
+Task HIGH (Priority 4, Period 100ms):
+  Executions: 185
+  Avg execution time: 10 ticks
+  Min execution time: 9 ticks
+  Max execution time: 18 ticks (WCET)
+  CPU Utilization: 10%
+
+Task MEDIUM (Priority 3, Period 200ms):
+  Executions: 88
+  Avg execution time: 31 ticks
+  Min execution time: 27 ticks
+  Max execution time: 51 ticks (WCET)
+  CPU Utilization: 16%
+
+Task LOW (Priority 2, Period 500ms):
+  Executions: 33
+  Avg execution time: 119 ticks
+  Min execution time: 84 ticks
+  Max execution time: 223 ticks (WCET)
+  CPU Utilization: 24%
+
+=== SCHEDULABILITY ANALYSIS ===
+Total CPU Utilization: 49.3%
+Rate Monotonic Bound (3 tasks): 78%
+RESULT: SCHEDULABLE! ✓
+
+Total task executions: 306
+Context switches: 306
+============================================
+
+[MEDIUM] Task execution #89
+[HIGH] Task execution #186
+[HIGH] Task execution #187
+[LOW] Task execution #34
+[MEDIUM] Task execution #90
+[HIGH] Task execution #188
+[HIGH] Task execution #189
+[HIGH] Task execution #190
+[MEDIUM] Task execution #91
+[HIGH] Task execution #191
+[HIGH] Task execution #192
+[MEDIUM] Task execution #92
+[HIGH] Task execution #193
+[LOW] Task execution #35
+[HIGH] Task execution #194
+[MEDIUM] Task execution #93
+[HIGH] Task execution #195
+[HIGH] Task execution #196
+[MEDIUM] Task execution #94
+[HIGH] Task execution #197
+[HIGH] Task execution #198
+[MEDIUM] Task execution #95
+[HIGH] Task execution #199
+[LOW] Task execution #36
+[HIGH] Task execution #200
+[MEDIUM] Task execution #96
+[HIGH] Task execution #201
+[HIGH] Task execution #202
+[MEDIUM] Task execution #97
+[HIGH] Task execution #203
+[HIGH] Task execution #204
+[LOW] Task execution #37
+[MEDIUM] Task execution #98
+[HIGH] Task execution #205
+[HIGH] Task execution #206
+[MEDIUM] Task execution #99
+[HIGH] Task execution #207
+[HIGH] Task execution #208
+[MEDIUM] Task execution #100
+[HIGH] Task execution #209
+[HIGH] Task execution #210
+[LOW] Task execution #38
+[HIGH] Task execution #211
+[MEDIUM] Task execution #101
+[HIGH] Task execution #212
+[HIGH] Task execution #213
+[MEDIUM] Task execution #102
+[HIGH] Task execution #214
+[HIGH] Task execution #215
+[MEDIUM] Task execution #103
+[LOW] Task execution #39
+[HIGH] Task execution #216
+[HIGH] Task execution #217
+[MEDIUM] Task execution #104
+[HIGH] Task execution #218
+[HIGH] Task execution #219
+[MEDIUM] Task execution #105
+[HIGH] Task execution #220
+[LOW] Task execution #40
+[HIGH] Task execution #221
+[MEDIUM] Task execution #106
+[HIGH] Task execution #222
+[HIGH] Task execution #223
+[MEDIUM] Task execution #107
+[HIGH] Task execution #224
+[HIGH] Task execution #225
+[MEDIUM] Task execution #108
+[HIGH] Task execution #226
+[LOW] Task execution #41
+[HIGH] Task execution #227
+[MEDIUM] Task execution #109
+[HIGH] Task execution #228
+[HIGH] Task execution #229
+[MEDIUM] Task execution #110
+[HIGH] Task execution #230
+
+============================================
+=== REALISTIC SCHEDULER PERFORMANCE REPORT ===
+============================================
+System uptime: 25379 ticks
+
+Task HIGH (Priority 4, Period 100ms):
+  Executions: 230
+  Avg execution time: 10 ticks
+  Min execution time: 9 ticks
+  Max execution time: 18 ticks (WCET)
+  CPU Utilization: 10%
+
+Task MEDIUM (Priority 3, Period 200ms):
+  Executions: 110
+  Avg execution time: 31 ticks
+  Min execution time: 27 ticks
+  Max execution time: 51 ticks (WCET)
+  CPU Utilization: 16%
+
+Task LOW (Priority 2, Period 500ms):
+  Executions: 41
+  Avg execution time: 117 ticks
+  Min execution time: 84 ticks
+  Max execution time: 223 ticks (WCET)
+  CPU Utilization: 23%
+
+=== SCHEDULABILITY ANALYSIS ===
+Total CPU Utilization: 48.9%
+Rate Monotonic Bound (3 tasks): 78%
+RESULT: SCHEDULABLE! ✓
+
+Total task executions: 381
+Context switches: 381
+============================================
+
+Maximum number of reports reached. Stopping demo...
+[HIGH] Task execution #231
+[HIGH] Task execution #232
+[MEDIUM] Task execution #111
+[LOW] Task execution #42
+[HIGH] Task execution #233
+[HIGH] Task execution #234
+[MEDIUM] Task execution #112
+[HIGH] Task execution #235
+[HIGH] Task execution #236
+[MEDIUM] Task execution #113
+[HIGH] Task execution #237
+[LOW] Task execution #43
+[HIGH] Task execution #238
+[MEDIUM] Task execution #114
+[HIGH] Task execution #239
+[HIGH] Task execution #240
+[MEDIUM] Task execution #115
+[HIGH] Task execution #241
+[HIGH] Task execution #242
+[MEDIUM] Task execution #116
+[HIGH] Task execution #243
+[LOW] Task execution #44
+[HIGH] Task execution #244
+[MEDIUM] Task execution #117
+[HIGH] Task execution #245
+[HIGH] Task execution #246
+[MEDIUM] Task execution #118
+[HIGH] Task execution #247
+[HIGH] Task execution #248
+[MEDIUM] Task execution #119
+[HIGH] Task execution #249
+[LOW] Task execution #45

@@ -1,0 +1,546 @@
+Starting Queue Communication Demo (DEMO_ID=11)
+
+*** ADVANCED MULTI-PRIORITY QUEUE COMMUNICATION DEMO ***
+This demo demonstrates advanced queue algorithms:
+1. Priority-based message generation
+2. Multi-queue priority polling
+3. Message integrity verification
+4. Comprehensive performance analytics
+
+All queues created successfully
+Creating Smart Producer task...
+Creating Priority Consumer task...
+Advanced queue demo tasks created successfully!
+Starting FreeRTOS scheduler...
+
+[PRIORITY-CONSUMER] Task started!
+[PRIORITY-CONSUMER] Starting multi-queue priority polling
+[SMART-PRODUCER] Task started!
+[SMART-PRODUCER] Starting priority-based message generation
+[SMART-PRODUCER] Cycle 1
+[PRIORITY-CONSUMER] Processed LOW msg #0, Latency: 1 ticks, Data: 0x1
+[SMART-PRODUCER] Sent LOW priority msg #0, Queue time: 2 ticks
+
+=== ADVANCED QUEUE PERFORMANCE ANALYSIS ===
+CRITICAL Priority Queue:
+  Messages sent: 0
+  Messages received: 0
+  Queue full events: 0
+  Checksum errors: 0
+
+HIGH Priority Queue:
+  Messages sent: 0
+  Messages received: 0
+  Queue full events: 0
+  Checksum errors: 0
+
+NORMAL Priority Queue:
+  Messages sent: 0
+  Messages received: 0
+  Queue full events: 0
+  Checksum errors: 0
+
+LOW Priority Queue:
+  Messages sent: 1
+  Messages received: 1
+  Avg latency: 1 ticks
+  Min latency: 1 ticks
+  Max latency: 1 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+=== SYSTEM PERFORMANCE SUMMARY ===
+Total messages sent: 1
+Total messages received: 1
+Message loss rate: 0.00%
+Error rate: 0.00%
+=======================================
+
+[SMART-PRODUCER] Cycle 2
+[PRIORITY-CONSUMER] Processed LOW msg #1, Latency: 0 ticks, Data: 0x2
+[SMART-PRODUCER] Sent LOW priority msg #1, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 3
+[SMART-PRODUCER] Sent NORMAL priority msg #2, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #2, Latency: 4 ticks, Data: 0x3
+[SMART-PRODUCER] Cycle 4
+[PRIORITY-CONSUMER] Processed LOW msg #3, Latency: 0 ticks, Data: 0x4
+[SMART-PRODUCER] Sent LOW priority msg #3, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 5
+[PRIORITY-CONSUMER] Processed LOW msg #4, Latency: 0 ticks, Data: 0x5
+[SMART-PRODUCER] Sent LOW priority msg #4, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 6
+[SMART-PRODUCER] Sent NORMAL priority msg #5, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #5, Latency: 4 ticks, Data: 0x6
+[SMART-PRODUCER] Cycle 7
+[PRIORITY-CONSUMER] Processed LOW msg #6, Latency: 0 ticks, Data: 0x7
+[SMART-PRODUCER] Sent LOW priority msg #6, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 8
+[PRIORITY-CONSUMER] Processed LOW msg #7, Latency: 0 ticks, Data: 0x8
+[SMART-PRODUCER] Sent LOW priority msg #7, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 9
+[SMART-PRODUCER] Sent NORMAL priority msg #8, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #8, Latency: 5 ticks, Data: 0x9
+[SMART-PRODUCER] Cycle 10
+[SMART-PRODUCER] Sent HIGH priority msg #9, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #9, Latency: 3 ticks, Data: 0x64
+[SMART-PRODUCER] Cycle 11
+[PRIORITY-CONSUMER] Processed LOW msg #10, Latency: 0 ticks, Data: 0xB
+[SMART-PRODUCER] Sent LOW priority msg #10, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 12
+[SMART-PRODUCER] Sent NORMAL priority msg #11, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #11, Latency: 5 ticks, Data: 0xC
+[SMART-PRODUCER] Cycle 13
+[PRIORITY-CONSUMER] Processed LOW msg #12, Latency: 0 ticks, Data: 0xD
+[SMART-PRODUCER] Sent LOW priority msg #12, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 14
+[PRIORITY-CONSUMER] Processed LOW msg #13, Latency: 0 ticks, Data: 0xE
+[SMART-PRODUCER] Sent LOW priority msg #13, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 15
+[SMART-PRODUCER] Sent NORMAL priority msg #14, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #14, Latency: 4 ticks, Data: 0xF
+[SMART-PRODUCER] Cycle 16
+[PRIORITY-CONSUMER] Processed LOW msg #15, Latency: 0 ticks, Data: 0x10
+[SMART-PRODUCER] Sent LOW priority msg #15, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 17
+[PRIORITY-CONSUMER] Processed LOW msg #16, Latency: 0 ticks, Data: 0x11
+[SMART-PRODUCER] Sent LOW priority msg #16, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 18
+[SMART-PRODUCER] Sent NORMAL priority msg #17, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #17, Latency: 4 ticks, Data: 0x12
+[SMART-PRODUCER] Cycle 19
+[PRIORITY-CONSUMER] Processed LOW msg #18, Latency: 0 ticks, Data: 0x13
+[SMART-PRODUCER] Sent LOW priority msg #18, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 20
+[SMART-PRODUCER] Sent HIGH priority msg #19, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #19, Latency: 5 ticks, Data: 0xC8
+[SMART-PRODUCER] Cycle 21
+[SMART-PRODUCER] Sent NORMAL priority msg #20, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #20, Latency: 2 ticks, Data: 0x15
+[SMART-PRODUCER] Cycle 22
+[PRIORITY-CONSUMER] Processed LOW msg #21, Latency: 0 ticks, Data: 0x16
+[SMART-PRODUCER] Sent LOW priority msg #21, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 23
+[PRIORITY-CONSUMER] Processed LOW msg #22, Latency: 0 ticks, Data: 0x17
+[SMART-PRODUCER] Sent LOW priority msg #22, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 24
+[SMART-PRODUCER] Sent NORMAL priority msg #23, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #23, Latency: 4 ticks, Data: 0x18
+[SMART-PRODUCER] Cycle 25
+[PRIORITY-CONSUMER] Processed LOW msg #24, Latency: 0 ticks, Data: 0x19
+[SMART-PRODUCER] Sent LOW priority msg #24, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 26
+[PRIORITY-CONSUMER] Processed LOW msg #25, Latency: 0 ticks, Data: 0x1A
+[SMART-PRODUCER] Sent LOW priority msg #25, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 27
+[SMART-PRODUCER] Sent NORMAL priority msg #26, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #26, Latency: 4 ticks, Data: 0x1B
+[SMART-PRODUCER] Cycle 28
+[PRIORITY-CONSUMER] Processed LOW msg #27, Latency: 0 ticks, Data: 0x1C
+[SMART-PRODUCER] Sent LOW priority msg #27, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 29
+[PRIORITY-CONSUMER] Processed LOW msg #28, Latency: 0 ticks, Data: 0x1D
+[SMART-PRODUCER] Sent LOW priority msg #28, Queue time: 0 ticks
+
+=== ADVANCED QUEUE PERFORMANCE ANALYSIS ===
+CRITICAL Priority Queue:
+  Messages sent: 0
+  Messages received: 0
+  Queue full events: 0
+  Checksum errors: 0
+
+HIGH Priority Queue:
+  Messages sent: 2
+  Messages received: 2
+  Avg latency: 4 ticks
+  Min latency: 3 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+NORMAL Priority Queue:
+  Messages sent: 9
+  Messages received: 9
+  Avg latency: 4 ticks
+  Min latency: 2 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+LOW Priority Queue:
+  Messages sent: 18
+  Messages received: 18
+  Avg latency: 0 ticks
+  Min latency: 0 ticks
+  Max latency: 1 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+=== SYSTEM PERFORMANCE SUMMARY ===
+Total messages sent: 29
+Total messages received: 29
+Message loss rate: 0.00%
+Error rate: 0.00%
+=======================================
+
+[SMART-PRODUCER] Cycle 30
+[SMART-PRODUCER] Sent HIGH priority msg #29, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #29, Latency: 5 ticks, Data: 0x12C
+[SMART-PRODUCER] Cycle 31
+[PRIORITY-CONSUMER] Processed LOW msg #30, Latency: 0 ticks, Data: 0x1F
+[SMART-PRODUCER] Sent LOW priority msg #30, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 32
+[PRIORITY-CONSUMER] Processed LOW msg #31, Latency: 0 ticks, Data: 0x20
+[SMART-PRODUCER] Sent LOW priority msg #31, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 33
+[SMART-PRODUCER] Sent NORMAL priority msg #32, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #32, Latency: 3 ticks, Data: 0x21
+[SMART-PRODUCER] Cycle 34
+[PRIORITY-CONSUMER] Processed LOW msg #33, Latency: 0 ticks, Data: 0x22
+[SMART-PRODUCER] Sent LOW priority msg #33, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 35
+[PRIORITY-CONSUMER] Processed LOW msg #34, Latency: 0 ticks, Data: 0x23
+[SMART-PRODUCER] Sent LOW priority msg #34, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 36
+[SMART-PRODUCER] Sent NORMAL priority msg #35, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #35, Latency: 5 ticks, Data: 0x24
+[SMART-PRODUCER] Cycle 37
+[PRIORITY-CONSUMER] Processed LOW msg #36, Latency: 0 ticks, Data: 0x25
+[SMART-PRODUCER] Sent LOW priority msg #36, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 38
+[PRIORITY-CONSUMER] Processed LOW msg #37, Latency: 0 ticks, Data: 0x26
+[SMART-PRODUCER] Sent LOW priority msg #37, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 39
+[SMART-PRODUCER] Sent NORMAL priority msg #38, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #38, Latency: 4 ticks, Data: 0x27
+[SMART-PRODUCER] Cycle 40
+[SMART-PRODUCER] Sent HIGH priority msg #39, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #39, Latency: 1 ticks, Data: 0x190
+[SMART-PRODUCER] Cycle 41
+[PRIORITY-CONSUMER] Processed LOW msg #40, Latency: 0 ticks, Data: 0x29
+[SMART-PRODUCER] Sent LOW priority msg #40, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 42
+[SMART-PRODUCER] Sent NORMAL priority msg #41, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #41, Latency: 5 ticks, Data: 0x2A
+[SMART-PRODUCER] Cycle 43
+[PRIORITY-CONSUMER] Processed LOW msg #42, Latency: 0 ticks, Data: 0x2B
+[SMART-PRODUCER] Sent LOW priority msg #42, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 44
+[PRIORITY-CONSUMER] Processed LOW msg #43, Latency: 0 ticks, Data: 0x2C
+[SMART-PRODUCER] Sent LOW priority msg #43, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 45
+[SMART-PRODUCER] Sent NORMAL priority msg #44, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #44, Latency: 5 ticks, Data: 0x2D
+[SMART-PRODUCER] Cycle 46
+[PRIORITY-CONSUMER] Processed LOW msg #45, Latency: 0 ticks, Data: 0x2E
+[SMART-PRODUCER] Sent LOW priority msg #45, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 47
+[PRIORITY-CONSUMER] Processed LOW msg #46, Latency: 0 ticks, Data: 0x2F
+[SMART-PRODUCER] Sent LOW priority msg #46, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 48
+[SMART-PRODUCER] Sent NORMAL priority msg #47, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #47, Latency: 4 ticks, Data: 0x30
+[SMART-PRODUCER] Cycle 49
+[PRIORITY-CONSUMER] Processed LOW msg #48, Latency: 0 ticks, Data: 0x31
+[SMART-PRODUCER] Sent LOW priority msg #48, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 50
+[SMART-PRODUCER] Sent CRITICAL priority msg #49, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed CRITICAL msg #49, Latency: 5 ticks, Data: 0xDEADBEEF
+[SMART-PRODUCER] Cycle 51
+[SMART-PRODUCER] Sent NORMAL priority msg #50, Queue time: 0[PRIORITY-CONSUMER] Processed NORMAL msg #50, Latency: 1 ticks, Data: 0x33
+ ticks
+
+=== ADVANCED QUEUE PERFORMANCE ANALYSIS ===
+CRITICAL Priority Queue:
+  Messages sent: 1
+  Messages received: 1
+  Avg latency: 5 ticks
+  Min latency: 5 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+HIGH Priority Queue:
+  Messages sent: 4
+  Messages received: 4
+  Avg latency: 3 ticks
+  Min latency: 1 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+NORMAL Priority Queue:
+  Messages sent: 16
+  Messages received: 16
+  Avg latency: 3 ticks
+  Min latency: 1 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+LOW Priority Queue:
+  Messages sent: 30
+  Messages received: 30
+  Avg latency: 0 ticks
+  Min latency: 0 ticks
+  Max latency: 1 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+=== SYSTEM PERFORMANCE SUMMARY ===
+Total messages sent: 51
+Total messages received: 51
+Message loss rate: 0.00%
+Error rate: 0.00%
+=======================================
+
+[SMART-PRODUCER] Cycle 52
+[PRIORITY-CONSUMER] Processed LOW msg #51, Latency: 0 ticks, Data: 0x34
+[SMART-PRODUCER] Sent LOW priority msg #51, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 53
+[PRIORITY-CONSUMER] Processed LOW msg #52, Latency: 0 ticks, Data: 0x35
+[SMART-PRODUCER] Sent LOW priority msg #52, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 54
+[SMART-PRODUCER] Sent NORMAL priority msg #53, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #53, Latency: 4 ticks, Data: 0x36
+[SMART-PRODUCER] Cycle 55
+[PRIORITY-CONSUMER] Processed LOW msg #54, Latency: 0 ticks, Data: 0x37
+[SMART-PRODUCER] Sent LOW priority msg #54, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 56
+[PRIORITY-CONSUMER] Processed LOW msg #55, Latency: 0 ticks, Data: 0x38
+[SMART-PRODUCER] Sent LOW priority msg #55, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 57
+[SMART-PRODUCER] Sent NORMAL priority msg #56, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #56, Latency: 4 ticks, Data: 0x39
+[SMART-PRODUCER] Cycle 58
+[PRIORITY-CONSUMER] Processed LOW msg #57, Latency: 0 ticks, Data: 0x3A
+[SMART-PRODUCER] Sent LOW priority msg #57, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 59
+[PRIORITY-CONSUMER] Processed LOW msg #58, Latency: 0 ticks, Data: 0x3B
+[SMART-PRODUCER] Sent LOW priority msg #58, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 60
+[SMART-PRODUCER] Sent HIGH priority msg #59, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #59, Latency: 5 ticks, Data: 0x258
+[SMART-PRODUCER] Cycle 61
+[PRIORITY-CONSUMER] Processed LOW msg #60, Latency: 0 ticks, Data: 0x3D
+[SMART-PRODUCER] Sent LOW priority msg #60, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 62
+[PRIORITY-CONSUMER] Processed LOW msg #61, Latency: 0 ticks, Data: 0x3E
+[SMART-PRODUCER] Sent LOW priority msg #61, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 63
+[SMART-PRODUCER] Sent NORMAL priority msg #62, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #62, Latency: 4 ticks, Data: 0x3F
+[SMART-PRODUCER] Cycle 64
+[PRIORITY-CONSUMER] Processed LOW msg #63, Latency: 0 ticks, Data: 0x40
+[SMART-PRODUCER] Sent LOW priority msg #63, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 65
+[PRIORITY-CONSUMER] Processed LOW msg #64, Latency: 0 ticks, Data: 0x41
+[SMART-PRODUCER] Sent LOW priority msg #64, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 66
+[SMART-PRODUCER] Sent NORMAL priority msg #65, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #65, Latency: 5 ticks, Data: 0x42
+[SMART-PRODUCER] Cycle 67
+[PRIORITY-CONSUMER] Processed LOW msg #66, Latency: 0 ticks, Data: 0x43
+[SMART-PRODUCER] Sent LOW priority msg #66, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 68
+[PRIORITY-CONSUMER] Processed LOW msg #67, Latency: 0 ticks, Data: 0x44
+[SMART-PRODUCER] Sent LOW priority msg #67, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 69
+[SMART-PRODUCER] Sent NORMAL priority msg #68, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #68, Latency: 4 ticks, Data: 0x45
+[SMART-PRODUCER] Cycle 70
+[SMART-PRODUCER] Sent HIGH priority msg #69, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #69, Latency: 2 ticks, Data: 0x2BC
+[SMART-PRODUCER] Cycle 71
+[PRIORITY-CONSUMER] Processed LOW msg #70, Latency: 0 ticks, Data: 0x47
+[SMART-PRODUCER] Sent LOW priority msg #70, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 72
+[SMART-PRODUCER] Sent NORMAL priority msg #71, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #71, Latency: 4 ticks, Data: 0x48
+[SMART-PRODUCER] Cycle 73
+[PRIORITY-CONSUMER] Processed LOW msg #72, Latency: 0 ticks, Data: 0x49
+[SMART-PRODUCER] Sent LOW priority msg #72, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 74
+[PRIORITY-CONSUMER] Processed LOW msg #73, Latency: 0 ticks, Data: 0x4A
+[SMART-PRODUCER] Sent LOW priority msg #73, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 75
+[SMART-PRODUCER] Sent NORMAL priority msg #74, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #74, Latency: 4 ticks, Data: 0x4B
+[SMART-PRODUCER] Cycle 76
+[PRIORITY-CONSUMER] Processed LOW msg #75, Latency: 0 ticks, Data: 0x4C
+[SMART-PRODUCER] Sent LOW priority msg #75, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 77
+[PRIORITY-CONSUMER] Processed LOW msg #76, Latency: 0 ticks, Data: 0x4D
+[SMART-PRODUCER] Sent LOW priority msg #76, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 78
+[SMART-PRODUCER] Sent NORMAL priority msg #77, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #77, Latency: 4 ticks, Data: 0x4E
+[SMART-PRODUCER] Cycle 79
+[PRIORITY-CONSUMER] Processed LOW msg #78, Latency: 0 ticks, Data: 0x4F
+[SMART-PRODUCER] Sent LOW priority msg #78, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 80
+[SMART-PRODUCER] Sent HIGH priority msg #79, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #79, Latency: 5 ticks, Data: 0x320
+
+=== ADVANCED QUEUE PERFORMANCE ANALYSIS ===
+CRITICAL Priority Queue:
+  Messages sent: 1
+  Messages received: 1
+  Avg latency: 5 ticks
+  Min latency: 5 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+HIGH Priority Queue:
+  Messages sent: 7
+  Messages received: 7
+  Avg latency: 3 ticks
+  Min latency: 1 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+NORMAL Priority Queue:
+  Messages sent: 24
+  Messages received: 24
+  Avg latency: 4 ticks
+  Min latency: 1 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+LOW Priority Queue:
+  Messages sent: 48
+  Messages received: 48
+  Avg latency: 0 ticks
+  Min latency: 0 ticks
+  Max latency: 1 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+=== SYSTEM PERFORMANCE SUMMARY ===
+Total messages sent: 80
+Total messages received: 80
+Message loss rate: 0.00%
+Error rate: 0.00%
+=======================================
+
+[SMART-PRODUCER] Cycle 81
+[SMART-PRODUCER] Sent NORMAL priority msg #80, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #80, Latency: 5 ticks, Data: 0x51
+[SMART-PRODUCER] Cycle 82
+[PRIORITY-CONSUMER] Processed LOW msg #81, Latency: 0 ticks, Data: 0x52
+[SMART-PRODUCER] Sent LOW priority msg #81, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 83
+[PRIORITY-CONSUMER] Processed LOW msg #82, Latency: 0 ticks, Data: 0x53
+[SMART-PRODUCER] Sent LOW priority msg #82, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 84
+[SMART-PRODUCER] Sent NORMAL priority msg #83, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #83, Latency: 5 ticks, Data: 0x54
+[SMART-PRODUCER] Cycle 85
+[PRIORITY-CONSUMER] Processed LOW msg #84, Latency: 0 ticks, Data: 0x55
+[SMART-PRODUCER] Sent LOW priority msg #84, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 86
+[PRIORITY-CONSUMER] Processed LOW msg #85, Latency: 0 ticks, Data: 0x56
+[SMART-PRODUCER] Sent LOW priority msg #85, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 87
+[SMART-PRODUCER] Sent NORMAL priority msg #86, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #86, Latency: 4 ticks, Data: 0x57
+[SMART-PRODUCER] Cycle 88
+[PRIORITY-CONSUMER] Processed LOW msg #87, Latency: 0 ticks, Data: 0x58
+[SMART-PRODUCER] Sent LOW priority msg #87, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 89
+[PRIORITY-CONSUMER] Processed LOW msg #88, Latency: 0 ticks, Data: 0x59
+[SMART-PRODUCER] Sent LOW priority msg #88, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 90
+[SMART-PRODUCER] Sent HIGH priority msg #89, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed HIGH msg #89, Latency: 5 ticks, Data: 0x384
+[SMART-PRODUCER] Cycle 91
+[PRIORITY-CONSUMER] Processed LOW msg #90, Latency: 0 ticks, Data: 0x5B
+[SMART-PRODUCER] Sent LOW priority msg #90, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 92
+[PRIORITY-CONSUMER] Processed LOW msg #91, Latency: 0 ticks, Data: 0x5C
+[SMART-PRODUCER] Sent LOW priority msg #91, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 93
+[SMART-PRODUCER] Sent NORMAL priority msg #92, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #92, Latency: 3 ticks, Data: 0x5D
+[SMART-PRODUCER] Cycle 94
+[PRIORITY-CONSUMER] Processed LOW msg #93, Latency: 0 ticks, Data: 0x5E
+[SMART-PRODUCER] Sent LOW priority msg #93, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 95
+[PRIORITY-CONSUMER] Processed LOW msg #94, Latency: 0 ticks, Data: 0x5F
+[SMART-PRODUCER] Sent LOW priority msg #94, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 96
+[SMART-PRODUCER] Sent NORMAL priority msg #95, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #95, Latency: 3 ticks, Data: 0x60
+[SMART-PRODUCER] Cycle 97
+[PRIORITY-CONSUMER] Processed LOW msg #96, Latency: 0 ticks, Data: 0x61
+[SMART-PRODUCER] Sent LOW priority msg #96, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 98
+[PRIORITY-CONSUMER] Processed LOW msg #97, Latency: 0 ticks, Data: 0x62
+[SMART-PRODUCER] Sent LOW priority msg #97, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 99
+[SMART-PRODUCER] Sent NORMAL priority msg #98, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #98, Latency: 3 ticks, Data: 0x63
+[SMART-PRODUCER] Cycle 100
+[SMAR[PRIORITY-CONSUMER] Processed CRITICAL msg #99, Latency: 1 ticks, Data: 0xDEADBEEF
+T-PRODUCER] Sent CRITICAL priority msg #99, Queue time: 0 ticks
+[SMART-PRODUCER] Cycle 101
+[PRIORITY-CONSUMER] Processed LOW msg #100, Latency: 0 ticks, Data: 0x65
+[SMART-PRODUCER] Sent LOW priority msg #100, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 102
+[SMART-PRODUCER] Sent NORMAL priority msg #101, Queue time: 0 ticks
+[PRIORITY-CONSUMER] Processed NORMAL msg #101, Latency: 3 ticks, Data: 0x66
+[SMART-PRODUCER] Cycle 103
+[PRIORITY-CONSUMER] Processed LOW msg #102, Latency: 0 ticks, Data: 0x67
+[SMART-PRODUCER] Sent LOW priority msg #102, Queue time: 1 ticks
+[SMART-PRODUCER] Cycle 104
+[PRIORITY-CONSUMER] Processed LOW msg #103, Latency: 0 ticks, Data: 0x68
+[SMART-PRODUCER] Sent LOW priority msg #103, Queue time: 1 ticks
+
+=== ADVANCED QUEUE PERFORMANCE ANALYSIS ===
+CRITICAL Priority Queue:
+  Messages sent: 2
+  Messages received: 2
+  Avg latency: 3 ticks
+  Min latency: 1 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+HIGH Priority Queue:
+  Messages sent: 8
+  Messages received: 8
+  Avg latency: 3 ticks
+  Min latency: 1 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+NORMAL Priority Queue:
+  Messages sent: 31
+  Messages received: 31
+  Avg latency: 3 ticks
+  Min latency: 1 ticks
+  Max latency: 5 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+LOW Priority Queue:
+  Messages sent: 63
+  Messages received: 63
+  Avg latency: 0 ticks
+  Min latency: 0 ticks
+  Max latency: 1 ticks
+  Queue full events: 0
+  Checksum errors: 0
+
+=== SYSTEM PERFORMANCE SUMMARY ===
+Total messages sent: 104
+Total messages received: 104
+Message loss rate: 0.00%
+Error rate: 0.00%
+=======================================
+
+Demo completed after 500 cycles, exiting...
+[SMART-PRODUCER] Demo complete, task exiting...

@@ -1,0 +1,116 @@
+FreeRTOS Performance Analysis Report
+==================================================
+Generated: 2025-06-01 16:37:18
+Platform: RISC-V (QEMU emulation)
+
+CONTEXT TEST RESULTS
+----------------------------------------
+
+Context Switch:
+  Average: 24363.6 ± 9201.0 cycles
+  Min observed: 7754 cycles
+  Max observed: 11126974 cycles
+  WCET (95%): 9772341.4 cycles
+  WCET (99%): 10856047.5 cycles
+  Jitter ratio: 490.1x
+  Coefficient of variation: 0.378
+  Time estimates (25 MHz): 974.5 µs avg, 390893.7 µs WCET
+
+MEMORY TEST RESULTS
+----------------------------------------
+
+Small Malloc:
+  Average: 1563.0 ± 197.3 cycles
+  Min observed: 945 cycles
+  Max observed: 90805 cycles
+  WCET (95%): 86602.0 cycles
+  WCET (99%): 89964.4 cycles
+  Jitter ratio: 70.0x
+  Coefficient of variation: 0.126
+  Time estimates (25 MHz): 62.5 µs avg, 3464.1 µs WCET
+
+Small Free:
+  Average: 5163.8 ± 164.9 cycles
+  Min observed: 889 cycles
+  Max observed: 669374 cycles
+  WCET (95%): 650317.6 cycles
+  WCET (99%): 665562.7 cycles
+  Jitter ratio: 574.6x
+  Coefficient of variation: 0.032
+  Time estimates (25 MHz): 206.6 µs avg, 26012.7 µs WCET
+
+Medium Malloc:
+  Average: 1761.8 ± 318.3 cycles
+  Min observed: 945 cycles
+  Max observed: 154240 cycles
+  WCET (95%): 147852.0 cycles
+  WCET (99%): 152962.4 cycles
+  Jitter ratio: 112.1x
+  Coefficient of variation: 0.181
+  Time estimates (25 MHz): 70.5 µs avg, 5914.1 µs WCET
+
+Medium Free:
+  Average: 1440.4 ± 412.9 cycles
+  Min observed: 877 cycles
+  Max observed: 96740 cycles
+  WCET (95%): 96696.8 cycles
+  WCET (99%): 96731.4 cycles
+  Jitter ratio: 61.8x
+  Coefficient of variation: 0.287
+  Time estimates (25 MHz): 57.6 µs avg, 3867.9 µs WCET
+
+QUEUE TEST RESULTS
+----------------------------------------
+
+Queue Send:
+  Average: 15723.6 ± 314.0 cycles
+  Min observed: 5669 cycles
+  Max observed: 1391563 cycles
+  WCET (95%): 1362507.6 cycles
+  WCET (99%): 1385751.9 cycles
+  Jitter ratio: 136.0x
+  Coefficient of variation: 0.020
+  Time estimates (25 MHz): 628.9 µs avg, 54500.3 µs WCET
+
+SYNCHRONIZATION TEST RESULTS
+----------------------------------------
+
+Semaphore Give:
+  Average: 1907.0 ± 89.3 cycles
+  Min observed: 1022 cycles
+  Max observed: 212673 cycles
+  WCET (95%): 208187.4 cycles
+  WCET (99%): 211775.9 cycles
+  Jitter ratio: 170.3x
+  Coefficient of variation: 0.047
+  Time estimates (25 MHz): 76.3 µs avg, 8327.5 µs WCET
+
+Semaphore Take:
+  Average: 2629.8 ± 241.7 cycles
+  Min observed: 922 cycles
+  Max observed: 529188 cycles
+  WCET (95%): 507703.2 cycles
+  WCET (99%): 524891.0 cycles
+  Jitter ratio: 444.6x
+  Coefficient of variation: 0.092
+  Time estimates (25 MHz): 105.2 µs avg, 20308.1 µs WCET
+
+Mutex Give:
+  Average: 2401.4 ± 267.2 cycles
+  Min observed: 1173 cycles
+  Max observed: 224346 cycles
+  WCET (95%): 223872.4 cycles
+  WCET (99%): 224251.3 cycles
+  Jitter ratio: 173.1x
+  Coefficient of variation: 0.111
+  Time estimates (25 MHz): 96.1 µs avg, 8954.9 µs WCET
+
+Mutex Take:
+  Average: 1897.0 ± 120.3 cycles
+  Min observed: 1009 cycles
+  Max observed: 222170 cycles
+  WCET (95%): 219739.2 cycles
+  WCET (99%): 221683.8 cycles
+  Jitter ratio: 197.3x
+  Coefficient of variation: 0.063
+  Time estimates (25 MHz): 75.9 µs avg, 8789.6 µs WCET
