@@ -1,94 +1,136 @@
-NEXTPNR_XILINX_DIR ?= /openxc7/current/opt/nextpnr-xilinx
-NEXTPNR_XILINX_PYTHON_DIR ?= ${NEXTPNR_XILINX_DIR}/python
+SHELL := /bin/bash
 
-PREFIX ?= /openxc7
-PYPY3 ?= pypy3
+CROSS ?= riscv64-unknown-elf-
+CC := $(CROSS)gcc
+OBJCOPY := $(CROSS)objcopy
+OBJDUMP := $(CROSS)objdump
+SIZE := $(CROSS)size
 
-PRJXRAY_DB_DIR ?= ${NEXTPNR_XILINX_DIR}/external/prjxray-db
+APP ?= hello
+SW_DIR := 2.sw
+HW_DIR := 1.hw
+BUILD_DIR := 3.build
 
-DB_DIR=${PREFIX}/opt/nextpnr-xilinx/external/prjxray-db
-CHIPDB=./chipdb
+FIRMWARE_ELF := $(SW_DIR)/$(APP).elf
+FIRMWARE_BIN := $(SW_DIR)/$(APP).bin
+FIRMWARE_MAP := $(SW_DIR)/$(APP).map
+FIRMWARE_LDS := $(SW_DIR)/main.lds
+FIRMWARE_DISASM := $(SW_DIR)/$(APP).disassembly.txt
+PROGMEM_V := $(HW_DIR)/src/progmem.v
+APP_SOURCES := $(SW_DIR)/$(APP).c
 
-#PART = xc7a100tcsg324-1
-PART = xc7a35tcpg236-1
+ifeq ($(APP),main)
+APP_SOURCES += $(SW_DIR)/uart.c
+endif
 
-CURR_DIR := $(CURDIR)
-SW_DIR := $(CURR_DIR)/2.sw
+GOWIN ?= gw_sh
+GOWIN_ENV ?=
+GOWIN_PROJECT := $(HW_DIR)/tang_nano_9k_uart_hello.gprj
+GOWIN_SCRIPT := build.tcl
+BITSTREAM ?= $(HW_DIR)/impl/pnr/uart_hello.fs
+APP_BITSTREAM ?= $(HW_DIR)/impl/pnr/tetrisaraj_app.fs
+HDMI_TEST_BITSTREAM ?= $(HW_DIR)/impl/pnr/hdmi_test.fs
+HDMI_640_TEST_BITSTREAM ?= $(HW_DIR)/impl/pnr/hdmi_640_test.fs
 
-SRC_DIR0 = 1.hw
-SRC_DIR1 = 1.hw/ip.cpu
-SRC_DIR2 = 1.hw/ip.vga
-SRC_DIR3 = 1.hw/ip.misc
-SRC_DIR4 = 1.hw/ip.display
+OPENFPGALOADER ?= openFPGALoader
+BOARD ?= tangnano9k
+SERIAL_PORT ?= /dev/ttyUSB1
+UART_BAUD ?= 115200
+UART_CLKDIV ?= 234
 
-SRC_FILES0 := $(wildcard $(CURR_DIR)/$(SRC_DIR0)/*.v)
-SRC_FILES1a := $(CURR_DIR)/$(SRC_DIR1)/picorv32.v
-SRC_FILES1b := $(CURR_DIR)/$(SRC_DIR1)/picosoc_noflash.v
-SRC_FILES2 := $(wildcard $(CURR_DIR)/$(SRC_DIR2)/*.v)
-SRC_FILES3 := $(wildcard $(CURR_DIR)/$(SRC_DIR3)/*.v)
-SRC_FILES4 := $(wildcard $(CURR_DIR)/$(SRC_DIR4)/*.v)
-SRC_FILES5 := $(wildcard $(CURR_DIR)/*.v)
+CFLAGS ?= -Os
+CFLAGS += -march=rv32im -mabi=ilp32
+CFLAGS += -ffreestanding -nostdlib -nostartfiles -fno-builtin
+CFLAGS += -Wall -Wextra -Wno-main -DUART_CLKDIV=$(UART_CLKDIV)
 
-XDC_FILE := $(CURR_DIR)/$(SRC_DIR0)/top.basys3.xdc
-TOP_FILE := $(CURR_DIR)/$(SRC_DIR0)/top.basys3.v
+LDFLAGS := -march=rv32im -mabi=ilp32
+LDFLAGS += -Wl,--build-id=none,-Bstatic,-T,$(FIRMWARE_LDS),-Map,$(FIRMWARE_MAP),--strip-debug
 
-.PHONY: all
-all: top.bit
+.PHONY: all firmware bitstream bitstream-app bitstream-hdmi bitstream-hdmi-640 flash flash-sram flash-app flash-hdmi flash-hdmi-640 flash-flash serial clean clean_fw clean_hw help
 
-.PHONY: program
-program: top.bit
-	openFPGALoader --board basys3 --bitstream $<
-	
-top.json: $(TOP_FILE) $(SRC_FILES1b) $(SRC_FILES1a) $(SRC_FILES2) $(SRC_FILES3) $(SRC_FILES4) $(SRC_FILES5)
-	yosys -p "synth_xilinx -flatten -abc9 -arch xc7 -top top; write_json top.json" $(TOP_FILE) $(SRC_FILES1b) $(SRC_FILES1a) $(SRC_FILES2) $(SRC_FILES3) $(SRC_FILES4) $(SRC_FILES5)
+all: bitstream
 
-# The chip database only needs to be generated once
-# that is why we don't clean it with make clean
-${CHIPDB}/${PART}.bin:
-	python3 /opt/nextpnr-xilinx/xilinx/python/bbaexport.py --device ${PART} --bba ${PART}.bba
-	bbasm -l ${PART}.bba ${CHIPDB}/${PART}.bin
-	rm -f ${PART}.bba
-	
-	
-top.fasm: top.json ${CHIPDB}/${PART}.bin
-	nextpnr-xilinx --chipdb ${CHIPDB}/${PART}.bin --xdc $(XDC_FILE) --json top.json --fasm $@ --verbose --debug
-	
-top.frames: top.fasm
-	fasm2frames --part ${PART} --db-root ${DB_DIR}/artix7 $< > $@ #FIXME: fasm2frames should be on PATH
+firmware: $(PROGMEM_V)
 
-top.bit: top.frames
-	xc7frames2bit --part_file /opt/nextpnr-xilinx/xilinx/external/prjxray-db/artix7/${PART}/part.yaml --part_name ${PART} --frm_file $< --output_file $@
-	
-	#Install gcc package: apt install gcc-riscv64-unknown-elf
-CROSS=riscv64-unknown-elf-
-CFLAGS=
+$(FIRMWARE_LDS): $(SW_DIR)/sections.lds
+	$(CC) -E -P -x c -o $@ $<
 
+$(FIRMWARE_ELF): $(FIRMWARE_LDS) $(SW_DIR)/start.s $(APP_SOURCES) Makefile
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(SW_DIR)/start.s $(APP_SOURCES)
+	$(SIZE) $@
+	$(OBJDUMP) -d $@ > $(FIRMWARE_DISASM)
 
+$(FIRMWARE_BIN): $(FIRMWARE_ELF)
+	$(OBJCOPY) -O binary $< $@
 
-hex: $(SW_DIR)/main.elf
-	$(CROSS)objcopy -O verilog $< $(SW_DIR)/main.hex
+$(PROGMEM_V): $(FIRMWARE_BIN) progmem.py
+	python3 progmem.py $< $@
 
-firmware: $(SW_DIR)/main.elf
-	$(CROSS)objcopy -O binary $< $(SW_DIR)/main.bin
-	python progmem.py
+bitstream: firmware
+	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) $(GOWIN_SCRIPT)
 
-$(SW_DIR)/main.elf: $(SW_DIR)/main.lds $(SW_DIR)/start.s $(SW_DIR)/main.c $(SW_DIR)/uart.c $(SW_DIR)/uart.h
-	$(CROSS)gcc $(CFLAGS) -march=rv32im -mabi=ilp32 -Wl,--build-id=none,-Bstatic,-T,$(SW_DIR)/main.lds,-Map,$(SW_DIR)/main.map,--strip-debug -ffreestanding -nostdlib -o $@ $(SW_DIR)/start.s $(SW_DIR)/main.c $(SW_DIR)/uart.c
+bitstream-app:
+	$(MAKE) firmware APP=main CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
+	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) build_app.tcl
 
-$(SW_DIR)/main.lds: $(SW_DIR)/sections.lds
-	$(CROSS)cpp -P -o $@ $<
+bitstream-hdmi:
+	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) build_hdmi_test.tcl
 
-.PHONY: clean
-clean:
-	@rm -f *.bit
-	@rm -f *.frames
-	@rm -f *.fasm
-	@rm -f *.json
+bitstream-hdmi-640:
+	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) build_hdmi_640_test.tcl
+
+flash flash-sram: bitstream
+	$(OPENFPGALOADER) -b $(BOARD) $(BITSTREAM)
+
+flash-app: bitstream-app
+	$(OPENFPGALOADER) -b $(BOARD) $(APP_BITSTREAM)
+
+flash-hdmi: bitstream-hdmi
+	$(OPENFPGALOADER) -b $(BOARD) $(HDMI_TEST_BITSTREAM)
+
+flash-hdmi-640: bitstream-hdmi-640
+	$(OPENFPGALOADER) -b $(BOARD) $(HDMI_640_TEST_BITSTREAM)
+
+flash-flash: bitstream
+	$(OPENFPGALOADER) -b $(BOARD) -f $(BITSTREAM)
+
+serial:
+	python3 -m serial.tools.miniterm $(SERIAL_PORT) $(UART_BAUD)
+
+clean: clean_fw clean_hw
+
 clean_fw:
-	rm -f $(CURR_DIR)/2.sw/main.elf
-	rm -f $(CURR_DIR)/2.sw/main.lds
-	rm -f $(CURR_DIR)/2.sw/main.map
-	rm -f $(CURR_DIR)/2.sw/main.bin
-	rm -f progmem.v
-	rm -f firmware.hex
-	rm -f $(CURR_DIR)/2.sw/main.hex
+	rm -f $(FIRMWARE_ELF) $(FIRMWARE_BIN) $(FIRMWARE_MAP) $(FIRMWARE_DISASM) $(FIRMWARE_LDS)
+
+clean_hw:
+	rm -rf $(HW_DIR)/impl $(HW_DIR)/obj $(HW_DIR)/temp
+
+help:
+	@echo "Tang Nano 9K bare-metal build"
+	@echo ""
+	@echo "Firmware only:"
+	@echo "  make firmware"
+	@echo "  make firmware APP=timer_hello"
+	@echo "  make firmware APP=irq_hello"
+	@echo ""
+	@echo "Gowin bitstream:"
+	@echo "  make bitstream"
+	@echo "  make bitstream APP=timer_hello"
+	@echo "  make bitstream APP=irq_hello"
+	@echo "  make bitstream-app"
+	@echo "  make bitstream-hdmi"
+	@echo "  make bitstream-hdmi-640"
+	@echo ""
+	@echo "Flash SRAM:"
+	@echo "  make flash"
+	@echo "  make flash APP=timer_hello"
+	@echo "  make flash APP=irq_hello"
+	@echo "  make flash-app"
+	@echo "  make flash-hdmi"
+	@echo "  make flash-hdmi-640"
+	@echo ""
+	@echo "Open serial:"
+	@echo "  make serial SERIAL_PORT=/dev/ttyUSB1"
+	@echo ""
+	@echo "Optional: build the old game firmware instead of hello:"
+	@echo "  make firmware APP=main"

@@ -1,0 +1,27 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/ip.cpu/picorv32.v" type="file.verilog" enable="1"/>
+        <File path="src/ip.cpu/simpleuart.v" type="file.verilog" enable="1"/>
+        <File path="src/ip.cpu/picosoc_noflash.v" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/fpgatech_lib/GOWIN/fpga_oddr.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/fpgatech_lib/GOWIN/fpga_olvds.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/fpgatech_lib/GOWIN/fpga_oser10.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/fpgatech_lib/GOWIN/fpga_pll.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/hdmi_pkg.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/hdmi_tdms_enc.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/hdmi_backend.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.hdmi/hdmi_wrapper.sv" type="file.verilog" enable="1"/>
+        <File path="src/ip.vga/vga_map_ram.v" type="file.verilog" enable="1"/>
+        <File path="src/ip.vga/vga_ram.v" type="file.verilog" enable="1"/>
+        <File path="src/progmem.v" type="file.verilog" enable="1"/>
+        <File path="src/top.v" type="file.verilog" enable="1"/>
+        <File path="constraints/pinout.cst" type="file.cst" enable="1"/>
+        <File path="constraints/timing.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

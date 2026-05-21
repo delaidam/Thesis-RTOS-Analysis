@@ -8,3 +8,15 @@
 *pnr*
 *temp*
 
+# Gowin/generated hardware build output
+1.hw/impl/
+1.hw/obj/
+1.hw/temp/
+*.gprj.user
+
+# Firmware build output
+2.sw/*.elf
+2.sw/*.bin
+2.sw/*.map
+2.sw/*.disassembly.txt
+2.sw/main.lds

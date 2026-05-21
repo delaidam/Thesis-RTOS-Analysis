@@ -1,13 +1,12 @@
 module top (
     input 	clk_27,		// 100MHz on Basys 3 //27MHz on TangNano9k
 	
-	input 	btnC,		// btnCenter on Basys 3
-	input	btnU,		// btnUp on Basys 3
-	input 	btnD,		// btnDown on Basys 3
 	input 	btnL,		// btnLeft on Basys 3
 	input	btnR,		// btnRight on Basys 3
 
     output  [5:0] led_n,
+    input uart_rx,
+    output uart_tx,
 
     //HDMI output, goes directly to connector
     output hdmi_clk_p,
@@ -17,11 +16,9 @@ module top (
 
 );
 
-    //clk_27 to clk_75
-    Gowin_rPLL clk27_to_clk64_8(
-        .clkout(clk), //output clkout
-        .clkin(clk_27) //input clkin
-    );
+    // Keep the CPU/peripheral bus on the proven 27 MHz board clock.
+    // The older PLL clock is too fast for this PicoRV32 design on Tang Nano 9K.
+    wire clk = clk_27;
 
     ///////////////////////////////////
     // Peripheral Bus
@@ -39,14 +36,15 @@ module top (
 	wire 		    vga_iomem_ready;
 	
 	wire[4:0] buttons;
-	assign buttons = { btnC, btnD, btnL, btnR, btnU};
+	assign buttons = { 1'b0, 1'b0, btnL, btnR, 1'b0};
  		
     // enable signals for each of the peripherals
     wire gpio_en    = (iomem_addr[31:24] == 8'h03); /* GPIO mapped to 0x03xx_xxxx */
     wire video_en   = (iomem_addr[31:24] == 8'h05); /* Video device mapped to 0x05xx_xxxx */
 	
-	assign led_n[0] = btnL;
-    assign led_n[1] = btnR;
+		assign led_n[0] = btnL;
+	    assign led_n[1] = btnR;
+	    assign led_n[5:2] = 4'b1111;
 
     assign iomem_ready = gpio_en ? gpio_iomem_ready : ( video_en ? vga_iomem_ready : 1'b0);		
 	assign iomem_rdata = gpio_en ? gpio_iomem_rdata : 32'h00000000;	
@@ -57,6 +55,8 @@ module top (
 	begin
 		if (!resetn) begin
 			gpio <= 0;
+			gpio_iomem_ready <= 0;
+			gpio_iomem_rdata <= 0;
 		end else begin
 			gpio_iomem_ready <= 0;
 			if (iomem_valid && !iomem_ready && gpio_en) begin
@@ -70,19 +70,17 @@ module top (
 		end
 	end
 
-    //irrelevant variables currently without uart
-    wire tx_uc, rx_uc;
-
-    reg [31:0] 	ram_data, ram_addr;
-    reg progmem_wen;
+    wire [31:0] ram_data = 32'h0000_0000;
+    wire [31:0] ram_addr = 32'h0000_0000;
+    wire progmem_wen = 1'b0;
 
     // uC Circuit		
 	picosoc_noflash soc (
 		.clk	(clk),	 
 		.resetn	(resetn),
 
-		.ser_tx	(tx_uc),
-		.ser_rx	(rx_uc),
+		.ser_tx	(uart_tx),
+		.ser_rx	(uart_rx),
 
 		.irq_5	(1'b0),
 		.irq_6	(1'b0),
