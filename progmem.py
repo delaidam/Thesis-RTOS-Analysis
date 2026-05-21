@@ -1,16 +1,13 @@
 
-import os
 import sys
 import struct
 
-relative_path = '2.sw/main.bin'
-
-absolute_path = os.path.join(os.path.dirname(__file__), relative_path)
-
-progmem_text = ''
+if len(sys.argv) != 3:
+    print("usage: python3 progmem.py <firmware.bin> <output-progmem.v>")
+    sys.exit(2)
 
 try:
-    with open(absolute_path, 'rb') as bin_file:
+    with open(sys.argv[1], 'rb') as bin_file:
         bin_contents = bin_file.read()
 except Exception as e:
     print(f"Open bin file Exception: {e}")
@@ -18,7 +15,10 @@ except Exception as e:
 
 print(f"Bin file size: {len(bin_contents)} bytes")
 
+while len(bin_contents) % 4:
+    bin_contents += b'\x00'
 
+progmem_text = ''
 hex_values = []
 while len(bin_contents) != 0:
     hex_values.append(struct.unpack("<I", bin_contents[0:4])[0])
@@ -26,7 +26,7 @@ while len(bin_contents) != 0:
 
 addr = 0
 try:
-    with open('progmem.v', 'w') as prog_mem_file:
+    with open(sys.argv[2], 'w') as prog_mem_file:
 
         for value in hex_values:
             progmem_text += f"    mem[\'h{addr:04X}] <= 32\'h{value:08X};\n"
@@ -89,6 +89,7 @@ endmodule
 """
 
         prog_mem_file.write(progmem_body)
+        print(f"Wrote {sys.argv[2]} with {addr} words")
 
 except Exception as e:
     print(f"Write file Exception: {e}")

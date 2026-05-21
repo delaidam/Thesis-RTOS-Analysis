@@ -1,8 +1,8 @@
 
 MEMORY
 {
-    FLASH (rx)      : ORIGIN = 0x00100000, LENGTH = 0x400000 /* entire flash, 4 MiB */
-    RAM (xrw)       : ORIGIN = 0x00000000, LENGTH = 0x8000 /* 32 KB */
+    FLASH (rx)      : ORIGIN = 0x00100000, LENGTH = 0x400000 /* PicoSoC progmem window */
+    RAM (xrw)       : ORIGIN = 0x00000000, LENGTH = 0x1000 /* picosoc_noflash MEM_WORDS=1024 */
 }
 
 SECTIONS {
@@ -10,6 +10,7 @@ SECTIONS {
     .text :
     {
         . = ALIGN(4);
+        KEEP(*(.text.start)) /* reset and IRQ vectors */
         *(.text)           /* .text sections (code) */
         *(.text*)          /* .text* sections (code) */
         *(.rodata)         /* .rodata sections (constants, strings, etc.) */

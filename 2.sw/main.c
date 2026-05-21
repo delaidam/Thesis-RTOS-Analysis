@@ -32,6 +32,10 @@
 #define reg_video_char	((volatile uint32_t*)0x05100000)
 #define reg_video_map	((volatile uint32_t*)0x05200000)
 
+#ifndef UART_CLKDIV
+#define UART_CLKDIV 562
+#endif
+
 #define BUTTON_UP 0x01
 #define BUTTON_RIGHT 0x02
 #define BUTTON_LEFT 0x04
@@ -853,15 +857,22 @@ void CharactersInit() {
 
 void main()
 {
-    reg_uart_clkdiv = 217; // 100 MHz / 460800 baud
-    print("TetriSaraj!\n");
+    reg_uart_clkdiv = UART_CLKDIV;
+    print("\nTetriSaraj bare-metal app boot\n");
+    print("UART clkdiv=0x");
+    print_hex(UART_CLKDIV, 8);
+    print("\n");
 
 	bool rightButton = false, downButton = false, centerButton = false, upButton = false, leftButton = false;	
 	
 	reg_gpio = 0x0;	
 	
+	print("CharactersInit...\n");
 	CharactersInit();
+	print("CharactersInit done\n");
+	print("DisplayProjectName...\n");
 	DisplayProjectName();
+	print("DisplayProjectName done\n");
 	//DisplayGameName();
 	//DisplayCompanyName(); 
 	//_delay(15000);

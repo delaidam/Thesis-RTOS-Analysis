@@ -120,12 +120,13 @@ module picosoc_noflash (
 	picorv32 #(
 		.STACKADDR(STACKADDR),
 		.PROGADDR_RESET(PROGADDR_RESET),
-		.PROGADDR_IRQ(32'h 0000_0000),
+		.PROGADDR_IRQ(32'h 0010_0004),
 		.BARREL_SHIFTER(1),
 		.COMPRESSED_ISA(1),
 		.ENABLE_MUL(1),
 		.ENABLE_DIV(1),
 		.ENABLE_IRQ(1),
+		.LATCHED_IRQ(32'hffff_ffdf),
 `ifdef SIMULATION    
 		.ENABLE_IRQ_QREGS(0),
         .ENABLE_TRACE(1)
@@ -164,7 +165,6 @@ module picosoc_noflash (
 		.waddr	(progmem_waddr),
 		.wdata	(progmem_wdata)
     );
-/*
 	simpleuart simpleuart (
 		.clk         (clk         ),
 		.resetn      (resetn      ),
@@ -182,7 +182,7 @@ module picosoc_noflash (
 		.reg_dat_do  (simpleuart_reg_dat_do),
 		.reg_dat_wait(simpleuart_reg_dat_wait)
 	);
-*/
+
 	always @(posedge clk)
 		ram_ready <= mem_valid && !mem_ready && mem_addr < 4*MEM_WORDS;
 

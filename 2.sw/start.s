@@ -1,7 +1,14 @@
-.section .text
+.section .text.start, "ax"
+.global start
+.global irq_vector
+.global picorv32_set_irq_mask
 
 start:
+    j reset_entry
+irq_vector:
+    j irq_entry
 
+reset_entry:
 # zero-initialize register file
 addi x1, zero, 0
 # x2 (sp) is initialized by reset
@@ -70,3 +77,47 @@ end_init_bss:
 call main
 loop:
 j loop
+
+picorv32_set_irq_mask:
+# PicoRV32 custom0 maskirq, rd=x0, rs1=a0
+.word 0x0605000b
+ret
+
+irq_entry:
+addi sp, sp, -16
+sw t0, 0(sp)
+sw t1, 4(sp)
+sw t2, 8(sp)
+sw t3, 12(sp)
+
+la t0, irq_count
+lw t1, 0(t0)
+addi t1, t1, 1
+sw t1, 0(t0)
+
+la t0, last_irq_pending
+sw x4, 0(t0)
+
+li t0, 0x03000000
+li t1, 1
+sw t1, 12(t0)
+
+lw t0, 0(sp)
+lw t1, 4(sp)
+lw t2, 8(sp)
+lw t3, 12(sp)
+addi sp, sp, 16
+
+# PicoRV32 custom0 retirq
+.word 0x0400000b
+
+.section .bss
+.weak irq_count
+.align 2
+irq_count:
+.word 0
+
+.weak last_irq_pending
+.align 2
+last_irq_pending:
+.word 0
