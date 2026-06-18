@@ -54,9 +54,13 @@ module picosoc_noflash (
 	output ser_tx,
 	input  ser_rx
 );
-	parameter integer MEM_WORDS = 1024; //bilo 8192
+	parameter integer MEM_WORDS = 4096; // 16 KB data RAM for FreeRTOS (was 1024 / originally 8192)
 	parameter [31:0] STACKADDR = (4*MEM_WORDS);       // end of memory
 	parameter [31:0] PROGADDR_RESET = 32'h 0010_0000; // 1 MB into flash
+	parameter [0:0] BARREL_SHIFTER = 1;
+	parameter [0:0] COMPRESSED_ISA = 1;
+	parameter [0:0] ENABLE_MUL = 1;
+	parameter [0:0] ENABLE_DIV = 1;
 
 	reg [31:0] irq;
 	wire irq_stall = 0;
@@ -118,13 +122,13 @@ module picosoc_noflash (
 `endif
 
 	picorv32 #(
-		.STACKADDR(STACKADDR),
-		.PROGADDR_RESET(PROGADDR_RESET),
-		.PROGADDR_IRQ(32'h 0010_0004),
-		.BARREL_SHIFTER(1),
-		.COMPRESSED_ISA(1),
-		.ENABLE_MUL(1),
-		.ENABLE_DIV(1),
+			.STACKADDR(STACKADDR),
+			.PROGADDR_RESET(PROGADDR_RESET),
+			.PROGADDR_IRQ(32'h 0010_0004),
+			.BARREL_SHIFTER(BARREL_SHIFTER),
+			.COMPRESSED_ISA(COMPRESSED_ISA),
+			.ENABLE_MUL(ENABLE_MUL),
+			.ENABLE_DIV(ENABLE_DIV),
 		.ENABLE_IRQ(1),
 		.LATCHED_IRQ(32'hffff_ffdf),
 `ifdef SIMULATION    

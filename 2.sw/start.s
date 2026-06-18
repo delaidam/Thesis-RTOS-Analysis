@@ -84,11 +84,14 @@ picorv32_set_irq_mask:
 ret
 
 irq_entry:
-addi sp, sp, -16
+addi sp, sp, -28
 sw t0, 0(sp)
 sw t1, 4(sp)
 sw t2, 8(sp)
 sw t3, 12(sp)
+sw t4, 16(sp)
+sw t5, 20(sp)
+sw t6, 24(sp)
 
 la t0, irq_count
 lw t1, 0(t0)
@@ -99,6 +102,75 @@ la t0, last_irq_pending
 sw x4, 0(t0)
 
 li t0, 0x03000000
+lw t4, 0(t0)
+lw t5, 24(t0)
+
+la t1, irq_timestamp
+sw t4, 0(t1)
+la t1, irq_event_timestamp
+sw t5, 0(t1)
+
+sub t6, t4, t5
+la t1, irq_latency_last
+sw t6, 0(t1)
+la t1, irq_latency_total
+lw t2, 0(t1)
+add t2, t2, t6
+sw t2, 0(t1)
+la t1, irq_latency_samples
+lw t2, 0(t1)
+addi t2, t2, 1
+sw t2, 0(t1)
+la t1, irq_latency_min
+lw t2, 0(t1)
+beqz t2, set_irq_latency_min
+bltu t6, t2, set_irq_latency_min
+j check_irq_latency_max
+set_irq_latency_min:
+sw t6, 0(t1)
+check_irq_latency_max:
+la t1, irq_latency_max
+lw t2, 0(t1)
+bltu t2, t6, set_irq_latency_max
+j update_irq_interval
+set_irq_latency_max:
+sw t6, 0(t1)
+
+update_irq_interval:
+la t1, irq_last_timer
+lw t2, 0(t1)
+beqz t2, store_irq_last_timer
+sub t6, t4, t2
+la t1, irq_interval_last
+sw t6, 0(t1)
+la t1, irq_interval_total
+lw t2, 0(t1)
+add t2, t2, t6
+sw t2, 0(t1)
+la t1, irq_interval_samples
+lw t2, 0(t1)
+addi t2, t2, 1
+sw t2, 0(t1)
+la t1, irq_interval_min
+lw t2, 0(t1)
+beqz t2, set_irq_interval_min
+bltu t6, t2, set_irq_interval_min
+j check_irq_interval_max
+set_irq_interval_min:
+sw t6, 0(t1)
+check_irq_interval_max:
+la t1, irq_interval_max
+lw t2, 0(t1)
+bltu t2, t6, set_irq_interval_max
+j store_irq_last_timer
+set_irq_interval_max:
+sw t6, 0(t1)
+
+store_irq_last_timer:
+la t1, irq_last_timer
+sw t4, 0(t1)
+
+li t0, 0x03000000
 li t1, 1
 sw t1, 12(t0)
 
@@ -106,7 +178,10 @@ lw t0, 0(sp)
 lw t1, 4(sp)
 lw t2, 8(sp)
 lw t3, 12(sp)
-addi sp, sp, 16
+lw t4, 16(sp)
+lw t5, 20(sp)
+lw t6, 24(sp)
+addi sp, sp, 28
 
 # PicoRV32 custom0 retirq
 .word 0x0400000b
@@ -120,4 +195,69 @@ irq_count:
 .weak last_irq_pending
 .align 2
 last_irq_pending:
+.word 0
+
+.weak irq_timestamp
+.align 2
+irq_timestamp:
+.word 0
+
+.weak irq_event_timestamp
+.align 2
+irq_event_timestamp:
+.word 0
+
+.weak irq_last_timer
+.align 2
+irq_last_timer:
+.word 0
+
+.weak irq_latency_last
+.align 2
+irq_latency_last:
+.word 0
+
+.weak irq_latency_min
+.align 2
+irq_latency_min:
+.word 0
+
+.weak irq_latency_max
+.align 2
+irq_latency_max:
+.word 0
+
+.weak irq_latency_total
+.align 2
+irq_latency_total:
+.word 0
+
+.weak irq_latency_samples
+.align 2
+irq_latency_samples:
+.word 0
+
+.weak irq_interval_last
+.align 2
+irq_interval_last:
+.word 0
+
+.weak irq_interval_min
+.align 2
+irq_interval_min:
+.word 0
+
+.weak irq_interval_max
+.align 2
+irq_interval_max:
+.word 0
+
+.weak irq_interval_total
+.align 2
+irq_interval_total:
+.word 0
+
+.weak irq_interval_samples
+.align 2
+irq_interval_samples:
 .word 0

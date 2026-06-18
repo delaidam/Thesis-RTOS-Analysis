@@ -2,7 +2,7 @@
 MEMORY
 {
     FLASH (rx)      : ORIGIN = 0x00100000, LENGTH = 0x400000 /* PicoSoC progmem window */
-    RAM (xrw)       : ORIGIN = 0x00000000, LENGTH = 0x1000 /* picosoc_noflash MEM_WORDS=1024 */
+    RAM (xrw)       : ORIGIN = 0x00000000, LENGTH = 0x4000 /* picosoc_noflash MEM_WORDS=4096 = 16 KB */
 }
 
 SECTIONS {

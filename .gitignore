@@ -4,6 +4,14 @@
 
 *output*
 
+# LaTeX build output
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+
 #*impl*
 *pnr*
 *temp*

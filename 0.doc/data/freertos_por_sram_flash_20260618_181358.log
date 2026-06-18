@@ -1,0 +1,13 @@
+empty
+Can't read iProduct field from FTDI: considered as empty string
+Can't read iSerialNumber field from FTDI: considered as empty string
+Jtag frequency : requested 6.00MHz    -> real 6.00MHz   
+Parse file Parse 1.hw/impl/pnr/uart_hello.fs: 
+Done
+DONE
+Erase SRAM Load SRAM Load SRAM: [==============================                    ] 58.98%
+Load SRAM: [==================================================] 100.00%
+
+Done
+DONE
+CRC check: Success
