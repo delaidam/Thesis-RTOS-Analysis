@@ -1,0 +1,52 @@
+Captured from Tang Nano 9K UART on 2026-05-31.
+
+Context:
+- Firmware: event_alert_demo
+- Serial port: /dev/ttyUSB1
+- Baud rate: 115200
+- Capture started after firmware had already begun printing, so the header and first events are missing.
+- This capture was taken before changing the demo deadline from 5000 cycles to 12000 cycles.
+
+Raw UART output:
+
+=9027 cycles deadline=MISS
+event=005 sensor=896 status=ALERT latency=9048 cycles deadline=MISS
+event=006 sensor=009 status=OK     latency=9029 cycles deadline=MISS
+event=007 sensor=146 status=OK     latency=9033 cycles deadline=MISS
+event=008 sensor=938 status=ALERT latency=8976 cycles deadline=MISS
+event=009 sensor=420 status=OK     latency=9026 cycles deadline=MISS
+event=010 sensor=557 status=OK     latency=9033 cycles deadline=MISS
+event=011 sensor=694 status=OK     latency=9026 cycles deadline=MISS
+event=012 sensor=831 status=OK     latency=9033 cycles deadline=MISS
+event=013 sensor=968 status=ALERT latency=9035 cycles deadline=MISS
+event=014 sensor=081 status=OK     latency=9035 cycles deadline=MISS
+event=015 sensor=218 status=OK     latency=9026 cycles deadline=MISS
+event=016 sensor=946 status=ALERT latency=8983 cycles deadline=MISS
+event=017 sensor=492 status=OK     latency=9033 cycles deadline=MISS
+event=018 sensor=629 status=OK     latency=9026 cycles deadline=MISS
+event=019 sensor=766 status=OK     latency=9033 cycles deadline=MISS
+event=020 sensor=903 status=ALERT latency=9035 cycles deadline=MISS
+event=021 sensor=016 status=OK     latency=9029 cycles deadline=MISS
+event=022 sensor=153 status=OK     latency=9026 cycles deadline=MISS
+event=023 sensor=290 status=OK     latency=9033 cycles deadline=MISS
+event=024 sensor=954 status=ALERT latency=8976 cycles deadline=MISS
+event=025 sensor=564 status=OK     latency=9026 cycles deadline=MISS
+event=026 sensor=701 status=OK     latency=9033 cycles deadline=MISS
+event=027 sensor=838 status=OK     latency=9026 cycles deadline=MISS
+event=028 sensor=975 status=ALERT latency=9042 cycles deadline=MISS
+event=029 sensor=088 status=OK     latency=9022 cycles deadline=MISS
+event=030 sensor=225 status=OK     latency=9033 cycles deadline=MISS
+event=031 sensor=362 status=OK     latency=9026 cycles deadline=MISS
+event=032 sensor=962 status=ALERT latency=8983 cycles deadline=MISS
+
+Summary:
+events=32
+alerts=8
+avg_latency=9022 cycles
+max_latency=9048 cycles
+missed_deadlines=32
+missed_events=0
+
+CSV summary:
+events,alerts,avg_latency_cycles,max_latency_cycles,missed_deadlines,missed_events
+32,8,9022,9048,32,0

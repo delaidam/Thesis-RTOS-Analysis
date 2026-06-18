@@ -1,0 +1,2 @@
+events,alerts,avg_latency_cycles,max_latency_cycles,missed_deadlines,missed_events,deadline_cycles,note
+32,8,9022,9048,32,0,5000,"Captured from Tang Nano 9K UART before deadline was adjusted to 12000 cycles."
