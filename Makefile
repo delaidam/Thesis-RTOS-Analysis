@@ -64,8 +64,17 @@ APP_SOURCES := $(SW_DIR)/freertos_demo.c $(SW_DIR)/uart.c \
 ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
 CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include
 endif
+ifeq ($(APP),freertos_game)
+APP_SOURCES := $(SW_DIR)/freertos_game.c $(SW_DIR)/tetrisaraj_game.c \
+               $(SW_DIR)/tetrisaraj_platform.c $(SW_DIR)/uart.c \
+               $(PORT_DIR)/port.c $(PORT_DIR)/portmem.c \
+               $(FREERTOS_DIR)/tasks.c $(FREERTOS_DIR)/queue.c \
+               $(FREERTOS_DIR)/list.c $(FREERTOS_DIR)/portable/MemMang/heap_4.c
+ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
+CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include
+endif
 
-.PHONY: all firmware firmware-freertos bitstream bitstream-app bitstream-freertos bitstream-hdmi bitstream-hdmi-640 flash flash-sram flash-app flash-freertos flash-hdmi flash-hdmi-640 flash-flash serial clean clean_fw clean_hw help FORCE
+.PHONY: all firmware firmware-freertos firmware-freertos-game bitstream bitstream-app bitstream-freertos bitstream-freertos-game bitstream-hdmi bitstream-hdmi-640 flash flash-sram flash-app flash-freertos flash-freertos-game flash-hdmi flash-hdmi-640 flash-flash serial clean clean_fw clean_hw help FORCE
 
 all: bitstream
 
@@ -97,12 +106,22 @@ bitstream-app:
 firmware-freertos:
 	$(MAKE) firmware APP=freertos_demo CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
 
+firmware-freertos-game:
+	$(MAKE) firmware APP=freertos_game CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
+
 bitstream-freertos:
 	$(MAKE) firmware APP=freertos_demo CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
 	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) $(GOWIN_SCRIPT)
 
+bitstream-freertos-game:
+	$(MAKE) firmware APP=freertos_game CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
+	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) build_freertos_game.tcl
+
 flash-freertos: bitstream-freertos
 	$(OPENFPGALOADER) -b $(BOARD) $(BITSTREAM)
+
+flash-freertos-game: bitstream-freertos-game
+	$(OPENFPGALOADER) -b $(BOARD) $(HW_DIR)/impl/pnr/freertos_game.fs
 
 bitstream-hdmi:
 	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) build_hdmi_test.tcl
@@ -146,6 +165,7 @@ help:
 	@echo "  make firmware APP=poll_benchmark"
 	@echo "  make firmware APP=irq_benchmark"
 	@echo "  make firmware APP=irq_benchmark MARCH=rv32imc"
+	@echo "  make firmware APP=freertos_game"
 	@echo ""
 	@echo "Gowin bitstream:"
 	@echo "  make bitstream"
@@ -154,6 +174,7 @@ help:
 	@echo "  make bitstream APP=poll_benchmark"
 	@echo "  make bitstream APP=irq_benchmark"
 	@echo "  make bitstream-app"
+	@echo "  make bitstream-freertos-game"
 	@echo "  make bitstream-hdmi"
 	@echo "  make bitstream-hdmi-640"
 	@echo ""
@@ -162,6 +183,7 @@ help:
 	@echo "  make flash APP=timer_hello"
 	@echo "  make flash APP=irq_hello"
 	@echo "  make flash-app"
+	@echo "  make flash-freertos-game"
 	@echo "  make flash-hdmi"
 	@echo "  make flash-hdmi-640"
 	@echo ""
