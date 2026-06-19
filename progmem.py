@@ -31,7 +31,15 @@ try:
         for value in hex_values:
             progmem_text += f"    mem[\'h{addr:04X}] <= 32\'h{value:08X};\n"
             addr += 1
-    
+
+        # Size the program ROM to the smallest power-of-two word depth that holds
+        # the firmware. Gowin only infers BSRAM/pROM cleanly for power-of-two
+        # depths, so this keeps inference intact while letting small firmware
+        # (< 16 KB / 4096 words) claim 8 pROM blocks instead of a fixed 16. That
+        # freed BSRAM is what makes the combined FreeRTOS + HDMI top fit.
+        word_count = addr if addr > 0 else 1
+        mem_size_bits = max(8, (word_count - 1).bit_length())
+
 
         progmem_body = f"""
 module progmem (
@@ -52,7 +60,7 @@ module progmem (
 
   // ============================================================================
 
-  localparam MEM_SIZE_BITS = 13;  // In 32-bit words
+  localparam MEM_SIZE_BITS = {mem_size_bits};  // In 32-bit words (power-of-two)
   localparam MEM_SIZE = 1 << MEM_SIZE_BITS;
   localparam MEM_ADDR_MASK = 32'h0010_0000;
 
