@@ -444,6 +444,22 @@ void tetrisaraj_game_step( TetriSarajGame * game, const TetriSarajInput * input 
     game->dirty = true;
 }
 
+uint8_t tetrisaraj_game_cell_at( const TetriSarajGame * game, uint8_t x, uint8_t y )
+{
+    const int32_t dx = ( int32_t ) x - ( int32_t ) game->piece_x;
+    const int32_t dy = ( int32_t ) y - ( int32_t ) game->piece_y;
+
+    if( ( dx >= 0 ) && ( dx < 4 ) && ( dy >= 0 ) && ( dy < 4 ) )
+    {
+        if( ucTetrominoes[ game->piece_index ][ ucRotate( ( uint8_t ) dx, ( uint8_t ) dy, game->piece_rotation ) ] != 0u )
+        {
+            return ( uint8_t ) ( game->piece_index + 1u );
+        }
+    }
+
+    return game->field[ ( ( uint16_t ) y * TETRISARAJ_FIELD_WIDTH ) + x ];
+}
+
 void tetrisaraj_game_render( const TetriSarajGame * game )
 {
     if( game->the_end )
