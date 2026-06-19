@@ -96,7 +96,7 @@ APP_SOURCES := $(SW_DIR)/freertos_game.c $(SW_DIR)/tetrisaraj_game.c \
                $(FREERTOS_DIR)/list.c $(FREERTOS_DIR)/portable/MemMang/heap_4.c
 ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
 CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include \
-          -ffunction-sections -fdata-sections
+          -ffunction-sections -fdata-sections -DTETRISARAJ_VIDEO_640
 LDFLAGS += -Wl,--gc-sections
 endif
 
