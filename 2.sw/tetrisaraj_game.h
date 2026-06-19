@@ -38,4 +38,9 @@ void tetrisaraj_game_init( TetriSarajGame * game );
 void tetrisaraj_game_step( TetriSarajGame * game, const TetriSarajInput * input );
 void tetrisaraj_game_render( const TetriSarajGame * game );
 
+/* Display value for a single cell, with the active falling piece overlaid on
+ * top of the locked field. Used by the headless UART renderer so the tetromino
+ * tables can stay private to tetrisaraj_game.c. */
+uint8_t tetrisaraj_game_cell_at( const TetriSarajGame * game, uint8_t x, uint8_t y );
+
 #endif /* TETRISARAJ_GAME_H */
