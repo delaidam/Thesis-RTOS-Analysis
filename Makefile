@@ -84,8 +84,23 @@ APP_SOURCES := $(SW_DIR)/freertos_game_headless.c $(SW_DIR)/tetrisaraj_game.c \
 ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
 CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include
 endif
+# Full game for the combined FreeRTOS + HDMI 640 top. Same firmware as
+# freertos_game, but linked with --gc-sections so unused FreeRTOS functions are
+# dropped: that shrinks the firmware below 16 KB, halving the program ROM BSRAM
+# (8 pROM blocks instead of 16) so the combined design fits the Tang Nano 9K.
+ifeq ($(APP),freertos_game_640)
+APP_SOURCES := $(SW_DIR)/freertos_game.c $(SW_DIR)/tetrisaraj_game.c \
+               $(SW_DIR)/tetrisaraj_platform.c $(SW_DIR)/uart.c \
+               $(PORT_DIR)/port.c $(PORT_DIR)/portmem.c \
+               $(FREERTOS_DIR)/tasks.c $(FREERTOS_DIR)/queue.c \
+               $(FREERTOS_DIR)/list.c $(FREERTOS_DIR)/portable/MemMang/heap_4.c
+ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
+CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include \
+          -ffunction-sections -fdata-sections
+LDFLAGS += -Wl,--gc-sections
+endif
 
-.PHONY: all firmware firmware-freertos firmware-freertos-game firmware-freertos-game-headless bitstream bitstream-app bitstream-freertos bitstream-freertos-game bitstream-freertos-game-headless bitstream-hdmi bitstream-hdmi-640 flash flash-sram flash-app flash-freertos flash-freertos-game flash-freertos-game-headless flash-hdmi flash-hdmi-640 flash-flash serial clean clean_fw clean_hw help FORCE
+.PHONY: all firmware firmware-freertos firmware-freertos-game firmware-freertos-game-headless firmware-freertos-game-640 bitstream bitstream-app bitstream-freertos bitstream-freertos-game bitstream-freertos-game-headless bitstream-freertos-game-640 bitstream-hdmi bitstream-hdmi-640 flash flash-sram flash-app flash-freertos flash-freertos-game flash-freertos-game-headless flash-freertos-game-640 flash-hdmi flash-hdmi-640 flash-flash serial clean clean_fw clean_hw help FORCE
 
 all: bitstream
 
@@ -123,6 +138,9 @@ firmware-freertos-game:
 firmware-freertos-game-headless:
 	$(MAKE) firmware APP=freertos_game_headless CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
 
+firmware-freertos-game-640:
+	$(MAKE) firmware APP=freertos_game_640 CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
+
 bitstream-freertos:
 	$(MAKE) firmware APP=freertos_demo CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
 	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) $(GOWIN_SCRIPT)
@@ -136,6 +154,11 @@ bitstream-freertos-game-headless:
 	$(MAKE) firmware APP=freertos_game_headless CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
 	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) $(GOWIN_SCRIPT)
 
+# Combined FreeRTOS + HDMI at 640x480, reduced memory footprint for Tang Nano 9K.
+bitstream-freertos-game-640:
+	$(MAKE) firmware APP=freertos_game_640 CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
+	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) build_freertos_game_640.tcl
+
 flash-freertos: bitstream-freertos
 	$(OPENFPGALOADER) -b $(BOARD) $(BITSTREAM)
 
@@ -144,6 +167,9 @@ flash-freertos-game: bitstream-freertos-game
 
 flash-freertos-game-headless: bitstream-freertos-game-headless
 	$(OPENFPGALOADER) -b $(BOARD) $(BITSTREAM)
+
+flash-freertos-game-640: bitstream-freertos-game-640
+	$(OPENFPGALOADER) -b $(BOARD) $(HW_DIR)/impl/pnr/freertos_game_640.fs
 
 bitstream-hdmi:
 	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) build_hdmi_test.tcl
@@ -189,6 +215,7 @@ help:
 	@echo "  make firmware APP=irq_benchmark MARCH=rv32imc"
 	@echo "  make firmware APP=freertos_game"
 	@echo "  make firmware APP=freertos_game_headless"
+	@echo "  make firmware APP=freertos_game_640"
 	@echo ""
 	@echo "Gowin bitstream:"
 	@echo "  make bitstream"
@@ -199,6 +226,7 @@ help:
 	@echo "  make bitstream-app"
 	@echo "  make bitstream-freertos-game"
 	@echo "  make bitstream-freertos-game-headless"
+	@echo "  make bitstream-freertos-game-640"
 	@echo "  make bitstream-hdmi"
 	@echo "  make bitstream-hdmi-640"
 	@echo ""
@@ -209,6 +237,7 @@ help:
 	@echo "  make flash-app"
 	@echo "  make flash-freertos-game"
 	@echo "  make flash-freertos-game-headless"
+	@echo "  make flash-freertos-game-640"
 	@echo "  make flash-hdmi"
 	@echo "  make flash-hdmi-640"
 	@echo ""

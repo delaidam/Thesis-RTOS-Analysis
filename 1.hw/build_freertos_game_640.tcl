@@ -1,0 +1,5 @@
+open_project tang_nano_9k_freertos_game_640.gprj
+set_option -top_module top_freertos_game_640
+set_option -output_base_name freertos_game_640
+set_option -verilog_std sysv2017
+run all

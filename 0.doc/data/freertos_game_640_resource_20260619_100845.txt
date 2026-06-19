@@ -1,0 +1,41 @@
+3. Resource Usage Summary
+
+  --------------------------------------------------------------------------------
+  Resources                   | Usage                               | Utilization
+  --------------------------------------------------------------------------------
+  Logic                       | 3348/8640                           |  39%
+    --LUT,ALU,ROM16           | 3348(2834 LUT, 514 ALU, 0 ROM16)    | -
+    --SSRAM(RAM16)            | 0                                   | -
+  Register                    | 1349/6693                           |  21%
+    --Logic Register as Latch | 0/6480                              |  0%
+    --Logic Register as FF    | 1346/6480                           |  21%
+    --I/O Register as Latch   | 0/213                               |  0%
+    --I/O Register as FF      | 3/213                               |  2%
+  CLS                         | 2028/4320                           |  47%
+  I/O Port                    | 19/71                               |  27%
+  I/O Buf                     | 15                                  | -
+    --Input Buf               | 4                                   | -
+    --Output Buf              | 11                                  | -
+    --Inout Buf               | 0                                   | -
+  IOLOGIC                     | 8/97                                | 9%
+    --OSER10                  | 4
+  BSRAM                       | 22/26                               | 85%
+    --SP                      | 8
+    --SDPB                    | 6
+    --pROM                    | 8
+  ================================================================================
+
+
+
+4. I/O Bank Usage Summary
+
+  --------------------------------------
+  I/O Bank  | Usage       | Utilization 
+  --------------------------------------
+  bank 1   | 9/25        | 36%         
+  bank 2   | 2/23        | 9%          
+  bank 3   | 8/23        | 35%         
+  ======================================
+
+
+5. Clock Resource Usage Summary
