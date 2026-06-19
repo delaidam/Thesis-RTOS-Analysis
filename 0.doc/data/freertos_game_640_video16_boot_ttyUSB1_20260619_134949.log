@@ -1,0 +1,7 @@
+
+TetriSaraj FreeRTOS game app
+tick=100Hz, input queue, game/render/debug tasks
+video chars init...
+[freertos_game] heartbeat=0x00000000 tick=0x00000001
+video init done
+[freertos_game] heartbeat=0x00000001 tick=0x000001F5
