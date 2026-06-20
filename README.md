@@ -7,6 +7,53 @@ This work builds on top of:
 
 It aims to convert the game algorithm from baremetal 'C' application to hosted framework.
 
+### Project Continuation
+
+This repository was initially started with a very concrete academic goal: to
+complete the FreeRTOS-hosted version of TetriSaraj in time for Delaida's
+Bachelor thesis. In the usual real-project fashion, we slipped past that formal
+deadline. The work, however, did not stop there. It is now realized as a
+standalone project, with the HW, SW, measurements and documentation kept here in
+the open.
+
+The original TetriSaraj version is a bare-metal C application running on a small
+RISC-V soft-core system. This continuation keeps that implementation as the
+reference point, and moves the game toward a FreeRTOS structure. The game logic
+was separated from direct platform access, while UART, GPIO/buttons and video
+memory access were moved into a small platform layer. On top of that, the
+application was reorganized around FreeRTOS tasks for input sampling, game-state
+updates, rendering and debug/status output.
+
+The first proof was intentionally headless. Instead of trying to debug the RTOS
+port and HDMI rendering at the same time, the game loop was first executed under
+FreeRTOS and observed over UART. That proved that the scheduler runs, the tasks
+communicate, the falling piece advances, the field changes and the score updates
+on real Tang Nano 9K hardware.
+
+The next challenge was to fit FreeRTOS together with the video front-end into
+the limited Tang Nano 9K resources. The initial combined design was blocked not
+only by logic usage, but by block-RAM pressure. The solution came from two
+directions: unused firmware sections were removed during linking, and a 640x480
+video path was added so the Mega-Character video memory could fit in the
+available BSRAM. A useful practical lesson was that Gowin synthesis behaves much
+better when ROM and RAM depths remain powers of two.
+
+The current path includes a FreeRTOS boot proof on PicoRV32/Tang Nano 9K, a
+headless TetriSaraj game proof over UART, a fitting 640x480 FreeRTOS + HDMI
+build, a firmware video initialization path adapted to 16x16 Mega-Characters,
+and a hardware context-switch benchmark for the FreeRTOS port. The HDMI build
+boots and the firmware reaches the video initialization code. The final visual
+confirmation of the game image still depends on checking the monitor output, so
+the milestone notes and UART captures are kept as evidence, and the claims stay
+limited to what was actually measured or observed.
+
+The current project documentation is available in
+[`0.doc/dokumentacija/Glavna.pdf`](0.doc/dokumentacija/Glavna.pdf). The shorter
+engineering trail is documented through milestone notes in `0.doc/`, especially
+the FreeRTOS boot proof, the headless game proof, the 640x480 fit work, the
+video initialization milestone and the context-switch benchmark. Run `make help`
+for the current firmware, bitstream and flash targets.
+
 
 ### Additional references:
 
