@@ -1,0 +1,50 @@
+% ---- Opci uvod (ne numerise se) --------------------------------------------
+\chapter*{Uvod}
+\addcontentsline{toc}{chapter}{Uvod}
+
+Ugradbeni sistemi danas \v{c}ine najve\'ci dio ra\v{c}unarskih ure\dj{}aja u
+svakodnevnoj upotrebi, od ku\'cnih aparata do industrijske opreme. Veliki broj
+takvih sistema ima zahtjeve za vremenskom predvidljivo\v{s}\'cu, pa se za
+njihovo upravljanje koriste operativni sistemi za rad u realnom vremenu. Jedan
+od naj\v{c}e\v{s}\'ce kori\v{s}tenih takvih sistema otvorenog koda je FreeRTOS,
+koji je dostupan za veliki broj arhitektura procesora. Istovremeno se sve vi\v{s}e
+koristi otvorena skupovna arhitektura RISC-V, koja omogu\'cava izradu vlastitih
+procesorskih jezgara bez licencnih ograni\v{c}enja. Spajanje ova dva otvorena
+pristupa, operativnog sistema otvorenog koda i otvorene procesorske arhitekture,
+postaje zanimljiva i aktuelna tema, posebno na jeftinim razvojnim plo\v{c}ama sa
+programabilnom logikom.
+
+Razvojna plo\v{c}a Tang Nano 9K, zasnovana na programabilnom logi\v{c}kom polju
+(\foreignlanguage{english}{\emph{Field Programmable Gate Array}}, FPGA), pru\v{z}a
+pristupa\v{c}an na\v{c}in da se na njoj sintetizuje meki procesor i izvr\v{s}ava
+stvarni program. Meki procesor PicoRV32 jednostavna je RISC-V jezgra pogodna za
+takve eksperimente. Me\dj{}utim, resursi ovakvih plo\v{c}a su veoma ograni\v{c}eni,
+prije svega blokovska memorija i koli\v{c}ina logi\v{c}kih elemenata, pa
+uklapanje slo\v{z}enijih sistema postaje in\v{z}enjerski izazov. Upravo to
+\v{c}ini portanje cijele aplikacije zajedno sa operativnim sistemom i video
+izlazom netrivijalnim zadatkom.
+
+Ovaj rad nastavlja se na postoje\'cu aplikaciju TetriSaraj, koja je izvorno
+pisana kao monolitni program bez operativnog sistema. Postavljaju se sljede\'ca
+pitanja na koja rad treba odgovoriti. Da li se aplikacija mo\v{z}e prevesti u
+skup zasebnih zadataka pod upravom raspore\dj{}iva\v{c}a operativnog sistema
+FreeRTOS i dokazati njen rad na stvarnom hardveru? Da li se takav sistem,
+zajedno sa video izlazom preko digitalnog multimedijalnog su\v{c}elja
+(\foreignlanguage{english}{\emph{High-Definition Multimedia Interface}}, HDMI),
+mo\v{z}e uklopiti u stroge resurse plo\v{c}e Tang Nano 9K? Te kona\v{c}no, kolika
+je cijena zamjene konteksta na stvarnom hardveru i kako se ona odnosi prema
+ranije dobijenim vrijednostima iz simulatora? Pretpostavlja se da je sve to
+mogu\'ce uz pa\v{z}ljivo upravljanje memorijom i resursima.
+
+Rad je organizovan na sljede\'ci na\v{c}in. U prvom poglavlju daje se pregled
+srodnih radova i smje\v{s}ta vlastiti rad u kontekst postoje\'ce literature.
+Drugo poglavlje opisuje hardversku platformu i prilago\dj{}eni port operativnog
+sistema FreeRTOS na meki procesor, te osnovni dokaz njegovog rada. Tre\'ce
+poglavlje prikazuje postupak razdvajanja aplikacije na zadatke i dokaz njihovog
+rada na hardveru bez video izlaza. \v{C}etvrto poglavlje obja\v{s}njava problem
+zauze\'ca resursa pri uklapanju cijele igre sa video izlazom i rje\v{s}enja koja
+su to omogu\'cila. Peto poglavlje opisuje mjerenje vremena zamjene konteksta na
+hardveru i pore\dj{}enje sa simulatorom. \v{S}esto poglavlje izdvaja mogu\'ce
+pravce daljnjeg istra\v{z}ivanja. Na kraju rada dat je zaklju\v{c}ak u kojem su
+sistematizirani najva\v{z}niji rezultati i doprinosi rada. Nakon zaklju\v{c}ka
+nalazi se popis slika i lista kori\v{s}tenih bibliografskih referenci.

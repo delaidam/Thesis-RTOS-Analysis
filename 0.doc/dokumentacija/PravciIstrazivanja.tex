@@ -1,0 +1,80 @@
+% ============================================================================
+\chapter{Pravci daljnjeg istra\v{z}ivanja}
+\label{ch:pravci}
+% ============================================================================
+
+U ovom poglavlju izdvajaju se mogu\'ci pravci daljnjeg istra\v{z}ivanja koji
+prirodno proizlaze iz ura\dj{}enog rada. Svaki pravac povezan je sa konkretnom
+prazninom uo\v{c}enom u radu ili u pregledu literature iz poglavlja
+\ref{ch:srodni}. Pravci su pore\dj{}ani od onih koji najvi\v{s}e doprinose
+nau\v{c}noj vrijednosti rada prema onima koji predstavljaju \v{s}ire pro\v{s}irenje.
+Cilj poglavlja je pokazati da postoje\'ci rezultati \v{c}ine osnovu za vi\v{s}e
+zaokru\v{z}enih istra\v{z}iva\v{c}kih cjelina.
+
+\section{Kvantifikacija tro\v{s}ka operativnog sistema}
+\label{sec:pravci-overhead}
+
+Najva\v{z}niji pravec jeste mjerenje tro\v{s}ka koji unosi operativni sistem u
+odnosu na golo izvr\v{s}avanje. Ista operacija bi se izmjerila sa raspore\dj{}iva\v{c}em
+i bez njega, \v{c}ime bi se dobila stvarna cijena upotrebe operativnog sistema na
+ovoj mekoj jezgri. Ovaj pravec direktno odgovara na pitanje cijene koje je
+\v{c}esto u sredi\v{s}tu literature o operativnim sistemima za rad u realnom
+vremenu \citep{ulsolutions2022rtos}.
+
+\section{Uskla\dj{}ivanje metrike i statisti\v{c}ka obrada}
+\label{sec:pravci-metrika}
+
+Mjerenje iz poglavlja \ref{ch:mjerenje} obuhvata i tro\v{s}ak rada sa semaforima.
+Da bi se rezultat mogao pore\dj{}ivati sa literaturom, potrebno je dodatno
+izmjeriti u\v{z}u, \v{c}istu zamjenu konteksta bez tog tro\v{s}ka. Uz to, umjesto
+najmanje, prosje\v{c}ne i najve\'ce vrijednosti, rezultate bi trebalo izraziti
+srednjom vrijedno\v{s}\'cu sa standardnom devijacijom i raspodjelom, te
+karakterizovati podrhtavanje. Time bi mjerenja dobila statisti\v{c}ku strogost
+koju nau\v{c}ni rad zahtijeva.
+
+\section{Uticaj mikroarhitekture i skupa instrukcija}
+\label{sec:pravci-mikroarhitektura}
+
+Meka jezgra dopu\v{s}ta promjenu konfiguracije, na primjer uklju\v{c}ivanje
+sa\v{z}etog skupa instrukcija ili sklopa za pomjeranje. Mjerenjem zamjene
+konteksta pri razli\v{c}itim konfiguracijama dobili bi se trendovi koji povezuju
+mikroarhitekturu sa cijenom operativnog sistema. Ovaj pravec je u skladu sa
+istra\v{z}ivanjima koja zajedno posmatraju mikroarhitekturu i operativni sistem
+\citep{scheck2026coexploration}.
+
+\section{Latencija i determinizam prekida pod optere\'cenjem}
+\label{sec:pravci-prekidi}
+
+Pored zamjene konteksta, va\v{z}na veli\v{c}ina je latencija prekida i njena
+postojanost pod razli\v{c}itim optere\'cenjem sistema. Mjerenjem latencije
+prekida i podrhtavanja, uz vi\v{s}e zadataka i ve\'ce optere\'cenje, ocijenila bi
+se predvidljivost sistema, \v{s}to je klju\v{c}no svojstvo sistema za rad u
+realnom vremenu.
+
+\section{Sistematsko pore\dj{}enje simulatora i hardvera}
+\label{sec:pravci-qemu}
+
+Po\v{s}to je emulator QEMU funkcijski ta\v{c}an, a ne takovno ta\v{c}an
+\citep{qemu}, zanimljivo je sistematski ispitati koliko dobro on predvi\dj{}a
+vremenske veli\v{c}ine na stvarnom hardveru. Pore\dj{}enjem vi\v{s}e mjera na obje
+platforme dobio bi se sud o tome u kojim slu\v{c}ajevima je simulacija dovoljno
+vjerodostojna, a u kojima nije.
+
+\section{Hardversko ubrzanje raspore\dj{}ivanja}
+\label{sec:pravci-hardver}
+
+Kona\v{c}no, budu\'ci da je rije\v{c} o mekoj jezgri na programabilnoj logici,
+otvara se mogu\'cnost dodavanja namjenskog sklopa za ubrzanje raspore\dj{}ivanja
+ili zamjene konteksta. Takav pristup je u literaturi pokazao zna\v{c}ajna
+ubrzanja \citep{balas2023cv32rt}, a ovaj rad pru\v{z}a polaznu osnovu i mjerni
+okvir naspram kojeg bi se takvo ubrzanje moglo vrednovati.
+
+\section{Zaklju\v{c}ak poglavlja}
+\label{sec:pravci-zakljucak}
+
+U poglavlju je izlo\v{z}eno \v{s}est pravaca daljnjeg istra\v{z}ivanja, od
+kvantifikacije tro\v{s}ka operativnog sistema i statisti\v{c}ke obrade mjerenja,
+preko uticaja mikroarhitekture i pona\v{s}anja prekida, do sistematskog
+pore\dj{}enja sa simulatorom i hardverskog ubrzanja raspore\dj{}ivanja. Svaki
+pravec se naslanja na postoje\'ce rezultate i prazninu u literaturi, \v{c}ime se
+pokazuje da rad ima jasan potencijal za nastavak.

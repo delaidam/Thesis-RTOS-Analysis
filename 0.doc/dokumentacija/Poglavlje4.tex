@@ -1,0 +1,90 @@
+% ============================================================================
+\chapter{Mjerenje zamjene konteksta i pore\dj{}enje sa simulatorom}
+\label{ch:mjerenje}
+% ============================================================================
+
+U ovom poglavlju opisuje se mjerenje vremena zamjene konteksta operativnog
+sistema na stvarnom hardveru, te njegovo pore\dj{}enje sa ranije dobijenim
+vrijednostima iz simulatora. Najprije se obja\v{s}njava metodologija mjerenja i
+razlog za odre\dj{}ene odluke pri njenoj izradi. Zatim se prikazuju izmjereni
+rezultati na hardveru. Na kraju se ti rezultati pa\v{z}ljivo pore\dj{}uju sa
+rezultatima iz simulatora, uz jasno isticanje ograni\v{c}enja takvog pore\dj{}enja.
+Cilj poglavlja je dati prvu mjerljivu karakterizaciju operativnog sistema na
+ovoj platformi, bez preuveli\v{c}avanja zaklju\v{c}aka.
+
+\section{Metodologija mjerenja}
+\label{sec:mjerenje-metoda}
+
+Mjerenje oponasa test zamjene konteksta iz simulatorskog dijela istra\v{z}ivanja
+\citep{thesisqemu}. Jedna iteracija obuhvata dvije zamjene konteksta, odlazak iz
+prvog u drugi zadatak i povratak nazad. Vrijeme se mjeri slobodnim hardverskim
+broja\v{c}em koji radi na frekvenciji od dvadeset sedam megaherca. Za razliku od
+simulatorskog testa, koji koristi dva zadatka istog prioriteta i jedan semafor,
+\v{c}ije pona\v{s}anje zavisi od dijeljenja vremena, ovdje su kori\v{s}tena dva
+semafora i zadatak odgovara\v{c} vi\v{s}eg prioriteta. Time svaka predaja semafora
+sigurno izaziva mjerenu zamjenu konteksta. Mjerena veli\v{c}ina je ista, broj
+takta za dvostruku zamjenu konteksta, a jednostruka zamjena dobija se dijeljenjem
+sa dva.
+
+\section{Rezultati na hardveru}
+\label{sec:mjerenje-rezultati}
+
+Mjereno je pet stotina iteracija, a rezultat je bio ponovljiv kroz vi\v{s}e
+upisa u plo\v{c}u. Dobijene vrijednosti za dvostruku zamjenu konteksta iznose
+sedam hiljada \v{s}ezdeset jedan takt kao najmanja, sedam hiljada sedamdeset
+devet kao prosje\v{c}na i sedam hiljada devet stotina osamdeset dva kao najve\'ca
+vrijednost. To odgovara prosje\v{c}nom vremenu od oko dvije stotine \v{s}ezdeset
+dvije mikrosekunde. Jednostruka zamjena konteksta iznosi oko tri hiljade pet
+stotina trideset takta, odnosno oko sto trideset jednu mikrosekundu. Mali raspon
+izme\dj{}u najmanje i najve\'ce vrijednosti pokazuje da nijedan takt
+raspore\dj{}iva\v{c}a nije upao u prozor mjerenja, pa su vrijednosti \v{c}iste.
+
+Visok broj takta po zamjeni konteksta posljedica je toga \v{s}to je PicoRV32
+vi\v{s}eciklusna jezgra na relativno niskoj frekvenciji, kako je opisano u
+poglavlju \ref{ch:platforma}. Zamjena konteksta pohranjuje i obnavlja cijeli
+skup cjelobrojnih registara, uz dodatni tro\v{s}ak rada sa semaforima.
+
+\section{Pore\dj{}enje sa simulatorom}
+\label{sec:mjerenje-poredjenje}
+
+Rezultati iz simulatora, dobijeni emulacijom RISC-V sistema, daju za dvostruku
+zamjenu konteksta najmanju vrijednost od devet hiljada sto osamdeset osam takta,
+prosje\v{c}nu od dvadeset tri hiljade sedam stotina \v{c}etrdeset sedam i
+najve\'cu od gotovo \v{c}etiri miliona takta. Pore\dj{}enje je dato u tabeli
+\ref{table:poredjenje}.
+
+\begin{table}[H]
+\caption{Pore\dj{}enje dvostruke zamjene konteksta na hardveru i u simulatoru (u taktovima).}
+\label{table:poredjenje}
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+Veli\v{c}ina & Hardver (27 MHz) & Simulator (25 MHz) \\ \hline
+Najmanja & 7061 & 9188 \\
+Prosje\v{c}na & 7079 & 23747 \\
+Najve\'ca & 7982 & 3895040 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Pore\dj{}enje treba tuma\v{c}iti oprezno. Hardverska vrijednost dobijena je
+stvarnim broja\v{c}em takta, dok simulatorska vrijednost dolazi iz emuliranog
+broja\v{c}a koji nije takovno ta\v{c}an u odnosu na stvarni \v{c}ip. Zbog toga se
+ne pore\dj{}uju dva ista takta, nego model iz simulatora i stvarni hardver.
+Najpo\v{s}tenija ta\v{c}ka pore\dj{}enja je najmanja vrijednost, jer nije optere\'cena
+smetnjama, i tu su vrijednosti istog reda veli\v{c}ine. Prosje\v{c}na i najve\'ca
+vrijednost u simulatoru znatno su ve\'ce zbog ka\v{s}njenja koja unosi
+periodi\v{c}no \v{c}ekanje u testu i takt raspore\dj{}iva\v{c}a. Zbog svega
+navedenog, ne iznosi se tvrdnja o ta\v{c}nom odnosu brzina, nego se zaklju\v{c}uje
+da je izmjerena hardverska zamjena konteksta po redu veli\v{c}ine u skladu sa
+\v{c}istom procjenom iz simulatora.
+
+\section{Zaklju\v{c}ak poglavlja}
+\label{sec:mjerenje-zakljucak}
+
+U poglavlju je dato prvo mjerenje vremena zamjene konteksta operativnog sistema
+na stvarnom hardveru. Opisana je metodologija, prikazani su ponovljivi rezultati
+i izvr\v{s}eno je oprezno pore\dj{}enje sa simulatorom. Pokazano je da su \v{c}iste
+vrijednosti istog reda veli\v{c}ine, ali i da razlike u izvoru takta i uslovima
+mjerenja ne dopu\v{s}taju izvo\dj{}enje ta\v{c}nog odnosa brzina. Time je
+zaokru\v{z}ena mjerljiva karakterizacija sistema na ovoj platformi.

@@ -1,0 +1,109 @@
+% ============================================================================
+\chapter{Uklapanje cijele igre sa video izlazom}
+\label{ch:uklapanje}
+% ============================================================================
+
+U ovom poglavlju obra\dj{}uje se sredi\v{s}nji in\v{z}enjerski problem rada, a to
+je uklapanje cijele igre zajedno sa operativnim sistemom i video izlazom u
+stroge resurse plo\v{c}e Tang Nano 9K. Najprije se opisuje problem koji se javio
+pri prvom poku\v{s}aju, zatim se analizira njegov stvarni uzrok kroz zauze\'ce
+blokovske memorije. Nakon toga prikazuju se dva rje\v{s}enja koja su zajedno
+omogu\'cila uklapanje, kao i jedno va\v{z}no otkri\'ce o pona\v{s}anju alata za
+sintezu. Na kraju se daje kona\v{c}ni rezultat uklapanja i prilagodba video
+inicijalizacije. Ovo poglavlje predstavlja te\v{z}i\v{s}te tehni\v{c}kog
+doprinosa rada.
+
+\section{Problem uklapanja}
+\label{sec:uklapanje-problem}
+
+Pri prvom poku\v{s}aju spajanja procesora sa operativnim sistemom i video
+jedinicom u rezoluciji visoke definicije, sinteza nije uspjela. Procijenjeni
+broj logi\v{c}kih elemenata iznosio je oko \v{s}esnaest hiljada, dok plo\v{c}a
+raspola\v{z}e sa oko osam i po hiljada. Na prvi pogled \v{c}inilo se da je
+problem u koli\v{c}ini logike, me\dj{}utim, dublja analiza pokazala je da je
+stvarni uzrok bio drugdje.
+
+\section{Analiza zauze\'ca blokovske memorije}
+\label{sec:uklapanje-analiza}
+
+Pregledom izvje\v{s}taja sinteze utvr\dj{}eno je da je ve\'c sama ina\v{c}ica sa
+serijskim izlazom tro\v{s}ila svu raspolo\v{z}ivu blokovsku memoriju, odnosno
+svih dvadeset \v{s}est blokova. Od toga je programska memorija zauzimala
+\v{s}esnaest blokova, radna memorija osam, a serijska jedinica dva. Kako vi\v{s}e
+nije bilo slobodne blokovske memorije, video jedinica je svoju znakovnu i mapnu
+memoriju morala smjestiti u logi\v{c}ke elemente i registre, \v{s}to je dovelo do
+prividne eksplozije broja logi\v{c}kih elemenata. Drugim rije\v{c}ima, problem
+nije bio u logici, nego u nedostatku blokovske memorije.
+
+Pri poku\v{s}aju smanjenja memorija uo\v{c}eno je i va\v{z}no svojstvo alata za
+sintezu. Alat pouzdano prepoznaje i smje\v{s}ta memoriju u blokovsku memoriju
+samo kada je njena dubina jednaka stepenu broja dva. Kada je programska memorija
+poku\v{s}ana smanjiti na dubinu koja nije stepen broja dva, alat je memoriju
+po\v{c}eo realizovati pomo\'cu registara, \v{s}to je dovelo do gotovo devetnaest
+hiljada registara i nove neuspjele sinteze. Ovo otkri\'ce odredilo je smjer
+svih daljih optimizacija, jer su sve dubine memorija morale ostati stepeni broja
+dva.
+
+\section{Dva rje\v{s}enja: manji program i manja video memorija}
+\label{sec:uklapanje-rjesenja}
+
+Prvo rje\v{s}enje odnosi se na programsku memoriju. Utvr\dj{}eno je da je program
+povezivao i one funkcije operativnog sistema koje se uop\v{s}te ne koriste. Uz
+prevo\dj{}enje sa razdvajanjem funkcija u zasebne sekcije i uklanjanjem
+nekori\v{s}tenih sekcija pri povezivanju, veli\v{c}ina programa smanjena je sa
+oko dvadeset dva i po hiljade bajta na oko petnaest hiljada bajta. Time je
+program pao ispod granice od \v{s}esnaest kilobajta, pa programska memorija sada
+zauzima osam umjesto \v{s}esnaest blokova.
+
+Drugo rje\v{s}enje odnosi se na video memoriju. Umjesto rezolucije visoke
+definicije, kori\v{s}tena je ni\v{z}a rezolucija, \v{c}ime se znakovna memorija
+smanjila sa dvanaest hiljada dvije stotine osamdeset osam na \v{c}etiri hiljade
+devedeset \v{s}est rije\v{c}i. Obje veli\v{c}ine ostale su stepeni broja dva,
+\v{s}to je u skladu sa ranije opisanim svojstvom alata. Zajedno, ova dva
+rje\v{s}enja oslobodila su dovoljno blokovske memorije da se cijeli sistem
+uklopi.
+
+\section{Rezultat uklapanja i prilagodba video inicijalizacije}
+\label{sec:uklapanje-rezultat}
+
+Nakon primjene oba rje\v{s}enja, sinteza je uspjela, a sistem se uklopio u
+resurse plo\v{c}e sa odre\dj{}enom rezervom. Pore\dj{}enje zauze\'ca resursa prije
+i poslije optimizacije dato je u tabeli \ref{table:resursi}.
+
+\begin{table}[H]
+\caption{Zauze\'ce resursa kombinovanog sistema prije i poslije optimizacije.}
+\label{table:resursi}
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+Resurs & Prije & Poslije \\ \hline
+Logi\v{c}ki elementi & 16041 (prekora\v{c}eno) & 3348 / 8640 \\
+Registri & -- & 1349 / 6693 \\
+Blokovska memorija & 26 / 26 & 22 / 26 \\
+\quad programska (pROM) & 16 & 8 \\
+\quad radna (SP) & 8 & 8 \\
+\quad ostalo (SDPB) & 2 & 6 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Nakon \v{s}to je sklop uklopljen, prilago\dj{}ena je i video inicijalizacija u
+programu. Po\v{s}to je mapa polja ista u obje rezolucije, jer se polje sastoji od
+istog broja velikih znakova, mijenjala se samo veli\v{c}ina pojedinog znaka.
+Inicijalizacija znakova prilago\dj{}ena je da upisuje znakove veli\v{c}ine
+\v{s}esnaest sa \v{s}esnaest ta\v{c}aka umjesto ranijih dvadeset \v{c}etiri sa
+trideset dvije. Sistem se nakon toga uspje\v{s}no pokre\'ce na hardveru i video
+inicijalizacija se izvr\v{s}ava do kraja, dok kona\v{c}na vizuelna potvrda slike
+na ekranu ostaje stavka za daljnji rad.
+
+\section{Zaklju\v{c}ak poglavlja}
+\label{sec:uklapanje-zakljucak}
+
+U poglavlju je rije\v{s}en glavni in\v{z}enjerski problem rada. Pokazano je da
+uzrok neuspjeha prvog uklapanja nije bila koli\v{c}ina logike, nego nedostatak
+blokovske memorije, te da alat za sintezu pouzdano koristi blokovsku memoriju
+samo za dubine koje su stepeni broja dva. Smanjenjem programa uklanjanjem
+nekori\v{s}tenih funkcija i kori\v{s}tenjem ni\v{z}e video rezolucije sistem je
+uklopljen u resurse plo\v{c}e i pokrenut na hardveru. Time je pokazano da je
+cijela igra sa operativnim sistemom i video izlazom izvodljiva na ovoj
+niskobud\v{z}etnoj plo\v{c}i.

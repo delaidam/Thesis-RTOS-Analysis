@@ -1,0 +1,86 @@
+% ============================================================================
+\chapter{Srodni radovi}
+\label{ch:srodni}
+% ============================================================================
+
+U ovom poglavlju daje se pregled dosada\v{s}njih istra\v{z}ivanja koja su bliska
+temi rada. Cilj je smjestiti vlastiti rad u \v{s}iri kontekst i jasno pokazati
+\v{c}ime se on razlikuje od postoje\'ce literature. Najprije se razmatraju radovi
+o mjerenju performansi operativnih sistema za rad u realnom vremenu, zatim radovi
+o zamjeni konteksta i prekidima na arhitekturi RISC-V, potom radovi o mekim
+procesorima na programabilnoj logici, te na kraju radovi o odnosu simulacije i
+stvarnog hardvera. Na osnovu tog pregleda izdvaja se pozicija ovog rada.
+
+\section{Mjerenje performansi operativnih sistema za rad u realnom vremenu}
+\label{sec:srodni-rtos}
+
+Mjerenje vremena zamjene konteksta uobi\v{c}ajena je metrika pri pore\dj{}enju
+operativnih sistema za rad u realnom vremenu. Pore\dj{}enja sistema FreeRTOS i
+Zephyr pokazuju da se ovakve veli\v{c}ine izra\v{z}avaju u broju takta, pri \v{c}emu
+se za FreeRTOS navodi red veli\v{c}ine od oko dvije stotine dvadeset tri takta na
+jezgrama tipa ARM Cortex-M \citep{ulsolutions2022rtos}. Va\v{z}no je naglasiti da
+takve vrijednosti mjere u\v{z}u operaciju zamjene konteksta na cjevovodnom
+procesoru, dok mjerenja u ovom radu obuhvataju i dodatni tro\v{s}ak rada sa
+mehanizmom sinhronizacije na vi\v{s}eciklusnom mekom procesoru, pa se brojevi ne
+mogu direktno pore\dj{}ivati bez te ograde.
+
+\section{Zamjena konteksta i prekidi na arhitekturi RISC-V}
+\label{sec:srodni-riscv}
+
+Poseban pravac istra\v{z}ivanja bavi se ubrzanjem zamjene konteksta i obrade
+prekida na arhitekturi RISC-V. U radu o pro\v{s}irenju CV32RT predla\v{z}u se
+mikroarhitekturna pro\v{s}irenja jezgre radi br\v{z}eg ulaska u prekid i br\v{z}e
+zamjene konteksta za mikrokontrolere zasnovane na RISC-V \citep{balas2023cv32rt}.
+Sli\v{c}no, postoji istra\v{z}ivanje koje zajedni\v{c}ki istra\v{z}uje
+mikroarhitekturu procesora i pro\v{s}irenja samog operativnog sistema FreeRTOS sa
+ciljem smanjenja latencije zamjene konteksta \citep{scheck2026coexploration}.
+Ovi radovi pokazuju da je smanjenje cijene zamjene konteksta aktuelna tema, ali
+se oni uglavnom oslanjaju na izmjene hardvera ili jezgre, dok se ovaj rad bavi
+mjerenjem nepromijenjenog sistema na postoje\'coj mekoj jezgri.
+
+\section{Meki procesori RISC-V na programabilnoj logici}
+\label{sec:srodni-softcore}
+
+Meki procesori na programabilnoj logici predmet su brojnih evaluacija. Procesor
+PicoRV32, kori\v{s}ten i u ovom radu, ocijenjen je kao izrazito \v{s}tedljiv po
+pitanju resursa i pogodan za ure\dj{}aje sa ograni\v{c}enim resursima
+\citep{jahnke2023picorv32}. Takve evaluacije obi\v{c}no se fokusiraju na
+zauze\'ce logi\v{c}kih elemenata i propusnost, dok je rad operativnog sistema na
+takvoj jezgri i njegovo uklapanje zajedno sa video izlazom rje\dj{}e obra\dj{}ivano.
+Upravo to \v{c}ini doprinos ovog rada, jer se uz mjerenje razmatra i prakti\v{c}no
+ograni\v{c}enje blokovske memorije pri sintezi.
+
+\section{Odnos simulacije i stvarnog hardvera}
+\label{sec:srodni-qemu}
+
+Emulator QEMU \v{s}iroko se koristi za pokretanje ugradbenog softvera, ali je on
+funkcijski ta\v{c}an, \v{s}to zna\v{c}i da vjerno opona\v{s}a pona\v{s}anje
+instrukcija, ali ne modeluje mikroarhitekturu takovno ta\v{c}no \citep{qemu}.
+Zbog toga se vrijednosti takta dobijene u takvom okru\v{z}enju ne mogu bez ograde
+tuma\v{c}iti kao vrijednosti na stvarnom \v{c}ipu. Ova osobina direktno opravdava
+opreznost pri pore\dj{}enju rezultata iz simulatora \citep{thesisqemu} sa
+rezultatima izmjerenim na hardveru, kako je u\v{c}injeno u poglavlju
+\ref{ch:mjerenje}.
+
+\section{Pozicija ovog rada}
+\label{sec:srodni-pozicija}
+
+Iz pregleda literature mo\v{z}e se uo\v{c}iti obrazac. Mjerenja performansi
+operativnih sistema naj\v{c}e\v{s}\'ce se rade na cjevovodnim mikrokontrolerima
+tipa ARM Cortex-M, dok se na arhitekturi RISC-V te\v{z}i\v{s}te stavlja na
+hardversko ubrzanje zamjene konteksta. Evaluacije mekih procesora fokusiraju se
+na resurse, a rje\dj{}e na rad operativnog sistema. Ovaj rad popunjava prazninu
+time \v{s}to mjeri nepromijenjeni FreeRTOS na minimalnoj otvorenoj mekoj RISC-V
+jezgri na jeftinoj plo\v{c}i, upore\dj{}uje rezultat sa simulatorom i dokumentuje
+prakti\v{c}no ograni\v{c}enje sinteze vezano za blokovsku memoriju. Time se
+doprinos rada jasno razlikuje od navedenih istra\v{z}ivanja.
+
+\section{Zaklju\v{c}ak poglavlja}
+\label{sec:srodni-zakljucak}
+
+U poglavlju je dat pregled srodnih istra\v{z}ivanja iz \v{c}etiri bliske oblasti
+i izdvojena je pozicija ovog rada. Pokazano je da postoje\'ca literatura uglavnom
+mjeri operativne sisteme na cjevovodnim jezgrama ili predla\v{z}e hardverska
+ubrzanja, dok mjerenje nepromijenjenog sistema na minimalnoj mekoj RISC-V jezgri,
+zajedno sa pore\dj{}enjem sa simulatorom, ostaje slabije pokriveno. Time je
+opravdan pristup koji se razra\dj{}uje u narednim poglavljima.
