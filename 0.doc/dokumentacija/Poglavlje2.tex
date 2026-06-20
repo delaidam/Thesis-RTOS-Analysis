@@ -1,0 +1,105 @@
+% ============================================================================
+\chapter{Razdvajanje aplikacije na zadatke}
+\label{ch:zadaci}
+% ============================================================================
+
+U ovom poglavlju opisuje se kako je monolitna aplikacija TetriSaraj prevedena u
+skup zasebnih zadataka pod upravom raspore\dj{}iva\v{c}a. Najprije se obja\v{s}njava
+razdvajanje \v{c}iste logike igre od dijela koji pristupa hardveru, jer je takvo
+razdvajanje preduslov za rad pod operativnim sistemom. Zatim se opisuje
+arhitektura zadataka i na\v{c}ini njihove komunikacije. Na kraju se prikazuje
+dokaz da logika igre zaista napreduje pod raspore\dj{}iva\v{c}em na stvarnom
+hardveru, i to bez video izlaza, kako bi se prvo potvrdila ispravnost samog
+toka igre. Ovaj korak je va\v{z}an jer odvaja pitanje ispravnosti logike od
+kasnijeg pitanja uklapanja video izlaza.
+
+\section{Razdvajanje logike igre i pristupa hardveru}
+\label{sec:zadaci-razdvajanje}
+
+Izvorna aplikacija dr\v{z}ala je stanje igre u globalnim promjenljivim i
+direktno pristupala perifernim jedinicama unutar jedne velike petlje. Da bi se
+igra mogla izvr\v{s}avati kao zadatak, kod je razdvojen na dva dijela. Prvi dio
+\v{c}ini \v{c}ista logika igre koja radi isklju\v{c}ivo nad strukturom stanja u
+memoriji, bez ikakvog pristupa hardveru. Drugi dio \v{c}ini sloj platforme koji
+obavlja pristup serijskoj jedinici, dugmadima i video memoriji. Takvo
+razdvajanje omogu\'cava da se ista logika igre koristi i u ina\v{c}ici sa video
+izlazom i u ina\v{c}ici koja stanje ispisuje tekstualno preko serijske veze.
+
+\section{Arhitektura zadataka i komunikacija}
+\label{sec:zadaci-arhitektura}
+
+Aplikacija je podijeljena na \v{c}etiri zadatka razli\v{c}itih prioriteta.
+Zadatak za unos periodi\v{c}no o\v{c}itava ulaz i \v{s}alje ga dalje. Zadatak
+igre prima posljednji unos i pomjera stanje igre naprijed na zadatom periodu.
+Zadatak za iscrtavanje osvje\v{z}ava prikaz kada se stanje promijeni. Pomo\'cni
+zadatak periodi\v{c}no ispisuje stanje sistema preko serijske veze. Za prenos
+unosa koristi se red poruka, a za za\v{s}titu zajedni\v{c}kog stanja igre koristi
+se me\dj{}usobno isklju\v{c}ivanje. Ova organizacija prikazana je na slici
+\ref{fig:zadaci}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    taskbox/.style={draw, rounded corners, minimum width=2.6cm, minimum height=0.9cm, align=center, font=\small},
+    combox/.style={draw, dashed, minimum width=2.0cm, minimum height=0.8cm, align=center, font=\footnotesize},
+    >=Latex
+]
+\node[taskbox] (unos) {Zadatak\\ unosa};
+\node[combox, right=1.3cm of unos] (red) {Red\\ poruka};
+\node[taskbox, right=1.3cm of red] (igra) {Zadatak\\ igre};
+\node[taskbox, right=1.6cm of igra] (render) {Zadatak\\ iscrtavanja};
+\node[combox, below=0.9cm of igra] (mutex) {Stanje igre\\ (mutex)};
+
+\draw[->] (unos) -- (red);
+\draw[->] (red) -- (igra);
+\draw[->] (igra) -- (render);
+\draw[->] (igra) -- (mutex);
+\draw[->] (mutex) -- (render);
+\end{tikzpicture}
+\caption{Arhitektura zadataka: unos se prenosi redom poruka, a zajedni\v{c}ko stanje igre \v{s}titi se me\dj{}usobnim isklju\v{c}ivanjem.}
+\label{fig:zadaci}
+\end{figure}
+
+Razdvajanje na zadatke razli\v{c}itih prioriteta omogu\'cava da zadatak igre ima
+prednost nad iscrtavanjem, a da unos ima najve\'cu prednost. Time se postavlja
+osnova za predvidljivo pona\v{s}anje sistema u realnom vremenu.
+
+\section{Dokaz rada na hardveru bez video izlaza}
+\label{sec:zadaci-headless}
+
+Da bi se ispravnost logike potvrdila prije slo\v{z}enog uklapanja video izlaza,
+napravljena je ina\v{c}ica koja stanje igre iscrtava tekstualno preko serijske
+veze, bez pristupa video memoriji. Takva ina\v{c}ica uklapa se u ve\'c provjereni
+sklop sa serijskim izlazom. Nakon upisa u plo\v{c}u, preko serijske veze
+dobijeni su okviri stanja igre. U njima se vidi okvir polja, padaju\'ca figura,
+te promjena rezultata kada se figura zaklju\v{c}a i pojavi nova. Skra\'ceni
+ispis prikazan je u listingu \ref{lst:headless}.
+
+\begin{lstlisting}[caption={Skra\'ceni serijski ispis tekstualne ina\v{c}ice: rezultat raste sa 0x0000 na 0x0001 nakon zaklju\v{c}avanja figure.}, label={lst:headless}]
+--- frame 0x0002  score=0x0000  lives=0x03
+########################################
+            IIII   ##
+########################################
+[hb] beat=0x0002 tick=0x0000019C score=0x0000 ...
+
+--- frame 0x0003  score=0x0001  lives=0x03
+ OOO               ##
+  O                ##
+########################################
+\end{lstlisting}
+
+Ispis pokazuje da takt raspore\dj{}iva\v{c}a napreduje, da \v{c}etiri zadatka
+sara\dj{}uju preko reda poruka i me\dj{}usobnog isklju\v{c}ivanja bez naru\v{s}avanja
+ispisa, te da stvarna logika igre napreduje kroz pojavu, padanje, zaklju\v{c}avanje
+i bodovanje figura. Time je dokazano da je igra pod upravom operativnog sistema
+funkcionalna na hardveru.
+
+\section{Zaklju\v{c}ak poglavlja}
+\label{sec:zadaci-zakljucak}
+
+U poglavlju je prikazano razdvajanje aplikacije na \v{c}istu logiku i sloj
+platforme, te podjela na \v{c}etiri zadatka koji komuniciraju redom poruka i
+me\dj{}usobnim isklju\v{c}ivanjem. Rad logike igre pod raspore\dj{}iva\v{c}em
+potvr\dj{}en je na hardveru putem tekstualnog ispisa, \v{c}ime je ispravnost toka
+igre odvojena od pitanja video izlaza. Time su stvoreni uslovi da se u narednom
+poglavlju rije\v{s}i uklapanje cijele igre zajedno sa video izlazom.

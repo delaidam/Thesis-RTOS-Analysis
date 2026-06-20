@@ -9,6 +9,23 @@
 #define UART_CLKDIV 234u
 #endif
 
+/* Character (tile) geometry. The on-screen map is always 40x30 mega-characters,
+ * but each tile's pixel resolution depends on the video back-end:
+ *   - default 1280x720 -> 32x24 tiles (768 words/char, char RAM = 12288 words)
+ *   - TETRISARAJ_VIDEO_640 -> 16x16 tiles (256 words/char, char RAM = 4096)
+ * Only tetrisaraj_video_chars_init() depends on this; the map writes are the
+ * same for both resolutions. */
+#ifdef TETRISARAJ_VIDEO_640
+#define VID_CHAR_W   16u
+#define VID_CHAR_H   16u
+#else
+#define VID_CHAR_W   32u
+#define VID_CHAR_H   24u
+#endif
+#define VID_CHAR_CELLS ( VID_CHAR_W * VID_CHAR_H )
+#define VID_RIGHT0     ( VID_CHAR_W - 2u )
+#define VID_RIGHT1     ( VID_CHAR_W - 1u )
+
 void tetrisaraj_platform_init( void )
 {
     REG_UART_CLKDIV = UART_CLKDIV;
@@ -103,56 +120,56 @@ void tetrisaraj_video_chars_init( void )
 
     for( uint8_t z = 0u; z < 16u; z++ )
     {
-        for( uint8_t y = 0u; y < 24u; y++ )
+        for( uint8_t y = 0u; y < VID_CHAR_H; y++ )
         {
-            for( uint8_t x = 0u; x < 32u; x++ )
+            for( uint8_t x = 0u; x < VID_CHAR_W; x++ )
             {
                 if( z == 0u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x00000222u; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x00000111u; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x00000111u; }
                     else { pixel = 0x00000000u; }
                 }
                 else if( z == 1u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x00000080u; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x00000080u; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x00000080u; }
                     else { pixel = 0x000008B4u; }
                 }
                 else if( z == 2u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x0000000Bu; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x0000000Bu; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x0000000Bu; }
                     else { pixel = 0x00000009u; }
                 }
                 else if( z == 3u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x00000A00u; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x00000B00u; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x00000B00u; }
                     else { pixel = 0x00000F00u; }
                 }
                 else if( z == 4u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x00000FD8u; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x00000FD4u; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x00000FD4u; }
                     else { pixel = 0x00000FF0u; }
                 }
                 else if( z == 5u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x0000075Du; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x0000074Du; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x0000074Du; }
                     else { pixel = 0x0000070Du; }
                 }
                 else if( z == 6u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x00000FAFu; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x00000F6Fu; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x00000F6Fu; }
                     else { pixel = 0x00000F0Fu; }
                 }
                 else if( z == 7u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x00000FB0u; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x00000F90u; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x00000F90u; }
                     else { pixel = 0x00000FA0u; }
                 }
                 else if( z == 8u )
@@ -161,14 +178,14 @@ void tetrisaraj_video_chars_init( void )
                 }
                 else if( z == 9u )
                 {
-                    if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x00000CCCu; }
+                    if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x00000CCCu; }
                     else if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x00000111u; }
                     else { pixel = 0x00000AAAu; }
                 }
                 else if( z == 10u )
                 {
                     if( ( y == 0u ) || ( y == 1u ) ) { pixel = 0x0000000Bu; }
-                    else if( ( x == 30u ) || ( x == 31u ) ) { pixel = 0x0000000Bu; }
+                    else if( ( x == VID_RIGHT0 ) || ( x == VID_RIGHT1 ) ) { pixel = 0x0000000Bu; }
                     else { pixel = 0x00000007u; }
                 }
                 else if( z == 11u )
@@ -192,7 +209,7 @@ void tetrisaraj_video_chars_init( void )
                     pixel = 0x00000000u;
                 }
 
-                REG_VIDEO_CHAR[ ( ( uint32_t ) z * 768u ) + ( ( uint32_t ) y * 32u ) + x ] = pixel;
+                REG_VIDEO_CHAR[ ( ( uint32_t ) z * VID_CHAR_CELLS ) + ( ( uint32_t ) y * VID_CHAR_W ) + x ] = pixel;
             }
         }
     }

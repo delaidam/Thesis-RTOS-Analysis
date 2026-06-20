@@ -1,0 +1,42 @@
+% ---- Sazetak, kljucne rijeci, abstract, keywords ---------------------------
+\chapter*{Sa\v{z}etak}
+\addcontentsline{toc}{chapter}{Sa\v{z}etak}
+
+U radu se razmatra portanje postoje\'ce aplikacije TetriSaraj sa golog
+mikrokontrolerskog izvr\v{s}avanja na operativni sistem za rad u realnom vremenu
+FreeRTOS, na otvorenoj RISC-V platformi. Ciljna platforma je meki procesor
+PicoRV32 sintetizovan na razvojnoj plo\v{c}i Tang Nano 9K. Prikazuje se zna\v{c}aj
+operativnih sistema za rad u realnom vremenu u kontekstu ugradbenih sistema sa
+ograni\v{c}enim resursima, gdje je potrebno uskladiti vremensku predvidljivost,
+zauze\'ce memorije i logi\v{c}kih resursa programabilne logike. Cilj rada je
+objasniti postupak prevo\dj{}enja monolitne aplikacije u skup zadataka pod
+upravom raspore\dj{}iva\v{c}a, kao i postupak uklapanja takvog sistema zajedno sa
+video izlazom u stroge resurse niskobud\v{z}etne plo\v{c}e. Metode kori\v{s}tene
+pri izradi rada obuhvataju razvoj i prevo\dj{}enje ugradbenog programa, sintezu
+digitalnog sklopa, mjerenje na stvarnom hardveru putem serijske veze i pore\dj{}enje
+sa rezultatima dobijenim u simulatoru.
+
+\vspace{0.5cm}
+\noindent\textbf{Klju\v{c}ne rije\v{c}i:} FreeRTOS, PicoRV32, RISC-V, sinteza,
+Tang Nano 9K, ugradbeni sistemi, zamjena konteksta.
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This paper considers porting the existing TetriSaraj application from bare-metal
+execution to the FreeRTOS real-time operating system on an open RISC-V platform.
+The target platform is the PicoRV32 soft processor synthesised on a Tang Nano 9K
+development board. The importance of real-time operating systems is presented in
+the context of resource-constrained embedded systems, where timing
+predictability, memory usage and programmable-logic resource usage must be
+balanced. The aim of the paper is to explain the process of converting a
+monolithic application into a set of scheduler-managed tasks, as well as the
+process of fitting such a system together with video output into the tight
+resources of a low-cost board. The methods used in the work include embedded
+firmware development and compilation, digital-circuit synthesis, measurement on
+real hardware over a serial link, and comparison with results obtained in a
+simulator.
+
+\vspace{0.5cm}
+\noindent\textbf{Keywords:} context switch, embedded systems, FreeRTOS,
+PicoRV32, RISC-V, synthesis, Tang Nano 9K.

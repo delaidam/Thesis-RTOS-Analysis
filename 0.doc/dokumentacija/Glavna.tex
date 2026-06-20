@@ -1,0 +1,80 @@
+% ============================================================================
+% Glavna.tex -- ulazna tacka seminarskog rada.
+% Prati pravila iz PRAVILA_PISANJA_PREMA_TEMPLATEU.md:
+%   - bosanska jezicka norma,
+%   - struktura razdvojena po fajlovima (\include),
+%   - sazetak + abstract, uvod u tri cjeline, poglavlja s kratkim uvodima,
+%     zakljucak, popis slika, bibliografija.
+% Kompajlirati: pdflatex -> bibtex -> pdflatex -> pdflatex
+% ============================================================================
+\documentclass[12pt,a4paper,oneside]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Ako lokalni TeX nema bosanski babel, zamijeniti sa [croatian].
+\usepackage[bosnian]{babel}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{Slike/}}
+
+% ---- stil za programski kod / UART ispise -----------------------------------
+\definecolor{kodSiva}{RGB}{96,96,96}
+\definecolor{kodPozadina}{RGB}{246,246,246}
+\lstdefinestyle{plain}{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{kodPozadina},
+    commentstyle=\color{kodSiva},
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{kodSiva!40},
+    captionpos=b,
+    showstringspaces=false,
+    tabsize=2
+}
+\lstset{style=plain}
+
+% ---- podaci o dokumentu -----------------------------------------------------
+\newcommand{\NaslovRada}{Portanje aplikacije TetriSaraj na operativni sistem FreeRTOS na platformi RISC-V (Tang Nano 9K / PicoRV32)}
+\newcommand{\ImeAutora}{Delaida Muminovi\'c}
+\newcommand{\MjestoGodina}{Zenica, 2026.}
+
+\begin{document}
+
+\include{Naslovna}
+
+\include{Sazetak}
+
+\tableofcontents
+
+\include{Uvod}
+\include{SrodniRadovi}
+\include{Poglavlje1}
+\include{Poglavlje2}
+\include{Poglavlje3}
+\include{Poglavlje4}
+\include{PravciIstrazivanja}
+\include{Zakljucak}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Popis slika}
+\listoffigures
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Literatura}
+\bibliographystyle{unsrtnat}
+\bibliography{Reference}
+
+\end{document}

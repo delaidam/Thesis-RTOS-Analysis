@@ -64,6 +64,14 @@ APP_SOURCES := $(SW_DIR)/freertos_demo.c $(SW_DIR)/uart.c \
 ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
 CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include
 endif
+ifeq ($(APP),freertos_ctxbench)
+APP_SOURCES := $(SW_DIR)/freertos_ctxbench.c $(SW_DIR)/uart.c \
+               $(PORT_DIR)/port.c $(PORT_DIR)/portmem.c \
+               $(FREERTOS_DIR)/tasks.c $(FREERTOS_DIR)/queue.c \
+               $(FREERTOS_DIR)/list.c $(FREERTOS_DIR)/portable/MemMang/heap_4.c
+ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
+CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include
+endif
 ifeq ($(APP),freertos_game)
 APP_SOURCES := $(SW_DIR)/freertos_game.c $(SW_DIR)/tetrisaraj_game.c \
                $(SW_DIR)/tetrisaraj_platform.c $(SW_DIR)/uart.c \
@@ -96,11 +104,11 @@ APP_SOURCES := $(SW_DIR)/freertos_game.c $(SW_DIR)/tetrisaraj_game.c \
                $(FREERTOS_DIR)/list.c $(FREERTOS_DIR)/portable/MemMang/heap_4.c
 ASM_SOURCES := $(PORT_DIR)/freertos_start.S $(PORT_DIR)/portASM.S
 CFLAGS += -mno-relax -I$(PORT_DIR) -I$(SW_DIR) -I$(FREERTOS_DIR)/include \
-          -ffunction-sections -fdata-sections
+          -ffunction-sections -fdata-sections -DTETRISARAJ_VIDEO_640
 LDFLAGS += -Wl,--gc-sections
 endif
 
-.PHONY: all firmware firmware-freertos firmware-freertos-game firmware-freertos-game-headless firmware-freertos-game-640 bitstream bitstream-app bitstream-freertos bitstream-freertos-game bitstream-freertos-game-headless bitstream-freertos-game-640 bitstream-hdmi bitstream-hdmi-640 flash flash-sram flash-app flash-freertos flash-freertos-game flash-freertos-game-headless flash-freertos-game-640 flash-hdmi flash-hdmi-640 flash-flash serial clean clean_fw clean_hw help FORCE
+.PHONY: all firmware firmware-freertos firmware-freertos-game firmware-freertos-game-headless firmware-freertos-game-640 bitstream bitstream-app bitstream-freertos bitstream-freertos-ctxbench bitstream-freertos-game bitstream-freertos-game-headless bitstream-freertos-game-640 bitstream-hdmi bitstream-hdmi-640 flash flash-sram flash-app flash-freertos flash-freertos-ctxbench flash-freertos-game flash-freertos-game-headless flash-freertos-game-640 flash-hdmi flash-hdmi-640 flash-flash serial clean clean_fw clean_hw help FORCE
 
 all: bitstream
 
@@ -144,6 +152,14 @@ firmware-freertos-game-640:
 bitstream-freertos:
 	$(MAKE) firmware APP=freertos_demo CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
 	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) $(GOWIN_SCRIPT)
+
+# Context-switch benchmark runs on the proven UART-only top (same as freertos_demo).
+bitstream-freertos-ctxbench:
+	$(MAKE) firmware APP=freertos_ctxbench CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
+	cd $(HW_DIR) && $(GOWIN_ENV) $(GOWIN) $(GOWIN_SCRIPT)
+
+flash-freertos-ctxbench: bitstream-freertos-ctxbench
+	$(OPENFPGALOADER) -b $(BOARD) $(BITSTREAM)
 
 bitstream-freertos-game:
 	$(MAKE) firmware APP=freertos_game CROSS=$(CROSS) UART_CLKDIV=$(UART_CLKDIV)
@@ -213,6 +229,7 @@ help:
 	@echo "  make firmware APP=poll_benchmark"
 	@echo "  make firmware APP=irq_benchmark"
 	@echo "  make firmware APP=irq_benchmark MARCH=rv32imc"
+	@echo "  make firmware APP=freertos_ctxbench"
 	@echo "  make firmware APP=freertos_game"
 	@echo "  make firmware APP=freertos_game_headless"
 	@echo "  make firmware APP=freertos_game_640"
@@ -224,6 +241,7 @@ help:
 	@echo "  make bitstream APP=poll_benchmark"
 	@echo "  make bitstream APP=irq_benchmark"
 	@echo "  make bitstream-app"
+	@echo "  make bitstream-freertos-ctxbench"
 	@echo "  make bitstream-freertos-game"
 	@echo "  make bitstream-freertos-game-headless"
 	@echo "  make bitstream-freertos-game-640"
@@ -235,6 +253,7 @@ help:
 	@echo "  make flash APP=timer_hello"
 	@echo "  make flash APP=irq_hello"
 	@echo "  make flash-app"
+	@echo "  make flash-freertos-ctxbench"
 	@echo "  make flash-freertos-game"
 	@echo "  make flash-freertos-game-headless"
 	@echo "  make flash-freertos-game-640"

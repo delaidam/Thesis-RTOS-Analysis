@@ -1,0 +1,105 @@
+% ============================================================================
+\chapter{Hardverska platforma i FreeRTOS port}
+\label{ch:platforma}
+% ============================================================================
+
+U ovom poglavlju opisuje se osnova na kojoj po\v{c}iva cijeli rad. Najprije se
+predstavlja razvojna plo\v{c}a i meki procesor na kojem se izvr\v{s}ava program,
+zatim prilago\dj{}eni port operativnog sistema FreeRTOS za taj procesor, te
+na\v{c}in na koji su organizovani memorija i ulazno-izlazni registri sistema na
+\v{c}ipu. Na kraju poglavlja prikazuje se osnovni dokaz da operativni sistem
+zaista radi na hardveru, jer bez te potvrde nijedan kasniji rezultat ne bi imao
+smisla. Ovo poglavlje predstavlja temelj za razumijevanje kasnijih poglavlja u
+kojima se aplikacija razdvaja na zadatke i uklapa u stroge resurse plo\v{c}e.
+
+\section{Tang Nano 9K i meki procesor PicoRV32}
+\label{sec:platforma-hardver}
+
+Razvojna plo\v{c}a Tang Nano 9K zasnovana je na programabilnom logi\v{c}kom polju
+proizvo\dj{}a\v{c}a Gowin, modela GW1NR-9C. Plo\v{c}a se taktuje vanjskim
+oscilatorom od 27 megaherca i raspola\v{z}e ograni\v{c}enim skupom logi\v{c}kih
+elemenata i blokovske memorije, \v{s}to je kasnije klju\v{c}no za uklapanje
+sistema. Na plo\v{c}i je putem sinteze digitalnog sklopa realizovan meki
+procesor PicoRV32, jednostavna jezgra zasnovana na otvorenoj skupovnoj
+arhitekturi RISC-V \citep{picorv32}. Procesor je konfigurisan za cjelobrojni
+skup instrukcija sa mno\v{z}enjem, \v{s}to se u alatima ozna\v{c}ava kao
+\foreignlanguage{english}{\emph{rv32im}}.
+
+PicoRV32 je vi\v{s}eciklusna jezgra, \v{s}to zna\v{c}i da svaka instrukcija
+tro\v{s}i vi\v{s}e takta. Takva izvedba je mala i \v{s}tedljiva po pitanju
+logike, ali sporija po izvr\v{s}enoj instrukciji u odnosu na cjevovodne procesore.
+Ta osobina je va\v{z}na za kasnije tuma\v{c}enje izmjerenih vrijednosti, jer se
+broj takta po zamjeni konteksta ne mo\v{z}e direktno tuma\v{c}iti kao broj
+izvr\v{s}enih instrukcija.
+
+\section{Prilago\dj{}eni port operativnog sistema FreeRTOS}
+\label{sec:platforma-port}
+
+FreeRTOS je operativni sistem za rad u realnom vremenu otvorenog koda, dostupan
+za veliki broj arhitektura \citep{freertos}. Za potrebe ovog sistema kori\v{s}ten
+je prilago\dj{}eni port jezgre verzije V10.5.1 za PicoRV32. Raspore\dj{}iva\v{c}
+periodi\v{c}no dobija takt iz vanjskog broja\v{c}a koji generi\v{s}e prekid na
+liniji broj pet, podesen na frekvenciju od sto herca. Promjena zadatka, odnosno
+zamjena konteksta, pokre\'ce se programskim prekidom na liniji broj \v{s}est.
+
+Va\v{z}na posebnost ovog porta je obavezna upotreba prevodila\v{c}ke opcije koja
+isklju\v{c}uje takozvanu relaksaciju, \foreignlanguage{english}{\emph{-mno-relax}}.
+Razlog je taj \v{s}to PicoRV32 u kori\v{s}tenoj konfiguraciji pri ulasku u prekid
+mo\v{z}e prepisati registre globalnog i nitnog pokaziva\v{c}a, pa se program ne
+smije oslanjati na globalni pokaziva\v{c}. Ova naizgled sitna postavka klju\v{c}na
+je za ispravan rad sistema i predstavlja primjer pa\v{z}nje koju zahtijeva rad
+na niskom nivou.
+
+\section{Memorijska i adresna organizacija sistema na \v{c}ipu}
+\label{sec:platforma-memorija}
+
+Sistem na \v{c}ipu razdvaja prostor programa i prostor podataka. Program se
+nalazi u zasebnoj memoriji, takozvanom programskom prozoru, dok se podaci i stog
+nalaze u radnoj memoriji veli\v{c}ine \v{s}esnaest kilobajta. Pristup
+perifernim jedinicama ostvaruje se preslikavanjem u memoriju
+(\foreignlanguage{english}{\emph{Memory-Mapped Input/Output}}, MMIO), gdje svaka
+periferija zauzima svoj raspon adresa. Serijska jedinica, brojac, op\v{s}ti
+ulazi i izlazi te video jedinica imaju odvojene adresne opsege. Pojednostavljena
+slika ove organizacije prikazana je na slici \ref{fig:memorija}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    blok/.style={draw, rounded corners, minimum width=5.6cm, minimum height=0.85cm, align=center, font=\small},
+    node distance=0.35cm
+]
+\node[blok] (uart) {Serijska jedinica (UART) -- 0x02000000};
+\node[blok, below=of uart] (timer) {Brojac / takt (IRQ5) -- 0x03000000};
+\node[blok, below=of timer] (gpio) {Op\v{s}ti ulazi/izlazi (dugmad, LED) -- 0x04000000};
+\node[blok, below=of gpio] (video) {Video jedinica (znakovi, mapa) -- 0x05000000};
+\node[blok, below=of video, fill=black!5] (ram) {Radna memorija (podaci, stog) -- 0x00000000, 16 KB};
+\node[blok, below=of ram, fill=black!5] (rom) {Programski prozor (kod) -- 0x00100000};
+\end{tikzpicture}
+\caption{Pojednostavljena adresna i memorijska organizacija sistema na \v{c}ipu.}
+\label{fig:memorija}
+\end{figure}
+
+Razdvajanje programa i podataka, kao i veli\v{c}ine pojedinih memorija, kasnije
+postaje sredi\v{s}nji problem pri uklapanju cijele igre sa video izlazom, jer
+svaka od tih memorija tro\v{s}i ograni\v{c}enu blokovsku memoriju plo\v{c}e.
+
+\section{Dokaz pokretanja na hardveru}
+\label{sec:platforma-boot}
+
+Prije bilo kakvog portanja aplikacije, potvrdjeno je da operativni sistem uop\v{s}te
+radi na plo\v{c}i. Sintetizovan je sklop sa serijskim izlazom, a u njega je
+ugra\dj{}en jednostavan program sa tri zadatka. Nakon upisa sklopa u memoriju
+plo\v{c}e, preko serijske veze na brzini od sto petnaest hiljada bita u sekundi
+dobijeni su o\v{c}ekivani ispisi zadataka i njihovo smjenjivanje. Time je
+pokazano da takt raspore\dj{}iva\v{c}a, programski prekid za zamjenu konteksta i
+me\dj{}usobno isklju\v{c}ivanje pristupa serijskoj jedinici rade ispravno.
+
+\section{Zaklju\v{c}ak poglavlja}
+\label{sec:platforma-zakljucak}
+
+U poglavlju je predstavljena hardverska osnova rada. Opisani su plo\v{c}a Tang
+Nano 9K i meki procesor PicoRV32, prilago\dj{}eni port operativnog sistema
+FreeRTOS sa taktom iz vanjskog brojaca i zamjenom konteksta putem programskog
+prekida, te organizacija memorije i perifernih jedinica. Potvr\dj{}eno je da
+sistem radi na stvarnom hardveru. Ova osnova omogu\'cava da se u narednom
+poglavlju pristupi razdvajanju aplikacije na zasebne zadatke.
