@@ -1,0 +1,66 @@
+Captured from Tang Nano 9K UART on 2026-05-31.
+
+Context:
+- Firmware: event_alert_demo
+- Serial port: /dev/ttyUSB1
+- Baud rate: 115200
+- Demo deadline: 12000 cycles
+- Build completed with Gowin EDA.
+- Flash completed with openFPGALoader.
+- CRC check passed.
+
+Raw UART output:
+
+Tiny Real-Time Monitor Demo
+Target: Tang Nano 9K / PicoRV32
+Mode: interrupt-driven
+Deadline: 12000 cycles
+Threshold: 850 synthetic sensor units
+Timer period: 270000 cycles
+
+This is a timing-path demo, not a medical or safety device.
+
+event=001 sensor=348 status=OK     latency=8944 cycles deadline=OK
+event=002 sensor=485 status=OK     latency=9043 cycles deadline=OK
+event=003 sensor=622 status=OK     latency=9035 cycles deadline=OK
+event=004 sensor=759 status=OK     latency=9034 cycles deadline=OK
+event=005 sensor=896 status=ALERT latency=9044 cycles deadline=OK
+event=006 sensor=009 status=OK     latency=9025 cycles deadline=OK
+event=007 sensor=146 status=OK     latency=9035 cycles deadline=OK
+event=008 sensor=938 status=ALERT latency=8978 cycles deadline=OK
+event=009 sensor=420 status=OK     latency=9028 cycles deadline=OK
+event=010 sensor=557 status=OK     latency=9035 cycles deadline=OK
+event=011 sensor=694 status=OK     latency=9028 cycles deadline=OK
+event=012 sensor=831 status=OK     latency=9035 cycles deadline=OK
+event=013 sensor=968 status=ALERT latency=9037 cycles deadline=OK
+event=014 sensor=081 status=OK     latency=9031 cycles deadline=OK
+event=015 sensor=218 status=OK     latency=9028 cycles deadline=OK
+event=016 sensor=946 status=ALERT latency=8985 cycles deadline=OK
+event=017 sensor=492 status=OK     latency=9035 cycles deadline=OK
+event=018 sensor=629 status=OK     latency=9028 cycles deadline=OK
+event=019 sensor=766 status=OK     latency=9035 cycles deadline=OK
+event=020 sensor=903 status=ALERT latency=9037 cycles deadline=OK
+event=021 sensor=016 status=OK     latency=9031 cycles deadline=OK
+event=022 sensor=153 status=OK     latency=9028 cycles deadline=OK
+event=023 sensor=290 status=OK     latency=9035 cycles deadline=OK
+event=024 sensor=954 status=ALERT latency=8978 cycles deadline=OK
+event=025 sensor=564 status=OK     latency=9028 cycles deadline=OK
+event=026 sensor=701 status=OK     latency=9035 cycles deadline=OK
+event=027 sensor=838 status=OK     latency=9028 cycles deadline=OK
+event=028 sensor=975 status=ALERT latency=9044 cycles deadline=OK
+event=029 sensor=088 status=OK     latency=9024 cycles deadline=OK
+event=030 sensor=225 status=OK     latency=9035 cycles deadline=OK
+event=031 sensor=362 status=OK     latency=9028 cycles deadline=OK
+event=032 sensor=962 status=ALERT latency=8985 cycles deadline=OK
+
+Summary:
+events=32
+alerts=8
+avg_latency=9023 cycles
+max_latency=9044 cycles
+missed_deadlines=0
+missed_events=0
+
+CSV summary:
+events,alerts,avg_latency_cycles,max_latency_cycles,missed_deadlines,missed_events
+32,8,9023,9044,0,0

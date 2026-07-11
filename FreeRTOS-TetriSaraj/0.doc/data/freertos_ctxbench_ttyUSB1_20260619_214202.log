@@ -1,0 +1,11 @@
+
+FreeRTOS round-trip context switch on PicoRV32 / Tang Nano 9K
+cpu=27MHz, tick=100Hz, two binary semaphores, B>A priority
+iterations,500
+metric,cycles,ns
+ctxsw_roundtrip_min,7061,261518
+ctxsw_roundtrip_avg,7079,262185
+ctxsw_roundtrip_max,7982,295629
+ctxsw_single_min,3530,130740
+ctxsw_single_avg,3539,131074
+done

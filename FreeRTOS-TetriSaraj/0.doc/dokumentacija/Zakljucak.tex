@@ -1,0 +1,29 @@
+% ---- Opci zakljucak (ne numerise se) ---------------------------------------
+\chapter*{Zaklju\v{c}ak}
+\addcontentsline{toc}{chapter}{Zaklju\v{c}ak}
+
+U radu je prikazano portanje aplikacije TetriSaraj sa golog izvr\v{s}avanja na
+operativni sistem za rad u realnom vremenu FreeRTOS, na otvorenoj RISC-V
+platformi realizovanoj kao meki procesor PicoRV32 na plo\v{c}i Tang Nano 9K. Na
+osnovu izlo\v{z}enog mo\v{z}e se zaklju\v{c}iti da je sva tri pitanja postavljena
+u uvodu mogu\'ce potvrdno rije\v{s}iti. Aplikacija je uspje\v{s}no razdvojena na
+\v{c}iste zadatke pod upravom raspore\dj{}iva\v{c}a, a njen rad je dokazan na
+stvarnom hardveru putem serijskog ispisa u kojem logika igre napreduje. Cijeli
+sistem, zajedno sa video izlazom, uklopljen je u stroge resurse plo\v{c}e i
+pokrenut na hardveru. Kona\v{c}no, izmjereno je vrijeme zamjene konteksta na
+stvarnom hardveru i oprezno upore\dj{}eno sa rezultatima iz simulatora.
+
+Posebno je istaknuto otkri\'ce da uzrok neuspjelog uklapanja nije bila
+koli\v{c}ina logike, nego nedostatak blokovske memorije, kao i to da alat za
+sintezu pouzdano koristi blokovsku memoriju samo za dubine koje su stepeni broja
+dva. Ta dva uvida bila su klju\v{c}na za uspje\v{s}no uklapanje sistema. Tako\dj{}er
+je pokazano da su \v{c}iste vrijednosti zamjene konteksta na hardveru i u
+simulatoru istog reda veli\v{c}ine.
+
+Iako rad obuhvata cijeli put od porta operativnog sistema do mjerenja na
+hardveru, pojedina pitanja ostaju otvorena za daljnje istra\v{z}ivanje.
+Vizuelna potvrda kona\v{c}ne slike igre na ekranu nije zatvorena u okviru ovog
+rada. Potpuno interaktivno upravljanje ograni\v{c}eno je malim brojem fizi\v{c}kih
+dugmadi na plo\v{c}i. Tako\dj{}er, mjerenja bi se mogla pro\v{s}iriti na tro\v{s}ak
+samog takta raspore\dj{}iva\v{c}a i na pona\v{s}anje sistema pod ve\'cim
+optere\'cenjem. Ovi pravci predstavljaju prirodan nastavak rada.

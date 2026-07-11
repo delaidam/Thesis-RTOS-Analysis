@@ -1,0 +1,2 @@
+events,alerts,avg_latency_cycles,max_latency_cycles,missed_deadlines,missed_events,deadline_cycles,serial_port,baud,note
+32,8,9023,9044,0,0,12000,/dev/ttyUSB1,115200,"Clean full-header capture from Tang Nano 9K UART after Gowin build and openFPGALoader SRAM flash."

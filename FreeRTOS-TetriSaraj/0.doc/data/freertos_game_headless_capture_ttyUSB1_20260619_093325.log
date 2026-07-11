@@ -1,0 +1,170 @@
+[B] run=0x0357 tick=0x0000FA7D
+[A] run=0x0503 tick=0x0000FA96
+[B] run=0x0358 tick=0x0000FAC8
+[A] run=0x0504 tick=0x0000FAC8
+[heartbeat] beat=0x0282 tick=0x0000FAC8
+[A] run=0x0505 tick=0x0000FAFA
+[B] run=0x0359 tick=0x0000FB13
+[A] run=0x0506 tick=0x0000FB2C
+[heartbeat] beat=0x0283 tick=0x0000FB2C
+[B] run=0x035A tick=0x0000FB5E
+[A] run=0x0507 tick=0x0000FB5E
+[A] run=0x0508 tick=0x0000FB90
+[heartbeat] beat=0x0284 tick=0x0000FB90
+[B] run=0x035B tick=0x0000FBA9
+[A] run=0x0509 tick=0x0000FBC2
+[B] run=0x035C tick=0x0000FBF4
+[A] run=0x050A tick=0x0000FBF4
+[heartbeat] beat=0x0285 tick=0x0000FBF4
+[A] run=0x050B tick=0x0000FC26
+[B] run=0x035D tick=0x0000FC3F
+[A] run=0x050C tick=0x0000FC58
+[heartbeat] beat=0x0286 tick=0x0000FC58
+[B] run=0x035E tick=0x0000FC8A
+[A] run=0x050D tick=0x0000FC8A
+[A] run=0x050E tick=0x0000FCBC
+[heartbeat] beat=0x0287 tick=0x0000FCBC
+[B] run=0x035F tick=0x0000FCD5
+[A] run=0x050F tick=0x0000FCEE
+[B] run=0x0360 tick=0x0000FD20
+[A] run=0x0510 tick=0x0000FD20
+[heartbeat] beat=0x0288 tick=0x0000FD20
+[A] run=0x0511 tick=0x0000FD52
+[B] run=0x0361 tick=0x0000FD6B
+[A] run=0x0512 tick=0x0000FD84
+[heartbeat] beat=0x0289 tick=0x0000FD84
+
+TetriSaraj FreeRTOS headless proof on PicoRV32 / Tang Nano 9K
+game logic runs as FreeRTOS tasks, rendered as ASCII over UART
+tick = 100 Hz from timer IRQ5, yield via irq_6
+
+--- frame 0x0000  score=0x0000  lives=0x03
+########################################
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+I                  ##                   
+I                  ##                   
+I                  ##                   
+I                  ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+########################################
+###  #  #   #  ##  ###   #   #   #   ###
+### ## ## # # # # ## # # # # # # # # ###
+###  # ## # #  ##  ### # # # # # # # ###
+#### # ## # # # # ## # # # # # # # # ###
+###  #  #   # # #  ###   #   #   #   ###
+########################################
+[hb] beat=0x0000 tick=0x0000000B score=0x0000 lives=0x03 piece=0x00 state=0x00
+
+--- frame 0x0001  score=0x0000  lives=0x03
+########################################
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+      I            ##                   
+      I            ##                   
+      I            ##                   
+      I            ##                   
+########################################
+###  #  #   #  ##  ###   #   #   #   ###
+### ## ## # # # # ## # # # # # # # # ###
+###  # ## # #  ##  ### # # # # # # # ###
+#### # ## # # # # ## # # # # # # # # ###
+###  #  #   # # #  ###   #   #   #   ###
+########################################
+[hb] beat=0x0001 tick=0x000000D4 score=0x0000 lives=0x03 piece=0x00 state=0x00
+
+--- frame 0x0002  score=0x0000  lives=0x03
+########################################
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+            IIII   ##                   
+########################################
+###  #  #   #  ##  ###   #   #   #   ###
+### ## ## # # # # ## # # # # # # # # ###
+###  # ## # #  ##  ### # # # # # # # ###
+#### # ## # # # # ## # # # # # # # # ###
+###  #  #   # # #  ###   #   #   #   ###
+########################################
+[hb] beat=0x0002 tick=0x0000019C score=0x0000 lives=0x03 piece=0x00 state=0x00
+
+--- frame 0x0003  score=0x0001  lives=0x03
+########################################
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+ OOO               ##                   
+  O                ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+                   ##                   
+               IIII##                   
+########################################
+###  #  #   #  ##  ###   #   #   ### ###
+### ## ## # # # # ## # # # # # # #   ###
+###  # ## # #  ##  ### # # # # # ### ###
+#### # ## # # # # ## # # # # # # ### ###
+###  #  #   # # #  ###   #   #   ### ###
+########################################

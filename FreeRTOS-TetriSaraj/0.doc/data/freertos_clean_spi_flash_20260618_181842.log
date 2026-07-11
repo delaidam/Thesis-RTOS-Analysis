@@ -1,0 +1,26 @@
+empty
+write to flash
+Jtag frequency : requested 6.00MHz    -> real 6.00MHz   
+Parse file Parse 1.hw/impl/pnr/uart_hello.fs: 
+Done
+DONE
+Jtag frequency : requested 2.50MHz    -> real 2.00MHz   
+Erase SRAM DONE
+Erase FLASH DONE
+Erasing FLASH: [==================================================] 100.00%
+
+Done
+write Flash: [======                                            ] 10.02%
+write Flash: [===========                                       ] 20.03%
+write Flash: [================                                  ] 30.11%
+write Flash: [=====================                             ] 40.13%
+write Flash: [=========================                         ] 49.86%
+write Flash: [==============================                    ] 59.87%
+write Flash: [===================================               ] 69.78%
+write Flash: [========================================          ] 79.79%
+write Flash: [=============================================     ] 89.87%
+write Flash: [==================================================] 99.88%
+write Flash: [==================================================] 100.00%
+
+Done
+CRC check: Success

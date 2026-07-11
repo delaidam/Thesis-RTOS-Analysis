@@ -1,0 +1,8 @@
+firmware,rv32im_text,rv32imc_text,rv32im_bss,rv32imc_bss,text_reduction_percent
+timer_hello,1212,908,60,60,25.1
+irq_hello,1468,1144,60,60,22.1
+poll_benchmark,1600,1208,84,84,24.5
+irq_benchmark,1684,1288,60,60,23.5
+event_alert_demo,2388,1860,60,60,22.1
+workload_sweep_demo,1440,1076,60,60,25.3
+main,2164,1680,64,64,22.4
