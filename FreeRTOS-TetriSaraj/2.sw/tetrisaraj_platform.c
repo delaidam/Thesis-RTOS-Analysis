@@ -1,5 +1,9 @@
 #include "tetrisaraj_platform.h"
 
+#ifdef TETRISARAJ_BUTTON_DEBUG
+#include "uart.h"
+#endif
+
 #define REG_UART_CLKDIV ( *( volatile uint32_t * ) 0x02000004u )
 #define REG_GPIO        ( *( volatile uint32_t * ) 0x04000000u )
 #define REG_VIDEO_CHAR  ( ( volatile uint32_t * ) 0x05100000u )
@@ -32,9 +36,49 @@ void tetrisaraj_platform_init( void )
     REG_GPIO = 0u;
 }
 
+/* The Tang Nano 9K has two user buttons, S1 (btnL, GPIO bit 18) and S2 (btnR,
+ * GPIO bit 17), both active-low. The game was written for a five-way pad, so
+ * map them as:   S1 -> UP,  S2 -> DOWN,  S1 + S2 together -> CENTER (rotate /
+ * restart).  A new state is only accepted after two identical consecutive
+ * samples, so pressing the two buttons a few ms apart is read as CENTER and not
+ * as UP followed by DOWN.  Call from a single task at a fixed period. */
 uint8_t tetrisaraj_platform_read_buttons( void )
 {
-    return ( uint8_t ) ( ( REG_GPIO >> 16 ) & 0xffu );
+    static uint8_t ucLastRaw = 0u;
+    static uint8_t ucStable = 0u;
+    const uint32_t ulGpio = REG_GPIO;
+    const uint8_t ucS1 = ( ( ulGpio >> 18 ) & 1u ) ? 0u : 1u;
+    const uint8_t ucS2 = ( ( ulGpio >> 17 ) & 1u ) ? 0u : 1u;
+    const uint8_t ucRaw = ( uint8_t ) ( ucS1 | ( ucS2 << 1 ) );
+    uint8_t ucOut = 0u;
+
+    if( ucRaw == ucLastRaw )
+    {
+        ucStable = ucRaw;
+    }
+    ucLastRaw = ucRaw;
+
+    switch( ucStable )
+    {
+        case 1u: ucOut = TETRISARAJ_BUTTON_UP; break;
+        case 2u: ucOut = TETRISARAJ_BUTTON_DOWN; break;
+        case 3u: ucOut = TETRISARAJ_BUTTON_CENTER; break;
+        default: break;
+    }
+
+#ifdef TETRISARAJ_BUTTON_DEBUG
+    {
+        static uint8_t ucPrinted = 0xffu;
+        if( ucOut != ucPrinted )
+        {
+            ucPrinted = ucOut;
+            print( "[btn] s1=" ); print_hex( ucS1, 1 ); print( " s2=" ); print_hex( ucS2, 1 );
+            print( " out=0x" ); print_hex( ucOut, 2 ); print( "\n" );
+        }
+    }
+#endif
+
+    return ucOut;
 }
 
 void tetrisaraj_platform_set_leds( uint8_t value )

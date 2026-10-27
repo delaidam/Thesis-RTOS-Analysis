@@ -28,17 +28,16 @@ module top_freertos_game_640 (
     reg [15:0] reset_counter = 16'd0;
     reg por_done = 1'b0;
 
+    // Power-on reset only. S1 (btnL) is a game button (UP) in this top, so it
+    // must not reset the CPU; reload the bitstream or power-cycle to restart.
     always @(posedge clk) begin
-        if (!btnL) begin
-            reset_counter <= 16'd0;
-            por_done <= 1'b0;
-        end else if (!por_done) begin
+        if (!por_done) begin
             reset_counter <= reset_counter + 16'd1;
             por_done <= &reset_counter;
         end
     end
 
-    wire resetn = btnL && por_done;
+    wire resetn = por_done;
 
     wire iomem_valid;
     wire [3:0] iomem_wstrb;
