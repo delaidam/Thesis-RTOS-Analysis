@@ -112,6 +112,7 @@ module hdmi_wrapper
 
 	vga_map_ram map(
 		.clk(clk),
+		.rclk(clk),
 		.wen(map_mem_write),			
 		.waddr(write_address),		
 		.wdata(iomem_wdata[3:0]),

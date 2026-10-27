@@ -74,25 +74,38 @@ module hdmi_wrapper_640
 	end
 
 	assign write_address = iomem_addr[13:2];                       // word address (mod 4096)
-	assign read_address = {map_rdata, y[3:0], x[3:0]};            // for 640x480
+	// Both RAMs are read on the pixel clock (write port stays on the CPU clock),
+	// so the video read path never crosses from the 27 MHz domain into the TMDS
+	// encoder. The map RAM output is one pixel clock behind (x, y); delay the
+	// in-tile x/y by the same amount so they index the tile that map_rdata names.
+	// The picture ends up shifted right by ~2 pixels (map + char RAM latency).
+	logic [3:0] x_d, y_d;
+	always_ff @(posedge clk_pix) begin
+		x_d <= x[3:0];
+		y_d <= y[3:0];
+	end
+
+	assign read_address = {map_rdata, y_d, x_d};                  // for 640x480
 	assign map_read_address = (y >> 4) * 6'd40 + ( x >> 4 );      // for 640x480
 
 	vga_map_ram map(
 		.clk(clk),
+		.rclk(clk_pix),
 		.wen(map_mem_write),
 		.waddr(write_address),
 		.wdata(iomem_wdata[3:0]),
-		.ren(video_on),
+		.ren(1'b1),
 		.raddr(map_read_address),
 		.rdata(map_rdata)
 	);
 
 	vga_ram_640 ram(
 		.clk(clk),
+		.rclk(clk_pix),
 		.wen(char_mem_write),
 		.waddr(write_address),
 		.wdata(iomem_wdata[11:0]),
-		.ren(video_on),
+		.ren(1'b1),
 		.raddr(read_address),
 		.rdata(rgb_rdata)
 	);

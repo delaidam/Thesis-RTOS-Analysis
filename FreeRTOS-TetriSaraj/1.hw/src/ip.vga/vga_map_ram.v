@@ -1,10 +1,11 @@
 
 module vga_map_ram (
-    input clk,	
-	input wen, 
+    input clk,
+    input rclk,   // read clock (write port runs on clk); tie to clk for a single-clock RAM
+	input wen,
 	input [11:0] waddr,
-	input [3:0] wdata,	
-    input ren,	
+	input [3:0] wdata,
+    input ren,
 	input [11:0] raddr,		    	
     output reg [3:0] rdata
 );
@@ -15,7 +16,7 @@ module vga_map_ram (
 	//if (MEM_INIT_FILE != "")
 	//	$readmemh(MEM_INIT_FILE, map_ram);
 		
-    always @(posedge clk) 
+    always @(posedge rclk)
 	begin
 		if (ren)
 			rdata <= map_ram[raddr];

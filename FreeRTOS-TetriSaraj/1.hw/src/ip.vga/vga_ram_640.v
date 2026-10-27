@@ -5,6 +5,7 @@
 // the Tang Nano 9K BSRAM budget.
 module vga_ram_640 (
     input clk,
+    input rclk,   // read clock (pixel clock); write port runs on clk
 	input wen,
 	input [11:0] waddr,
 	input [11:0] wdata,
@@ -14,7 +15,7 @@ module vga_ram_640 (
 );
 	(* ram_style = "block" *) reg [11:0] ram [0:4095];   // 16 chars x 16x16 px @ 12bpp
 
-    always @(posedge clk)
+    always @(posedge rclk)
 	begin
 		if (ren)
 			rdata <= ram[raddr];

@@ -22,6 +22,6 @@
         <File path="src/progmem.v" type="file.verilog" enable="1"/>
         <File path="src/top_freertos_game_640.v" type="file.verilog" enable="1"/>
         <File path="constraints/pinout.cst" type="file.cst" enable="1"/>
-        <File path="constraints/timing.sdc" type="file.sdc" enable="1"/>
+        <File path="constraints/timing_game_640.sdc" type="file.sdc" enable="1"/>
     </FileList>
 </Project>
